@@ -509,6 +509,7 @@
 				D349655B1DB4043E00813293 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		D349655C1DB4043E00813293 /* Build configuration list for PBXNativeTarget "500PXappTests" */ = {
 			isa = XCConfigurationList;
@@ -517,6 +518,7 @@
 				D349655E1DB4043E00813293 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		D349655F1DB4043E00813293 /* Build configuration list for PBXNativeTarget "500PXappUITests" */ = {
 			isa = XCConfigurationList;
@@ -525,6 +527,7 @@
 				D34965611DB4043E00813293 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
