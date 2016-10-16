@@ -5,7 +5,7 @@
 //  Created by Smirnov Ivan on 16.10.16.
 //  Copyright © 2016 techpark_ios. All rights reserved.
 //
-
+// Oleg test
 #import "AppDelegate.h"
 
 @interface AppDelegate ()
