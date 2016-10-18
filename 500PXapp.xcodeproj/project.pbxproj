@@ -17,6 +17,7 @@
 		D349654A1DB4043E00813293 /* _00PXappTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D34965491DB4043E00813293 /* _00PXappTests.m */; };
 		D34965551DB4043E00813293 /* _00PXappUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = D34965541DB4043E00813293 /* _00PXappUITests.m */; };
 		D3FB18D91DB61B2900E44235 /* ISHomeVC.m in Sources */ = {isa = PBXBuildFile; fileRef = D3FB18D81DB61B2900E44235 /* ISHomeVC.m */; };
+		D3FB18DC1DB620FA00E44235 /* ISNewsFeedModel.m in Sources */ = {isa = PBXBuildFile; fileRef = D3FB18DB1DB620FA00E44235 /* ISNewsFeedModel.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -56,6 +57,8 @@
 		D34965561DB4043E00813293 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D3FB18D71DB61B2900E44235 /* ISHomeVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ISHomeVC.h; sourceTree = "<group>"; };
 		D3FB18D81DB61B2900E44235 /* ISHomeVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ISHomeVC.m; sourceTree = "<group>"; };
+		D3FB18DA1DB620FA00E44235 /* ISNewsFeedModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ISNewsFeedModel.h; sourceTree = "<group>"; };
+		D3FB18DB1DB620FA00E44235 /* ISNewsFeedModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ISNewsFeedModel.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -107,6 +110,7 @@
 			isa = PBXGroup;
 			children = (
 				D3FB18D61DB61AD400E44235 /* viewControlers */,
+				D3FB18DD1DB6210100E44235 /* models */,
 				D349652F1DB4043E00813293 /* AppDelegate.h */,
 				D34965301DB4043E00813293 /* AppDelegate.m */,
 				D34965321DB4043E00813293 /* ViewController.h */,
@@ -154,6 +158,16 @@
 				D3FB18D81DB61B2900E44235 /* ISHomeVC.m */,
 			);
 			name = viewControlers;
+			sourceTree = "<group>";
+		};
+		D3FB18DD1DB6210100E44235 /* models */ = {
+			isa = PBXGroup;
+			children = (
+				D3FB18DA1DB620FA00E44235 /* ISNewsFeedModel.h */,
+				D3FB18DB1DB620FA00E44235 /* ISNewsFeedModel.m */,
+			);
+			name = models;
+			path = ..;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -291,6 +305,7 @@
 			files = (
 				D34965341DB4043E00813293 /* ViewController.m in Sources */,
 				D349653A1DB4043E00813293 /* _00PXapp.xcdatamodeld in Sources */,
+				D3FB18DC1DB620FA00E44235 /* ISNewsFeedModel.m in Sources */,
 				D3FB18D91DB61B2900E44235 /* ISHomeVC.m in Sources */,
 				D34965311DB4043E00813293 /* AppDelegate.m in Sources */,
 				D349652E1DB4043E00813293 /* main.m in Sources */,
