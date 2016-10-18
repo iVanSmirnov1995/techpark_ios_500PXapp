@@ -10,4 +10,6 @@
 
 @interface ISTableViewLikeCell : UITableViewCell
 
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *countLike;
+
 @end

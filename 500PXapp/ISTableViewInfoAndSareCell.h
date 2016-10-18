@@ -9,5 +9,7 @@
 #import <UIKit/UIKit.h>
 
 @interface ISTableViewInfoAndSareCell : UITableViewCell
+- (IBAction)infoAction:(UIButton *)sender;
+- (IBAction)sareAction:(UIButton *)sender;
 
 @end

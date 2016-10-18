@@ -9,5 +9,7 @@
 #import <UIKit/UIKit.h>
 
 @interface ISTableViewCommentsCell : UITableViewCell
+@property (weak, nonatomic) IBOutlet UILabel *lastMassage;
+@property (weak, nonatomic) IBOutlet UILabel *countComments;
 
 @end

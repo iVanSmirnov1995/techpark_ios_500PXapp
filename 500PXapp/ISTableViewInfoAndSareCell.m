@@ -21,4 +21,9 @@
     // Configure the view for the selected state
 }
 
+- (IBAction)infoAction:(UIButton *)sender {
+}
+
+- (IBAction)sareAction:(UIButton *)sender {
+}
 @end

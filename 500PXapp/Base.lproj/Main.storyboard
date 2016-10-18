@@ -130,11 +130,11 @@
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Tp6-nK-lA2">
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="image" rowHeight="200" id="Eaz-u4-1Q9">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="image" rowHeight="200" id="Eaz-u4-1Q9" customClass="ISTableViewImageCell">
                                         <rect key="frame" x="0.0" y="28" width="343" height="200"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Eaz-u4-1Q9" id="LAw-OH-B55">
-                                            <frame key="frameInset" width="343" height="199"/>
+                                            <frame key="frameInset" width="343" height="199.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="31L-5z-X0a"/>
@@ -146,12 +146,15 @@
                                                 <constraint firstAttribute="trailing" secondItem="31L-5z-X0a" secondAttribute="trailing" id="m7w-G1-0Qd"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="myImageView" destination="31L-5z-X0a" id="jAH-EP-NxJ"/>
+                                        </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="infoUser" rowHeight="44" id="49c-xY-iQX">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="infoUser" rowHeight="44" id="49c-xY-iQX" customClass="ISTableViewUserInfoCell">
                                         <rect key="frame" x="0.0" y="228" width="343" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="49c-xY-iQX" id="RU1-ce-d09">
-                                            <frame key="frameInset" width="343" height="43"/>
+                                            <frame key="frameInset" width="343" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ZqW-nm-L8X">
@@ -176,30 +179,36 @@
                                                     <color key="textColor" red="0.72148895260000001" green="0.72161453959999999" blue="0.72148102520000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="like" translatesAutoresizingMaskIntoConstraints="NO" id="BW5-TD-Knf">
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IqJ-cr-EXN">
                                                     <constraints>
-                                                        <constraint firstAttribute="height" constant="25" id="exN-Wz-Svs"/>
-                                                        <constraint firstAttribute="width" constant="25" id="nUn-pg-8yC"/>
+                                                        <constraint firstAttribute="width" constant="32" id="YEq-9E-raf"/>
+                                                        <constraint firstAttribute="height" constant="29" id="ZBj-o9-SYS"/>
                                                     </constraints>
-                                                </imageView>
+                                                    <state key="normal" image="like"/>
+                                                </button>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="kmq-3A-fM4" firstAttribute="leading" secondItem="ZqW-nm-L8X" secondAttribute="trailing" constant="8" id="0DJ-Sn-mTs"/>
+                                                <constraint firstAttribute="trailing" secondItem="IqJ-cr-EXN" secondAttribute="trailing" constant="5" id="598-Jw-vDh"/>
                                                 <constraint firstItem="lHr-i4-2tZ" firstAttribute="leading" secondItem="ZqW-nm-L8X" secondAttribute="trailing" constant="8" id="7dd-C1-l7J"/>
                                                 <constraint firstItem="lHr-i4-2tZ" firstAttribute="top" secondItem="RU1-ce-d09" secondAttribute="top" constant="4" id="BKj-1S-Pka"/>
-                                                <constraint firstItem="BW5-TD-Knf" firstAttribute="centerY" secondItem="RU1-ce-d09" secondAttribute="centerY" id="gEW-B3-G1D"/>
+                                                <constraint firstItem="IqJ-cr-EXN" firstAttribute="centerY" secondItem="RU1-ce-d09" secondAttribute="centerY" id="gxG-Kz-HIs"/>
                                                 <constraint firstItem="ZqW-nm-L8X" firstAttribute="centerY" secondItem="RU1-ce-d09" secondAttribute="centerY" id="jJf-a4-X51"/>
-                                                <constraint firstItem="BW5-TD-Knf" firstAttribute="trailing" secondItem="RU1-ce-d09" secondAttribute="trailingMargin" id="jYb-gq-yn9"/>
                                                 <constraint firstItem="ZqW-nm-L8X" firstAttribute="leading" secondItem="RU1-ce-d09" secondAttribute="leading" constant="8" id="tNn-f5-SP4"/>
                                                 <constraint firstItem="kmq-3A-fM4" firstAttribute="top" secondItem="lHr-i4-2tZ" secondAttribute="bottom" constant="2" id="tqc-z1-rLq"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="data" destination="kmq-3A-fM4" id="hQ4-GB-yDS"/>
+                                            <outlet property="userImage" destination="ZqW-nm-L8X" id="z2j-3Q-qfk"/>
+                                            <outlet property="userName" destination="lHr-i4-2tZ" id="LbN-CG-RQU"/>
+                                        </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="like" rowHeight="30" id="LB5-LV-d6j">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="like" rowHeight="30" id="LB5-LV-d6j" customClass="ISTableViewLikeCell">
                                         <rect key="frame" x="0.0" y="272" width="343" height="30"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="LB5-LV-d6j" id="zRB-ra-hEJ">
-                                            <frame key="frameInset" width="343" height="29"/>
+                                            <frame key="frameInset" width="343" height="29.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="like2" translatesAutoresizingMaskIntoConstraints="NO" id="Xnb-T4-6V0">
@@ -222,12 +231,15 @@
                                                 <constraint firstItem="Cv9-FM-xcv" firstAttribute="centerY" secondItem="Xnb-T4-6V0" secondAttribute="centerY" id="rt4-N4-63g"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="countLike" destination="rt4-N4-63g" id="ElO-Ge-m8y"/>
+                                        </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="comments" rowHeight="44" id="AYi-zu-p7T">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="comments" rowHeight="44" id="AYi-zu-p7T" customClass="ISTableViewCommentsCell">
                                         <rect key="frame" x="0.0" y="302" width="343" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="AYi-zu-p7T" id="GKa-F8-DXs">
-                                            <frame key="frameInset" width="343" height="43"/>
+                                            <frame key="frameInset" width="343" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="dialog" translatesAutoresizingMaskIntoConstraints="NO" id="9BR-V1-j7r">
@@ -241,34 +253,37 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zWC-oo-F4g">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="посмотреть 12 комментариев" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jEP-ex-zXl">
                                                     <constraints>
-                                                        <constraint firstAttribute="height" constant="10" id="QZC-R0-61s"/>
+                                                        <constraint firstAttribute="height" constant="8" id="HTs-Oy-HmZ"/>
                                                     </constraints>
-                                                    <fontDescription key="fontDescription" type="system" weight="light" pointSize="8"/>
-                                                    <state key="normal" title="посмотреть 12 комментариев">
-                                                        <color key="titleColor" red="0.72148895260000001" green="0.72161453959999999" blue="0.72148102520000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                    </state>
-                                                </button>
+                                                    <fontDescription key="fontDescription" type="system" weight="light" pointSize="9"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="zWC-oo-F4g" firstAttribute="leading" secondItem="9BR-V1-j7r" secondAttribute="trailing" constant="20" id="7mP-3k-4Il"/>
+                                                <constraint firstAttribute="bottom" secondItem="jEP-ex-zXl" secondAttribute="bottom" constant="4" id="GYC-hw-c6b"/>
+                                                <constraint firstAttribute="trailing" secondItem="jEP-ex-zXl" secondAttribute="trailing" id="H4S-uQ-ZTI"/>
+                                                <constraint firstItem="jEP-ex-zXl" firstAttribute="top" secondItem="3T0-QU-P88" secondAttribute="bottom" constant="2" id="KaA-3p-pVm"/>
                                                 <constraint firstItem="9BR-V1-j7r" firstAttribute="leading" secondItem="GKa-F8-DXs" secondAttribute="leading" constant="8" id="Pg9-sD-VvB"/>
                                                 <constraint firstItem="3T0-QU-P88" firstAttribute="top" secondItem="GKa-F8-DXs" secondAttribute="top" id="Uee-WW-dEd"/>
-                                                <constraint firstItem="zWC-oo-F4g" firstAttribute="top" secondItem="3T0-QU-P88" secondAttribute="bottom" constant="5" id="cwH-gH-ZZM"/>
                                                 <constraint firstItem="3T0-QU-P88" firstAttribute="leading" secondItem="9BR-V1-j7r" secondAttribute="trailing" constant="20" id="lRK-si-s6b"/>
                                                 <constraint firstAttribute="trailing" secondItem="3T0-QU-P88" secondAttribute="trailing" id="qRG-mG-59r"/>
                                                 <constraint firstItem="9BR-V1-j7r" firstAttribute="centerY" secondItem="GKa-F8-DXs" secondAttribute="centerY" id="r0S-MQ-Tsh"/>
-                                                <constraint firstAttribute="trailing" secondItem="zWC-oo-F4g" secondAttribute="trailing" id="urS-Ym-NOa"/>
-                                                <constraint firstAttribute="bottom" secondItem="zWC-oo-F4g" secondAttribute="bottom" id="xVm-O1-3Oe"/>
+                                                <constraint firstItem="jEP-ex-zXl" firstAttribute="leading" secondItem="9BR-V1-j7r" secondAttribute="trailing" constant="20" id="sFh-s6-ncx"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="countComments" destination="jEP-ex-zXl" id="VV3-wa-PJq"/>
+                                            <outlet property="lastMassage" destination="3T0-QU-P88" id="io0-N3-7yu"/>
+                                        </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="infoAndSare" id="Rjp-QL-p2j">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="infoAndSare" id="Rjp-QL-p2j" customClass="ISTableViewInfoAndSareCell">
                                         <rect key="frame" x="0.0" y="346" width="343" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Rjp-QL-p2j" id="pjD-RE-T78">
-                                            <frame key="frameInset" width="343" height="43"/>
+                                            <frame key="frameInset" width="343" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3qU-Qa-afY">
@@ -277,12 +292,18 @@
                                                     <state key="normal" title=" Детали" image="info">
                                                         <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="0.51000000000000001" colorSpace="calibratedRGB"/>
                                                     </state>
+                                                    <connections>
+                                                        <action selector="infoAction:" destination="Rjp-QL-p2j" eventType="touchUpInside" id="PGh-sI-obX"/>
+                                                    </connections>
                                                 </button>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xyn-jR-SJj">
                                                     <inset key="titleEdgeInsets" minX="20" minY="0.0" maxX="0.0" maxY="0.0"/>
                                                     <state key="normal" title="Поделится" image="share">
                                                         <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="0.51000000000000001" colorSpace="calibratedRGB"/>
                                                     </state>
+                                                    <connections>
+                                                        <action selector="sareAction:" destination="Rjp-QL-p2j" eventType="touchUpInside" id="wfo-ou-VUX"/>
+                                                    </connections>
                                                 </button>
                                             </subviews>
                                             <constraints>
