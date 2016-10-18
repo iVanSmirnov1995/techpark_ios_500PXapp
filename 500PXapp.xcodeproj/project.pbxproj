@@ -18,6 +18,11 @@
 		D34965551DB4043E00813293 /* _00PXappUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = D34965541DB4043E00813293 /* _00PXappUITests.m */; };
 		D3FB18D91DB61B2900E44235 /* ISHomeVC.m in Sources */ = {isa = PBXBuildFile; fileRef = D3FB18D81DB61B2900E44235 /* ISHomeVC.m */; };
 		D3FB18DC1DB620FA00E44235 /* ISNewsFeedModel.m in Sources */ = {isa = PBXBuildFile; fileRef = D3FB18DB1DB620FA00E44235 /* ISNewsFeedModel.m */; };
+		D3FB18E11DB63A5200E44235 /* ISTableViewImageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D3FB18E01DB63A5200E44235 /* ISTableViewImageCell.m */; };
+		D3FB18E41DB63AB800E44235 /* ISTableViewUserInfoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D3FB18E31DB63AB800E44235 /* ISTableViewUserInfoCell.m */; };
+		D3FB18E71DB63B0B00E44235 /* ISTableViewLikeCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D3FB18E61DB63B0B00E44235 /* ISTableViewLikeCell.m */; };
+		D3FB18EA1DB63B3600E44235 /* ISTableViewCommentsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D3FB18E91DB63B3600E44235 /* ISTableViewCommentsCell.m */; };
+		D3FB18ED1DB63B5D00E44235 /* ISTableViewInfoAndSareCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D3FB18EC1DB63B5D00E44235 /* ISTableViewInfoAndSareCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,6 +64,16 @@
 		D3FB18D81DB61B2900E44235 /* ISHomeVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ISHomeVC.m; sourceTree = "<group>"; };
 		D3FB18DA1DB620FA00E44235 /* ISNewsFeedModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ISNewsFeedModel.h; sourceTree = "<group>"; };
 		D3FB18DB1DB620FA00E44235 /* ISNewsFeedModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ISNewsFeedModel.m; sourceTree = "<group>"; };
+		D3FB18DF1DB63A5200E44235 /* ISTableViewImageCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ISTableViewImageCell.h; sourceTree = "<group>"; };
+		D3FB18E01DB63A5200E44235 /* ISTableViewImageCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ISTableViewImageCell.m; sourceTree = "<group>"; };
+		D3FB18E21DB63AB800E44235 /* ISTableViewUserInfoCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ISTableViewUserInfoCell.h; sourceTree = "<group>"; };
+		D3FB18E31DB63AB800E44235 /* ISTableViewUserInfoCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ISTableViewUserInfoCell.m; sourceTree = "<group>"; };
+		D3FB18E51DB63B0B00E44235 /* ISTableViewLikeCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ISTableViewLikeCell.h; sourceTree = "<group>"; };
+		D3FB18E61DB63B0B00E44235 /* ISTableViewLikeCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ISTableViewLikeCell.m; sourceTree = "<group>"; };
+		D3FB18E81DB63B3600E44235 /* ISTableViewCommentsCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ISTableViewCommentsCell.h; sourceTree = "<group>"; };
+		D3FB18E91DB63B3600E44235 /* ISTableViewCommentsCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ISTableViewCommentsCell.m; sourceTree = "<group>"; };
+		D3FB18EB1DB63B5D00E44235 /* ISTableViewInfoAndSareCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ISTableViewInfoAndSareCell.h; sourceTree = "<group>"; };
+		D3FB18EC1DB63B5D00E44235 /* ISTableViewInfoAndSareCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ISTableViewInfoAndSareCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -111,6 +126,7 @@
 			children = (
 				D3FB18D61DB61AD400E44235 /* viewControlers */,
 				D3FB18DD1DB6210100E44235 /* models */,
+				D3FB18DE1DB639E900E44235 /* castomCellHomeVC */,
 				D349652F1DB4043E00813293 /* AppDelegate.h */,
 				D34965301DB4043E00813293 /* AppDelegate.m */,
 				D34965321DB4043E00813293 /* ViewController.h */,
@@ -168,6 +184,23 @@
 			);
 			name = models;
 			path = ..;
+			sourceTree = "<group>";
+		};
+		D3FB18DE1DB639E900E44235 /* castomCellHomeVC */ = {
+			isa = PBXGroup;
+			children = (
+				D3FB18DF1DB63A5200E44235 /* ISTableViewImageCell.h */,
+				D3FB18E01DB63A5200E44235 /* ISTableViewImageCell.m */,
+				D3FB18E21DB63AB800E44235 /* ISTableViewUserInfoCell.h */,
+				D3FB18E31DB63AB800E44235 /* ISTableViewUserInfoCell.m */,
+				D3FB18E51DB63B0B00E44235 /* ISTableViewLikeCell.h */,
+				D3FB18E61DB63B0B00E44235 /* ISTableViewLikeCell.m */,
+				D3FB18E81DB63B3600E44235 /* ISTableViewCommentsCell.h */,
+				D3FB18E91DB63B3600E44235 /* ISTableViewCommentsCell.m */,
+				D3FB18EB1DB63B5D00E44235 /* ISTableViewInfoAndSareCell.h */,
+				D3FB18EC1DB63B5D00E44235 /* ISTableViewInfoAndSareCell.m */,
+			);
+			name = castomCellHomeVC;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -303,11 +336,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D3FB18E71DB63B0B00E44235 /* ISTableViewLikeCell.m in Sources */,
+				D3FB18EA1DB63B3600E44235 /* ISTableViewCommentsCell.m in Sources */,
 				D34965341DB4043E00813293 /* ViewController.m in Sources */,
 				D349653A1DB4043E00813293 /* _00PXapp.xcdatamodeld in Sources */,
+				D3FB18E11DB63A5200E44235 /* ISTableViewImageCell.m in Sources */,
+				D3FB18ED1DB63B5D00E44235 /* ISTableViewInfoAndSareCell.m in Sources */,
 				D3FB18DC1DB620FA00E44235 /* ISNewsFeedModel.m in Sources */,
 				D3FB18D91DB61B2900E44235 /* ISHomeVC.m in Sources */,
 				D34965311DB4043E00813293 /* AppDelegate.m in Sources */,
+				D3FB18E41DB63AB800E44235 /* ISTableViewUserInfoCell.m in Sources */,
 				D349652E1DB4043E00813293 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
