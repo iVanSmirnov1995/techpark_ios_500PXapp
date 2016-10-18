@@ -16,6 +16,7 @@
 		D349653F1DB4043E00813293 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D349653D1DB4043E00813293 /* LaunchScreen.storyboard */; };
 		D349654A1DB4043E00813293 /* _00PXappTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D34965491DB4043E00813293 /* _00PXappTests.m */; };
 		D34965551DB4043E00813293 /* _00PXappUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = D34965541DB4043E00813293 /* _00PXappUITests.m */; };
+		D3FB18D91DB61B2900E44235 /* ISHomeVC.m in Sources */ = {isa = PBXBuildFile; fileRef = D3FB18D81DB61B2900E44235 /* ISHomeVC.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +54,8 @@
 		D34965501DB4043E00813293 /* 500PXappUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = 500PXappUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D34965541DB4043E00813293 /* _00PXappUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = _00PXappUITests.m; sourceTree = "<group>"; };
 		D34965561DB4043E00813293 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D3FB18D71DB61B2900E44235 /* ISHomeVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ISHomeVC.h; sourceTree = "<group>"; };
+		D3FB18D81DB61B2900E44235 /* ISHomeVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ISHomeVC.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,6 +106,7 @@
 		D349652B1DB4043E00813293 /* 500PXapp */ = {
 			isa = PBXGroup;
 			children = (
+				D3FB18D61DB61AD400E44235 /* viewControlers */,
 				D349652F1DB4043E00813293 /* AppDelegate.h */,
 				D34965301DB4043E00813293 /* AppDelegate.m */,
 				D34965321DB4043E00813293 /* ViewController.h */,
@@ -141,6 +145,15 @@
 				D34965561DB4043E00813293 /* Info.plist */,
 			);
 			path = 500PXappUITests;
+			sourceTree = "<group>";
+		};
+		D3FB18D61DB61AD400E44235 /* viewControlers */ = {
+			isa = PBXGroup;
+			children = (
+				D3FB18D71DB61B2900E44235 /* ISHomeVC.h */,
+				D3FB18D81DB61B2900E44235 /* ISHomeVC.m */,
+			);
+			name = viewControlers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -278,6 +291,7 @@
 			files = (
 				D34965341DB4043E00813293 /* ViewController.m in Sources */,
 				D349653A1DB4043E00813293 /* _00PXapp.xcdatamodeld in Sources */,
+				D3FB18D91DB61B2900E44235 /* ISHomeVC.m in Sources */,
 				D34965311DB4043E00813293 /* AppDelegate.m in Sources */,
 				D349652E1DB4043E00813293 /* main.m in Sources */,
 			);

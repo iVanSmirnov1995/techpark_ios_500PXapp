@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -55,7 +56,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ynQ-kV-CKp" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="836" y="609"/>
+            <point key="canvasLocation" x="2198" y="613"/>
         </scene>
         <!--Item 2-->
         <scene sceneID="6ut-1o-nSD">
@@ -74,7 +75,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QWI-44-pey" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="44" y="609"/>
+            <point key="canvasLocation" x="1406" y="613"/>
         </scene>
         <!--Item 2-->
         <scene sceneID="McR-wc-cFP">
@@ -93,9 +94,9 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Fva-P9-jav" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-604" y="609"/>
+            <point key="canvasLocation" x="758" y="613"/>
         </scene>
-        <!--Item 2-->
+        <!--View Controller-->
         <scene sceneID="ffQ-UV-ZGA">
             <objects>
                 <viewController id="ZU5-JU-gsn" sceneMemberID="viewController">
@@ -108,16 +109,16 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item 2" id="Mks-au-6Li"/>
+                    <tabBarItem key="tabBarItem" title="" id="Mks-au-6Li"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Nj5-YP-kdt" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1252" y="609"/>
+            <point key="canvasLocation" x="110" y="613"/>
         </scene>
-        <!--Item 1-->
+        <!--домой-->
         <scene sceneID="akc-bo-U2C">
             <objects>
-                <viewController id="8ti-jP-7Dr" sceneMemberID="viewController">
+                <viewController id="8ti-jP-7Dr" customClass="ISHomeVC" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="J7Y-st-QDl"/>
                         <viewControllerLayoutGuide type="bottom" id="V1a-gP-lqQ"/>
@@ -125,13 +126,28 @@
                     <view key="view" contentMode="scaleToFill" id="DRJ-vF-dwf">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Tp6-nK-lA2">
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="8ti-jP-7Dr" id="P0Y-ht-fcm"/>
+                                    <outlet property="delegate" destination="8ti-jP-7Dr" id="Va6-RS-Cq0"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Tp6-nK-lA2" firstAttribute="top" secondItem="J7Y-st-QDl" secondAttribute="bottom" constant="8" id="Crg-6b-yJA"/>
+                            <constraint firstItem="Tp6-nK-lA2" firstAttribute="trailing" secondItem="DRJ-vF-dwf" secondAttribute="trailingMargin" id="K8F-bo-tbg"/>
+                            <constraint firstItem="Tp6-nK-lA2" firstAttribute="leading" secondItem="DRJ-vF-dwf" secondAttribute="leadingMargin" id="s9O-7b-4tT"/>
+                            <constraint firstItem="V1a-gP-lqQ" firstAttribute="top" secondItem="Tp6-nK-lA2" secondAttribute="bottom" id="tUC-cO-Edg"/>
+                        </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item 1" id="Ocf-IV-bU4"/>
+                    <tabBarItem key="tabBarItem" title="домой" image="home" id="Ocf-IV-bU4"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Wqg-kG-u6V" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1529" y="609"/>
+            <point key="canvasLocation" x="-775" y="613"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="ihr-eD-uVR">
@@ -155,4 +171,7 @@
             <point key="canvasLocation" x="836" y="-269"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="home" width="30" height="30"/>
+    </resources>
 </document>
