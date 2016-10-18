@@ -7,16 +7,55 @@
 //
 
 #import "ISHomeVC.h"
+#import "ISNewsFeedModel.h"
+
+#import "ISTableViewImageCell.h"
+#import "ISTableViewUserInfoCell.h"
+#import "ISTableViewLikeCell.h"
+#import "ISTableViewCommentsCell.h"
+#import "ISTableViewInfoAndSareCell.h"
 
 @interface ISHomeVC ()<UITableViewDataSource,UITableViewDelegate>
+
+@property(strong,nonatomic)NSMutableArray* newsFeedArray;
 
 @end
 
 @implementation ISHomeVC
 
+
+typedef enum {
+    
+    ISImageTupe=0,
+    ISInfoUserTupe=1,
+    ISLikeTupe=2,
+    ISCommentsTupe=3,
+    ISInfoAndSareTupe=4,
+    
+} ISTupeCell;
+
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    self.tableView.rowHeight = UITableViewAutomaticDimension;
+    self.tableView.estimatedRowHeight = 44.0;
+    
+    self.newsFeedArray=[NSMutableArray array];
+    for (int i=0; i<9; i++) {
+        
+        ISNewsFeedModel* model=[[ISNewsFeedModel alloc]init];
+        model.userName=@"Ivan Smirnov";
+        model.image=[UIImage imageNamed:@"1.jpg"];
+        model.userImage=[UIImage imageNamed:@"2.jpg"];
+        model.data=@"18 октября";
+        model.countLike=@"5";
+        [self.newsFeedArray addObject:model];
+        
+    }
+    
+    
+    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -24,23 +63,69 @@
     // Dispose of any resources that can be recreated.
 }
 
+#pragma mark-UITableViewDelegate
+
+- (CGFloat)tableView:(UITableView*)tableView heightForFooterInSection:(NSInteger)section {
+    return 30.0;
+}
+
 #pragma mark-UITableViewDataSource
 
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
     
-    return 0;
+    return self.newsFeedArray.count;
 }
 
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     
     
-    return 0;
+    return 5;
 }
 
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
+
+    NSString* identifier=@"";
+    ISNewsFeedModel* newsModel=[self.newsFeedArray objectAtIndex:indexPath.section];
+    
+    if (indexPath.row==ISImageTupe) {
+        identifier=@"image";
+       ISTableViewImageCell* cell=[tableView dequeueReusableCellWithIdentifier:identifier forIndexPath:indexPath];
+        cell.myImageView.image=newsModel.image;
+        return cell;
+    }
+    
+    if (indexPath.row==ISInfoUserTupe) {
+        identifier=@"infoUser";
+        ISTableViewUserInfoCell* cell=[tableView dequeueReusableCellWithIdentifier:identifier forIndexPath:indexPath];
+        cell.userImage.image=newsModel.userImage;
+        cell.userName.text=newsModel.userName;
+        cell.data.text=newsModel.data;
+        return cell;
+    }
+    
+    if (indexPath.row==ISLikeTupe) {
+        identifier=@"like";
+        ISTableViewLikeCell* cell=[tableView dequeueReusableCellWithIdentifier:identifier forIndexPath:indexPath];
+        cell.countLike.text=newsModel.countLike;
+        return cell;
+
+    }
+    
+    if (indexPath.row==ISCommentsTupe) {
+        identifier=@"comments";
+        ISTableViewCommentsCell* cell=[tableView dequeueReusableCellWithIdentifier:identifier forIndexPath:indexPath];
+        return cell;
+    }
+    
+    if (indexPath.row==ISInfoAndSareTupe) {
+        identifier=@"infoAndSare";
+        ISTableViewInfoAndSareCell* cell=[tableView dequeueReusableCellWithIdentifier:identifier forIndexPath:indexPath];
+        return cell;
+    }
+    
     
     
     return nil;
