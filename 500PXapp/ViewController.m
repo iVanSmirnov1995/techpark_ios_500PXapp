@@ -49,6 +49,7 @@
                                                  NSForegroundColorAttributeName: passwordcolor,
                                                  NSFontAttributeName : [UIFont fontWithName:@"PingFang-TC-Ultralight" size:18.0]
                                                  }
+     
      ];
     
  
