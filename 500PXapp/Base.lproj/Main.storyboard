@@ -55,8 +55,7 @@
                                     <outlet property="delegate" destination="BYZ-38-t0r" id="sD3-55-PB9"/>
                                 </connections>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eiQ-1g-wIa">
-                                <frame key="frameInset" minX="22" minY="530" width="330" height="45"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eiQ-1g-wIa">
                                 <constraints>
                                     <constraint firstAttribute="width" constant="330" id="LHX-VC-iFD"/>
                                     <constraint firstAttribute="height" constant="45" id="nqr-C3-FN6"/>

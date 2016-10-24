@@ -25,7 +25,7 @@ static NSString * const reuseIdentifier = @"Cell";
     // self.clearsSelectionOnViewWillAppear = NO;
     
     // Register cell classes
-    [self.collectionView registerClass:[UICollectionViewCell class] forCellWithReuseIdentifier:reuseIdentifier];
+//    [self.collectionView registerClass:[UICollectionViewCell class] forCellWithReuseIdentifier:reuseIdentifier];
     photos = [NSMutableArray new];
     
     for (int i = 0; i<100; i++) {
@@ -69,9 +69,11 @@ static NSString * const reuseIdentifier = @"Cell";
     CellPhotos *cell = [collectionView dequeueReusableCellWithReuseIdentifier:reuseIdentifier forIndexPath:indexPath];
     
     NSInteger row = indexPath.row;
-    PhotosCellModel *item = photos[row];
-    NSLog(@"----------------------------------");
+//    PhotosCellModel *item = photos[row];
+    PhotosCellModel *item = [photos objectAtIndex:1];
+    NSLog(@"----------------------------------%li", (long)row);
     cell.img.image = item.imgPhoto;
+    cell.backgroundColor = [UIColor blackColor];
     NSLog(@"----------------------------------");
     
     return cell;
