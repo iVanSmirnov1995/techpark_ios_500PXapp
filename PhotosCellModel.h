@@ -7,7 +7,10 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
 
 @interface PhotosCellModel : NSObject
+
+@property (nonatomic, weak) UIImage *imgPhoto;
 
 @end

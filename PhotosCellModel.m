@@ -8,6 +8,8 @@
 
 #import "PhotosCellModel.h"
 
+
 @implementation PhotosCellModel
+
 
 @end

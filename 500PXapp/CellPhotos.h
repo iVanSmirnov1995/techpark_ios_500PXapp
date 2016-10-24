@@ -8,6 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
-@interface CellPhotos : UICollectionViewCell
+@interface CellPhotos : UICollectionViewCell {
+    
+}
+
+@property (nonatomic, strong) IBOutlet UIImageView *img;
 
 @end

@@ -7,8 +7,10 @@
 //
 
 #import "PhotoCollectionVC.h"
+#import "PhotosCellModel.h"
+#import "CellPhotos.h"
 
-@interface PhotoCollectionVC ()
+@interface PhotoCollectionVC () <UICollectionViewDelegate, UICollectionViewDataSource>
 
 @end
 
@@ -24,6 +26,13 @@ static NSString * const reuseIdentifier = @"Cell";
     
     // Register cell classes
     [self.collectionView registerClass:[UICollectionViewCell class] forCellWithReuseIdentifier:reuseIdentifier];
+    photos = [NSMutableArray new];
+    
+    for (int i = 0; i<100; i++) {
+        PhotosCellModel *photo = [PhotosCellModel new];
+        photo.imgPhoto = [UIImage imageNamed: @"1.jpg"];
+        [photos addObject:photo];
+    }
     
     // Do any additional setup after loading the view.
 }
@@ -46,20 +55,24 @@ static NSString * const reuseIdentifier = @"Cell";
 #pragma mark <UICollectionViewDataSource>
 
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
-#warning Incomplete implementation, return the number of sections
-    return 0;
+//#warning Incomplete implementation, return the number of sections
+    return 1;
 }
 
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-#warning Incomplete implementation, return the number of items
-    return 0;
+//#warning Incomplete implementation, return the number of items
+    return photos.count;
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
-    UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:reuseIdentifier forIndexPath:indexPath];
+    CellPhotos *cell = [collectionView dequeueReusableCellWithReuseIdentifier:reuseIdentifier forIndexPath:indexPath];
     
-    // Configure the cell
+    NSInteger row = indexPath.row;
+    PhotosCellModel *item = photos[row];
+    NSLog(@"----------------------------------");
+    cell.img.image = item.imgPhoto;
+    NSLog(@"----------------------------------");
     
     return cell;
 }
