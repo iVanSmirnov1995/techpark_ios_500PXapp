@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CE34A9171DBE610C0039A4E0 /* PhotoCollectionVC.m in Sources */ = {isa = PBXBuildFile; fileRef = CE34A9161DBE610C0039A4E0 /* PhotoCollectionVC.m */; };
+		CE34A91A1DBE613D0039A4E0 /* PhotosCellModel.m in Sources */ = {isa = PBXBuildFile; fileRef = CE34A9191DBE613D0039A4E0 /* PhotosCellModel.m */; };
+		CE34A91D1DBE617B0039A4E0 /* CellPhotos.m in Sources */ = {isa = PBXBuildFile; fileRef = CE34A91C1DBE617B0039A4E0 /* CellPhotos.m */; };
 		D349652E1DB4043E00813293 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D349652D1DB4043E00813293 /* main.m */; };
 		D34965311DB4043E00813293 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D34965301DB4043E00813293 /* AppDelegate.m */; };
 		D34965341DB4043E00813293 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D34965331DB4043E00813293 /* ViewController.m */; };
@@ -46,6 +49,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		CE34A9151DBE610C0039A4E0 /* PhotoCollectionVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhotoCollectionVC.h; sourceTree = "<group>"; };
+		CE34A9161DBE610C0039A4E0 /* PhotoCollectionVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhotoCollectionVC.m; sourceTree = "<group>"; };
+		CE34A9181DBE613D0039A4E0 /* PhotosCellModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhotosCellModel.h; sourceTree = "<group>"; };
+		CE34A9191DBE613D0039A4E0 /* PhotosCellModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhotosCellModel.m; sourceTree = "<group>"; };
+		CE34A91B1DBE617B0039A4E0 /* CellPhotos.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CellPhotos.h; sourceTree = "<group>"; };
+		CE34A91C1DBE617B0039A4E0 /* CellPhotos.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CellPhotos.m; sourceTree = "<group>"; };
 		D34965291DB4043E00813293 /* 500PXapp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = 500PXapp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D349652D1DB4043E00813293 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		D349652F1DB4043E00813293 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -191,6 +200,10 @@
 				F5B00B681DB9048B00A534D4 /* IsSearchVC.h */,
 				F5B00B691DB9048B00A534D4 /* IsSearchVC.m */,
 				D3888B741DB6A0960038B42C /* test */,
+				CE34A9151DBE610C0039A4E0 /* PhotoCollectionVC.h */,
+				CE34A9161DBE610C0039A4E0 /* PhotoCollectionVC.m */,
+				CE34A91B1DBE617B0039A4E0 /* CellPhotos.h */,
+				CE34A91C1DBE617B0039A4E0 /* CellPhotos.m */,
 			);
 			name = viewControlers;
 			sourceTree = "<group>";
@@ -200,6 +213,8 @@
 			children = (
 				D3FB18DA1DB620FA00E44235 /* ISNewsFeedModel.h */,
 				D3FB18DB1DB620FA00E44235 /* ISNewsFeedModel.m */,
+				CE34A9181DBE613D0039A4E0 /* PhotosCellModel.h */,
+				CE34A9191DBE613D0039A4E0 /* PhotosCellModel.m */,
 			);
 			name = models;
 			path = ..;
@@ -359,6 +374,8 @@
 			files = (
 				D3FB18E71DB63B0B00E44235 /* ISTableViewLikeCell.m in Sources */,
 				D3FB18EA1DB63B3600E44235 /* ISTableViewCommentsCell.m in Sources */,
+				CE34A91A1DBE613D0039A4E0 /* PhotosCellModel.m in Sources */,
+				CE34A91D1DBE617B0039A4E0 /* CellPhotos.m in Sources */,
 				D34965341DB4043E00813293 /* ViewController.m in Sources */,
 				D349653A1DB4043E00813293 /* _00PXapp.xcdatamodeld in Sources */,
 				D3FB18E11DB63A5200E44235 /* ISTableViewImageCell.m in Sources */,
@@ -367,6 +384,7 @@
 				D3FB18D91DB61B2900E44235 /* ISHomeVC.m in Sources */,
 				D34965311DB4043E00813293 /* AppDelegate.m in Sources */,
 				D3FB18E41DB63AB800E44235 /* ISTableViewUserInfoCell.m in Sources */,
+				CE34A9171DBE610C0039A4E0 /* PhotoCollectionVC.m in Sources */,
 				F5B00B6A1DB9048B00A534D4 /* IsSearchVC.m in Sources */,
 				D349652E1DB4043E00813293 /* main.m in Sources */,
 			);
