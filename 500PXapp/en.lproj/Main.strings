@@ -1,0 +1,39 @@
+
+/* Class = "UITabBarItem"; title = "Item 2"; ObjectID = "29U-Fl-H50"; */
+"29U-Fl-H50.title" = "Item 2";
+
+/* Class = "UILabel"; text = "massage"; ObjectID = "3T0-QU-P88"; */
+"3T0-QU-P88.text" = "massage";
+
+/* Class = "UIButton"; normalTitle = " Детали"; ObjectID = "3qU-Qa-afY"; */
+"3qU-Qa-afY.normalTitle" = " Детали";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "Cv9-FM-xcv"; */
+"Cv9-FM-xcv.text" = "Label";
+
+/* Class = "UITabBarItem"; title = "Item 2"; ObjectID = "GsT-FD-ErH"; */
+"GsT-FD-ErH.title" = "Item 2";
+
+/* Class = "UITabBarItem"; title = "домой"; ObjectID = "Ocf-IV-bU4"; */
+"Ocf-IV-bU4.title" = "домой";
+
+/* Class = "UIButton"; normalTitle = "Поделится"; ObjectID = "Xyn-jR-SJj"; */
+"Xyn-jR-SJj.normalTitle" = "Поделится";
+
+/* Class = "UITabBarItem"; title = "Item 2"; ObjectID = "cMi-Uh-46l"; */
+"cMi-Uh-46l.title" = "Item 2";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "eiQ-1g-wIa"; */
+"eiQ-1g-wIa.normalTitle" = "Button";
+
+/* Class = "UILabel"; text = "посмотреть 12 комментариев"; ObjectID = "jEP-ex-zXl"; */
+"jEP-ex-zXl.text" = "посмотреть 12 комментариев";
+
+/* Class = "UILabel"; text = "data"; ObjectID = "kmq-3A-fM4"; */
+"kmq-3A-fM4.text" = "data";
+
+/* Class = "UITabBarItem"; title = "Item"; ObjectID = "ktL-Bf-AP6"; */
+"ktL-Bf-AP6.title" = "Item";
+
+/* Class = "UILabel"; text = "name"; ObjectID = "lHr-i4-2tZ"; */
+"lHr-i4-2tZ.text" = "name";
