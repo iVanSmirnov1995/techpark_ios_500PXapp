@@ -12,8 +12,8 @@
 
 
 @property (weak, nonatomic) IBOutlet UITextField *searchField;
-@property (weak, nonatomic) IBOutlet UISegmentedControl *photoSegmentedControl;
-- (IBAction)actionSegmentedControl:(id)sender;
+
+
 
 
 
