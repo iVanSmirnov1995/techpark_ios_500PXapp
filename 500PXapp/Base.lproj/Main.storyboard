@@ -248,8 +248,8 @@
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="dialog" translatesAutoresizingMaskIntoConstraints="NO" id="9BR-V1-j7r">
                                                     <constraints>
-                                                        <constraint firstAttribute="width" constant="32" id="3gg-P6-ux4"/>
-                                                        <constraint firstAttribute="height" constant="32" id="eRq-oX-Vsw"/>
+                                                        <constraint firstAttribute="width" constant="20" id="3gg-P6-ux4"/>
+                                                        <constraint firstAttribute="height" constant="20" id="eRq-oX-Vsw"/>
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="message" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3T0-QU-P88" userLabel="Last Message">
@@ -261,17 +261,17 @@
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="8" id="HTs-Oy-HmZ"/>
                                                     </constraints>
-                                                    <fontDescription key="fontDescription" type="system" weight="light" pointSize="9"/>
+                                                    <fontDescription key="fontDescription" type="system" weight="light" pointSize="10"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstAttribute="bottom" secondItem="jEP-ex-zXl" secondAttribute="bottom" constant="4" id="GYC-hw-c6b"/>
+                                                <constraint firstAttribute="bottom" secondItem="jEP-ex-zXl" secondAttribute="bottom" constant="5" id="GYC-hw-c6b"/>
                                                 <constraint firstAttribute="trailing" secondItem="jEP-ex-zXl" secondAttribute="trailing" id="H4S-uQ-ZTI"/>
-                                                <constraint firstItem="jEP-ex-zXl" firstAttribute="top" secondItem="3T0-QU-P88" secondAttribute="bottom" constant="2" id="KaA-3p-pVm"/>
+                                                <constraint firstItem="jEP-ex-zXl" firstAttribute="top" secondItem="3T0-QU-P88" secondAttribute="bottom" constant="5" id="KaA-3p-pVm"/>
                                                 <constraint firstItem="9BR-V1-j7r" firstAttribute="leading" secondItem="GKa-F8-DXs" secondAttribute="leading" constant="8" id="Pg9-sD-VvB"/>
-                                                <constraint firstItem="3T0-QU-P88" firstAttribute="top" secondItem="GKa-F8-DXs" secondAttribute="top" id="Uee-WW-dEd"/>
+                                                <constraint firstItem="3T0-QU-P88" firstAttribute="top" secondItem="GKa-F8-DXs" secondAttribute="top" constant="5" id="Uee-WW-dEd"/>
                                                 <constraint firstItem="3T0-QU-P88" firstAttribute="leading" secondItem="9BR-V1-j7r" secondAttribute="trailing" constant="20" id="lRK-si-s6b"/>
                                                 <constraint firstAttribute="trailing" secondItem="3T0-QU-P88" secondAttribute="trailing" id="qRG-mG-59r"/>
                                                 <constraint firstItem="9BR-V1-j7r" firstAttribute="centerY" secondItem="GKa-F8-DXs" secondAttribute="centerY" id="r0S-MQ-Tsh"/>

@@ -16,6 +16,7 @@
 @property(strong,nonatomic)NSString* userImageName;
 @property(strong,nonatomic)NSString* data;
 @property(strong,nonatomic)NSString* countLike;
+@property(strong,nonatomic)NSString* lastComent;
 
 
 @end

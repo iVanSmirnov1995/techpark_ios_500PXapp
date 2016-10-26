@@ -6,6 +6,7 @@
 //  Copyright © 2016 techpark_ios. All rights reserved.
 //
 
+
 #import "ISHomeVC.h"
 #import "ISNewsFeedModel.h"
 
@@ -50,6 +51,7 @@ typedef enum {
         model.userImageName=@"2.jpg";
         model.data=@"18 октября";
         model.countLike=@"5";
+        model.lastComent=@"Крутая фотка";
         [self.newsFeedArray addObject:model];
         
     }
@@ -100,7 +102,10 @@ typedef enum {
     if (indexPath.row==ISInfoUserTupe) {
         identifier=@"infoUser";
         ISTableViewUserInfoCell* cell=[tableView dequeueReusableCellWithIdentifier:identifier forIndexPath:indexPath];
+        [cell layoutIfNeeded];
         cell.userImage.image=[UIImage imageNamed:newsModel.userImageName];
+        cell.userImage.layer.cornerRadius=CGRectGetWidth(cell.userImage.frame)/2.f;
+        cell.userImage.layer.masksToBounds=YES;
         cell.userName.text=newsModel.userName;
         cell.data.text=newsModel.data;
         return cell;
@@ -117,6 +122,7 @@ typedef enum {
     if (indexPath.row==ISCommentsTupe) {
         identifier=@"comments";
         ISTableViewCommentsCell* cell=[tableView dequeueReusableCellWithIdentifier:identifier forIndexPath:indexPath];
+        cell.lastMessage.text=newsModel.lastComent;
         return cell;
     }
     
