@@ -12,6 +12,7 @@
 
 @end
 
+<<<<<<< HEAD
 @implementation ViewController 
 
 -(UIStatusBarStyle) preferredStatusBarStyle {
@@ -22,11 +23,15 @@
 
 
 
+=======
+@implementation ViewController
+>>>>>>> origin/master
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
     
+<<<<<<< HEAD
     [self.loginField setFrame:CGRectMake(20, 331, 331, 75)];
     
     self.loginField.textAlignment = NSTextAlignmentCenter;
@@ -90,11 +95,18 @@
 
 #pragma mark - changeViewPositionFromKeyboard
 
+=======
+    NSLog(@"Hello world");
+}
+
+
+>>>>>>> origin/master
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
 
+<<<<<<< HEAD
 -(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
     
     [self.loginField resignFirstResponder];
@@ -136,5 +148,7 @@
 }
 
 
+=======
+>>>>>>> origin/master
 
 @end

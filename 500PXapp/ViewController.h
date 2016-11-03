@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
+<<<<<<< HEAD
 @interface ViewController : UIViewController <UITextFieldDelegate>
 
 @property (weak, nonatomic) IBOutlet UIButton *enterButton;
@@ -16,6 +17,10 @@
 
 - (IBAction)actionTextField:(UITextField *)sender;
 - (IBAction)enterButton:(UIButton *)sender;
+=======
+@interface ViewController : UIViewController
+
+>>>>>>> origin/master
 
 @end
 
