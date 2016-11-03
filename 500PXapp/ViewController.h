@@ -8,8 +8,13 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ViewController : UIViewController
+@interface ViewController : UIViewController <UITextFieldDelegate>
 
+@property (weak, nonatomic) IBOutlet UIButton *enterButton;
+@property (weak ,nonatomic) IBOutlet UITextField* loginField;
+@property (weak ,nonatomic) IBOutlet UITextField* passwordField;
+
+- (IBAction)actionTextField:(UITextField *)sender;
+- (IBAction)enterButton:(UIButton *)sender;
 
 @end
-

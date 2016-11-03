@@ -1,18 +1,18 @@
 //
-//  ViewController.m
+//  SignUpVC.m
 //  500PXapp
 //
-//  Created by Smirnov Ivan on 16.10.16.
+//  Created by Максим Стегниенко on 27.10.16.
 //  Copyright © 2016 techpark_ios. All rights reserved.
 //
 
-#import "ViewController.h"
+#import "SignUpVC.h"
 
-@interface ViewController ()
+@interface SignUpVC ()
 
 @end
 
-@implementation ViewController
+@implementation SignUpVC
 
 -(UIStatusBarStyle) preferredStatusBarStyle {
     
@@ -21,31 +21,30 @@
 
 
 
-// на всякий случай говорю , что за Стегниенко Максимом стоит создание кода в ViewController , SignUpVC, и полсностью все ,
-// что связано с IsSearchVC
+
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
     
-    [self.loginField setFrame:CGRectMake(20, 331, 331, 75)];
+    [self.loginField setFrame:CGRectMake(25, 142, 331, 75)];
     
     self.loginField.textAlignment = NSTextAlignmentCenter;
     UIColor *logincolor = [UIColor whiteColor];
     self.loginField.attributedPlaceholder =
-    [[NSAttributedString alloc] initWithString:@"Имя пользователя или емайл"
+    [[NSAttributedString alloc] initWithString:@"Емайл"
                                     attributes:@{
                                                  NSForegroundColorAttributeName: logincolor,
                                                  NSFontAttributeName : [UIFont fontWithName:@"PingFang-TC-Ultralight" size:18.0]
                                                  }
      ];
     
-    [self.passwordField setFrame:CGRectMake(20, 423, 331, 75)];
+    [self.passwordField setFrame:CGRectMake(25, 238, 331, 75)];
     
     self.passwordField.textAlignment = NSTextAlignmentCenter;
     UIColor *passwordcolor = [UIColor whiteColor];
     self.passwordField.attributedPlaceholder =
-    [[NSAttributedString alloc] initWithString:@"Пароль"
+    [[NSAttributedString alloc] initWithString:@"Создать пароль"
                                     attributes:@{
                                                  NSForegroundColorAttributeName: passwordcolor,
                                                  NSFontAttributeName : [UIFont fontWithName:@"PingFang-TC-Ultralight" size:18.0]
@@ -55,12 +54,13 @@
     
     
     
-    [self.enterButton setFrame:CGRectMake(22, 515, 330, 45)];
+   
     
 }
 
 
 #pragma mark - Action
+
 
 - (IBAction)actionTextField:(UITextField *)sender {
     
@@ -68,8 +68,7 @@
     
 }
 
-- (IBAction)enterButton:(UIButton *)sender {
-}
+
 
 #pragma mark - UITextFieldDelegate
 
@@ -104,37 +103,8 @@
 }
 
 
-- (void)viewWillAppear:(BOOL)animated {
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillShow:) name:UIKeyboardWillShowNotification object:nil];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillHide:) name:UIKeyboardWillHideNotification object:nil];
-}
 
-- (void)viewWillDisappear:(BOOL)animated {
-    [[NSNotificationCenter defaultCenter] removeObserver:self name:UIKeyboardWillShowNotification object:nil];
-    [[NSNotificationCenter defaultCenter] removeObserver:self name:UIKeyboardWillHideNotification object:nil];
-}
 
-#pragma mark - keyboard movements
-
-- (void)keyboardWillShow:(NSNotification *)notification
-{
-    CGSize keyboardSize = [[[notification userInfo] objectForKey:UIKeyboardFrameBeginUserInfoKey] CGRectValue].size;
-    
-    [UIView animateWithDuration:0.3 animations:^{
-        CGRect f = self.view.frame;
-        f.origin.y = -0.5f * keyboardSize.height;
-        self.view.frame = f;
-    }];
-}
-
--(void)keyboardWillHide:(NSNotification *)notification
-{
-    [UIView animateWithDuration:0.3 animations:^{
-        CGRect f = self.view.frame;
-        f.origin.y = 0.0f;
-        self.view.frame = f;
-    }];
-}
 
 
 
