@@ -179,6 +179,7 @@
 				F5423C3F1DCB6AE3006FD69A /* ViewControllers */,
 				F5423C3B1DCB6AB6006FD69A /* CellSearch */,
 				F5423C1D1DCB6915006FD69A /* IsCollectionLayout */,
+				F5423C1E1DCB695A006FD69A /* Models */,
 				D349652F1DB4043E00813293 /* AppDelegate.h */,
 				D34965301DB4043E00813293 /* AppDelegate.m */,
 				D34965321DB4043E00813293 /* ViewController.h */,
@@ -225,7 +226,6 @@
 				F5423C291DCB69F3006FD69A /* IsSearchCollectionLayout.h */,
 				F5423C2A1DCB69F3006FD69A /* IsSearchCollectionLayout.m */,
 				F5423C281DCB6994006FD69A /* CustomCellHomeVC */,
-				F5423C1E1DCB695A006FD69A /* Models */,
 			);
 			name = IsCollectionLayout;
 			sourceTree = "<group>";
