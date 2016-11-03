@@ -11,11 +11,12 @@
 
 @interface ISNewsFeedModel : NSObject
 
-@property(strong,nonatomic)UIImage* image;
+
+@property(strong,nonatomic)NSString* imageName;
 @property(strong,nonatomic)NSString* userName;
-@property(strong,nonatomic)UIImage* userImage;
+@property(strong,nonatomic)NSString* userImageName;
 @property(strong,nonatomic)NSString* data;
 @property(strong,nonatomic)NSString* countLike;
-
+@property(strong,nonatomic)NSString* lastComent;
 
 @end
