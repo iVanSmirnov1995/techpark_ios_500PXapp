@@ -6,6 +6,7 @@
 //  Copyright © 2016 techpark_ios. All rights reserved.
 //
 
+
 #import "ISHomeVC.h"
 #import "ISNewsFeedModel.h"
 
@@ -46,10 +47,11 @@ typedef enum {
         
         ISNewsFeedModel* model=[[ISNewsFeedModel alloc]init];
         model.userName=@"Ivan Smirnov";
-        model.image=[UIImage imageNamed:@"1.jpg"];
-        model.userImage=[UIImage imageNamed:@"2.jpg"];
+        model.imageName=@"1.jpg";
+        model.userImageName=@"2.jpg";
         model.data=@"18 октября";
         model.countLike=@"5";
+        model.lastComent=@"Крутая фотка";
         [self.newsFeedArray addObject:model];
         
     }
@@ -93,14 +95,17 @@ typedef enum {
     if (indexPath.row==ISImageTupe) {
         identifier=@"image";
        ISTableViewImageCell* cell=[tableView dequeueReusableCellWithIdentifier:identifier forIndexPath:indexPath];
-        cell.myImageView.image=newsModel.image;
+        cell.myImageView.image=[UIImage imageNamed:newsModel.imageName];
         return cell;
     }
     
     if (indexPath.row==ISInfoUserTupe) {
         identifier=@"infoUser";
         ISTableViewUserInfoCell* cell=[tableView dequeueReusableCellWithIdentifier:identifier forIndexPath:indexPath];
-        cell.userImage.image=newsModel.userImage;
+        [cell layoutIfNeeded];
+        cell.userImage.image=[UIImage imageNamed:newsModel.userImageName];
+        cell.userImage.layer.cornerRadius=CGRectGetWidth(cell.userImage.frame)/2.f;
+        cell.userImage.layer.masksToBounds=YES;
         cell.userName.text=newsModel.userName;
         cell.data.text=newsModel.data;
         return cell;
@@ -117,6 +122,7 @@ typedef enum {
     if (indexPath.row==ISCommentsTupe) {
         identifier=@"comments";
         ISTableViewCommentsCell* cell=[tableView dequeueReusableCellWithIdentifier:identifier forIndexPath:indexPath];
+        cell.lastMessage.text=newsModel.lastComent;
         return cell;
     }
     
