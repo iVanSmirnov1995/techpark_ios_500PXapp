@@ -117,6 +117,13 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		CEECB00F1DD8460600ECF2AA /* storyboards */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = storyboards;
+			sourceTree = "<group>";
+		};
 		D34965201DB4043E00813293 = {
 			isa = PBXGroup;
 			children = (
@@ -140,6 +147,7 @@
 		D349652B1DB4043E00813293 /* 500PXapp */ = {
 			isa = PBXGroup;
 			children = (
+				CEECB00F1DD8460600ECF2AA /* storyboards */,
 				D3FB18D61DB61AD400E44235 /* viewControlers */,
 				D3FB18DD1DB6210100E44235 /* models */,
 				D3FB18DE1DB639E900E44235 /* castomCellHomeVC */,
