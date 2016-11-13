@@ -35,7 +35,7 @@
                                     <color key="titleColor" red="0.43502719979999999" green="0.43502719979999999" blue="0.43502719979999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
-                                    <segue destination="TVh-S5-Ibm" kind="push" id="FaS-b1-aSH"/>
+                                    <segue destination="TVh-S5-Ibm" kind="show" id="FaS-b1-aSH"/>
                                 </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="3AO-bc-4Ga">
