@@ -153,6 +153,34 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		CEECB01E1DD884CB00ECF2AA /* MyPage */ = {
+			isa = PBXGroup;
+			children = (
+				CEECB01F1DD884DD00ECF2AA /* Photos */,
+			);
+			name = MyPage;
+			sourceTree = "<group>";
+		};
+		CEECB01F1DD884DD00ECF2AA /* Photos */ = {
+			isa = PBXGroup;
+			children = (
+				F5423C661DCB6B5C006FD69A /* PhotoCollectionVC.h */,
+				F5423C671DCB6B5C006FD69A /* PhotoCollectionVC.m */,
+				F5423C681DCB6B5C006FD69A /* CellPhotos.h */,
+				F5423C691DCB6B5C006FD69A /* CellPhotos.m */,
+			);
+			name = Photos;
+			sourceTree = "<group>";
+		};
+		CEECB0201DD884F200ECF2AA /* Photos */ = {
+			isa = PBXGroup;
+			children = (
+				F5423C211DCB6982006FD69A /* PhotosCellModel.h */,
+				F5423C221DCB6982006FD69A /* PhotosCellModel.m */,
+			);
+			name = Photos;
+			sourceTree = "<group>";
+		};
 		D34965201DB4043E00813293 = {
 			isa = PBXGroup;
 			children = (
@@ -235,8 +263,7 @@
 			children = (
 				F5423C1F1DCB6982006FD69A /* ISNewsFeedModel.h */,
 				F5423C201DCB6982006FD69A /* ISNewsFeedModel.m */,
-				F5423C211DCB6982006FD69A /* PhotosCellModel.h */,
-				F5423C221DCB6982006FD69A /* PhotosCellModel.m */,
+				CEECB0201DD884F200ECF2AA /* Photos */,
 				F5423C231DCB6982006FD69A /* ISSearchModel.h */,
 				F5423C241DCB6982006FD69A /* ISSearchModel.m */,
 			);
@@ -272,10 +299,7 @@
 		F5423C3F1DCB6AE3006FD69A /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				F5423C661DCB6B5C006FD69A /* PhotoCollectionVC.h */,
-				F5423C671DCB6B5C006FD69A /* PhotoCollectionVC.m */,
-				F5423C681DCB6B5C006FD69A /* CellPhotos.h */,
-				F5423C691DCB6B5C006FD69A /* CellPhotos.m */,
+				CEECB01E1DD884CB00ECF2AA /* MyPage */,
 				F5423C491DCB6B39006FD69A /* test */,
 				F5423C401DCB6B17006FD69A /* SignUpVC.h */,
 				F5423C411DCB6B17006FD69A /* SignUpVC.m */,
