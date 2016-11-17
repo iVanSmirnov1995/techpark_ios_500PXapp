@@ -25,42 +25,49 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view, typically from a nib.
+ 
     
-    [self.loginField setFrame:CGRectMake(25, 142, 331, 75)];
+    [self.loginField1 setFrame:CGRectMake(25, 142, 331, 75)];
     
-    self.loginField.textAlignment = NSTextAlignmentCenter;
+    self.loginField1.textAlignment = NSTextAlignmentCenter;
     UIColor *logincolor = [UIColor whiteColor];
-    self.loginField.attributedPlaceholder =
-    [[NSAttributedString alloc] initWithString:@"Емайл"
-                                    attributes:@{
-                                                 NSForegroundColorAttributeName: logincolor,
-                                                 NSFontAttributeName : [UIFont fontWithName:@"PingFang-TC-Ultralight" size:18.0]
-                                                 }
+    self.loginField1.attributedPlaceholder =
+    [[NSMutableAttributedString alloc] initWithString:@"Емайл"
+                                           attributes:@{
+                                                        NSForegroundColorAttributeName: logincolor,
+                                                        NSFontAttributeName : [UIFont fontWithName:@"PingFang-TC-Light" size:18.0],
+                                                        NSKernAttributeName :@(0.6)
+                                                        }
      ];
     
-    [self.passwordField setFrame:CGRectMake(25, 238, 331, 75)];
+    [self.passwordField1 setFrame:CGRectMake(25, 238, 331, 75)];
     
-    self.passwordField.textAlignment = NSTextAlignmentCenter;
+    self.passwordField1.textAlignment = NSTextAlignmentCenter;
     UIColor *passwordcolor = [UIColor whiteColor];
-    self.passwordField.attributedPlaceholder =
-    [[NSAttributedString alloc] initWithString:@"Создать пароль"
-                                    attributes:@{
-                                                 NSForegroundColorAttributeName: passwordcolor,
-                                                 NSFontAttributeName : [UIFont fontWithName:@"PingFang-TC-Ultralight" size:18.0]
-                                                 }
-     
+    self.passwordField1.attributedPlaceholder =
+    [[NSMutableAttributedString alloc] initWithString:@"Имя пользователя или емайл"
+                                           attributes:@{
+                                                        NSForegroundColorAttributeName: passwordcolor,
+                                                        NSFontAttributeName : [UIFont fontWithName:@"PingFang-TC-Light" size:18.0],
+                                                        NSKernAttributeName :@(0.6)
+                                                        }
      ];
     
     
     
-   
-    
+   self.backButton.titleLabel.attributedText =
+    [[NSMutableAttributedString alloc] initWithString:@"У меня уже есть аккаунт"
+                                           attributes:@{
+                                                        NSForegroundColorAttributeName: passwordcolor,
+                                                        NSFontAttributeName : [UIFont fontWithName:@"PingFang-TC-Light" size:18.0],
+                                                        NSKernAttributeName :@(0.6)
+                                                        }
+     ];
+  
 }
 
 
 #pragma mark - Action
-
 
 - (IBAction)actionTextField:(UITextField *)sender {
     
@@ -68,18 +75,20 @@
     
 }
 
+- (IBAction)back:(id)sender {
+    
+}
 
 
-#pragma mark - UITextFieldDelegate
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField {
     
     
-    if ([self.loginField isEqual: textField]) {
-        [self.passwordField becomeFirstResponder];
+    if ([self.loginField1 isEqual: textField]) {
+        [self.passwordField1 becomeFirstResponder];
     } else {
-        [self.loginField resignFirstResponder];
-        [self.passwordField resignFirstResponder];
+        [self.loginField1 resignFirstResponder];
+        [self.passwordField1 resignFirstResponder];
     }
     return NO;
 }
@@ -97,8 +106,8 @@
 
 -(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
     
-    [self.loginField resignFirstResponder];
-    [self.passwordField resignFirstResponder];
+    [self.loginField1 resignFirstResponder];
+    [self.passwordField1 resignFirstResponder];
     
 }
 

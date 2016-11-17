@@ -21,8 +21,6 @@
 
 
 
-// на всякий случай говорю , что за Стегниенко Максимом стоит создание кода в ViewController , SignUpVC, и полсностью все ,
-// что связано с IsSearchVC
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -33,12 +31,15 @@
     self.loginField.textAlignment = NSTextAlignmentCenter;
     UIColor *logincolor = [UIColor whiteColor];
     self.loginField.attributedPlaceholder =
-    [[NSAttributedString alloc] initWithString:@"Имя пользователя или емайл"
+    [[NSMutableAttributedString alloc] initWithString:@"Имя пользователя или емайл"
                                     attributes:@{
                                                  NSForegroundColorAttributeName: logincolor,
-                                                 NSFontAttributeName : [UIFont fontWithName:@"PingFang-TC-Ultralight" size:18.0]
+                                                 NSFontAttributeName : [UIFont fontWithName:@"PingFang-TC-Light" size:18.0],
+                                                 NSKernAttributeName :@(0.6)
                                                  }
      ];
+    
+ 
     
     [self.passwordField setFrame:CGRectMake(20, 423, 331, 75)];
     
@@ -48,7 +49,8 @@
     [[NSAttributedString alloc] initWithString:@"Пароль"
                                     attributes:@{
                                                  NSForegroundColorAttributeName: passwordcolor,
-                                                 NSFontAttributeName : [UIFont fontWithName:@"PingFang-TC-Ultralight" size:18.0]
+                                                 NSFontAttributeName : [UIFont fontWithName:@"PingFang-TC-Light" size:18.0],
+                                                 NSKernAttributeName :@(0.6)
                                                  }
      
      ];

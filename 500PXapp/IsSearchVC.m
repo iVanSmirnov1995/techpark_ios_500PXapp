@@ -29,11 +29,27 @@
 }
 
 
+-(void)tabBegin:(UITapGestureRecognizer*)pan{
+    
+     [self.searchField resignFirstResponder];
+    self.appearConstrain.priority = 900;
+    [UIView animateWithDuration:0.5f delay:0 options:UIViewAnimationOptionCurveEaseInOut animations:^{
+        
+        [self.view layoutIfNeeded];
+        
+        
+    } completion:nil];
+    
+    
+}
+
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
+    UITapGestureRecognizer* pan=[[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(tabBegin:)];
+    [self.collection addGestureRecognizer:pan];
     
     
     self.searchField.textAlignment = NSTextAlignmentCenter;
@@ -123,6 +139,22 @@
     
 }
 
+- (IBAction)actionTextField:(UITextField *)sender {
+   
+    self.appearConstrain.priority = 750;
+    [UIView animateWithDuration:0.5f delay:0 options:UIViewAnimationOptionCurveEaseInOut animations:^{
+        
+        [self.view layoutIfNeeded];
+        
+        
+    } completion:nil];
+    
+    
+}
+
+
+
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
@@ -143,6 +175,7 @@
  // Pass the selected object to the new view controller.
  }
  */
+
 
 #pragma mark-UICollectionViewDataSource
 
@@ -207,6 +240,4 @@
 
 
 
-- (IBAction)actionSegmentedControl:(id)sender {
-}
 @end

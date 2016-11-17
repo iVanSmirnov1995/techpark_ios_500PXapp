@@ -9,8 +9,11 @@
 #import <UIKit/UIKit.h>
 
 @interface SignUpVC : UIViewController <UITextFieldDelegate>
-@property (weak, nonatomic) IBOutlet UITextField *loginField;
-@property (weak, nonatomic) IBOutlet UITextField *passwordField;
+@property (weak, nonatomic) IBOutlet UITextField *loginField1;
+@property (weak, nonatomic) IBOutlet UITextField *passwordField1;
 - (IBAction)actionTextField:(UITextField*)sender;
+- (IBAction)back:(id)sender;
+
+@property (strong,nonatomic) IBOutlet UIButton *backButton;
 
 @end
