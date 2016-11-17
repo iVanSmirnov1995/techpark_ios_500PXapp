@@ -25,6 +25,12 @@
 
 
 - (void)viewDidLoad {
+    
+    UISwipeGestureRecognizer* swipe=[[UISwipeGestureRecognizer alloc]initWithTarget:self action:@selector(cleanVC:)];
+    swipe.direction=UISwipeGestureRecognizerDirectionDown;
+    [self.view addGestureRecognizer:swipe];
+    
+    
     [super viewDidLoad];
     self.i=0;
 
@@ -36,7 +42,9 @@
     // Do any additional setup after loading the view.
     self.pageView=[self.storyboard instantiateViewControllerWithIdentifier:@"pageVC"];
     ISShowFullPhotoVC* vc=[self.storyboard instantiateViewControllerWithIdentifier:@"photoVC"];
-    vc.view.frame=self.view.frame;
+//    CGRect fr=CGRectMake(self.view.frame.origin.x, self.view.frame.origin.y+100,
+//                         self.view.frame.size.width,  self.view.frame.size.height);
+    vc.view.bounds=self.view.frame;
     
     vc.pageIndex=0;
     vc.photo.image=[self.imageArray objectAtIndex:0];
@@ -124,4 +132,11 @@
 
 
 
+- (void)cleanVC:(UISwipeGestureRecognizer *)sender {
+    
+    
+    
+    [self dismissViewControllerAnimated:YES completion:nil];
+    
+}
 @end

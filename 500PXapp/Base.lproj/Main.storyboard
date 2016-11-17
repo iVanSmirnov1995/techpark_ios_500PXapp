@@ -94,7 +94,7 @@
         <scene sceneID="yOK-qv-zzL">
             <objects>
                 <collectionViewController id="A2P-b7-sQc" customClass="PhotoCollectionVC" sceneMemberID="viewController">
-                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="H3l-ll-13a">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" dataMode="prototypes" id="H3l-ll-13a">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -267,14 +267,14 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Tp6-nK-lA2">
-                                <rect key="frame" x="16" y="28" width="343" height="639"/>
+                                <rect key="frame" x="16" y="28" width="343" height="590"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="image" rowHeight="200" id="Eaz-u4-1Q9" customClass="ISTableViewImageCell">
                                         <rect key="frame" x="0.0" y="28" width="343" height="200"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Eaz-u4-1Q9" id="LAw-OH-B55">
-                                            <rect key="frame" x="0.0" y="0.0" width="343" height="199"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="343" height="199.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="31L-5z-X0a">
@@ -301,7 +301,7 @@
                                         <rect key="frame" x="0.0" y="228" width="343" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="49c-xY-iQX" id="RU1-ce-d09">
-                                            <rect key="frame" x="0.0" y="0.0" width="343" height="43"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="343" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ZqW-nm-L8X">
@@ -359,7 +359,7 @@
                                         <rect key="frame" x="0.0" y="272" width="343" height="30"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="LB5-LV-d6j" id="zRB-ra-hEJ">
-                                            <rect key="frame" x="0.0" y="0.0" width="343" height="29"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="343" height="29.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="like2" translatesAutoresizingMaskIntoConstraints="NO" id="Xnb-T4-6V0">
@@ -392,7 +392,7 @@
                                         <rect key="frame" x="0.0" y="302" width="343" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="AYi-zu-p7T" id="GKa-F8-DXs">
-                                            <rect key="frame" x="0.0" y="0.0" width="343" height="43"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="343" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="dialog" translatesAutoresizingMaskIntoConstraints="NO" id="9BR-V1-j7r">
@@ -439,7 +439,7 @@
                                         <rect key="frame" x="0.0" y="346" width="343" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Rjp-QL-p2j" id="pjD-RE-T78">
-                                            <rect key="frame" x="0.0" y="0.0" width="343" height="43"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="343" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3qU-Qa-afY">
@@ -544,7 +544,7 @@
                                 <rect key="frame" x="0.0" y="100" width="375" height="467"/>
                             </imageView>
                         </subviews>
-                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="EAK-NA-LUK" firstAttribute="leading" secondItem="2pF-Sj-xmT" secondAttribute="leading" id="0eT-xr-bVR"/>
                             <constraint firstItem="NSM-OC-0nD" firstAttribute="top" secondItem="EAK-NA-LUK" secondAttribute="bottom" constant="100" id="2wH-4M-QGn"/>
@@ -563,7 +563,7 @@
         <!--Root PegeVC-->
         <scene sceneID="Wfo-kT-Rk9">
             <objects>
-                <viewController id="Q0C-w8-yhm" customClass="ISRootPegeVC" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="rootPage" id="Q0C-w8-yhm" customClass="ISRootPegeVC" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="FZt-N4-0HJ"/>
                         <viewControllerLayoutGuide type="bottom" id="cDB-af-WA5"/>
@@ -576,7 +576,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1Ww-Re-7fW" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4593" y="-773"/>
+            <point key="canvasLocation" x="4189.6000000000004" y="-784.85757121439292"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="7D0-3O-gqQ">

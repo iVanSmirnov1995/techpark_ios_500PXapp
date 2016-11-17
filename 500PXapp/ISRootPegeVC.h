@@ -14,5 +14,6 @@
 @property(strong,nonatomic)UIPageViewController* pageView;
 @property(strong,nonatomic)UIViewController* contentVC;
 
+- (IBAction)cleanVC:(UIButton *)sender;
 
 @end
