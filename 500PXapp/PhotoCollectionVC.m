@@ -7,7 +7,6 @@
 //
 
 #import "PhotoCollectionVC.h"
-#import "PhotosCellModel.h"
 #import "CellPhotos.h"
 
 @interface PhotoCollectionVC () <UICollectionViewDelegate, UICollectionViewDataSource>
@@ -21,20 +20,13 @@ static NSString * const reuseIdentifier = @"Cell";
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    // Uncomment the following line to preserve selection between presentations
-    // self.clearsSelectionOnViewWillAppear = NO;
-    
-    // Register cell classes
-//    [self.collectionView registerClass:[UICollectionViewCell class] forCellWithReuseIdentifier:reuseIdentifier];
     photos = [NSMutableArray new];
-    
+
     for (int i = 0; i<100; i++) {
-        PhotosCellModel *photo = [PhotosCellModel new];
-        photo.imgPhoto = [UIImage imageNamed: @"1.jpg"];
-        [photos addObject:photo];
+        [photos addObject:[UIImage imageNamed: [NSString stringWithFormat:@"%d.jpg",
+                                                arc4random() % 5 +1]]];
     }
     
-    // Do any additional setup after loading the view.
 }
 
 - (void)didReceiveMemoryWarning {
@@ -69,12 +61,19 @@ static NSString * const reuseIdentifier = @"Cell";
     CellPhotos *cell = [collectionView dequeueReusableCellWithReuseIdentifier:reuseIdentifier forIndexPath:indexPath];
     
     NSInteger row = indexPath.row;
-//    PhotosCellModel *item = photos[row];
-    PhotosCellModel *item = [photos objectAtIndex:1];
+    PhotosCellModel *item = [[PhotosCellModel alloc] init];
+    item.imgPhoto = photos[row];
     NSLog(@"----------------------------------%li", (long)row);
-    cell.img.image = item.imgPhoto;
-    cell.backgroundColor = [UIColor blackColor];
-    NSLog(@"----------------------------------");
+    [cell fillCellWithModel: item];
+
+    
+//    NSInteger row = indexPath.row;
+//    PhotosCellModel *item = [PhotosCellModel new];
+//    item.imgPhoto = photos[row];
+//    //    UIImage *item = [photos objectAtIndex: row];
+//    NSLog(@"----------------------------------%li", (long)row);
+//    [cell fillCellWithModel: item];
+//    cell.backgroundColor = [UIColor blackColor];
     
     return cell;
 }
