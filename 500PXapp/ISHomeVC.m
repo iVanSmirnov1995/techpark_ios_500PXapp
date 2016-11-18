@@ -16,6 +16,8 @@
 #import "ISTableViewCommentsCell.h"
 #import "ISTableViewInfoAndSareCell.h"
 
+#import "ISRootPegeVC.h"
+
 @interface ISHomeVC ()<UITableViewDataSource,UITableViewDelegate>
 
 @property(strong,nonatomic)NSMutableArray* newsFeedArray;
@@ -69,6 +71,21 @@ typedef enum {
 
 - (CGFloat)tableView:(UITableView*)tableView heightForFooterInSection:(NSInteger)section {
     return 30.0;
+}
+
+- (BOOL)tableView:(UITableView *)tableView shouldHighlightRowAtIndexPath:(NSIndexPath *)indexPath{
+    
+    if(indexPath.row==ISImageTupe){
+        
+        ISRootPegeVC* vc=[self.storyboard instantiateViewControllerWithIdentifier:@"rootPage"];
+        [self presentViewController:vc animated:YES completion: nil];
+        
+        
+        
+        
+    }
+    
+    return YES;
 }
 
 #pragma mark-UITableViewDataSource
