@@ -10,4 +10,12 @@
 
 @implementation CellPhotos
 
+- (void)fillCellWithModel:(PhotosCellModel *)model {
+    self.img.image = model.imgPhoto;
+}
+
+- (void)prepareForReuse {
+    self.img.image = nil;
+}
+
 @end

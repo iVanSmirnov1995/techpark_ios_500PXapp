@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CEF7F4301DDF45D800447439 /* MyPageTab.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CEF7F42E1DDF45D800447439 /* MyPageTab.storyboard */; };
+		CEF7F4351DDF4B6300447439 /* OSMyPageVC.m in Sources */ = {isa = PBXBuildFile; fileRef = CEF7F4341DDF4B6300447439 /* OSMyPageVC.m */; };
 		D33A78BA1DDDDFB600BC743A /* ISPageContentVC.m in Sources */ = {isa = PBXBuildFile; fileRef = D33A78B71DDDDFB600BC743A /* ISPageContentVC.m */; };
 		D33A78BB1DDDDFB600BC743A /* ISRootPegeVC.m in Sources */ = {isa = PBXBuildFile; fileRef = D33A78B91DDDDFB600BC743A /* ISRootPegeVC.m */; };
 		D33A78BE1DDDE0B100BC743A /* ISShowFullPhotoVC.m in Sources */ = {isa = PBXBuildFile; fileRef = D33A78BD1DDDE0B100BC743A /* ISShowFullPhotoVC.m */; };
@@ -71,6 +73,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		CEF7F42F1DDF45D800447439 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MyPageTab.storyboard; sourceTree = "<group>"; };
+		CEF7F4331DDF4B6300447439 /* OSMyPageVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OSMyPageVC.h; sourceTree = "<group>"; };
+		CEF7F4341DDF4B6300447439 /* OSMyPageVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OSMyPageVC.m; sourceTree = "<group>"; };
 		D33A78B61DDDDFB600BC743A /* ISPageContentVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ISPageContentVC.h; sourceTree = "<group>"; };
 		D33A78B71DDDDFB600BC743A /* ISPageContentVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ISPageContentVC.m; sourceTree = "<group>"; };
 		D33A78B81DDDDFB600BC743A /* ISRootPegeVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ISRootPegeVC.h; sourceTree = "<group>"; };
@@ -168,6 +173,44 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		CEF7F42C1DDF457A00447439 /* MyPage */ = {
+			isa = PBXGroup;
+			children = (
+				CEF7F42D1DDF459000447439 /* Photos */,
+				CEF7F4331DDF4B6300447439 /* OSMyPageVC.h */,
+				CEF7F4341DDF4B6300447439 /* OSMyPageVC.m */,
+			);
+			name = MyPage;
+			sourceTree = "<group>";
+		};
+		CEF7F42D1DDF459000447439 /* Photos */ = {
+			isa = PBXGroup;
+			children = (
+				F5423C661DCB6B5C006FD69A /* PhotoCollectionVC.h */,
+				F5423C671DCB6B5C006FD69A /* PhotoCollectionVC.m */,
+				F5423C681DCB6B5C006FD69A /* CellPhotos.h */,
+				F5423C691DCB6B5C006FD69A /* CellPhotos.m */,
+			);
+			name = Photos;
+			sourceTree = "<group>";
+		};
+		CEF7F4311DDF45E300447439 /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				D34965351DB4043E00813293 /* Main.storyboard */,
+				CEF7F4321DDF45FC00447439 /* MyPage */,
+			);
+			name = Storyboards;
+			sourceTree = "<group>";
+		};
+		CEF7F4321DDF45FC00447439 /* MyPage */ = {
+			isa = PBXGroup;
+			children = (
+				CEF7F42E1DDF45D800447439 /* MyPageTab.storyboard */,
+			);
+			name = MyPage;
+			sourceTree = "<group>";
+		};
 		D34965201DB4043E00813293 = {
 			isa = PBXGroup;
 			children = (
@@ -199,7 +242,7 @@
 				D34965301DB4043E00813293 /* AppDelegate.m */,
 				D34965321DB4043E00813293 /* ViewController.h */,
 				D34965331DB4043E00813293 /* ViewController.m */,
-				D34965351DB4043E00813293 /* Main.storyboard */,
+				CEF7F4311DDF45E300447439 /* Storyboards */,
 				D349653B1DB4043E00813293 /* Assets.xcassets */,
 				D349653D1DB4043E00813293 /* LaunchScreen.storyboard */,
 				D34965401DB4043E00813293 /* Info.plist */,
@@ -293,10 +336,7 @@
 				D33A78B91DDDDFB600BC743A /* ISRootPegeVC.m */,
 				D33A78BC1DDDE0B100BC743A /* ISShowFullPhotoVC.h */,
 				D33A78BD1DDDE0B100BC743A /* ISShowFullPhotoVC.m */,
-				F5423C661DCB6B5C006FD69A /* PhotoCollectionVC.h */,
-				F5423C671DCB6B5C006FD69A /* PhotoCollectionVC.m */,
-				F5423C681DCB6B5C006FD69A /* CellPhotos.h */,
-				F5423C691DCB6B5C006FD69A /* CellPhotos.m */,
+				CEF7F42C1DDF457A00447439 /* MyPage */,
 				F5423C491DCB6B39006FD69A /* test */,
 				F5423C401DCB6B17006FD69A /* SignUpVC.h */,
 				F5423C411DCB6B17006FD69A /* SignUpVC.m */,
@@ -441,6 +481,7 @@
 				F5423C5D1DCB6B4F006FD69A /* sea.jpg in Resources */,
 				D349653F1DB4043E00813293 /* LaunchScreen.storyboard in Resources */,
 				F5423C601DCB6B4F006FD69A /* interesting.jpg in Resources */,
+				CEF7F4301DDF45D800447439 /* MyPageTab.storyboard in Resources */,
 				D349653C1DB4043E00813293 /* Assets.xcassets in Resources */,
 				F5423C651DCB6B4F006FD69A /* 1.jpg in Resources */,
 				D34965371DB4043E00813293 /* Main.storyboard in Resources */,
@@ -498,6 +539,7 @@
 				F5423C251DCB6982006FD69A /* ISNewsFeedModel.m in Sources */,
 				D34965311DB4043E00813293 /* AppDelegate.m in Sources */,
 				F5423C3E1DCB6AD9006FD69A /* SearchViewCellCollection.m in Sources */,
+				CEF7F4351DDF4B6300447439 /* OSMyPageVC.m in Sources */,
 				F5423C481DCB6B17006FD69A /* IsSearchVC.m in Sources */,
 				D33A78BB1DDDDFB600BC743A /* ISRootPegeVC.m in Sources */,
 				F5423C261DCB6982006FD69A /* PhotosCellModel.m in Sources */,
@@ -539,6 +581,14 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		CEF7F42E1DDF45D800447439 /* MyPageTab.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				CEF7F42F1DDF45D800447439 /* Base */,
+			);
+			name = MyPageTab.storyboard;
+			sourceTree = "<group>";
+		};
 		D34965351DB4043E00813293 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
