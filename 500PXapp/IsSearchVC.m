@@ -33,7 +33,7 @@
     
      [self.searchField resignFirstResponder];
     self.appearConstrain.priority = 900;
-    [UIView animateWithDuration:0.5f delay:0 options:UIViewAnimationOptionCurveEaseInOut animations:^{
+    [UIView animateWithDuration:0.5f delay:0 options:UIViewAnimationOptionCurveEaseOut animations:^{
         
         [self.view layoutIfNeeded];
         
@@ -142,7 +142,7 @@
 - (IBAction)actionTextField:(UITextField *)sender {
    
     self.appearConstrain.priority = 750;
-    [UIView animateWithDuration:0.5f delay:0 options:UIViewAnimationOptionCurveEaseInOut animations:^{
+    [UIView animateWithDuration:0.2f delay:0 options:UIViewAnimationOptionCurveEaseOut animations:^{
         
         [self.view layoutIfNeeded];
         
