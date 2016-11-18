@@ -19,4 +19,5 @@
 @property(strong,nonatomic)NSString* countLike;
 @property(strong,nonatomic)NSString* lastComent;
 
+
 @end
