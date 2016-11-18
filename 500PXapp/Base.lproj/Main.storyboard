@@ -51,79 +51,6 @@
             </objects>
             <point key="canvasLocation" x="758" y="613"/>
         </scene>
-        <!--Sign UpVC-->
-        <scene sceneID="Fih-J1-ceS">
-            <objects>
-                <viewController id="U02-bc-dgv" customClass="SignUpVC" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="cwo-rH-8iv"/>
-                        <viewControllerLayoutGuide type="bottom" id="m2T-nE-gMi"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="4RB-Yk-uqp">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="image-bg-2" translatesAutoresizingMaskIntoConstraints="NO" id="baD-Ir-bp2">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Имя пользователя или емайл" textAlignment="center" minimumFontSize="18" background="Rectangle 18" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="Rv0-gv-XgX">
-                                <rect key="frame" x="25" y="142" width="331" height="75"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <fontDescription key="fontDescription" name="PingFangTC-Light" family="PingFang TC" pointSize="18"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="words" keyboardType="emailAddress" keyboardAppearance="alert"/>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="boolean" keyPath="keyPath" value="YES"/>
-                                    <userDefinedRuntimeAttribute type="color" keyPath="_placeholderLabel.textColor">
-                                        <color key="value" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                                <connections>
-                                    <action selector="actionTextField:" destination="U02-bc-dgv" eventType="editingDidEnd" id="Iso-qf-c8x"/>
-                                    <outlet property="delegate" destination="nmV-Vn-dJr" id="8PF-1B-C2k"/>
-                                </connections>
-                            </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Пароль" textAlignment="center" minimumFontSize="18" background="Rectangle 18" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="gYO-p0-5pi">
-                                <rect key="frame" x="25" y="238" width="331" height="75"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="textColor" name="alternateSelectedControlTextColor" catalog="System" colorSpace="catalog"/>
-                                <fontDescription key="fontDescription" name="PingFangTC-Light" family="PingFang TC" pointSize="18"/>
-                                <textInputTraits key="textInputTraits" keyboardType="alphabet" keyboardAppearance="alert" secureTextEntry="YES"/>
-                                <connections>
-                                    <action selector="actionTextField:" destination="U02-bc-dgv" eventType="editingDidEnd" id="zqQ-el-fKO"/>
-                                    <outlet property="delegate" destination="nmV-Vn-dJr" id="eB1-Ow-coY"/>
-                                </connections>
-                            </textField>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="label-SignUp" translatesAutoresizingMaskIntoConstraints="NO" id="iHa-cq-Uq7">
-                                <rect key="frame" x="18" y="62" width="340" height="33"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
-                            <button opaque="NO" contentMode="scaleAspectFit" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yP8-C3-zTg">
-                                <rect key="frame" x="57" y="587" width="260" height="28"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" image="i_got_account"/>
-                                <connections>
-                                    <segue destination="nmV-Vn-dJr" kind="show" id="tI6-Kf-WPq"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0PO-b4-cTg">
-                                <rect key="frame" x="25" y="334" width="331" height="75"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" image="button-SignUp"/>
-                            </button>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                    <connections>
-                        <outlet property="loginField" destination="Rv0-gv-XgX" id="0G5-Jh-Cj1"/>
-                        <outlet property="passwordField" destination="gYO-p0-5pi" id="g5b-Mu-I8x"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="RbA-2W-oQ5" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-1412" y="-43"/>
-        </scene>
         <!--домой-->
         <scene sceneID="akc-bo-U2C">
             <objects>
@@ -141,10 +68,10 @@
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="image" rowHeight="200" id="Eaz-u4-1Q9" customClass="ISTableViewImageCell">
-                                        <rect key="frame" x="0.0" y="28" width="1000" height="200"/>
+                                        <rect key="frame" x="0.0" y="28" width="343" height="200"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Eaz-u4-1Q9" id="LAw-OH-B55">
-                                            <rect key="frame" x="0.0" y="0.0" width="1000" height="199"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="343" height="200"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="31L-5z-X0a">
@@ -168,10 +95,10 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="infoUser" rowHeight="44" id="49c-xY-iQX" customClass="ISTableViewUserInfoCell">
-                                        <rect key="frame" x="0.0" y="228" width="1000" height="44"/>
+                                        <rect key="frame" x="0.0" y="228" width="343" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="49c-xY-iQX" id="RU1-ce-d09">
-                                            <rect key="frame" x="0.0" y="0.0" width="1000" height="43"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="343" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ZqW-nm-L8X">
@@ -226,10 +153,10 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="like" rowHeight="30" id="LB5-LV-d6j" customClass="ISTableViewLikeCell">
-                                        <rect key="frame" x="0.0" y="272" width="1000" height="30"/>
+                                        <rect key="frame" x="0.0" y="272" width="343" height="30"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="LB5-LV-d6j" id="zRB-ra-hEJ">
-                                            <rect key="frame" x="0.0" y="0.0" width="1000" height="29"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="343" height="30"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="like2" translatesAutoresizingMaskIntoConstraints="NO" id="Xnb-T4-6V0">
@@ -259,10 +186,10 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="comments" rowHeight="44" id="AYi-zu-p7T" customClass="ISTableViewCommentsCell">
-                                        <rect key="frame" x="0.0" y="302" width="1000" height="44"/>
+                                        <rect key="frame" x="0.0" y="302" width="343" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="AYi-zu-p7T" id="GKa-F8-DXs">
-                                            <rect key="frame" x="0.0" y="0.0" width="1000" height="43"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="343" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="dialog" translatesAutoresizingMaskIntoConstraints="NO" id="9BR-V1-j7r">
@@ -306,14 +233,14 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="infoAndSare" id="Rjp-QL-p2j" customClass="ISTableViewInfoAndSareCell">
-                                        <rect key="frame" x="0.0" y="346" width="1000" height="44"/>
+                                        <rect key="frame" x="0.0" y="346" width="343" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Rjp-QL-p2j" id="pjD-RE-T78">
-                                            <rect key="frame" x="0.0" y="0.0" width="1000" height="43"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="343" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3qU-Qa-afY">
-                                                    <rect key="frame" x="8" y="7" width="168" height="30"/>
+                                                    <rect key="frame" x="8" y="7" width="167.5" height="30"/>
                                                     <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="18"/>
                                                     <inset key="titleEdgeInsets" minX="20" minY="0.0" maxX="0.0" maxY="0.0"/>
                                                     <state key="normal" title=" Детали" image="info">
@@ -324,7 +251,7 @@
                                                     </connections>
                                                 </button>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xyn-jR-SJj">
-                                                    <rect key="frame" x="176" y="5" width="167" height="35"/>
+                                                    <rect key="frame" x="175.5" y="5" width="167.5" height="35"/>
                                                     <inset key="titleEdgeInsets" minX="20" minY="0.0" maxX="0.0" maxY="0.0"/>
                                                     <state key="normal" title="Поделится" image="share">
                                                         <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="0.51000000000000001" colorSpace="calibratedRGB"/>
@@ -521,7 +448,7 @@
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
-                                    <segue destination="U02-bc-dgv" kind="show" id="OMO-GQ-oRf"/>
+                                    <segue destination="4e0-ZB-m3O" kind="show" id="O2m-ho-cW0"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1y3-O2-zc1">
@@ -640,7 +567,7 @@
                                 </state>
                             </button>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="hqJ-BZ-xIR">
-                                <rect key="frame" x="0.0" y="106" width="375" height="561"/>
+                                <rect key="frame" x="0.0" y="106" width="375" height="512"/>
                                 <color key="backgroundColor" cocoaTouchSystemColor="tableCellGroupedBackgroundColor"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="dOI-QN-VdE">
                                     <size key="itemSize" width="156" height="148"/>
@@ -765,6 +692,114 @@
             </objects>
             <point key="canvasLocation" x="60" y="581"/>
         </scene>
+        <!--Sign UpVC-->
+        <scene sceneID="QOc-1b-69B">
+            <objects>
+                <viewController id="4e0-ZB-m3O" customClass="SignUpVC" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="0ml-y4-7NY"/>
+                        <viewControllerLayoutGuide type="bottom" id="1Sk-jD-OrI"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="dGy-SN-opM">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="image-bg-2" translatesAutoresizingMaskIntoConstraints="NO" id="4Hy-CQ-X4u">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                            </imageView>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Имя пользователя или емайл" textAlignment="center" minimumFontSize="18" background="Rectangle 18" translatesAutoresizingMaskIntoConstraints="NO" id="dr6-g5-rzX">
+                                <rect key="frame" x="23" y="138" width="331" height="75"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="331" id="LrW-Co-LMC"/>
+                                    <constraint firstAttribute="height" constant="75" id="e4e-Of-vh5"/>
+                                </constraints>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" name="PingFangTC-Light" family="PingFang TC" pointSize="18"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="words" keyboardType="emailAddress" keyboardAppearance="alert"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="keyPath" value="YES"/>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="_placeholderLabel.textColor">
+                                        <color key="value" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="actionTextField:" destination="4e0-ZB-m3O" eventType="editingDidEnd" id="G8i-8K-E29"/>
+                                    <outlet property="delegate" destination="4e0-ZB-m3O" id="sfu-Cy-M5q"/>
+                                </connections>
+                            </textField>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="label-SignUp" translatesAutoresizingMaskIntoConstraints="NO" id="jVe-vT-Fco">
+                                <rect key="frame" x="18" y="62" width="340" height="33"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="340" id="o74-FN-wvz"/>
+                                    <constraint firstAttribute="height" constant="33" id="oj9-SI-CJR"/>
+                                </constraints>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cbg-f4-gIE">
+                                <rect key="frame" x="43" y="553" width="288" height="54"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="288" id="43z-tF-214"/>
+                                    <constraint firstAttribute="height" constant="54" id="BMv-8e-1XA"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="PingFangTC-Thin" family="PingFang TC" pointSize="18"/>
+                                <state key="normal" title="У меня уже есть аккаунт">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="nmV-Vn-dJr" kind="show" id="Drj-ii-M83"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleAspectFit" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ceg-0b-Fz5">
+                                <rect key="frame" x="25" y="333" width="331" height="75"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="360" id="HAU-PJ-oC7"/>
+                                    <constraint firstAttribute="height" constant="75" id="h0O-qa-zKH"/>
+                                </constraints>
+                                <state key="normal" image="button-SignUp"/>
+                            </button>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Пароль" textAlignment="center" minimumFontSize="18" background="Rectangle 18" translatesAutoresizingMaskIntoConstraints="NO" id="bIj-45-MLA">
+                                <rect key="frame" x="22" y="238" width="331" height="75"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="75" id="mTv-NC-aVY"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="331" id="x0M-T2-eTU"/>
+                                </constraints>
+                                <color key="textColor" name="alternateSelectedControlTextColor" catalog="System" colorSpace="catalog"/>
+                                <fontDescription key="fontDescription" name="PingFangTC-Light" family="PingFang TC" pointSize="18"/>
+                                <textInputTraits key="textInputTraits" keyboardType="alphabet" keyboardAppearance="alert" secureTextEntry="YES"/>
+                                <connections>
+                                    <action selector="actionTextField:" destination="4e0-ZB-m3O" eventType="editingDidEnd" id="MqH-DR-gyp"/>
+                                    <outlet property="delegate" destination="4e0-ZB-m3O" id="XWf-jA-reM"/>
+                                </connections>
+                            </textField>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="jVe-vT-Fco" firstAttribute="centerX" secondItem="dGy-SN-opM" secondAttribute="centerX" id="9yT-jG-RDf"/>
+                            <constraint firstItem="Ceg-0b-Fz5" firstAttribute="top" secondItem="bIj-45-MLA" secondAttribute="bottom" constant="21" id="DeF-lE-f9G"/>
+                            <constraint firstItem="bIj-45-MLA" firstAttribute="top" secondItem="dr6-g5-rzX" secondAttribute="bottom" constant="21" id="FeX-re-CjG"/>
+                            <constraint firstItem="Ceg-0b-Fz5" firstAttribute="centerX" secondItem="dGy-SN-opM" secondAttribute="centerX" id="L7s-Bs-y8e"/>
+                            <constraint firstItem="dr6-g5-rzX" firstAttribute="centerX" secondItem="dGy-SN-opM" secondAttribute="centerX" id="OqJ-d3-veg"/>
+                            <constraint firstItem="1Sk-jD-OrI" firstAttribute="top" secondItem="4Hy-CQ-X4u" secondAttribute="bottom" id="T67-o9-GZl"/>
+                            <constraint firstItem="jVe-vT-Fco" firstAttribute="top" secondItem="0ml-y4-7NY" secondAttribute="bottom" constant="42" id="VfC-TF-meV"/>
+                            <constraint firstItem="1Sk-jD-OrI" firstAttribute="top" secondItem="cbg-f4-gIE" secondAttribute="bottom" constant="60" id="gOl-kr-sjU"/>
+                            <constraint firstItem="cbg-f4-gIE" firstAttribute="centerX" secondItem="dGy-SN-opM" secondAttribute="centerX" id="hZx-Vk-z5d"/>
+                            <constraint firstAttribute="trailing" secondItem="4Hy-CQ-X4u" secondAttribute="trailing" id="i8f-xL-A8T"/>
+                            <constraint firstItem="4Hy-CQ-X4u" firstAttribute="leading" secondItem="dGy-SN-opM" secondAttribute="leading" id="iXp-E4-W1l"/>
+                            <constraint firstItem="4Hy-CQ-X4u" firstAttribute="top" secondItem="dGy-SN-opM" secondAttribute="top" id="kPt-Vx-XOt"/>
+                            <constraint firstItem="dr6-g5-rzX" firstAttribute="top" secondItem="jVe-vT-Fco" secondAttribute="bottom" constant="47" id="nhp-Yv-hwK"/>
+                            <constraint firstItem="bIj-45-MLA" firstAttribute="centerX" secondItem="dGy-SN-opM" secondAttribute="centerX" id="x0b-FT-hbI"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="backButton" destination="cbg-f4-gIE" id="4hM-2U-xNq"/>
+                        <outlet property="loginField1" destination="dr6-g5-rzX" id="jFv-Mm-OFA"/>
+                        <outlet property="passwordField1" destination="bIj-45-MLA" id="vLx-sZ-RYv"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Lm1-fq-MF8" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1439" y="-143"/>
+        </scene>
     </scenes>
     <resources>
         <image name="500px-logo" width="317" height="79"/>
@@ -774,7 +809,6 @@
         <image name="button-SignUp" width="331" height="75"/>
         <image name="dialog" width="32" height="32"/>
         <image name="home" width="30" height="30"/>
-        <image name="i_got_account" width="251" height="19"/>
         <image name="image-bg" width="375" height="667"/>
         <image name="image-bg-2" width="375" height="667"/>
         <image name="info" width="30" height="30"/>
