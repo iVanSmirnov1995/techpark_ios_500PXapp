@@ -11,8 +11,13 @@
 		CE34A9171DBE610C0039A4E0 /* PhotoCollectionVC.m in Sources */ = {isa = PBXBuildFile; fileRef = CE34A9161DBE610C0039A4E0 /* PhotoCollectionVC.m */; };
 		CE34A91A1DBE613D0039A4E0 /* PhotosCellModel.m in Sources */ = {isa = PBXBuildFile; fileRef = CE34A9191DBE613D0039A4E0 /* PhotosCellModel.m */; };
 		CE34A91D1DBE617B0039A4E0 /* CellPhotos.m in Sources */ = {isa = PBXBuildFile; fileRef = CE34A91C1DBE617B0039A4E0 /* CellPhotos.m */; };
+<<<<<<< HEAD
 =======
 >>>>>>> origin/master
+=======
+		CEECB01A1DD849CF00ECF2AA /* MyPageStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CEECB0191DD849CF00ECF2AA /* MyPageStoryboard.storyboard */; };
+		CEECB01D1DD85A6D00ECF2AA /* OSMyPageVC.m in Sources */ = {isa = PBXBuildFile; fileRef = CEECB01C1DD85A6D00ECF2AA /* OSMyPageVC.m */; };
+>>>>>>> origin/max-dev2
 		D349652E1DB4043E00813293 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D349652D1DB4043E00813293 /* main.m */; };
 		D34965311DB4043E00813293 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D34965301DB4043E00813293 /* AppDelegate.m */; };
 		D34965341DB4043E00813293 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D34965331DB4043E00813293 /* ViewController.m */; };
@@ -77,8 +82,14 @@
 		CE34A9191DBE613D0039A4E0 /* PhotosCellModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhotosCellModel.m; sourceTree = "<group>"; };
 		CE34A91B1DBE617B0039A4E0 /* CellPhotos.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CellPhotos.h; sourceTree = "<group>"; };
 		CE34A91C1DBE617B0039A4E0 /* CellPhotos.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CellPhotos.m; sourceTree = "<group>"; };
+<<<<<<< HEAD
 =======
 >>>>>>> origin/master
+=======
+		CEECB0191DD849CF00ECF2AA /* MyPageStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MyPageStoryboard.storyboard; sourceTree = "<group>"; };
+		CEECB01B1DD85A6D00ECF2AA /* OSMyPageVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OSMyPageVC.h; sourceTree = "<group>"; };
+		CEECB01C1DD85A6D00ECF2AA /* OSMyPageVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OSMyPageVC.m; sourceTree = "<group>"; };
+>>>>>>> origin/max-dev2
 		D34965291DB4043E00813293 /* 500PXapp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = 500PXapp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D349652D1DB4043E00813293 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		D349652F1DB4043E00813293 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -162,6 +173,61 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		CEECB0111DD848D400ECF2AA /* Photos */ = {
+			isa = PBXGroup;
+			children = (
+				CE34A9151DBE610C0039A4E0 /* PhotoCollectionVC.h */,
+				CE34A9161DBE610C0039A4E0 /* PhotoCollectionVC.m */,
+				CE34A91B1DBE617B0039A4E0 /* CellPhotos.h */,
+				CE34A91C1DBE617B0039A4E0 /* CellPhotos.m */,
+			);
+			name = Photos;
+			sourceTree = "<group>";
+		};
+		CEECB0121DD848E100ECF2AA /* MyPage */ = {
+			isa = PBXGroup;
+			children = (
+				CEECB0111DD848D400ECF2AA /* Photos */,
+				CEECB01B1DD85A6D00ECF2AA /* OSMyPageVC.h */,
+				CEECB01C1DD85A6D00ECF2AA /* OSMyPageVC.m */,
+			);
+			name = MyPage;
+			sourceTree = "<group>";
+		};
+		CEECB0151DD8492F00ECF2AA /* Photos */ = {
+			isa = PBXGroup;
+			children = (
+				CE34A9181DBE613D0039A4E0 /* PhotosCellModel.h */,
+				CE34A9191DBE613D0039A4E0 /* PhotosCellModel.m */,
+			);
+			name = Photos;
+			sourceTree = "<group>";
+		};
+		CEECB0161DD8493B00ECF2AA /* MyPage */ = {
+			isa = PBXGroup;
+			children = (
+				CEECB0151DD8492F00ECF2AA /* Photos */,
+			);
+			name = MyPage;
+			sourceTree = "<group>";
+		};
+		CEECB0171DD8499600ECF2AA /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				CEECB0181DD849A700ECF2AA /* MyPage */,
+				D34965351DB4043E00813293 /* Main.storyboard */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		CEECB0181DD849A700ECF2AA /* MyPage */ = {
+			isa = PBXGroup;
+			children = (
+				CEECB0191DD849CF00ECF2AA /* MyPageStoryboard.storyboard */,
+			);
+			name = MyPage;
+			sourceTree = "<group>";
+		};
 		D34965201DB4043E00813293 = {
 			isa = PBXGroup;
 			children = (
@@ -197,7 +263,7 @@
 				D34965301DB4043E00813293 /* AppDelegate.m */,
 				D34965321DB4043E00813293 /* ViewController.h */,
 				D34965331DB4043E00813293 /* ViewController.m */,
-				D34965351DB4043E00813293 /* Main.storyboard */,
+				CEECB0171DD8499600ECF2AA /* Views */,
 				D349653B1DB4043E00813293 /* Assets.xcassets */,
 				D349653D1DB4043E00813293 /* LaunchScreen.storyboard */,
 				D34965401DB4043E00813293 /* Info.plist */,
@@ -258,15 +324,12 @@
 		D3FB18D61DB61AD400E44235 /* viewControlers */ = {
 			isa = PBXGroup;
 			children = (
+				CEECB0121DD848E100ECF2AA /* MyPage */,
 				D3FB18D71DB61B2900E44235 /* ISHomeVC.h */,
 				D3FB18D81DB61B2900E44235 /* ISHomeVC.m */,
 				F5B00B681DB9048B00A534D4 /* IsSearchVC.h */,
 				F5B00B691DB9048B00A534D4 /* IsSearchVC.m */,
 				D3888B741DB6A0960038B42C /* test */,
-				CE34A9151DBE610C0039A4E0 /* PhotoCollectionVC.h */,
-				CE34A9161DBE610C0039A4E0 /* PhotoCollectionVC.m */,
-				CE34A91B1DBE617B0039A4E0 /* CellPhotos.h */,
-				CE34A91C1DBE617B0039A4E0 /* CellPhotos.m */,
 			);
 			name = viewControlers;
 			sourceTree = "<group>";
@@ -274,10 +337,9 @@
 		D3FB18DD1DB6210100E44235 /* models */ = {
 			isa = PBXGroup;
 			children = (
+				CEECB0161DD8493B00ECF2AA /* MyPage */,
 				D3FB18DA1DB620FA00E44235 /* ISNewsFeedModel.h */,
 				D3FB18DB1DB620FA00E44235 /* ISNewsFeedModel.m */,
-				CE34A9181DBE613D0039A4E0 /* PhotosCellModel.h */,
-				CE34A9191DBE613D0039A4E0 /* PhotosCellModel.m */,
 				F5323DAC1DBFFEC00061C52E /* ISSearchModel.h */,
 				F5323DAD1DBFFEC00061C52E /* ISSearchModel.m */,
 			);
@@ -384,7 +446,7 @@
 		D34965211DB4043E00813293 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0800;
+				LastUpgradeCheck = 0810;
 				ORGANIZATIONNAME = techpark_ios;
 				TargetAttributes = {
 					D34965281DB4043E00813293 = {
@@ -428,6 +490,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CEECB01A1DD849CF00ECF2AA /* MyPageStoryboard.storyboard in Resources */,
 				D349653F1DB4043E00813293 /* LaunchScreen.storyboard in Resources */,
 				D349653C1DB4043E00813293 /* Assets.xcassets in Resources */,
 <<<<<<< HEAD
@@ -480,6 +543,7 @@
 				CE34A91A1DBE613D0039A4E0 /* PhotosCellModel.m in Sources */,
 				F5323DAE1DBFFEC00061C52E /* ISSearchModel.m in Sources */,
 				CE34A91D1DBE617B0039A4E0 /* CellPhotos.m in Sources */,
+				CEECB01D1DD85A6D00ECF2AA /* OSMyPageVC.m in Sources */,
 				D34965341DB4043E00813293 /* ViewController.m in Sources */,
 				D349653A1DB4043E00813293 /* _00PXapp.xcdatamodeld in Sources */,
 				D3FB18E11DB63A5200E44235 /* ISTableViewImageCell.m in Sources */,
@@ -570,6 +634,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_SUSPICIOUS_MOVES = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -617,6 +682,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_SUSPICIOUS_MOVES = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;

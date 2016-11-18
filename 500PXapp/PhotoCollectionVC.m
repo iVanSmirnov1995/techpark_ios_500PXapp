@@ -29,9 +29,10 @@ static NSString * const reuseIdentifier = @"Cell";
     photos = [NSMutableArray new];
     
     for (int i = 0; i<100; i++) {
-        PhotosCellModel *photo = [PhotosCellModel new];
-        photo.imgPhoto = [UIImage imageNamed: @"1.jpg"];
-        [photos addObject:photo];
+        //        PhotosCellModel *photo = [PhotosCellModel new];
+        //        photo.imgPhoto = [UIImage imageNamed: @"1.jpg"];
+        //        [photos addObject:photo];
+        [photos addObject:[UIImage imageNamed: @"1.jpg"]];
     }
     
     // Do any additional setup after loading the view.
@@ -69,12 +70,14 @@ static NSString * const reuseIdentifier = @"Cell";
     CellPhotos *cell = [collectionView dequeueReusableCellWithReuseIdentifier:reuseIdentifier forIndexPath:indexPath];
     
     NSInteger row = indexPath.row;
-//    PhotosCellModel *item = photos[row];
-    PhotosCellModel *item = [photos objectAtIndex:1];
+    PhotosCellModel *item = [PhotosCellModel new];
+    item.imgPhoto = photos[row];
+    //    UIImage *item = [photos objectAtIndex: row];
     NSLog(@"----------------------------------%li", (long)row);
-    cell.img.image = item.imgPhoto;
+    [cell fillCellWithModel: item];
     cell.backgroundColor = [UIColor blackColor];
     NSLog(@"----------------------------------");
+
     
     return cell;
 }

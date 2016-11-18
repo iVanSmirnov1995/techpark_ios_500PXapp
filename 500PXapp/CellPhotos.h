@@ -7,11 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "PhotosCellModel.h"
 
 @interface CellPhotos : UICollectionViewCell {
     
 }
 
 @property (nonatomic, strong) IBOutlet UIImageView *img;
+
+- (void)fillCellWithModel:(PhotosCellModel *)model;
 
 @end
