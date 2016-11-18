@@ -8,13 +8,24 @@
 
 #import <UIKit/UIKit.h>
 
+<<<<<<< HEAD
 @interface IsSearchVC : UIViewController
+=======
+@interface IsSearchVC : UIViewController <UITextFieldDelegate>
+>>>>>>> fb8c30de1a0731aed17dac0bb1540e195168ee12
 
 
 @property (weak, nonatomic) IBOutlet UITextField *searchField;
 
+<<<<<<< HEAD
 
 
+=======
+- (IBAction)actionTextField:(UITextField *)sender ;
+
+
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *appearConstrain;
+>>>>>>> fb8c30de1a0731aed17dac0bb1540e195168ee12
 
 
 

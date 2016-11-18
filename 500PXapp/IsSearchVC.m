@@ -29,11 +29,33 @@
 }
 
 
+<<<<<<< HEAD
+=======
+-(void)tabBegin:(UITapGestureRecognizer*)pan{
+    
+     [self.searchField resignFirstResponder];
+    self.appearConstrain.priority = 900;
+    [UIView animateWithDuration:0.5f delay:0 options:UIViewAnimationOptionCurveEaseOut animations:^{
+        
+        [self.view layoutIfNeeded];
+        
+        
+    } completion:nil];
+    
+    
+}
+
+>>>>>>> fb8c30de1a0731aed17dac0bb1540e195168ee12
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
+<<<<<<< HEAD
+=======
+    UITapGestureRecognizer* pan=[[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(tabBegin:)];
+    [self.collection addGestureRecognizer:pan];
+>>>>>>> fb8c30de1a0731aed17dac0bb1540e195168ee12
     
     
     self.searchField.textAlignment = NSTextAlignmentCenter;
@@ -123,6 +145,25 @@
     
 }
 
+<<<<<<< HEAD
+=======
+- (IBAction)actionTextField:(UITextField *)sender {
+   
+    self.appearConstrain.priority = 750;
+    [UIView animateWithDuration:0.2f delay:0 options:UIViewAnimationOptionCurveEaseOut animations:^{
+        
+        [self.view layoutIfNeeded];
+        
+        
+    } completion:nil];
+    
+    
+}
+
+
+
+
+>>>>>>> fb8c30de1a0731aed17dac0bb1540e195168ee12
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
@@ -144,6 +185,10 @@
  }
  */
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> fb8c30de1a0731aed17dac0bb1540e195168ee12
 #pragma mark-UICollectionViewDataSource
 
 
@@ -207,6 +252,9 @@
 
 
 
+<<<<<<< HEAD
 - (IBAction)actionSegmentedControl:(id)sender {
 }
+=======
+>>>>>>> fb8c30de1a0731aed17dac0bb1540e195168ee12
 @end

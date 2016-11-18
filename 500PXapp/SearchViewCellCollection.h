@@ -13,4 +13,8 @@
 @property (strong, nonatomic) IBOutlet UIImageView *img;
 @property (strong, nonatomic) IBOutlet UILabel *label;
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> fb8c30de1a0731aed17dac0bb1540e195168ee12
 @end

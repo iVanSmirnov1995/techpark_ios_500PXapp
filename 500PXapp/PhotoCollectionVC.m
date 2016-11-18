@@ -29,10 +29,16 @@ static NSString * const reuseIdentifier = @"Cell";
     photos = [NSMutableArray new];
     
     for (int i = 0; i<100; i++) {
+<<<<<<< HEAD
         //        PhotosCellModel *photo = [PhotosCellModel new];
         //        photo.imgPhoto = [UIImage imageNamed: @"1.jpg"];
         //        [photos addObject:photo];
         [photos addObject:[UIImage imageNamed: @"1.jpg"]];
+=======
+        PhotosCellModel *photo = [PhotosCellModel new];
+        photo.imgPhoto = [UIImage imageNamed: @"1.jpg"];
+        [photos addObject:photo];
+>>>>>>> fb8c30de1a0731aed17dac0bb1540e195168ee12
     }
     
     // Do any additional setup after loading the view.
@@ -70,6 +76,7 @@ static NSString * const reuseIdentifier = @"Cell";
     CellPhotos *cell = [collectionView dequeueReusableCellWithReuseIdentifier:reuseIdentifier forIndexPath:indexPath];
     
     NSInteger row = indexPath.row;
+<<<<<<< HEAD
     PhotosCellModel *item = [PhotosCellModel new];
     item.imgPhoto = photos[row];
     //    UIImage *item = [photos objectAtIndex: row];
@@ -78,6 +85,14 @@ static NSString * const reuseIdentifier = @"Cell";
     cell.backgroundColor = [UIColor blackColor];
     NSLog(@"----------------------------------");
 
+=======
+//    PhotosCellModel *item = photos[row];
+    PhotosCellModel *item = [photos objectAtIndex:1];
+    NSLog(@"----------------------------------%li", (long)row);
+    cell.img.image = item.imgPhoto;
+    cell.backgroundColor = [UIColor blackColor];
+    NSLog(@"----------------------------------");
+>>>>>>> fb8c30de1a0731aed17dac0bb1540e195168ee12
     
     return cell;
 }

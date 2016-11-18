@@ -6,6 +6,10 @@
 //  Copyright © 2016 techpark_ios. All rights reserved.
 //
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> fb8c30de1a0731aed17dac0bb1540e195168ee12
 #import "ISHomeVC.h"
 #import "ISNewsFeedModel.h"
 
@@ -46,10 +50,18 @@ typedef enum {
         
         ISNewsFeedModel* model=[[ISNewsFeedModel alloc]init];
         model.userName=@"Ivan Smirnov";
+<<<<<<< HEAD
         model.image=[UIImage imageNamed:@"1.jpg"];
         model.userImage=[UIImage imageNamed:@"2.jpg"];
         model.data=@"18 октября";
         model.countLike=@"5";
+=======
+        model.imageName=@"1.jpg";
+        model.userImageName=@"2.jpg";
+        model.data=@"18 октября";
+        model.countLike=@"5";
+        model.lastComent=@"Крутая фотка";
+>>>>>>> fb8c30de1a0731aed17dac0bb1540e195168ee12
         [self.newsFeedArray addObject:model];
         
     }
@@ -93,14 +105,25 @@ typedef enum {
     if (indexPath.row==ISImageTupe) {
         identifier=@"image";
        ISTableViewImageCell* cell=[tableView dequeueReusableCellWithIdentifier:identifier forIndexPath:indexPath];
+<<<<<<< HEAD
         cell.myImageView.image=newsModel.image;
+=======
+        cell.myImageView.image=[UIImage imageNamed:newsModel.imageName];
+>>>>>>> fb8c30de1a0731aed17dac0bb1540e195168ee12
         return cell;
     }
     
     if (indexPath.row==ISInfoUserTupe) {
         identifier=@"infoUser";
         ISTableViewUserInfoCell* cell=[tableView dequeueReusableCellWithIdentifier:identifier forIndexPath:indexPath];
+<<<<<<< HEAD
         cell.userImage.image=newsModel.userImage;
+=======
+        [cell layoutIfNeeded];
+        cell.userImage.image=[UIImage imageNamed:newsModel.userImageName];
+        cell.userImage.layer.cornerRadius=CGRectGetWidth(cell.userImage.frame)/2.f;
+        cell.userImage.layer.masksToBounds=YES;
+>>>>>>> fb8c30de1a0731aed17dac0bb1540e195168ee12
         cell.userName.text=newsModel.userName;
         cell.data.text=newsModel.data;
         return cell;
@@ -117,6 +140,10 @@ typedef enum {
     if (indexPath.row==ISCommentsTupe) {
         identifier=@"comments";
         ISTableViewCommentsCell* cell=[tableView dequeueReusableCellWithIdentifier:identifier forIndexPath:indexPath];
+<<<<<<< HEAD
+=======
+        cell.lastMessage.text=newsModel.lastComent;
+>>>>>>> fb8c30de1a0731aed17dac0bb1540e195168ee12
         return cell;
     }
     

@@ -18,12 +18,19 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
 <<<<<<< HEAD
+<<<<<<< HEAD
     
     
  
     
 =======
 >>>>>>> origin/master
+=======
+    
+    
+    
+    
+>>>>>>> fb8c30de1a0731aed17dac0bb1540e195168ee12
     return YES;
 }
 
@@ -78,7 +85,7 @@
                      * The device is out of space.
                      * The store could not be migrated to the current model version.
                      Check the error message to determine what the actual problem was.
-                    */
+                     */
                     NSLog(@"Unresolved error %@, %@", error, error.userInfo);
                     abort();
                 }

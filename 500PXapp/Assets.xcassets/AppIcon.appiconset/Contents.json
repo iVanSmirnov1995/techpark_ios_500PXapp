@@ -3,6 +3,9 @@
     {
       "idiom" : "iphone",
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> fb8c30de1a0731aed17dac0bb1540e195168ee12
       "size" : "20x20",
       "scale" : "2x"
     },
@@ -13,8 +16,11 @@
     },
     {
       "idiom" : "iphone",
+<<<<<<< HEAD
 =======
 >>>>>>> origin/master
+=======
+>>>>>>> fb8c30de1a0731aed17dac0bb1540e195168ee12
       "size" : "29x29",
       "scale" : "2x"
     },

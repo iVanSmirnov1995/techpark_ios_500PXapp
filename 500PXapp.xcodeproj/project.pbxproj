@@ -28,6 +28,7 @@
 		D349654A1DB4043E00813293 /* _00PXappTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D34965491DB4043E00813293 /* _00PXappTests.m */; };
 		D34965551DB4043E00813293 /* _00PXappUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = D34965541DB4043E00813293 /* _00PXappUITests.m */; };
 <<<<<<< HEAD
+<<<<<<< HEAD
 		D3888B781DB6A0E20038B42C /* 2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = D3888B771DB6A0E20038B42C /* 2.jpg */; };
 		D3888B7A1DB6B92E0038B42C /* 1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = D3888B791DB6B92E0038B42C /* 1.jpg */; };
 		D3FB18D91DB61B2900E44235 /* ISHomeVC.m in Sources */ = {isa = PBXBuildFile; fileRef = D3FB18D81DB61B2900E44235 /* ISHomeVC.m */; };
@@ -55,6 +56,53 @@
 		F5BDD0691DC128F000665E7A /* travel.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F5BDD0631DC128F000665E7A /* travel.jpg */; };
 =======
 >>>>>>> origin/master
+=======
+		F5423C251DCB6982006FD69A /* ISNewsFeedModel.m in Sources */ = {isa = PBXBuildFile; fileRef = F5423C201DCB6982006FD69A /* ISNewsFeedModel.m */; };
+		F5423C261DCB6982006FD69A /* PhotosCellModel.m in Sources */ = {isa = PBXBuildFile; fileRef = F5423C221DCB6982006FD69A /* PhotosCellModel.m */; };
+		F5423C271DCB6982006FD69A /* ISSearchModel.m in Sources */ = {isa = PBXBuildFile; fileRef = F5423C241DCB6982006FD69A /* ISSearchModel.m */; };
+		F5423C2B1DCB69F3006FD69A /* IsSearchCollectionLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = F5423C2A1DCB69F3006FD69A /* IsSearchCollectionLayout.m */; };
+		F5423C361DCB6A5B006FD69A /* ISTableViewImageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F5423C2D1DCB6A5B006FD69A /* ISTableViewImageCell.m */; };
+		F5423C371DCB6A5B006FD69A /* ISTableViewUserInfoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F5423C2F1DCB6A5B006FD69A /* ISTableViewUserInfoCell.m */; };
+		F5423C381DCB6A5B006FD69A /* ISTableViewLikeCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F5423C311DCB6A5B006FD69A /* ISTableViewLikeCell.m */; };
+		F5423C391DCB6A5B006FD69A /* ISTableViewCommentsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F5423C331DCB6A5B006FD69A /* ISTableViewCommentsCell.m */; };
+		F5423C3A1DCB6A5B006FD69A /* ISTableViewInfoAndSareCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F5423C351DCB6A5B006FD69A /* ISTableViewInfoAndSareCell.m */; };
+		F5423C3E1DCB6AD9006FD69A /* SearchViewCellCollection.m in Sources */ = {isa = PBXBuildFile; fileRef = F5423C3D1DCB6AD9006FD69A /* SearchViewCellCollection.m */; };
+		F5423C461DCB6B17006FD69A /* SignUpVC.m in Sources */ = {isa = PBXBuildFile; fileRef = F5423C411DCB6B17006FD69A /* SignUpVC.m */; };
+		F5423C471DCB6B17006FD69A /* ISHomeVC.m in Sources */ = {isa = PBXBuildFile; fileRef = F5423C431DCB6B17006FD69A /* ISHomeVC.m */; };
+		F5423C481DCB6B17006FD69A /* IsSearchVC.m in Sources */ = {isa = PBXBuildFile; fileRef = F5423C451DCB6B17006FD69A /* IsSearchVC.m */; };
+		F5423C581DCB6B4F006FD69A /* animals.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F5423C4A1DCB6B4F006FD69A /* animals.jpg */; };
+		F5423C591DCB6B4F006FD69A /* art.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F5423C4B1DCB6B4F006FD69A /* art.jpg */; };
+		F5423C5A1DCB6B4F006FD69A /* blackWhite.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F5423C4C1DCB6B4F006FD69A /* blackWhite.jpg */; };
+		F5423C5B1DCB6B4F006FD69A /* food.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F5423C4D1DCB6B4F006FD69A /* food.jpg */; };
+		F5423C5C1DCB6B4F006FD69A /* present.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F5423C4E1DCB6B4F006FD69A /* present.jpg */; };
+		F5423C5D1DCB6B4F006FD69A /* sea.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F5423C4F1DCB6B4F006FD69A /* sea.jpg */; };
+		F5423C5E1DCB6B4F006FD69A /* travel.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F5423C501DCB6B4F006FD69A /* travel.jpg */; };
+		F5423C5F1DCB6B4F006FD69A /* choice.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F5423C511DCB6B4F006FD69A /* choice.jpg */; };
+		F5423C601DCB6B4F006FD69A /* interesting.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F5423C521DCB6B4F006FD69A /* interesting.jpg */; };
+		F5423C611DCB6B4F006FD69A /* nature.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F5423C531DCB6B4F006FD69A /* nature.jpg */; };
+		F5423C621DCB6B4F006FD69A /* new.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F5423C541DCB6B4F006FD69A /* new.jpg */; };
+		F5423C631DCB6B4F006FD69A /* popular.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F5423C551DCB6B4F006FD69A /* popular.jpg */; };
+		F5423C641DCB6B4F006FD69A /* 2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F5423C561DCB6B4F006FD69A /* 2.jpg */; };
+		F5423C651DCB6B4F006FD69A /* 1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F5423C571DCB6B4F006FD69A /* 1.jpg */; };
+		F5423C6A1DCB6B5C006FD69A /* PhotoCollectionVC.m in Sources */ = {isa = PBXBuildFile; fileRef = F5423C671DCB6B5C006FD69A /* PhotoCollectionVC.m */; };
+		F5423C6B1DCB6B5C006FD69A /* CellPhotos.m in Sources */ = {isa = PBXBuildFile; fileRef = F5423C691DCB6B5C006FD69A /* CellPhotos.m */; };
+		F5685C5F1DDF21CD0086D629 /* AFHTTPSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = F5685C3E1DDF21CD0086D629 /* AFHTTPSessionManager.m */; };
+		F5685C601DDF21CD0086D629 /* AFNetworkReachabilityManager.m in Sources */ = {isa = PBXBuildFile; fileRef = F5685C411DDF21CD0086D629 /* AFNetworkReachabilityManager.m */; };
+		F5685C611DDF21CD0086D629 /* AFSecurityPolicy.m in Sources */ = {isa = PBXBuildFile; fileRef = F5685C431DDF21CD0086D629 /* AFSecurityPolicy.m */; };
+		F5685C621DDF21CD0086D629 /* AFURLRequestSerialization.m in Sources */ = {isa = PBXBuildFile; fileRef = F5685C451DDF21CD0086D629 /* AFURLRequestSerialization.m */; };
+		F5685C631DDF21CD0086D629 /* AFURLResponseSerialization.m in Sources */ = {isa = PBXBuildFile; fileRef = F5685C471DDF21CD0086D629 /* AFURLResponseSerialization.m */; };
+		F5685C641DDF21CD0086D629 /* AFURLSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = F5685C491DDF21CD0086D629 /* AFURLSessionManager.m */; };
+		F5685C651DDF21CD0086D629 /* AFAutoPurgingImageCache.m in Sources */ = {isa = PBXBuildFile; fileRef = F5685C4C1DDF21CD0086D629 /* AFAutoPurgingImageCache.m */; };
+		F5685C661DDF21CD0086D629 /* AFImageDownloader.m in Sources */ = {isa = PBXBuildFile; fileRef = F5685C4E1DDF21CD0086D629 /* AFImageDownloader.m */; };
+		F5685C671DDF21CD0086D629 /* AFNetworkActivityIndicatorManager.m in Sources */ = {isa = PBXBuildFile; fileRef = F5685C501DDF21CD0086D629 /* AFNetworkActivityIndicatorManager.m */; };
+		F5685C681DDF21CD0086D629 /* UIActivityIndicatorView+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = F5685C521DDF21CD0086D629 /* UIActivityIndicatorView+AFNetworking.m */; };
+		F5685C691DDF21CD0086D629 /* UIButton+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = F5685C541DDF21CD0086D629 /* UIButton+AFNetworking.m */; };
+		F5685C6A1DDF21CD0086D629 /* UIImageView+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = F5685C571DDF21CD0086D629 /* UIImageView+AFNetworking.m */; };
+		F5685C6B1DDF21CD0086D629 /* UIProgressView+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = F5685C5A1DDF21CD0086D629 /* UIProgressView+AFNetworking.m */; };
+		F5685C6C1DDF21CD0086D629 /* UIRefreshControl+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = F5685C5C1DDF21CD0086D629 /* UIRefreshControl+AFNetworking.m */; };
+		F5685C6D1DDF21CD0086D629 /* UIWebView+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = F5685C5E1DDF21CD0086D629 /* UIWebView+AFNetworking.m */; };
+		F5685C711DDF32D40086D629 /* MSServerManager.m in Sources */ = {isa = PBXBuildFile; fileRef = F5685C701DDF32D40086D629 /* MSServerManager.m */; };
+>>>>>>> fb8c30de1a0731aed17dac0bb1540e195168ee12
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -108,6 +156,7 @@
 		D34965541DB4043E00813293 /* _00PXappUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = _00PXappUITests.m; sourceTree = "<group>"; };
 		D34965561DB4043E00813293 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 <<<<<<< HEAD
+<<<<<<< HEAD
 		D3888B771DB6A0E20038B42C /* 2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 2.jpg; sourceTree = "<group>"; };
 		D3888B791DB6B92E0038B42C /* 1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 1.jpg; sourceTree = "<group>"; };
 		D3FB18D71DB61B2900E44235 /* ISHomeVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ISHomeVC.h; sourceTree = "<group>"; };
@@ -146,6 +195,87 @@
 		F5BDD0631DC128F000665E7A /* travel.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = travel.jpg; sourceTree = "<group>"; };
 =======
 >>>>>>> origin/master
+=======
+		F5423C1F1DCB6982006FD69A /* ISNewsFeedModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ISNewsFeedModel.h; sourceTree = "<group>"; };
+		F5423C201DCB6982006FD69A /* ISNewsFeedModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ISNewsFeedModel.m; sourceTree = "<group>"; };
+		F5423C211DCB6982006FD69A /* PhotosCellModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhotosCellModel.h; sourceTree = "<group>"; };
+		F5423C221DCB6982006FD69A /* PhotosCellModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhotosCellModel.m; sourceTree = "<group>"; };
+		F5423C231DCB6982006FD69A /* ISSearchModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ISSearchModel.h; sourceTree = "<group>"; };
+		F5423C241DCB6982006FD69A /* ISSearchModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ISSearchModel.m; sourceTree = "<group>"; };
+		F5423C291DCB69F3006FD69A /* IsSearchCollectionLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IsSearchCollectionLayout.h; sourceTree = "<group>"; };
+		F5423C2A1DCB69F3006FD69A /* IsSearchCollectionLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IsSearchCollectionLayout.m; sourceTree = "<group>"; };
+		F5423C2C1DCB6A5B006FD69A /* ISTableViewImageCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ISTableViewImageCell.h; sourceTree = "<group>"; };
+		F5423C2D1DCB6A5B006FD69A /* ISTableViewImageCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ISTableViewImageCell.m; sourceTree = "<group>"; };
+		F5423C2E1DCB6A5B006FD69A /* ISTableViewUserInfoCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ISTableViewUserInfoCell.h; sourceTree = "<group>"; };
+		F5423C2F1DCB6A5B006FD69A /* ISTableViewUserInfoCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ISTableViewUserInfoCell.m; sourceTree = "<group>"; };
+		F5423C301DCB6A5B006FD69A /* ISTableViewLikeCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ISTableViewLikeCell.h; sourceTree = "<group>"; };
+		F5423C311DCB6A5B006FD69A /* ISTableViewLikeCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ISTableViewLikeCell.m; sourceTree = "<group>"; };
+		F5423C321DCB6A5B006FD69A /* ISTableViewCommentsCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ISTableViewCommentsCell.h; sourceTree = "<group>"; };
+		F5423C331DCB6A5B006FD69A /* ISTableViewCommentsCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ISTableViewCommentsCell.m; sourceTree = "<group>"; };
+		F5423C341DCB6A5B006FD69A /* ISTableViewInfoAndSareCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ISTableViewInfoAndSareCell.h; sourceTree = "<group>"; };
+		F5423C351DCB6A5B006FD69A /* ISTableViewInfoAndSareCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ISTableViewInfoAndSareCell.m; sourceTree = "<group>"; };
+		F5423C3C1DCB6AD9006FD69A /* SearchViewCellCollection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchViewCellCollection.h; sourceTree = "<group>"; };
+		F5423C3D1DCB6AD9006FD69A /* SearchViewCellCollection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchViewCellCollection.m; sourceTree = "<group>"; };
+		F5423C401DCB6B17006FD69A /* SignUpVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SignUpVC.h; sourceTree = "<group>"; };
+		F5423C411DCB6B17006FD69A /* SignUpVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SignUpVC.m; sourceTree = "<group>"; };
+		F5423C421DCB6B17006FD69A /* ISHomeVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ISHomeVC.h; sourceTree = "<group>"; };
+		F5423C431DCB6B17006FD69A /* ISHomeVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ISHomeVC.m; sourceTree = "<group>"; };
+		F5423C441DCB6B17006FD69A /* IsSearchVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IsSearchVC.h; sourceTree = "<group>"; };
+		F5423C451DCB6B17006FD69A /* IsSearchVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IsSearchVC.m; sourceTree = "<group>"; };
+		F5423C4A1DCB6B4F006FD69A /* animals.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = animals.jpg; sourceTree = "<group>"; };
+		F5423C4B1DCB6B4F006FD69A /* art.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = art.jpg; sourceTree = "<group>"; };
+		F5423C4C1DCB6B4F006FD69A /* blackWhite.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = blackWhite.jpg; sourceTree = "<group>"; };
+		F5423C4D1DCB6B4F006FD69A /* food.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = food.jpg; sourceTree = "<group>"; };
+		F5423C4E1DCB6B4F006FD69A /* present.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = present.jpg; sourceTree = "<group>"; };
+		F5423C4F1DCB6B4F006FD69A /* sea.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = sea.jpg; sourceTree = "<group>"; };
+		F5423C501DCB6B4F006FD69A /* travel.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = travel.jpg; sourceTree = "<group>"; };
+		F5423C511DCB6B4F006FD69A /* choice.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = choice.jpg; sourceTree = "<group>"; };
+		F5423C521DCB6B4F006FD69A /* interesting.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = interesting.jpg; sourceTree = "<group>"; };
+		F5423C531DCB6B4F006FD69A /* nature.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = nature.jpg; sourceTree = "<group>"; };
+		F5423C541DCB6B4F006FD69A /* new.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = new.jpg; sourceTree = "<group>"; };
+		F5423C551DCB6B4F006FD69A /* popular.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = popular.jpg; sourceTree = "<group>"; };
+		F5423C561DCB6B4F006FD69A /* 2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 2.jpg; sourceTree = "<group>"; };
+		F5423C571DCB6B4F006FD69A /* 1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 1.jpg; sourceTree = "<group>"; };
+		F5423C661DCB6B5C006FD69A /* PhotoCollectionVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhotoCollectionVC.h; sourceTree = "<group>"; };
+		F5423C671DCB6B5C006FD69A /* PhotoCollectionVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhotoCollectionVC.m; sourceTree = "<group>"; };
+		F5423C681DCB6B5C006FD69A /* CellPhotos.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CellPhotos.h; sourceTree = "<group>"; };
+		F5423C691DCB6B5C006FD69A /* CellPhotos.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CellPhotos.m; sourceTree = "<group>"; };
+		F5685C3D1DDF21CC0086D629 /* AFHTTPSessionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPSessionManager.h; sourceTree = "<group>"; };
+		F5685C3E1DDF21CD0086D629 /* AFHTTPSessionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFHTTPSessionManager.m; sourceTree = "<group>"; };
+		F5685C3F1DDF21CD0086D629 /* AFNetworking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFNetworking.h; sourceTree = "<group>"; };
+		F5685C401DDF21CD0086D629 /* AFNetworkReachabilityManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFNetworkReachabilityManager.h; sourceTree = "<group>"; };
+		F5685C411DDF21CD0086D629 /* AFNetworkReachabilityManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFNetworkReachabilityManager.m; sourceTree = "<group>"; };
+		F5685C421DDF21CD0086D629 /* AFSecurityPolicy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFSecurityPolicy.h; sourceTree = "<group>"; };
+		F5685C431DDF21CD0086D629 /* AFSecurityPolicy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFSecurityPolicy.m; sourceTree = "<group>"; };
+		F5685C441DDF21CD0086D629 /* AFURLRequestSerialization.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFURLRequestSerialization.h; sourceTree = "<group>"; };
+		F5685C451DDF21CD0086D629 /* AFURLRequestSerialization.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFURLRequestSerialization.m; sourceTree = "<group>"; };
+		F5685C461DDF21CD0086D629 /* AFURLResponseSerialization.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFURLResponseSerialization.h; sourceTree = "<group>"; };
+		F5685C471DDF21CD0086D629 /* AFURLResponseSerialization.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFURLResponseSerialization.m; sourceTree = "<group>"; };
+		F5685C481DDF21CD0086D629 /* AFURLSessionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFURLSessionManager.h; sourceTree = "<group>"; };
+		F5685C491DDF21CD0086D629 /* AFURLSessionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFURLSessionManager.m; sourceTree = "<group>"; };
+		F5685C4B1DDF21CD0086D629 /* AFAutoPurgingImageCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFAutoPurgingImageCache.h; sourceTree = "<group>"; };
+		F5685C4C1DDF21CD0086D629 /* AFAutoPurgingImageCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFAutoPurgingImageCache.m; sourceTree = "<group>"; };
+		F5685C4D1DDF21CD0086D629 /* AFImageDownloader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFImageDownloader.h; sourceTree = "<group>"; };
+		F5685C4E1DDF21CD0086D629 /* AFImageDownloader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFImageDownloader.m; sourceTree = "<group>"; };
+		F5685C4F1DDF21CD0086D629 /* AFNetworkActivityIndicatorManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFNetworkActivityIndicatorManager.h; sourceTree = "<group>"; };
+		F5685C501DDF21CD0086D629 /* AFNetworkActivityIndicatorManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFNetworkActivityIndicatorManager.m; sourceTree = "<group>"; };
+		F5685C511DDF21CD0086D629 /* UIActivityIndicatorView+AFNetworking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIActivityIndicatorView+AFNetworking.h"; sourceTree = "<group>"; };
+		F5685C521DDF21CD0086D629 /* UIActivityIndicatorView+AFNetworking.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIActivityIndicatorView+AFNetworking.m"; sourceTree = "<group>"; };
+		F5685C531DDF21CD0086D629 /* UIButton+AFNetworking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIButton+AFNetworking.h"; sourceTree = "<group>"; };
+		F5685C541DDF21CD0086D629 /* UIButton+AFNetworking.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIButton+AFNetworking.m"; sourceTree = "<group>"; };
+		F5685C551DDF21CD0086D629 /* UIImage+AFNetworking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+AFNetworking.h"; sourceTree = "<group>"; };
+		F5685C561DDF21CD0086D629 /* UIImageView+AFNetworking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImageView+AFNetworking.h"; sourceTree = "<group>"; };
+		F5685C571DDF21CD0086D629 /* UIImageView+AFNetworking.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+AFNetworking.m"; sourceTree = "<group>"; };
+		F5685C581DDF21CD0086D629 /* UIKit+AFNetworking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIKit+AFNetworking.h"; sourceTree = "<group>"; };
+		F5685C591DDF21CD0086D629 /* UIProgressView+AFNetworking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIProgressView+AFNetworking.h"; sourceTree = "<group>"; };
+		F5685C5A1DDF21CD0086D629 /* UIProgressView+AFNetworking.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIProgressView+AFNetworking.m"; sourceTree = "<group>"; };
+		F5685C5B1DDF21CD0086D629 /* UIRefreshControl+AFNetworking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIRefreshControl+AFNetworking.h"; sourceTree = "<group>"; };
+		F5685C5C1DDF21CD0086D629 /* UIRefreshControl+AFNetworking.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIRefreshControl+AFNetworking.m"; sourceTree = "<group>"; };
+		F5685C5D1DDF21CD0086D629 /* UIWebView+AFNetworking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIWebView+AFNetworking.h"; sourceTree = "<group>"; };
+		F5685C5E1DDF21CD0086D629 /* UIWebView+AFNetworking.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIWebView+AFNetworking.m"; sourceTree = "<group>"; };
+		F5685C6F1DDF32D40086D629 /* MSServerManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSServerManager.h; sourceTree = "<group>"; };
+		F5685C701DDF32D40086D629 /* MSServerManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSServerManager.m; sourceTree = "<group>"; };
+>>>>>>> fb8c30de1a0731aed17dac0bb1540e195168ee12
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -173,6 +303,7 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+<<<<<<< HEAD
 		CEECB0111DD848D400ECF2AA /* Photos */ = {
 			isa = PBXGroup;
 			children = (
@@ -190,19 +321,36 @@
 				CEECB0111DD848D400ECF2AA /* Photos */,
 				CEECB01B1DD85A6D00ECF2AA /* OSMyPageVC.h */,
 				CEECB01C1DD85A6D00ECF2AA /* OSMyPageVC.m */,
+=======
+		CEECB01E1DD884CB00ECF2AA /* MyPage */ = {
+			isa = PBXGroup;
+			children = (
+				CEECB01F1DD884DD00ECF2AA /* Photos */,
+>>>>>>> fb8c30de1a0731aed17dac0bb1540e195168ee12
 			);
 			name = MyPage;
 			sourceTree = "<group>";
 		};
+<<<<<<< HEAD
 		CEECB0151DD8492F00ECF2AA /* Photos */ = {
 			isa = PBXGroup;
 			children = (
 				CE34A9181DBE613D0039A4E0 /* PhotosCellModel.h */,
 				CE34A9191DBE613D0039A4E0 /* PhotosCellModel.m */,
+=======
+		CEECB01F1DD884DD00ECF2AA /* Photos */ = {
+			isa = PBXGroup;
+			children = (
+				F5423C661DCB6B5C006FD69A /* PhotoCollectionVC.h */,
+				F5423C671DCB6B5C006FD69A /* PhotoCollectionVC.m */,
+				F5423C681DCB6B5C006FD69A /* CellPhotos.h */,
+				F5423C691DCB6B5C006FD69A /* CellPhotos.m */,
+>>>>>>> fb8c30de1a0731aed17dac0bb1540e195168ee12
 			);
 			name = Photos;
 			sourceTree = "<group>";
 		};
+<<<<<<< HEAD
 		CEECB0161DD8493B00ECF2AA /* MyPage */ = {
 			isa = PBXGroup;
 			children = (
@@ -226,12 +374,22 @@
 				CEECB0191DD849CF00ECF2AA /* MyPageStoryboard.storyboard */,
 			);
 			name = MyPage;
+=======
+		CEECB0201DD884F200ECF2AA /* Photos */ = {
+			isa = PBXGroup;
+			children = (
+				F5423C211DCB6982006FD69A /* PhotosCellModel.h */,
+				F5423C221DCB6982006FD69A /* PhotosCellModel.m */,
+			);
+			name = Photos;
+>>>>>>> fb8c30de1a0731aed17dac0bb1540e195168ee12
 			sourceTree = "<group>";
 		};
 		D34965201DB4043E00813293 = {
 			isa = PBXGroup;
 			children = (
 				D349652B1DB4043E00813293 /* 500PXapp */,
+				F5685C3B1DDF21CC0086D629 /* Library */,
 				D34965481DB4043E00813293 /* 500PXappTests */,
 				D34965531DB4043E00813293 /* 500PXappUITests */,
 				D349652A1DB4043E00813293 /* Products */,
@@ -252,6 +410,7 @@
 			isa = PBXGroup;
 			children = (
 <<<<<<< HEAD
+<<<<<<< HEAD
 				F5BDD05A1DC0DD7400665E7A /* IsCollectionLayout */,
 				F5323DA81DBFFE5C0061C52E /* cellSearch */,
 				D3FB18D61DB61AD400E44235 /* viewControlers */,
@@ -259,6 +418,12 @@
 				D3FB18DE1DB639E900E44235 /* castomCellHomeVC */,
 =======
 >>>>>>> origin/master
+=======
+				F5423C3F1DCB6AE3006FD69A /* ViewControllers */,
+				F5423C3B1DCB6AB6006FD69A /* CellSearch */,
+				F5423C1D1DCB6915006FD69A /* IsCollectionLayout */,
+				F5423C1E1DCB695A006FD69A /* Models */,
+>>>>>>> fb8c30de1a0731aed17dac0bb1540e195168ee12
 				D349652F1DB4043E00813293 /* AppDelegate.h */,
 				D34965301DB4043E00813293 /* AppDelegate.m */,
 				D34965321DB4043E00813293 /* ViewController.h */,
@@ -299,6 +464,7 @@
 			path = 500PXappUITests;
 			sourceTree = "<group>";
 		};
+<<<<<<< HEAD
 <<<<<<< HEAD
 		D3888B741DB6A0960038B42C /* test */ = {
 			isa = PBXGroup;
@@ -384,6 +550,159 @@
 		};
 =======
 >>>>>>> origin/master
+=======
+		F5423C1D1DCB6915006FD69A /* IsCollectionLayout */ = {
+			isa = PBXGroup;
+			children = (
+				F5423C291DCB69F3006FD69A /* IsSearchCollectionLayout.h */,
+				F5423C2A1DCB69F3006FD69A /* IsSearchCollectionLayout.m */,
+				F5423C281DCB6994006FD69A /* CustomCellHomeVC */,
+			);
+			name = IsCollectionLayout;
+			sourceTree = "<group>";
+		};
+		F5423C1E1DCB695A006FD69A /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				F5685C6E1DDF32980086D629 /* MSServerManager */,
+				F5423C1F1DCB6982006FD69A /* ISNewsFeedModel.h */,
+				F5423C201DCB6982006FD69A /* ISNewsFeedModel.m */,
+				CEECB0201DD884F200ECF2AA /* Photos */,
+				F5423C231DCB6982006FD69A /* ISSearchModel.h */,
+				F5423C241DCB6982006FD69A /* ISSearchModel.m */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
+		F5423C281DCB6994006FD69A /* CustomCellHomeVC */ = {
+			isa = PBXGroup;
+			children = (
+				F5423C2C1DCB6A5B006FD69A /* ISTableViewImageCell.h */,
+				F5423C2D1DCB6A5B006FD69A /* ISTableViewImageCell.m */,
+				F5423C2E1DCB6A5B006FD69A /* ISTableViewUserInfoCell.h */,
+				F5423C2F1DCB6A5B006FD69A /* ISTableViewUserInfoCell.m */,
+				F5423C301DCB6A5B006FD69A /* ISTableViewLikeCell.h */,
+				F5423C311DCB6A5B006FD69A /* ISTableViewLikeCell.m */,
+				F5423C321DCB6A5B006FD69A /* ISTableViewCommentsCell.h */,
+				F5423C331DCB6A5B006FD69A /* ISTableViewCommentsCell.m */,
+				F5423C341DCB6A5B006FD69A /* ISTableViewInfoAndSareCell.h */,
+				F5423C351DCB6A5B006FD69A /* ISTableViewInfoAndSareCell.m */,
+			);
+			name = CustomCellHomeVC;
+			sourceTree = "<group>";
+		};
+		F5423C3B1DCB6AB6006FD69A /* CellSearch */ = {
+			isa = PBXGroup;
+			children = (
+				F5423C3C1DCB6AD9006FD69A /* SearchViewCellCollection.h */,
+				F5423C3D1DCB6AD9006FD69A /* SearchViewCellCollection.m */,
+			);
+			name = CellSearch;
+			sourceTree = "<group>";
+		};
+		F5423C3F1DCB6AE3006FD69A /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				CEECB01E1DD884CB00ECF2AA /* MyPage */,
+				F5423C491DCB6B39006FD69A /* test */,
+				F5423C401DCB6B17006FD69A /* SignUpVC.h */,
+				F5423C411DCB6B17006FD69A /* SignUpVC.m */,
+				F5423C421DCB6B17006FD69A /* ISHomeVC.h */,
+				F5423C431DCB6B17006FD69A /* ISHomeVC.m */,
+				F5423C441DCB6B17006FD69A /* IsSearchVC.h */,
+				F5423C451DCB6B17006FD69A /* IsSearchVC.m */,
+			);
+			name = ViewControllers;
+			sourceTree = "<group>";
+		};
+		F5423C491DCB6B39006FD69A /* test */ = {
+			isa = PBXGroup;
+			children = (
+				F5423C4A1DCB6B4F006FD69A /* animals.jpg */,
+				F5423C4B1DCB6B4F006FD69A /* art.jpg */,
+				F5423C4C1DCB6B4F006FD69A /* blackWhite.jpg */,
+				F5423C4D1DCB6B4F006FD69A /* food.jpg */,
+				F5423C4E1DCB6B4F006FD69A /* present.jpg */,
+				F5423C4F1DCB6B4F006FD69A /* sea.jpg */,
+				F5423C501DCB6B4F006FD69A /* travel.jpg */,
+				F5423C511DCB6B4F006FD69A /* choice.jpg */,
+				F5423C521DCB6B4F006FD69A /* interesting.jpg */,
+				F5423C531DCB6B4F006FD69A /* nature.jpg */,
+				F5423C541DCB6B4F006FD69A /* new.jpg */,
+				F5423C551DCB6B4F006FD69A /* popular.jpg */,
+				F5423C561DCB6B4F006FD69A /* 2.jpg */,
+				F5423C571DCB6B4F006FD69A /* 1.jpg */,
+			);
+			name = test;
+			sourceTree = "<group>";
+		};
+		F5685C3B1DDF21CC0086D629 /* Library */ = {
+			isa = PBXGroup;
+			children = (
+				F5685C3C1DDF21CC0086D629 /* AFNetworking */,
+				F5685C4A1DDF21CD0086D629 /* UIKit+AFNetworking */,
+			);
+			name = Library;
+			path = 500PXappTests/Library;
+			sourceTree = "<group>";
+		};
+		F5685C3C1DDF21CC0086D629 /* AFNetworking */ = {
+			isa = PBXGroup;
+			children = (
+				F5685C3D1DDF21CC0086D629 /* AFHTTPSessionManager.h */,
+				F5685C3E1DDF21CD0086D629 /* AFHTTPSessionManager.m */,
+				F5685C3F1DDF21CD0086D629 /* AFNetworking.h */,
+				F5685C401DDF21CD0086D629 /* AFNetworkReachabilityManager.h */,
+				F5685C411DDF21CD0086D629 /* AFNetworkReachabilityManager.m */,
+				F5685C421DDF21CD0086D629 /* AFSecurityPolicy.h */,
+				F5685C431DDF21CD0086D629 /* AFSecurityPolicy.m */,
+				F5685C441DDF21CD0086D629 /* AFURLRequestSerialization.h */,
+				F5685C451DDF21CD0086D629 /* AFURLRequestSerialization.m */,
+				F5685C461DDF21CD0086D629 /* AFURLResponseSerialization.h */,
+				F5685C471DDF21CD0086D629 /* AFURLResponseSerialization.m */,
+				F5685C481DDF21CD0086D629 /* AFURLSessionManager.h */,
+				F5685C491DDF21CD0086D629 /* AFURLSessionManager.m */,
+			);
+			path = AFNetworking;
+			sourceTree = "<group>";
+		};
+		F5685C4A1DDF21CD0086D629 /* UIKit+AFNetworking */ = {
+			isa = PBXGroup;
+			children = (
+				F5685C4B1DDF21CD0086D629 /* AFAutoPurgingImageCache.h */,
+				F5685C4C1DDF21CD0086D629 /* AFAutoPurgingImageCache.m */,
+				F5685C4D1DDF21CD0086D629 /* AFImageDownloader.h */,
+				F5685C4E1DDF21CD0086D629 /* AFImageDownloader.m */,
+				F5685C4F1DDF21CD0086D629 /* AFNetworkActivityIndicatorManager.h */,
+				F5685C501DDF21CD0086D629 /* AFNetworkActivityIndicatorManager.m */,
+				F5685C511DDF21CD0086D629 /* UIActivityIndicatorView+AFNetworking.h */,
+				F5685C521DDF21CD0086D629 /* UIActivityIndicatorView+AFNetworking.m */,
+				F5685C531DDF21CD0086D629 /* UIButton+AFNetworking.h */,
+				F5685C541DDF21CD0086D629 /* UIButton+AFNetworking.m */,
+				F5685C551DDF21CD0086D629 /* UIImage+AFNetworking.h */,
+				F5685C561DDF21CD0086D629 /* UIImageView+AFNetworking.h */,
+				F5685C571DDF21CD0086D629 /* UIImageView+AFNetworking.m */,
+				F5685C581DDF21CD0086D629 /* UIKit+AFNetworking.h */,
+				F5685C591DDF21CD0086D629 /* UIProgressView+AFNetworking.h */,
+				F5685C5A1DDF21CD0086D629 /* UIProgressView+AFNetworking.m */,
+				F5685C5B1DDF21CD0086D629 /* UIRefreshControl+AFNetworking.h */,
+				F5685C5C1DDF21CD0086D629 /* UIRefreshControl+AFNetworking.m */,
+				F5685C5D1DDF21CD0086D629 /* UIWebView+AFNetworking.h */,
+				F5685C5E1DDF21CD0086D629 /* UIWebView+AFNetworking.m */,
+			);
+			path = "UIKit+AFNetworking";
+			sourceTree = "<group>";
+		};
+		F5685C6E1DDF32980086D629 /* MSServerManager */ = {
+			isa = PBXGroup;
+			children = (
+				F5685C6F1DDF32D40086D629 /* MSServerManager.h */,
+				F5685C701DDF32D40086D629 /* MSServerManager.m */,
+			);
+			name = MSServerManager;
+			sourceTree = "<group>";
+		};
+>>>>>>> fb8c30de1a0731aed17dac0bb1540e195168ee12
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -490,9 +809,15 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+<<<<<<< HEAD
 				CEECB01A1DD849CF00ECF2AA /* MyPageStoryboard.storyboard in Resources */,
+=======
+				F5423C5D1DCB6B4F006FD69A /* sea.jpg in Resources */,
+>>>>>>> fb8c30de1a0731aed17dac0bb1540e195168ee12
 				D349653F1DB4043E00813293 /* LaunchScreen.storyboard in Resources */,
+				F5423C601DCB6B4F006FD69A /* interesting.jpg in Resources */,
 				D349653C1DB4043E00813293 /* Assets.xcassets in Resources */,
+<<<<<<< HEAD
 <<<<<<< HEAD
 				D3888B781DB6A0E20038B42C /* 2.jpg in Resources */,
 				F5BDD0651DC128F000665E7A /* blackWhite.jpg in Resources */,
@@ -512,6 +837,21 @@
 =======
 				D34965371DB4043E00813293 /* Main.storyboard in Resources */,
 >>>>>>> origin/master
+=======
+				F5423C651DCB6B4F006FD69A /* 1.jpg in Resources */,
+				D34965371DB4043E00813293 /* Main.storyboard in Resources */,
+				F5423C5C1DCB6B4F006FD69A /* present.jpg in Resources */,
+				F5423C641DCB6B4F006FD69A /* 2.jpg in Resources */,
+				F5423C5F1DCB6B4F006FD69A /* choice.jpg in Resources */,
+				F5423C5A1DCB6B4F006FD69A /* blackWhite.jpg in Resources */,
+				F5423C621DCB6B4F006FD69A /* new.jpg in Resources */,
+				F5423C5B1DCB6B4F006FD69A /* food.jpg in Resources */,
+				F5423C631DCB6B4F006FD69A /* popular.jpg in Resources */,
+				F5423C5E1DCB6B4F006FD69A /* travel.jpg in Resources */,
+				F5423C611DCB6B4F006FD69A /* nature.jpg in Resources */,
+				F5423C581DCB6B4F006FD69A /* animals.jpg in Resources */,
+				F5423C591DCB6B4F006FD69A /* art.jpg in Resources */,
+>>>>>>> fb8c30de1a0731aed17dac0bb1540e195168ee12
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -537,6 +877,7 @@
 			buildActionMask = 2147483647;
 			files = (
 <<<<<<< HEAD
+<<<<<<< HEAD
 				D3FB18E71DB63B0B00E44235 /* ISTableViewLikeCell.m in Sources */,
 				D3FB18EA1DB63B3600E44235 /* ISTableViewCommentsCell.m in Sources */,
 				F5323DAB1DBFFE880061C52E /* SearchViewCellCollection.m in Sources */,
@@ -557,11 +898,32 @@
 				D349652E1DB4043E00813293 /* main.m in Sources */,
 				F5BDD05D1DC0DDAB00665E7A /* IsSearchCollectionLayout.m in Sources */,
 =======
+=======
+				F5423C381DCB6A5B006FD69A /* ISTableViewLikeCell.m in Sources */,
+				F5423C391DCB6A5B006FD69A /* ISTableViewCommentsCell.m in Sources */,
+>>>>>>> fb8c30de1a0731aed17dac0bb1540e195168ee12
 				D34965341DB4043E00813293 /* ViewController.m in Sources */,
+				F5423C6A1DCB6B5C006FD69A /* PhotoCollectionVC.m in Sources */,
+				F5423C471DCB6B17006FD69A /* ISHomeVC.m in Sources */,
+				F5423C2B1DCB69F3006FD69A /* IsSearchCollectionLayout.m in Sources */,
 				D349653A1DB4043E00813293 /* _00PXapp.xcdatamodeld in Sources */,
+				F5423C271DCB6982006FD69A /* ISSearchModel.m in Sources */,
+				F5423C3A1DCB6A5B006FD69A /* ISTableViewInfoAndSareCell.m in Sources */,
+				F5423C371DCB6A5B006FD69A /* ISTableViewUserInfoCell.m in Sources */,
+				F5423C6B1DCB6B5C006FD69A /* CellPhotos.m in Sources */,
+				F5423C251DCB6982006FD69A /* ISNewsFeedModel.m in Sources */,
 				D34965311DB4043E00813293 /* AppDelegate.m in Sources */,
+				F5423C3E1DCB6AD9006FD69A /* SearchViewCellCollection.m in Sources */,
+				F5423C481DCB6B17006FD69A /* IsSearchVC.m in Sources */,
+				F5423C261DCB6982006FD69A /* PhotosCellModel.m in Sources */,
+				F5423C461DCB6B17006FD69A /* SignUpVC.m in Sources */,
 				D349652E1DB4043E00813293 /* main.m in Sources */,
+<<<<<<< HEAD
 >>>>>>> origin/master
+=======
+				F5685C711DDF32D40086D629 /* MSServerManager.m in Sources */,
+				F5423C361DCB6A5B006FD69A /* ISTableViewImageCell.m in Sources */,
+>>>>>>> fb8c30de1a0731aed17dac0bb1540e195168ee12
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -569,7 +931,22 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F5685C6B1DDF21CD0086D629 /* UIProgressView+AFNetworking.m in Sources */,
+				F5685C611DDF21CD0086D629 /* AFSecurityPolicy.m in Sources */,
+				F5685C6C1DDF21CD0086D629 /* UIRefreshControl+AFNetworking.m in Sources */,
+				F5685C6A1DDF21CD0086D629 /* UIImageView+AFNetworking.m in Sources */,
+				F5685C6D1DDF21CD0086D629 /* UIWebView+AFNetworking.m in Sources */,
 				D349654A1DB4043E00813293 /* _00PXappTests.m in Sources */,
+				F5685C691DDF21CD0086D629 /* UIButton+AFNetworking.m in Sources */,
+				F5685C661DDF21CD0086D629 /* AFImageDownloader.m in Sources */,
+				F5685C681DDF21CD0086D629 /* UIActivityIndicatorView+AFNetworking.m in Sources */,
+				F5685C621DDF21CD0086D629 /* AFURLRequestSerialization.m in Sources */,
+				F5685C671DDF21CD0086D629 /* AFNetworkActivityIndicatorManager.m in Sources */,
+				F5685C641DDF21CD0086D629 /* AFURLSessionManager.m in Sources */,
+				F5685C601DDF21CD0086D629 /* AFNetworkReachabilityManager.m in Sources */,
+				F5685C631DDF21CD0086D629 /* AFURLResponseSerialization.m in Sources */,
+				F5685C5F1DDF21CD0086D629 /* AFHTTPSessionManager.m in Sources */,
+				F5685C651DDF21CD0086D629 /* AFAutoPurgingImageCache.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

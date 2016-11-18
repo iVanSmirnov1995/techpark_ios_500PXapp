@@ -27,16 +27,28 @@
 @implementation ViewController
 >>>>>>> origin/master
 
+-(UIStatusBarStyle) preferredStatusBarStyle {
+    
+    return  UIStatusBarStyleLightContent;
+}
+
+
+
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
     
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> fb8c30de1a0731aed17dac0bb1540e195168ee12
     [self.loginField setFrame:CGRectMake(20, 331, 331, 75)];
     
     self.loginField.textAlignment = NSTextAlignmentCenter;
     UIColor *logincolor = [UIColor whiteColor];
     self.loginField.attributedPlaceholder =
+<<<<<<< HEAD
     [[NSAttributedString alloc] initWithString:@"Имя пользователя или емайл"
                                     attributes:@{
                                                  NSForegroundColorAttributeName: logincolor,
@@ -44,6 +56,18 @@
                                                  }
      ];
     
+=======
+    [[NSMutableAttributedString alloc] initWithString:@"Имя пользователя или емайл"
+                                    attributes:@{
+                                                 NSForegroundColorAttributeName: logincolor,
+                                                 NSFontAttributeName : [UIFont fontWithName:@"PingFang-TC-Light" size:18.0],
+                                                 NSKernAttributeName :@(0.6)
+                                                 }
+     ];
+    
+ 
+    
+>>>>>>> fb8c30de1a0731aed17dac0bb1540e195168ee12
     [self.passwordField setFrame:CGRectMake(20, 423, 331, 75)];
     
     self.passwordField.textAlignment = NSTextAlignmentCenter;
@@ -52,15 +76,27 @@
     [[NSAttributedString alloc] initWithString:@"Пароль"
                                     attributes:@{
                                                  NSForegroundColorAttributeName: passwordcolor,
+<<<<<<< HEAD
                                                  NSFontAttributeName : [UIFont fontWithName:@"PingFang-TC-Ultralight" size:18.0]
+=======
+                                                 NSFontAttributeName : [UIFont fontWithName:@"PingFang-TC-Light" size:18.0],
+                                                 NSKernAttributeName :@(0.6)
+>>>>>>> fb8c30de1a0731aed17dac0bb1540e195168ee12
                                                  }
      
      ];
     
+<<<<<<< HEAD
  
 
 [self.enterButton setFrame:CGRectMake(22, 515, 330, 45)];
    
+=======
+    
+    
+    [self.enterButton setFrame:CGRectMake(22, 515, 330, 45)];
+    
+>>>>>>> fb8c30de1a0731aed17dac0bb1540e195168ee12
 }
 
 
@@ -87,6 +123,7 @@
         [self.passwordField resignFirstResponder];
     }
     return NO;
+<<<<<<< HEAD
 }
 
 
@@ -101,12 +138,25 @@
 
 
 >>>>>>> origin/master
+=======
+}
+
+
+
+
+
+#pragma mark - changeViewPositionFromKeyboard
+
+>>>>>>> fb8c30de1a0731aed17dac0bb1540e195168ee12
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> fb8c30de1a0731aed17dac0bb1540e195168ee12
 -(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
     
     [self.loginField resignFirstResponder];
@@ -148,7 +198,10 @@
 }
 
 
+<<<<<<< HEAD
 =======
 >>>>>>> origin/master
+=======
+>>>>>>> fb8c30de1a0731aed17dac0bb1540e195168ee12
 
 @end
