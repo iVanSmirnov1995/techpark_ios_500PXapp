@@ -8,8 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
-@interface PhotoCollectionVC : UICollectionViewController {
-    NSMutableArray *photos;
-}
+@interface PhotoCollectionVC : UICollectionViewController
+
+@property (strong, nonatomic) NSMutableArray *photos;
 
 @end

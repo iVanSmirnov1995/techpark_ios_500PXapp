@@ -8,6 +8,7 @@
 
 #import "PhotoCollectionVC.h"
 #import "CellPhotos.h"
+#import "ISRootPegeVC.h"
 
 @interface PhotoCollectionVC () <UICollectionViewDelegate, UICollectionViewDataSource>
 
@@ -18,13 +19,14 @@
 static NSString * const reuseIdentifier = @"Cell";
 
 - (void)viewDidLoad {
+    
     [super viewDidLoad];
     
-    photos = [NSMutableArray new];
+    self.photos = [NSMutableArray new];
 
     for (int i = 0; i<100; i++) {
-        [photos addObject:[UIImage imageNamed: [NSString stringWithFormat:@"%d.jpg",
-                                                arc4random() % 5 +1]]];
+        [self.photos addObject:[UIImage imageNamed: [NSString stringWithFormat:@"%d.jpg",
+                                                arc4random() % 5 + 1]]];
     }
     
 }
@@ -54,7 +56,7 @@ static NSString * const reuseIdentifier = @"Cell";
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
 //#warning Incomplete implementation, return the number of items
-    return photos.count;
+    return self.photos.count;
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
@@ -62,30 +64,31 @@ static NSString * const reuseIdentifier = @"Cell";
     
     NSInteger row = indexPath.row;
     PhotosCellModel *item = [[PhotosCellModel alloc] init];
-    item.imgPhoto = photos[row];
+    item.imgPhoto = self.photos[row];
     NSLog(@"----------------------------------%li", (long)row);
     [cell fillCellWithModel: item];
-
-    
-//    NSInteger row = indexPath.row;
-//    PhotosCellModel *item = [PhotosCellModel new];
-//    item.imgPhoto = photos[row];
-//    //    UIImage *item = [photos objectAtIndex: row];
-//    NSLog(@"----------------------------------%li", (long)row);
-//    [cell fillCellWithModel: item];
-//    cell.backgroundColor = [UIColor blackColor];
     
     return cell;
 }
 
 #pragma mark <UICollectionViewDelegate>
 
-/*
-// Uncomment this method to specify if the specified item should be highlighted during tracking
-- (BOOL)collectionView:(UICollectionView *)collectionView shouldHighlightItemAtIndexPath:(NSIndexPath *)indexPath {
-	return YES;
+// ----//----
+- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
+    ISRootPegeVC* vc=[[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"rootPage"];
+    [self presentViewController:vc animated:YES completion: nil];
 }
-*/
+
+// Uncomment this method to specify if the specified item should be highlighted during tracking
+//- (BOOL)collectionView:(UICollectionView *)collectionView shouldHighlightItemAtIndexPath:(NSIndexPath *)indexPath {
+//    
+//    ISRootPegeVC* vc=[[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"rootPage"];
+//    [self presentViewController:vc animated:YES completion: nil];
+//    
+//	return YES;
+//}
+
+
 
 /*
 // Uncomment this method to specify if the specified item should be selected
