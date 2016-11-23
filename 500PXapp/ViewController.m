@@ -7,6 +7,7 @@
 //
 
 #import "ViewController.h"
+#import "ISServerManager.h"
 
 @interface ViewController ()
 
@@ -24,6 +25,17 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+//    [[ISServerManager sharedManager] getPhotosWithTerm:@"" tag:@"man" page:1 rpp:1 tags:nil onSuccess:^(NSArray *photos) {
+//        
+//        NSLog(@"%@",photos);
+//        
+//        
+//    } onFailure:^(NSError *error, NSInteger statusCode) {
+//        
+//    }];
+    
+    
     // Do any additional setup after loading the view, typically from a nib.
     
     [self.loginField setFrame:CGRectMake(20, 331, 331, 75)];
