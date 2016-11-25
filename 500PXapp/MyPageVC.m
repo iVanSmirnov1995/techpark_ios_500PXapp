@@ -22,11 +22,9 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-//    self.supportedInterfaceOrientations = UIInterfaceOrientationMaskPortrait;
-    
     self.miniature.image = [UIImage imageNamed:@"3.jpg"];
     self.avatar.image = [UIImage imageNamed:@"1.jpg"];
-    
+
     [self.avatarParentView layoutIfNeeded];
     self.avatarParentView.layer.masksToBounds = YES;
     self.avatarParentView.layer.cornerRadius = self.avatarParentView.frame.size.width / 2;
@@ -37,13 +35,16 @@
     
     [self.editProfileView layoutIfNeeded];
     self.editProfileView.layer.masksToBounds = YES;
-    self.editProfileView.layer.cornerRadius = 15; //self.editProfileView.frame.size.height / 2;
-    // Do any additional setup after loading the view.
+    self.editProfileView.layer.cornerRadius = 15;
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+-(UIInterfaceOrientationMask) supportedInterfaceOrientations {
+    return UIInterfaceOrientationMaskPortrait;
 }
 
 /*
