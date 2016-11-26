@@ -10,6 +10,7 @@
 
 #import "ISAccessToken.h"
 #import "ISServerManager.h"
+#import "AFOAuth1Client.h"
 
 @interface ISLoginVC ()
 
@@ -32,25 +33,42 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
-    NSString* urlString =
-    @"https://api.500px.com/v1/oauth/request_token"
-    "oauth_token=TOKEN_HERE&"
-    "oauth_token_secret=SECRET_HERE&" // + 2 + 4 + 16 + 131072 + 8192
-    "oauth_callback_confirmed=true";
     
-    NSURL* url = [NSURL URLWithString:urlString];
+    AFOAuth1Client* cl=[[AFOAuth1Client alloc]initWithBaseURL:
+                        [NSURL URLWithString:@"https://api.500px.com" ]
+                            key:@"XyuX14AQBpiWjfUcRyXA2jyB5ensjjJD6gBFcGHI"
+                            secret:@"wlXOElFUY7hjkHffppk36PyrXdNa44mmr7MseWVL"];
     
-    NSURLRequest* request = [NSURLRequest requestWithURL:url];
     
-   // [self.webView loadRequest:request];
     
-    [[ISServerManager sharedManager] autorizeUser:@"" tag:@"" page:1 rpp:1 tags:@[] onSuccess:^(NSArray *photos) {
-        
-    } onFailure:^(NSError *error, NSInteger statusCode) {
-        
-    }];
+    [cl authorizeUsingOAuthWithRequestTokenPath:@"v1/oauth/request_token"
+                          userAuthorizationPath:@"v1/oauth/oauth/authorize"
+                          callbackURL:nil
+                                accessTokenPath:@"v1/oauth/oauth/access_token" accessMethod:@"POST" scope:nil success:^(AFOAuth1Token *accessToken, id responseObject) {
+                                        
+                                        NSLog(@"qwertyu");
+                                        
+                                    } failure:^(NSError *error) {
+                                        
+                                        NSLog(@"%@",error);
+                                        
+                                    }];
     
+    
+    
+    
+//    
+//    AFOAuth1Client *client = [[AFOAuth1Client alloc] initWithBaseURL:[NSURL URLWithString:@""]key:kConsumerKey secret:kConsumerSecret];
+//    [client authorizeUsingOAuthWithRequestTokenPath:@"http://api.XXX.com/oauth/request_token" userAuthorizationPath:@"http://www.XXX.com/oauth/authorize" callbackURL:nil accessTokenPath:@"http://api.XXX.com/oauth/access_token" accessMethod:@"Identity"
+//                                            success:^(AFOAuth1Token *accessToken) {
+//                                                NSLog(@"successful login");
+//                                            } failure:^(NSError *error) {
+//                                                NSLog(@"could not login error %@", error);
+//                                            }];
+    
+    
+    
+
     
     
 }

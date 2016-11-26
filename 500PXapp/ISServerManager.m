@@ -8,7 +8,7 @@
 
 #import "ISServerManager.h"
 #import "AFNetworking.h"
-//#import "AFOAuth1Client.h"
+#import "AFOAuth1Client.h"
 
 @interface ISServerManager()
 
@@ -38,6 +38,12 @@
                tags:(NSArray*)tags
           onSuccess:(void(^)(NSArray* photos)) success
           onFailure:(void(^)(NSError* error,NSInteger statusCode))failure{
+
+    
+    NSURL *baseURL = [NSURL URLWithString:@"https://api.500px.com/v1/oauth/request_token"];
+    AFOAuth1Client *OAuth1Client = [[AFOAuth1Client alloc] initWithBaseURL:baseURL
+                                                                       key:@"..."
+                                                                    secret:@"..."];
     
     
     
@@ -71,7 +77,6 @@
                          ,@"XyuX14AQBpiWjfUcRyXA2jyB5ensjjJD6gBFcGHI",@"consumer_key", nil];
     
     
-    AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
 
     
 }
