@@ -36,15 +36,15 @@
     
     AFOAuth1Client* cl=[[AFOAuth1Client alloc]initWithBaseURL:
                         [NSURL URLWithString:@"https://api.500px.com" ]
-                            key:@"XyuX14AQBpiWjfUcRyXA2jyB5ensjjJD6gBFcGHI"
-                            secret:@"wlXOElFUY7hjkHffppk36PyrXdNa44mmr7MseWVL"];
+                            key:@"H6PBYhS5q48HriBNYeNToETzacIg0A89BqkPmQki"
+                            secret:@"zB0X4fpSYpGi2jifqelLkAP3OaBUCVMlVSLJn90j"];
     
     
     
     [cl authorizeUsingOAuthWithRequestTokenPath:@"v1/oauth/request_token"
-                          userAuthorizationPath:@"v1/oauth/oauth/authorize"
+                          userAuthorizationPath:@"v1/oauth/authorize"
                           callbackURL:nil
-                                accessTokenPath:@"v1/oauth/oauth/access_token" accessMethod:@"POST" scope:nil success:^(AFOAuth1Token *accessToken, id responseObject) {
+                                accessTokenPath:@"v1/oauth/access_token" accessMethod:@"POST" scope:nil success:^(AFOAuth1Token *accessToken, id responseObject) {
                                         
                                         NSLog(@"qwertyu");
                                         
