@@ -8,7 +8,15 @@
 
 #import <UIKit/UIKit.h>
 
+@class ISAccessToken;
+
 @interface ISLoginVC : UIViewController
+
+typedef void(^ASLoginCompletionBlock)(ISAccessToken* token);
+
 @property (weak, nonatomic) IBOutlet UIWebView *webView;
+
+- (id) initWithCompletionBlock:(ASLoginCompletionBlock) completionBlock;
+
 
 @end

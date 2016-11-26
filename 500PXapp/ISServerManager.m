@@ -8,6 +8,7 @@
 
 #import "ISServerManager.h"
 #import "AFNetworking.h"
+//#import "AFOAuth1Client.h"
 
 @interface ISServerManager()
 
@@ -32,10 +33,29 @@
 }
 
 
+-(void)autorizeUser:(NSString*)term tag:(NSString*)tag
+               page:(NSInteger)page rpp:(NSInteger)rpp
+               tags:(NSArray*)tags
+          onSuccess:(void(^)(NSArray* photos)) success
+          onFailure:(void(^)(NSError* error,NSInteger statusCode))failure{
+    
+    
+    
+    
+    
+}
+
+
+
 -(void)getBlog{
     
     
 }
+
+
+
+
+
 
 
 -(void)getPhotosWithTerm:(NSString*)term tag:(NSString*)tag
@@ -52,28 +72,7 @@
     
     
     AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
-    [manager GET:@"https://api.500px.com/v1/photos/search" parameters:param progress:nil success:^(NSURLSessionTask *task, id responseObject) {
-        NSLog(@"JSON: %@", responseObject);
-        
-        NSArray* dictsArray = [responseObject objectForKey:@"response"];
-        
-        if (success) {
-            success(dictsArray);
-        }
-        
-        
-        
-        
-    } failure:^(NSURLSessionTask *operation, NSError *error) {
-        NSLog(@"Error: %@", error);
-        
-        if (failure) {
-         //   failure(error, operation.response.statusCode);
-        }
-        
-        
-        
-    }];
+
     
 }
 
