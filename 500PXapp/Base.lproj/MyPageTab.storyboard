@@ -195,7 +195,9 @@
                             <constraint firstItem="HLZ-7f-16s" firstAttribute="top" secondItem="OUP-sR-oYQ" secondAttribute="bottom" constant="8" id="wea-UM-2bh"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Моя страница" id="pb0-ub-xbS"/>
+                    <navigationItem key="navigationItem" title="Моя страница" id="pb0-ub-xbS">
+                        <barButtonItem key="backBarButtonItem" title="Назад" id="5By-bD-K8o"/>
+                    </navigationItem>
                     <connections>
                         <outlet property="avatar" destination="Zoi-hQ-vQd" id="9su-XX-1aF"/>
                         <outlet property="avatarParentView" destination="MgM-zk-ieN" id="3dM-xb-fq1"/>
@@ -207,7 +209,7 @@
             </objects>
             <point key="canvasLocation" x="3136.8000000000002" y="612.14392803598207"/>
         </scene>
-        <!--Subscribers TableVC-->
+        <!--Пользователи-->
         <scene sceneID="Xo9-la-PZ9">
             <objects>
                 <tableViewController id="pLa-WC-Ofl" customClass="OSSubscribersTableVC" sceneMemberID="viewController">
@@ -257,7 +259,7 @@
                             <outlet property="delegate" destination="pLa-WC-Ofl" id="soz-Fx-XjH"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="rgU-kK-crH"/>
+                    <navigationItem key="navigationItem" title="Пользователи" id="rgU-kK-crH"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Rx9-CQ-WKd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
