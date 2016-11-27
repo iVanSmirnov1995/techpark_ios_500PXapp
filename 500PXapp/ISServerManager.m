@@ -40,14 +40,6 @@
           onFailure:(void(^)(NSError* error,NSInteger statusCode))failure{
 
     
-    NSURL *baseURL = [NSURL URLWithString:@"https://api.500px.com/v1/oauth/request_token"];
-    AFOAuth1Client *OAuth1Client = [[AFOAuth1Client alloc] initWithBaseURL:baseURL
-                                                                       key:@"..."
-                                                                    secret:@"..."];
-    
-    
-    
-    
     
 }
 
@@ -75,6 +67,11 @@
                          @(page),@"page",@(rpp),@"rpp",
                          tags,@"tags"
                          ,@"XyuX14AQBpiWjfUcRyXA2jyB5ensjjJD6gBFcGHI",@"consumer_key", nil];
+    
+    
+    
+ 
+    
     
     
 

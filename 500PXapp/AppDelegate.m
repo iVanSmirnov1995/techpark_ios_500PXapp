@@ -20,6 +20,42 @@
     // Override point for customization after application launch.
     
     
+    AFOAuth1Client* cl=[[AFOAuth1Client alloc]initWithBaseURL:
+                        [NSURL URLWithString:@"https://api.500px.com" ]
+                                                          key:@"XyuX14AQBpiWjfUcRyXA2jyB5ensjjJD6gBFcGHI"
+                                                       secret:@"wlXOElFUY7hjkHffppk36PyrXdNa44mmr7MseWVL"];
+    
+    NSURL *callbackURL=[NSURL URLWithString:@"pxapp://"];
+    
+    [cl authorizeUsingOAuthWithRequestTokenPath:@"/v1/oauth/request_token"
+                          userAuthorizationPath:@"/v1/oauth/authorize"
+                                    callbackURL:callbackURL
+                                accessTokenPath:@"/v1/oauth/access_token" accessMethod:@"POST" scope:nil success:^(AFOAuth1Token *accessToken, id responseObject) {
+                                    
+                                    NSLog(@"%@",accessToken);
+                                    
+                                } failure:^(NSError *error) {
+                                    
+                                    NSLog(@"%@",error);
+                                    
+                                }];
+    
+    
+    
+    
+    
+    
+    return YES;
+}
+
+- (BOOL)application:(UIApplication *)app openURL:(NSURL *)url options:(NSDictionary<UIApplicationOpenURLOptionsKey, id> *)options{
+    
+    NSNotification *notification =
+    [NSNotification notificationWithName:kAFApplicationLaunchedWithURLNotification
+                                  object:nil
+                                userInfo:@{kAFApplicationLaunchOptionsURLKey: url}];
+    [[NSNotificationCenter defaultCenter] postNotification:notification];
+    
     
     return YES;
 }

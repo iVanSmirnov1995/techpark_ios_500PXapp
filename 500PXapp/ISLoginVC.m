@@ -29,32 +29,35 @@
 //}
 
 
-
-
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    AFOAuth1Client* cl=[[AFOAuth1Client alloc]initWithBaseURL:
-                        [NSURL URLWithString:@"https://api.500px.com" ]
-                            key:@"H6PBYhS5q48HriBNYeNToETzacIg0A89BqkPmQki"
-                            secret:@"zB0X4fpSYpGi2jifqelLkAP3OaBUCVMlVSLJn90j"];
     
     
-    
-    [cl authorizeUsingOAuthWithRequestTokenPath:@"v1/oauth/request_token"
-                          userAuthorizationPath:@"v1/oauth/authorize"
-                          callbackURL:nil
-                                accessTokenPath:@"v1/oauth/access_token" accessMethod:@"POST" scope:nil success:^(AFOAuth1Token *accessToken, id responseObject) {
-                                        
-                                        NSLog(@"qwertyu");
-                                        
-                                    } failure:^(NSError *error) {
-                                        
-                                        NSLog(@"%@",error);
-                                        
-                                    }];
+
     
     
+//    AFOAuth1Client* cl=[[AFOAuth1Client alloc]initWithBaseURL:
+//                        [NSURL URLWithString:@"https://api.500px.com" ]
+//                            key:@"H6PBYhS5q48HriBNYeNToETzacIg0A89BqkPmQki"
+//                            secret:@"zB0X4fpSYpGi2jifqelLkAP3OaBUCVMlVSLJn90j"];
+//    
+//    
+//    
+//    [cl authorizeUsingOAuthWithRequestTokenPath:@"v1/oauth/request_token"
+//                          userAuthorizationPath:@"v1/oauth/authorize"
+//                          callbackURL:[NSURL URLWithString:@"https://500px.com"]
+//                                accessTokenPath:@"v1/oauth/access_token" accessMethod:@"POST" scope:nil success:^(AFOAuth1Token *accessToken, id responseObject) {
+//                                        
+//                                        NSLog(@"%@",accessToken);
+//                                        
+//                                    } failure:^(NSError *error) {
+//                                        
+//                                        NSLog(@"%@",error);
+//                                        
+//                                    }];
+//    
+//    
     
     
 //    
