@@ -25,14 +25,14 @@
                                                           key:@"XyuX14AQBpiWjfUcRyXA2jyB5ensjjJD6gBFcGHI"
                                                        secret:@"wlXOElFUY7hjkHffppk36PyrXdNa44mmr7MseWVL"];
     
-    NSURL *callbackURL=[NSURL URLWithString:@"pxapp://"];
+    NSURL *callbackURL=[NSURL URLWithString:@"pxapp://success"];
     
     [cl authorizeUsingOAuthWithRequestTokenPath:@"/v1/oauth/request_token"
                           userAuthorizationPath:@"/v1/oauth/authorize"
                                     callbackURL:callbackURL
                                 accessTokenPath:@"/v1/oauth/access_token" accessMethod:@"POST" scope:nil success:^(AFOAuth1Token *accessToken, id responseObject) {
                                     
-                                    NSLog(@"%@",accessToken);
+                                    NSLog(@"key %@ secret %@",accessToken.key,accessToken.secret);
                                     
                                 } failure:^(NSError *error) {
                                     
