@@ -10,14 +10,23 @@
 #import "ISSearchModel.h"
 #import "SearchViewCellCollection.h"
 #import "IsSearchCollectionLayout.h"
+#import "ISServerManager.h"
+
 
 @interface IsSearchVC () <UICollectionViewDelegate ,UICollectionViewDataSource> {
     NSMutableArray *arrItems;
     NSMutableArray *arrItems2;
     NSMutableArray *arrItems3;
+
 }
 
 @property (weak,nonatomic)IBOutlet UICollectionView *collection;
+@property (strong,nonatomic) NSMutableArray* friend;
+@property (strong,nonatomic) NSMutableArray* photos;
+@property (strong,nonatomic) NSDictionary *dict;
+@property (strong,nonatomic) UIImage *image;
+@property (strong,nonatomic) NSString *string;
+
 
 @end
 
@@ -62,8 +71,17 @@
                                                  }
      ];
     
+    self.photos = [NSMutableArray array];
+    self.friend = [NSMutableArray array];
+    self.string = [[NSString alloc] init];
     
-  
+    
+    [self getPopularPhotoFromServer];
+    
+//   NSDictionary *dict = [self.photos objectAtIndex:1];
+ 
+    
+   
     
     arrItems = [NSMutableArray new];
     arrItems2 = [NSMutableArray new];
@@ -71,11 +89,13 @@
     
     
     ISSearchModel *search = [[ISSearchModel alloc]init];
+    
+    
     search.nameProduct = @"Популярное";
     search.imgProduct = [UIImage imageNamed:@"popular.jpg"];
     [arrItems addObject:search];
     
-    
+  
     
     search = [[ISSearchModel alloc]init];
     search.nameProduct = @"Выбор редакции";
@@ -137,7 +157,24 @@
     self.collection.collectionViewLayout = layout;
     
     
+    
 }
+
+#pragma mark - action
+
+-(IBAction)cancelButton:(UIButton *)sender {
+    
+    [self.searchField resignFirstResponder];
+    self.appearConstrain.priority = 900;
+    [UIView animateWithDuration:0.5f delay:0 options:UIViewAnimationOptionCurveEaseOut animations:^{
+        
+        [self.view layoutIfNeeded];
+        
+        
+    } completion:nil];
+}
+
+
 
 - (IBAction)actionTextField:(UITextField *)sender {
    
@@ -211,6 +248,9 @@
          ISSearchModel* item=[arrItems objectAtIndex:indexPath.row];
         SearchViewCellCollection* cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"cellItem" forIndexPath:indexPath];
   
+        
+       
+        
         cell.label.text = item.nameProduct;
         cell.img.image = item.imgProduct;
        
@@ -238,6 +278,42 @@
     return nil;
 }
 
+
+-(void) getPopularPhotoFromServer {
+    
+    [[ISServerManager alloc] getPopularPhotos:0
+                                    onSuccess:^ (NSArray* photos){
+                                        /*
+                                        ISSearchModel *search = [[ISSearchModel alloc]init];
+                                        search.nameProduct = @"Популярное";
+                                        search.imgProduct = photo;
+                                        [arrItems addObject:search];
+                                        
+                                        */
+                                        [self.photos addObjectsFromArray:photos];
+                                        
+                                        self.dict = [self.photos objectAtIndex:0];
+                                        
+                                        NSString* str;
+                                        
+                                        str = [self.dict valueForKey:@"image_url"];
+                                        self.string = str;
+                                        
+                                        
+                                        
+                                      //  NSLog(@"%@",self.photos);
+                                        NSLog(@"%@",self.string);
+                                        
+                                        
+                                        
+                                    }
+                                    onFailure:^(NSError *error, NSInteger statusCode) {
+                                        NSLog(@"error = %@, code = %d" ,[error localizedDescription] , statusCode);
+                                        
+                                    }];
+    
+    
+}
 
 
 @end

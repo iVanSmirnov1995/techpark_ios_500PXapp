@@ -13,12 +13,12 @@
 
 @property (weak, nonatomic) IBOutlet UITextField *searchField;
 
+
+-(IBAction)cancelButton:(UIButton *)sender;
 - (IBAction)actionTextField:(UITextField *)sender ;
 
 
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *appearConstrain;
-
-
 
 
 @end

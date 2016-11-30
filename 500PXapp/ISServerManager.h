@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-
+#import <UIKit/UIKit.h>
 @interface ISServerManager : NSObject
 
 +(ISServerManager*) sharedManager;
@@ -21,6 +21,12 @@
                     tags:(NSArray*)tags
                onSuccess:(void(^)(NSArray* photos)) success
                onFailure:(void(^)(NSError* error,NSInteger statusCode))failure;
+
+-(void)getPopularPhotos:(NSInteger*) count
+              onSuccess:(void(^)(NSArray* photos)) success
+              onFailure:(void(^)(NSError* error,NSInteger statusCode))failture;
+
+
 
 
 -(void)getPhotosWithTerm:(NSString*)term tag:(NSString*)tag
