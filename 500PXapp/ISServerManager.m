@@ -42,40 +42,5 @@
     
 }
 
-
-
--(void)getBlog{
-    
-    
-}
-
-
-
-
-
-
-
--(void)getPhotosWithTerm:(NSString*)term tag:(NSString*)tag
-                    page:(NSInteger)page rpp:(NSInteger)rpp
-                    tags:(NSArray*)tags
-               onSuccess:(void(^)(NSArray* photos)) success
-               onFailure:(void(^)(NSError* error,NSInteger statusCode))failure{
-    
-    NSDictionary* param=[NSDictionary dictionaryWithObjectsAndKeys:
-                         term,@"term",tag,@"tag",
-                         @(page),@"page",@(rpp),@"rpp",
-                         tags,@"tags"
-                         ,@"XyuX14AQBpiWjfUcRyXA2jyB5ensjjJD6gBFcGHI",@"consumer_key", nil];
-    
-    
-    
- 
-    
-    
-    
-
-    
-}
-
-
 @end
+
