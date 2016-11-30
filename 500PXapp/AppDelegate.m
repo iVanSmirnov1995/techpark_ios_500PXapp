@@ -7,9 +7,12 @@
 //
 // Oleg test
 #import "AppDelegate.h"
-#import "AFOAuth1Client.h"
+#import "BDBOAuth1SessionManager.h"
+
 
 @interface AppDelegate ()
+
+@property(strong,nonatomic)BDBOAuth1SessionManager* manager;
 
 @end
 
@@ -17,47 +20,69 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    // Override point for customization after application launch.
-    
-    
-    AFOAuth1Client* cl=[[AFOAuth1Client alloc]initWithBaseURL:
-                        [NSURL URLWithString:@"https://api.500px.com" ]
-                                                          key:@"XyuX14AQBpiWjfUcRyXA2jyB5ensjjJD6gBFcGHI"
-                                                       secret:@"wlXOElFUY7hjkHffppk36PyrXdNa44mmr7MseWVL"];
+
     
     NSURL *callbackURL=[NSURL URLWithString:@"pxapp://success"];
+
     
-    [cl authorizeUsingOAuthWithRequestTokenPath:@"/v1/oauth/request_token"
-                          userAuthorizationPath:@"/v1/oauth/authorize"
-                                    callbackURL:callbackURL
-                                accessTokenPath:@"/v1/oauth/access_token" accessMethod:@"POST" scope:nil success:^(AFOAuth1Token *accessToken, id responseObject) {
-                                    
-                                    NSLog(@"key %@ secret %@",accessToken.key,accessToken.secret);
-                                    
-                                } failure:^(NSError *error) {
-                                    
-                                    NSLog(@"%@",error);
-                                    
-                                }];
+    BDBOAuth1SessionManager* auth=[[BDBOAuth1SessionManager alloc]
+      initWithBaseURL: [NSURL URLWithString:@"https://api.500px.com/v1/"]
+                    consumerKey:@"XyuX14AQBpiWjfUcRyXA2jyB5ensjjJD6gBFcGHI"
+                    consumerSecret:@"wlXOElFUY7hjkHffppk36PyrXdNa44mmr7MseWVL"];
     
+    self.manager=auth;
     
+    [auth fetchRequestTokenWithPath:@"oauth/request_token"
+                             method:@"POST" callbackURL:callbackURL
+                              scope:nil
+                            success:^(BDBOAuth1Credential *requestToken) {
+                                
+    NSString *authURLString = [@"https://api.500px.com/v1/oauth/authorize" stringByAppendingFormat:@"?oauth_token=%@", requestToken.token];
+                                
+
+                                
+   [[UIApplication sharedApplication]openURL:[NSURL URLWithString:authURLString] options:nil completionHandler:nil];
+                                
+                                
+                                
+                              } failure:^(NSError *error) {
+                                  
+                                  NSLog(@"1 %@",error);
+                                  
+                              }];
     
-    
-    
+
+
     
     return YES;
 }
 
-- (BOOL)application:(UIApplication *)app openURL:(NSURL *)url options:(NSDictionary<UIApplicationOpenURLOptionsKey, id> *)options{
+
+
+
+
+
+
+- (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation {
     
-    NSNotification *notification =
-    [NSNotification notificationWithName:kAFApplicationLaunchedWithURLNotification
-                                  object:nil
-                                userInfo:@{kAFApplicationLaunchOptionsURLKey: url}];
-    [[NSNotificationCenter defaultCenter] postNotification:notification];
     
     
-    return YES;
+      BDBOAuth1Credential* requestToken=[BDBOAuth1Credential credentialWithQueryString:url.query];
+
+    [self.manager fetchAccessTokenWithPath:@"oauth/access_token" method:@"POST"
+                      requestToken:requestToken success:^(BDBOAuth1Credential *accessToken) {
+                          
+                          NSLog(@"%@",accessToken.secret);
+                          
+                      } failure:^(NSError *error) {
+                        
+                          NSLog(@"2 %@",error.localizedDescription);
+                          
+                      }];
+    
+    
+    
+    return NO;
 }
 
 
@@ -71,6 +96,10 @@
     // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
     // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
 }
+
+
+
+
 
 
 - (void)applicationWillEnterForeground:(UIApplication *)application {

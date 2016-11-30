@@ -8,7 +8,6 @@
 
 #import "ISServerManager.h"
 #import "AFNetworking.h"
-#import "AFOAuth1Client.h"
 
 @interface ISServerManager()
 

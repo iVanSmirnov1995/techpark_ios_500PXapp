@@ -25,6 +25,10 @@
 		D349653F1DB4043E00813293 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D349653D1DB4043E00813293 /* LaunchScreen.storyboard */; };
 		D349654A1DB4043E00813293 /* _00PXappTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D34965491DB4043E00813293 /* _00PXappTests.m */; };
 		D34965551DB4043E00813293 /* _00PXappUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = D34965541DB4043E00813293 /* _00PXappUITests.m */; };
+		D3A28B4D1DEF3A3600EA415B /* BDBOAuth1RequestSerializer.m in Sources */ = {isa = PBXBuildFile; fileRef = D3A28B451DEF3A3600EA415B /* BDBOAuth1RequestSerializer.m */; };
+		D3A28B4E1DEF3A3600EA415B /* BDBOAuth1SessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D3A28B471DEF3A3600EA415B /* BDBOAuth1SessionManager.m */; };
+		D3A28B4F1DEF3A3600EA415B /* NSDictionary+BDBOAuth1Manager.m in Sources */ = {isa = PBXBuildFile; fileRef = D3A28B4A1DEF3A3600EA415B /* NSDictionary+BDBOAuth1Manager.m */; };
+		D3A28B501DEF3A3600EA415B /* NSString+BDBOAuth1Manager.m in Sources */ = {isa = PBXBuildFile; fileRef = D3A28B4C1DEF3A3600EA415B /* NSString+BDBOAuth1Manager.m */; };
 		D3CB5C241DE4CCA900AFCE3A /* ISLoginVC.m in Sources */ = {isa = PBXBuildFile; fileRef = D3CB5C231DE4CCA900AFCE3A /* ISLoginVC.m */; };
 		D3CB5C5A1DE4DD5F00AFCE3A /* ISServerManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D3CB5C591DE4DD5F00AFCE3A /* ISServerManager.m */; };
 		D3D245D41DE71DBB00F8F33A /* ISAccessToken.m in Sources */ = {isa = PBXBuildFile; fileRef = D3D245D31DE71DBB00F8F33A /* ISAccessToken.m */; };
@@ -109,6 +113,14 @@
 		D34965501DB4043E00813293 /* 500PXappUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = 500PXappUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D34965541DB4043E00813293 /* _00PXappUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = _00PXappUITests.m; sourceTree = "<group>"; };
 		D34965561DB4043E00813293 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D3A28B441DEF3A3600EA415B /* BDBOAuth1RequestSerializer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BDBOAuth1RequestSerializer.h; sourceTree = "<group>"; };
+		D3A28B451DEF3A3600EA415B /* BDBOAuth1RequestSerializer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BDBOAuth1RequestSerializer.m; sourceTree = "<group>"; };
+		D3A28B461DEF3A3600EA415B /* BDBOAuth1SessionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BDBOAuth1SessionManager.h; sourceTree = "<group>"; };
+		D3A28B471DEF3A3600EA415B /* BDBOAuth1SessionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BDBOAuth1SessionManager.m; sourceTree = "<group>"; };
+		D3A28B491DEF3A3600EA415B /* NSDictionary+BDBOAuth1Manager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+BDBOAuth1Manager.h"; sourceTree = "<group>"; };
+		D3A28B4A1DEF3A3600EA415B /* NSDictionary+BDBOAuth1Manager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+BDBOAuth1Manager.m"; sourceTree = "<group>"; };
+		D3A28B4B1DEF3A3600EA415B /* NSString+BDBOAuth1Manager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+BDBOAuth1Manager.h"; sourceTree = "<group>"; };
+		D3A28B4C1DEF3A3600EA415B /* NSString+BDBOAuth1Manager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+BDBOAuth1Manager.m"; sourceTree = "<group>"; };
 		D3CB5C221DE4CCA900AFCE3A /* ISLoginVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ISLoginVC.h; sourceTree = "<group>"; };
 		D3CB5C231DE4CCA900AFCE3A /* ISLoginVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ISLoginVC.m; sourceTree = "<group>"; };
 		D3CB5C581DE4DD5F00AFCE3A /* ISServerManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ISServerManager.h; sourceTree = "<group>"; };
@@ -313,6 +325,37 @@
 			path = 500PXappUITests;
 			sourceTree = "<group>";
 		};
+		D3A28B331DEF095000EA415B /* lib */ = {
+			isa = PBXGroup;
+			children = (
+				D3A28B431DEF3A3600EA415B /* BDBOAuth1Manager */,
+			);
+			name = lib;
+			sourceTree = "<group>";
+		};
+		D3A28B431DEF3A3600EA415B /* BDBOAuth1Manager */ = {
+			isa = PBXGroup;
+			children = (
+				D3A28B441DEF3A3600EA415B /* BDBOAuth1RequestSerializer.h */,
+				D3A28B451DEF3A3600EA415B /* BDBOAuth1RequestSerializer.m */,
+				D3A28B461DEF3A3600EA415B /* BDBOAuth1SessionManager.h */,
+				D3A28B471DEF3A3600EA415B /* BDBOAuth1SessionManager.m */,
+				D3A28B481DEF3A3600EA415B /* Categories */,
+			);
+			path = BDBOAuth1Manager;
+			sourceTree = "<group>";
+		};
+		D3A28B481DEF3A3600EA415B /* Categories */ = {
+			isa = PBXGroup;
+			children = (
+				D3A28B491DEF3A3600EA415B /* NSDictionary+BDBOAuth1Manager.h */,
+				D3A28B4A1DEF3A3600EA415B /* NSDictionary+BDBOAuth1Manager.m */,
+				D3A28B4B1DEF3A3600EA415B /* NSString+BDBOAuth1Manager.h */,
+				D3A28B4C1DEF3A3600EA415B /* NSString+BDBOAuth1Manager.m */,
+			);
+			path = Categories;
+			sourceTree = "<group>";
+		};
 		F5423C1D1DCB6915006FD69A /* IsCollectionLayout */ = {
 			isa = PBXGroup;
 			children = (
@@ -326,6 +369,7 @@
 		F5423C1E1DCB695A006FD69A /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				D3A28B331DEF095000EA415B /* lib */,
 				F5423C1F1DCB6982006FD69A /* ISNewsFeedModel.h */,
 				F5423C201DCB6982006FD69A /* ISNewsFeedModel.m */,
 				F5423C211DCB6982006FD69A /* PhotosCellModel.h */,
@@ -619,12 +663,15 @@
 				F5423C391DCB6A5B006FD69A /* ISTableViewCommentsCell.m in Sources */,
 				D34965341DB4043E00813293 /* ViewController.m in Sources */,
 				D3D245D41DE71DBB00F8F33A /* ISAccessToken.m in Sources */,
+				D3A28B501DEF3A3600EA415B /* NSString+BDBOAuth1Manager.m in Sources */,
+				D3A28B4D1DEF3A3600EA415B /* BDBOAuth1RequestSerializer.m in Sources */,
 				F5423C6A1DCB6B5C006FD69A /* PhotoCollectionVC.m in Sources */,
 				F5423C471DCB6B17006FD69A /* ISHomeVC.m in Sources */,
 				CEA656C51DE18BC6002CD2B3 /* MyPageVC.m in Sources */,
 				F5423C2B1DCB69F3006FD69A /* IsSearchCollectionLayout.m in Sources */,
 				D349653A1DB4043E00813293 /* _00PXapp.xcdatamodeld in Sources */,
 				F5423C271DCB6982006FD69A /* ISSearchModel.m in Sources */,
+				D3A28B4F1DEF3A3600EA415B /* NSDictionary+BDBOAuth1Manager.m in Sources */,
 				F5423C3A1DCB6A5B006FD69A /* ISTableViewInfoAndSareCell.m in Sources */,
 				F5423C371DCB6A5B006FD69A /* ISTableViewUserInfoCell.m in Sources */,
 				F5423C6B1DCB6B5C006FD69A /* CellPhotos.m in Sources */,
@@ -633,6 +680,7 @@
 				D3CB5C5A1DE4DD5F00AFCE3A /* ISServerManager.m in Sources */,
 				F5423C3E1DCB6AD9006FD69A /* SearchViewCellCollection.m in Sources */,
 				F5423C481DCB6B17006FD69A /* IsSearchVC.m in Sources */,
+				D3A28B4E1DEF3A3600EA415B /* BDBOAuth1SessionManager.m in Sources */,
 				D33A78BB1DDDDFB600BC743A /* ISRootPegeVC.m in Sources */,
 				F5423C261DCB6982006FD69A /* PhotosCellModel.m in Sources */,
 				D3CB5C241DE4CCA900AFCE3A /* ISLoginVC.m in Sources */,

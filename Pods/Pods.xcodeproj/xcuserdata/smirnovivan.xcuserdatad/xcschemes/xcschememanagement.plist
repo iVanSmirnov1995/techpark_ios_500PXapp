@@ -9,11 +9,6 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>AFOAuth1Client.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
 		<key>Pods-500PXapp.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -22,17 +17,12 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>6AF6A717E631C92279D35C4071CC8F4A</key>
+		<key>9E033EDB5EC0819481B0546434FA577B</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>AD08BBEDAA56B8A58EDCF64B05607E93</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>BBF39EC626DDEB4954AB88832ACEF757</key>
+		<key>B1DA6322925C4B44E453D74C897DDADB</key>
 		<dict>
 			<key>primary</key>
 			<true/>
