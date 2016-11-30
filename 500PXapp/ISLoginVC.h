@@ -14,7 +14,7 @@
 
 typedef void(^ASLoginCompletionBlock)(ISAccessToken* token);
 
-@property (weak, nonatomic) IBOutlet UIWebView *webView;
+@property (strong, nonatomic) IBOutlet UIWebView *webView;
 
 - (id) initWithCompletionBlock:(ASLoginCompletionBlock) completionBlock;
 
