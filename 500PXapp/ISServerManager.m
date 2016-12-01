@@ -11,7 +11,6 @@
 
 @interface ISServerManager()
 
-
 @end
 
 
@@ -30,6 +29,108 @@
     
     return manager;
 }
+
+
+
+
+/*Consumer Key: XyuX14AQBpiWjfUcRyXA2jyB5ensjjJD6gBFcGHI
+ Consumer Secret: wlXOElFUY7hjkHffppk36PyrXdNa44mmr7MseWVL
+ */
+// https://api.500px.com/v1/photos?feature=popular
+// https://api.500px.com/v1/photos?feature=editors&page=2&consumer_key=YOUR_CONSUMER_KEY_HERE.
+//popular
+
+
+-(void)getPopularPhotosOnSuccess:(void(^)(NSArray* photos)) success
+                       onFailure:(void(^)(NSError* error,NSInteger statusCode))failture {
+    
+    
+    NSDictionary* param =
+    [NSDictionary dictionaryWithObjectsAndKeys:
+     @"popular",@"feature",
+     @"1",@"rpp",
+     @"XyuX14AQBpiWjfUcRyXA2jyB5ensjjJD6gBFcGHI",@"consumer_key",
+     nil];
+    
+    
+    
+    
+    NSURL *URL = [NSURL URLWithString:@"https://api.500px.com/v1/photos?feature=popular"];
+    AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
+    [manager GET:URL.absoluteString parameters:param progress:nil success:^(NSURLSessionTask *task, id responseObject) {
+        
+        
+      //  NSLog(@"JSON: %@", responseObject);
+        
+          NSArray* photosArray = [responseObject objectForKey: @"photos"];
+       // NSLog(@"photo : %@", photosArray);
+        if (success) {
+            success(photosArray);
+        }
+        
+        
+    } failure:^(NSURLSessionTask *operation, NSError *error) {
+        NSLog(@"Error: %@", error);
+    }];
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+   /* NSDictionary* param =
+    [NSDictionary dictionaryWithObjectsAndKeys:
+     @"popular",@"feature",
+     @"1",@"rpp",
+     @"XyuX14AQBpiWjfUcRyXA2jyB5ensjjJD6gBFcGHI",@"consumer_key",
+     nil];
+    
+    
+    
+    AFHTTPClient *httpClient = [[AFHTTPClient alloc] initWithBaseURL:[NSURL URLWithString:@"https://api.500px.com/"]];
+    NSMutableURLRequest *request = [httpClient requestWithMethod:@"GET"
+                                                            path:@"https://api.500px.com/v1/photos?feature=popular"
+                                                      parameters:param];
+    
+    AFHTTPRequestOperation *operation = [[AFHTTPRequestOperation alloc] initWithRequest:request];
+    
+    [httpClient registerHTTPOperationClass:[AFHTTPRequestOperation class]];
+    [operation setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
+        // Print the response body in text
+        
+        //  NSLog(@"Response: %@", [[NSString alloc] initWithData:responseObject encoding:NSUTF8StringEncoding]);
+        
+        
+        id data = [NSJSONSerialization JSONObjectWithData:responseObject options:0 error:nil];
+        
+        // NSLog(@"%@",data);
+        
+        NSArray* photosArray = [data objectForKey: @"photos"];
+        if (success)
+        {
+            success(photosArray);
+        }
+        
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        NSLog(@"Error: %@", error);
+        
+        if(failture) {
+            
+            failture(error,operation.response.statusCode);
+        }
+    }];
+    
+    
+    [operation start];
+    
+    */
+    
+}
+
 
 
 -(void)autorizeUser:(NSString*)term tag:(NSString*)tag

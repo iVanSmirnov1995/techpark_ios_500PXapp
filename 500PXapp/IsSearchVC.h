@@ -15,7 +15,7 @@
 
 - (IBAction)actionTextField:(UITextField *)sender ;
 
-
+-(IBAction)cancelButton:(UIButton *)sender;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *appearConstrain;
 
 

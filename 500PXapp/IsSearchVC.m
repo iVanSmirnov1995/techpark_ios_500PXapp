@@ -10,6 +10,7 @@
 #import "ISSearchModel.h"
 #import "SearchViewCellCollection.h"
 #import "IsSearchCollectionLayout.h"
+#import "ISServerManager.h"
 
 @interface IsSearchVC () <UICollectionViewDelegate ,UICollectionViewDataSource> {
     NSMutableArray *arrItems;
@@ -18,6 +19,8 @@
 }
 
 @property (weak,nonatomic)IBOutlet UICollectionView *collection;
+@property (strong,nonatomic) NSMutableArray *photos;
+@property (strong,nonatomic) NSDictionary *dict;
 
 @end
 
@@ -61,9 +64,12 @@
                                                  NSFontAttributeName : [UIFont fontWithName:@"PingFang-TC-Light" size:18.0]
                                                  }
      ];
+    self.photos = [NSMutableArray array];
+    self.dict = [[NSDictionary alloc] init];
     
+    [self getPopularPhotoFromServer];
     
-  
+    NSLog(@"ARRAY %@", self.photos);
     
     arrItems = [NSMutableArray new];
     arrItems2 = [NSMutableArray new];
@@ -139,6 +145,20 @@
     
 }
 
+-(IBAction)cancelButton:(UIButton *)sender {
+    
+    [self.searchField resignFirstResponder];
+    self.appearConstrain.priority = 900;
+    [UIView animateWithDuration:0.5f delay:0 options:UIViewAnimationOptionCurveEaseOut animations:^{
+        
+        [self.view layoutIfNeeded];
+        
+        
+    } completion:nil];
+}
+
+
+
 - (IBAction)actionTextField:(UITextField *)sender {
    
     self.appearConstrain.priority = 750;
@@ -148,6 +168,34 @@
         
         
     } completion:nil];
+    
+    
+}
+
+
+-(void) getPopularPhotoFromServer {
+    
+    [[ISServerManager alloc] getPopularPhotosOnSuccess:^ (NSArray* photos){
+        
+        [self.photos addObjectsFromArray:photos];
+        
+         self.dict = [self.photos objectAtIndex:0];
+          NSLog(@"dict %@", self.dict);
+        /*
+         self.dict = [self.photos objectAtIndex:0];
+         NSString* str;
+         str = [self.dict valueForKey:@"image_url"];
+         self.string = str;
+         
+         NSLog(@"%@",self.string);
+         */
+        
+        
+    }
+                                             onFailure:^(NSError *error, NSInteger statusCode) {
+                                                 NSLog(@"error = %@, code = %d" ,[error localizedDescription] , statusCode);
+                                                 
+                                             }];
     
     
 }
@@ -211,6 +259,10 @@
          ISSearchModel* item=[arrItems objectAtIndex:indexPath.row];
         SearchViewCellCollection* cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"cellItem" forIndexPath:indexPath];
   
+      //  NSDictionary *dict1 = [self.photos objectAtIndex:0];
+       // NSString *str = [dict1 valueForKey:@"firstname"];
+       // NSLog(@"%@",[]);
+    //    NSLog(@"str%@", str);
         cell.label.text = item.nameProduct;
         cell.img.image = item.imgProduct;
        

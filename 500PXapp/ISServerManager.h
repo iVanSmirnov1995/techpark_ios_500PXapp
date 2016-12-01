@@ -23,6 +23,12 @@
                onFailure:(void(^)(NSError* error,NSInteger statusCode))failure;
 
 
+-(void)getPopularPhotosOnSuccess:(void(^)(NSArray* photos)) success
+                       onFailure:(void(^)(NSError* error,NSInteger statusCode))failture;
+
+
+
+
 -(void)getPhotosWithTerm:(NSString*)term tag:(NSString*)tag
                     page:(NSInteger)page rpp:(NSInteger)rpp
                     tags:(NSArray*)tags
