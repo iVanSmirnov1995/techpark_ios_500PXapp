@@ -18,6 +18,8 @@
 
 #import "ISRootPegeVC.h"
 
+#import "ISServerManager.h"
+
 @interface ISHomeVC ()<UITableViewDataSource,UITableViewDelegate>
 
 @property(strong,nonatomic)NSMutableArray* newsFeedArray;
@@ -40,6 +42,25 @@ typedef enum {
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [[ISServerManager sharedManager] getFolowerOnSuccess:^(NSArray *news) {
+        
+        
+        
+        
+    } onFailure:^(NSError *error, NSInteger statusCode) {
+        
+        
+        
+    }];
+    
+    
+    [[ISServerManager sharedManager]getUserOnSuccess:^(ISUser *user) {
+        
+    } onFailure:^(NSError *error, NSInteger statusCode) {
+        
+    }];
+    
+    
     // Do any additional setup after loading the view.
     self.tableView.rowHeight = UITableViewAutomaticDimension;
     self.tableView.estimatedRowHeight = 44.0;

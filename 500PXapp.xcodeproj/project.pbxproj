@@ -32,6 +32,7 @@
 		D3CB5C241DE4CCA900AFCE3A /* ISLoginVC.m in Sources */ = {isa = PBXBuildFile; fileRef = D3CB5C231DE4CCA900AFCE3A /* ISLoginVC.m */; };
 		D3CB5C5A1DE4DD5F00AFCE3A /* ISServerManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D3CB5C591DE4DD5F00AFCE3A /* ISServerManager.m */; };
 		D3D245D41DE71DBB00F8F33A /* ISAccessToken.m in Sources */ = {isa = PBXBuildFile; fileRef = D3D245D31DE71DBB00F8F33A /* ISAccessToken.m */; };
+		D3E1DCD41DF195B100FE6B14 /* ISUser.m in Sources */ = {isa = PBXBuildFile; fileRef = D3E1DCD31DF195B100FE6B14 /* ISUser.m */; };
 		F5423C251DCB6982006FD69A /* ISNewsFeedModel.m in Sources */ = {isa = PBXBuildFile; fileRef = F5423C201DCB6982006FD69A /* ISNewsFeedModel.m */; };
 		F5423C261DCB6982006FD69A /* PhotosCellModel.m in Sources */ = {isa = PBXBuildFile; fileRef = F5423C221DCB6982006FD69A /* PhotosCellModel.m */; };
 		F5423C271DCB6982006FD69A /* ISSearchModel.m in Sources */ = {isa = PBXBuildFile; fileRef = F5423C241DCB6982006FD69A /* ISSearchModel.m */; };
@@ -127,6 +128,8 @@
 		D3CB5C591DE4DD5F00AFCE3A /* ISServerManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ISServerManager.m; sourceTree = "<group>"; };
 		D3D245D21DE71DBB00F8F33A /* ISAccessToken.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ISAccessToken.h; sourceTree = "<group>"; };
 		D3D245D31DE71DBB00F8F33A /* ISAccessToken.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ISAccessToken.m; sourceTree = "<group>"; };
+		D3E1DCD21DF195B100FE6B14 /* ISUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ISUser.h; sourceTree = "<group>"; };
+		D3E1DCD31DF195B100FE6B14 /* ISUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ISUser.m; sourceTree = "<group>"; };
 		F5423C1F1DCB6982006FD69A /* ISNewsFeedModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ISNewsFeedModel.h; sourceTree = "<group>"; };
 		F5423C201DCB6982006FD69A /* ISNewsFeedModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ISNewsFeedModel.m; sourceTree = "<group>"; };
 		F5423C211DCB6982006FD69A /* PhotosCellModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhotosCellModel.h; sourceTree = "<group>"; };
@@ -370,6 +373,8 @@
 			isa = PBXGroup;
 			children = (
 				D3A28B331DEF095000EA415B /* lib */,
+				D3E1DCD21DF195B100FE6B14 /* ISUser.h */,
+				D3E1DCD31DF195B100FE6B14 /* ISUser.m */,
 				F5423C1F1DCB6982006FD69A /* ISNewsFeedModel.h */,
 				F5423C201DCB6982006FD69A /* ISNewsFeedModel.m */,
 				F5423C211DCB6982006FD69A /* PhotosCellModel.h */,
@@ -676,6 +681,7 @@
 				F5423C371DCB6A5B006FD69A /* ISTableViewUserInfoCell.m in Sources */,
 				F5423C6B1DCB6B5C006FD69A /* CellPhotos.m in Sources */,
 				F5423C251DCB6982006FD69A /* ISNewsFeedModel.m in Sources */,
+				D3E1DCD41DF195B100FE6B14 /* ISUser.m in Sources */,
 				D34965311DB4043E00813293 /* AppDelegate.m in Sources */,
 				D3CB5C5A1DE4DD5F00AFCE3A /* ISServerManager.m in Sources */,
 				F5423C3E1DCB6AD9006FD69A /* SearchViewCellCollection.m in Sources */,

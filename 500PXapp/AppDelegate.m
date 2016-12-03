@@ -8,13 +8,18 @@
 // Oleg test
 #import "AppDelegate.h"
 #import "BDBOAuth1SessionManager.h"
+#import "ISServerManager.h"
 
 
 @interface AppDelegate ()
 
 @property(strong,nonatomic)BDBOAuth1SessionManager* manager;
 
+
 @end
+
+static NSString* kaccessToken           = @"kaccessToken";
+static NSString* kaccessTokenSecret           = @"kaccessTokenSecret";
 
 @implementation AppDelegate
 
@@ -22,36 +27,22 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
 
     
-    NSURL *callbackURL=[NSURL URLWithString:@"pxapp://success"];
+    self.manager=[[ISServerManager sharedManager]loginUserOnSuccess:^(BDBOAuth1Credential *requestToken) {
+             
+             NSString *authURLString = [@"https://api.500px.com/v1/oauth/authorize" stringByAppendingFormat:@"?oauth_token=%@", requestToken.token];
+             
+             
+             
+             [[UIApplication sharedApplication]openURL:[NSURL URLWithString:authURLString] options:nil completionHandler:nil];
+             
+             
+         } onFailure:^(NSError *error) {
+             
+              NSLog(@"1 %@",error);
+             
+         }];
 
     
-    BDBOAuth1SessionManager* auth=[[BDBOAuth1SessionManager alloc]
-      initWithBaseURL: [NSURL URLWithString:@"https://api.500px.com/v1/"]
-                    consumerKey:@"XyuX14AQBpiWjfUcRyXA2jyB5ensjjJD6gBFcGHI"
-                    consumerSecret:@"wlXOElFUY7hjkHffppk36PyrXdNa44mmr7MseWVL"];
-    
-    self.manager=auth;
-    
-    [auth fetchRequestTokenWithPath:@"oauth/request_token"
-                             method:@"POST" callbackURL:callbackURL
-                              scope:nil
-                            success:^(BDBOAuth1Credential *requestToken) {
-                                
-    NSString *authURLString = [@"https://api.500px.com/v1/oauth/authorize" stringByAppendingFormat:@"?oauth_token=%@", requestToken.token];
-                                
-
-                                
-   [[UIApplication sharedApplication]openURL:[NSURL URLWithString:authURLString] options:nil completionHandler:nil];
-                                
-                                
-                                
-                              } failure:^(NSError *error) {
-                                  
-                                  NSLog(@"1 %@",error);
-                                  
-                              }];
-    
-
 
     
     return YES;
@@ -67,18 +58,27 @@
     
     
     
+    
       BDBOAuth1Credential* requestToken=[BDBOAuth1Credential credentialWithQueryString:url.query];
 
     [self.manager fetchAccessTokenWithPath:@"oauth/access_token" method:@"POST"
                       requestToken:requestToken success:^(BDBOAuth1Credential *accessToken) {
                           
-                          NSLog(@"%@",accessToken.secret);
+                          
+                          NSUserDefaults* userDefaults = [NSUserDefaults standardUserDefaults];
+                          
+                          [userDefaults setObject:accessToken.token forKey:kaccessToken];
+                          [userDefaults setObject:accessToken.secret forKey:kaccessTokenSecret];
+                          [userDefaults synchronize];
+                          
+
                           
                       } failure:^(NSError *error) {
                         
                           NSLog(@"2 %@",error.localizedDescription);
                           
                       }];
+        
     
     
     
