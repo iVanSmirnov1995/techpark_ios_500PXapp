@@ -26,11 +26,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "500PXapp/ISServerManager.m"
-            timestampString = "502480866.608422"
+            timestampString = "502533126.058022"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "195"
-            endingLineNumber = "195"
+            startingLineNumber = "180"
+            endingLineNumber = "180"
             landmarkName = "-getPopularPhotosOnSuccess:onFailure:"
             landmarkType = "7">
          </BreakpointContent>

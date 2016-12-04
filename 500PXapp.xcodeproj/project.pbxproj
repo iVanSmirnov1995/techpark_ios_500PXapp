@@ -32,6 +32,7 @@
 		D3CB5C241DE4CCA900AFCE3A /* ISLoginVC.m in Sources */ = {isa = PBXBuildFile; fileRef = D3CB5C231DE4CCA900AFCE3A /* ISLoginVC.m */; };
 		D3CB5C5A1DE4DD5F00AFCE3A /* ISServerManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D3CB5C591DE4DD5F00AFCE3A /* ISServerManager.m */; };
 		D3D245D41DE71DBB00F8F33A /* ISAccessToken.m in Sources */ = {isa = PBXBuildFile; fileRef = D3D245D31DE71DBB00F8F33A /* ISAccessToken.m */; };
+		D3DB2D451DF404C100DABDFB /* ISTabBarVC.m in Sources */ = {isa = PBXBuildFile; fileRef = D3DB2D441DF404C100DABDFB /* ISTabBarVC.m */; };
 		D3E1DCD41DF195B100FE6B14 /* ISUser.m in Sources */ = {isa = PBXBuildFile; fileRef = D3E1DCD31DF195B100FE6B14 /* ISUser.m */; };
 		D3E1DCFA1DF32ADA00FE6B14 /* NSString+URLEncode.m in Sources */ = {isa = PBXBuildFile; fileRef = D3E1DCF91DF32ADA00FE6B14 /* NSString+URLEncode.m */; };
 		F5423C251DCB6982006FD69A /* ISNewsFeedModel.m in Sources */ = {isa = PBXBuildFile; fileRef = F5423C201DCB6982006FD69A /* ISNewsFeedModel.m */; };
@@ -129,6 +130,8 @@
 		D3CB5C591DE4DD5F00AFCE3A /* ISServerManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ISServerManager.m; sourceTree = "<group>"; };
 		D3D245D21DE71DBB00F8F33A /* ISAccessToken.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ISAccessToken.h; sourceTree = "<group>"; };
 		D3D245D31DE71DBB00F8F33A /* ISAccessToken.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ISAccessToken.m; sourceTree = "<group>"; };
+		D3DB2D431DF404C100DABDFB /* ISTabBarVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ISTabBarVC.h; sourceTree = "<group>"; };
+		D3DB2D441DF404C100DABDFB /* ISTabBarVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ISTabBarVC.m; sourceTree = "<group>"; };
 		D3E1DCD21DF195B100FE6B14 /* ISUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ISUser.h; sourceTree = "<group>"; };
 		D3E1DCD31DF195B100FE6B14 /* ISUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ISUser.m; sourceTree = "<group>"; };
 		D3E1DCF81DF32ADA00FE6B14 /* NSString+URLEncode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+URLEncode.h"; sourceTree = "<group>"; };
@@ -419,6 +422,8 @@
 		F5423C3F1DCB6AE3006FD69A /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				D3DB2D431DF404C100DABDFB /* ISTabBarVC.h */,
+				D3DB2D441DF404C100DABDFB /* ISTabBarVC.m */,
 				D3CB5C221DE4CCA900AFCE3A /* ISLoginVC.h */,
 				D3CB5C231DE4CCA900AFCE3A /* ISLoginVC.m */,
 				D3D245D21DE71DBB00F8F33A /* ISAccessToken.h */,
@@ -698,6 +703,7 @@
 				D3CB5C241DE4CCA900AFCE3A /* ISLoginVC.m in Sources */,
 				F5423C461DCB6B17006FD69A /* SignUpVC.m in Sources */,
 				D349652E1DB4043E00813293 /* main.m in Sources */,
+				D3DB2D451DF404C100DABDFB /* ISTabBarVC.m in Sources */,
 				F5423C361DCB6A5B006FD69A /* ISTableViewImageCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

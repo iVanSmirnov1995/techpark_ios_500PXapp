@@ -8,7 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
+@class ISUser;
 @interface ISHomeVC : UIViewController
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
+@property(strong,nonatomic)ISUser* user;
 
 @end

@@ -19,6 +19,7 @@
 #import "ISRootPegeVC.h"
 
 #import "ISServerManager.h"
+#import "ISUser.h"
 
 @interface ISHomeVC ()<UITableViewDataSource,UITableViewDelegate>
 
@@ -42,6 +43,19 @@ typedef enum {
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    [[ISServerManager sharedManager]getUserOnSuccess:^(ISUser *user) {
+        
+        self.user=user;
+        NSLog(@"%@",user.avatar);
+        
+    } onFailure:^(NSError *error, NSInteger statusCode) {
+        
+        NSLog(@"%@",error);
+        
+    }];
+    
+
     [[ISServerManager sharedManager] getFolowerOnSuccess:^(NSArray *news) {
         
         
@@ -53,12 +67,6 @@ typedef enum {
         
     }];
     
-    
-    [[ISServerManager sharedManager]getUserOnSuccess:^(ISUser *user) {
-        
-    } onFailure:^(NSError *error, NSInteger statusCode) {
-        
-    }];
     
     
     // Do any additional setup after loading the view.

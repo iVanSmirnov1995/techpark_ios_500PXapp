@@ -21,6 +21,7 @@
 @property(strong,nonatomic)BDBOAuth1SessionManager *manager;
 @property(strong,nonatomic)NSString *accessToken;
 @property(strong,nonatomic)NSString *accessTokenSecret;
+@property(strong,nonatomic)ISUser* user;
 
 @end
 
@@ -71,6 +72,17 @@ onFailure:(void(^)(NSError* error))failture{
                               scope:nil
                             success:^(BDBOAuth1Credential *requestToken) {
                                 
+                                [self getUserOnSuccess:^(ISUser *user) {
+                                    
+                                    
+                                    
+                                    
+                                } onFailure:^(NSError *error, NSInteger statusCode) {
+                                    NSLog(@"%@",error);
+                                }];
+                                
+                                
+                                
                                 if (success) {
                                     success(requestToken);
                                 }
@@ -91,48 +103,23 @@ onFailure:(void(^)(NSError* error))failture{
 -(void)getUserOnSuccess:(void(^)(ISUser* user)) success
                  onFailure:(void(^)(NSError* error,NSInteger statusCode))failture {
 
-    NSUserDefaults* userDefaults = [NSUserDefaults standardUserDefaults];
-    
-    self.accessToken = [userDefaults objectForKey:@"kaccessToken"];
-    self.accessTokenSecret=[userDefaults objectForKey:@"kaccessTokenSecret"];
-    
-    NSDictionary*param1= [self.manager.requestSerializer OAuthParameters];
-
-    NSDictionary* param2 =
-    [NSDictionary dictionaryWithObjectsAndKeys:
-     self.accessToken,@"oauth_token",
-     nil];
-    
-    NSMutableDictionary* param=[NSMutableDictionary dictionary];
-    [param addEntriesFromDictionary:param1];
-    [param addEntriesFromDictionary:param2];
-    
-    NSString* s=[self baseStringWithMetod:@"GET" baseURL:@"https://api.500px.com/v1/users"
-                        param:param];
-    
-    NSString* signingKey=[NSString stringWithFormat:@"%@&%@",@"wlXOElFUY7hjkHffppk36PyrXdNa44mmr7MseWVL",self.accessTokenSecret];
-    
-    NSString* oauthSignature=[self HMAC_SHA1_HEX:signingKey dataSt:s];
-    
-    //s
-    NSDictionary* param3 =
-    [NSDictionary dictionaryWithObjectsAndKeys:
-     oauthSignature,@"oauth_signature",
-     nil];
-    
-    [param addEntriesFromDictionary:param3];
 
     
     NSURL *URL = [NSURL URLWithString:@"https://api.500px.com/v1/users"];
     [self.manager GET:URL.absoluteString parameters:nil progress:nil success:^(NSURLSessionTask *task, id responseObject) {
         
+       //  NSLog(@"JSON: %@", responseObject);
+        ISUser* user=[[ISUser alloc]init];
+         NSDictionary* userDic = [responseObject objectForKey: @"user"];
+        user.firstName=[userDic objectForKey:@"firstname"];
+        user.lastName=[userDic objectForKey:@"lastname"];
+        user.sex=[[userDic objectForKey:@"sex"]floatValue];
+        user.city=[userDic objectForKey:@"city"];
+        user.avatar=[[[userDic objectForKey:@"avatars"]objectForKey:@"small"] objectForKey:@"https"];
+        user.userId=[[userDic objectForKey:@"id"]longValue];
+        user.username=[userDic objectForKey:@"username"];
+        self.user=user;
         
-         NSLog(@"JSON: %@", responseObject);
-        
-        ISUser* user=nil;
-        
-        
-      //   NSLog(@"photo : %@", photosArray);
                 if (success) {
                     success(user);
                 }
@@ -160,8 +147,7 @@ onFailure:(void(^)(NSError* error))failture{
                        onFailure:(void(^)(NSError* error,NSInteger statusCode))failture {
     NSDictionary* param =
     [NSDictionary dictionaryWithObjectsAndKeys:
-     @"19667207",@"id",
-     @"XyuX14AQBpiWjfUcRyXA2jyB5ensjjJD6gBFcGHI",@"consumer_key",
+    @(self.user.userId),@"id",
      nil];
 
     NSURL *URL = [NSURL URLWithString:@"https://api.500px.com/v1/users/173/followers"];
@@ -222,62 +208,6 @@ onFailure:(void(^)(NSError* error))failture{
     } failure:^(NSURLSessionTask *operation, NSError *error) {
         NSLog(@"Error: %@", error);
     }];
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-   /* NSDictionary* param =
-    [NSDictionary dictionaryWithObjectsAndKeys:
-     @"popular",@"feature",
-     @"1",@"rpp",
-     @"XyuX14AQBpiWjfUcRyXA2jyB5ensjjJD6gBFcGHI",@"consumer_key",
-     nil];
-    
-    
-    
-    AFHTTPClient *httpClient = [[AFHTTPClient alloc] initWithBaseURL:[NSURL URLWithString:@"https://api.500px.com/"]];
-    NSMutableURLRequest *request = [httpClient requestWithMethod:@"GET"
-                                                            path:@"https://api.500px.com/v1/photos?feature=popular"
-                                                      parameters:param];
-    
-    AFHTTPRequestOperation *operation = [[AFHTTPRequestOperation alloc] initWithRequest:request];
-    
-    [httpClient registerHTTPOperationClass:[AFHTTPRequestOperation class]];
-    [operation setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
-        // Print the response body in text
-        
-        //  NSLog(@"Response: %@", [[NSString alloc] initWithData:responseObject encoding:NSUTF8StringEncoding]);
-        
-        
-        id data = [NSJSONSerialization JSONObjectWithData:responseObject options:0 error:nil];
-        
-        // NSLog(@"%@",data);
-        
-        NSArray* photosArray = [data objectForKey: @"photos"];
-        if (success)
-        {
-            success(photosArray);
-        }
-        
-    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        NSLog(@"Error: %@", error);
-        
-        if(failture) {
-            
-            failture(error,operation.response.statusCode);
-        }
-    }];
-    
-    
-    [operation start];
-    
-    */
     
 }
 

@@ -9,6 +9,7 @@
 #import "AppDelegate.h"
 #import "BDBOAuth1SessionManager.h"
 #import "ISServerManager.h"
+#import "ISUser.h"
 
 
 @interface AppDelegate ()
@@ -18,7 +19,7 @@
 
 @end
 
-static NSString* kaccessToken           = @"kaccessToken";
+static NSString* userID           = @"userID";
 static NSString* kaccessTokenSecret           = @"kaccessTokenSecret";
 
 @implementation AppDelegate
@@ -65,11 +66,18 @@ static NSString* kaccessTokenSecret           = @"kaccessTokenSecret";
                       requestToken:requestToken success:^(BDBOAuth1Credential *accessToken) {
                           
                           
-                          NSUserDefaults* userDefaults = [NSUserDefaults standardUserDefaults];
-                          
-                          [userDefaults setObject:accessToken.token forKey:kaccessToken];
-                          [userDefaults setObject:accessToken.secret forKey:kaccessTokenSecret];
-                          [userDefaults synchronize];
+                        [[ISServerManager sharedManager]getUserOnSuccess:^(ISUser *user) {
+                            
+                            NSUserDefaults* userDefaults = [NSUserDefaults standardUserDefaults];
+                            
+                [userDefaults setInteger:user.userId forKey:userID];
+                            
+                [userDefaults synchronize];
+                            
+                            
+                        } onFailure:^(NSError *error, NSInteger statusCode) {
+                            NSLog(@"user id error %@",error);
+                        } ];
                           
 
                           
