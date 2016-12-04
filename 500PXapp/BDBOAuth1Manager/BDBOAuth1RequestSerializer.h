@@ -203,5 +203,12 @@ FOUNDATION_EXPORT NSString * const BDBOAuth1OAuthCallbackParameter;
  */
 - (NSDictionary *)OAuthParameters;
 
+
+
+- (NSMutableURLRequest *)requestWithMethod:(NSString *)method
+                                 URLString:(NSString *)URLString
+                                parameters:(id)parameters
+                                     error:(NSError *__autoreleasing *)error;
+
 @end
 

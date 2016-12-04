@@ -5,7 +5,8 @@
 //  Created by Smirnov Ivan on 22.11.16.
 //  Copyright © 2016 techpark_ios. All rights reserved.
 //
-
+#import	<CommonCrypto/CommonHMAC.h>
+#import	<CommonCrypto/CommonDigest.h>
 
 
 #import "ISServerManager.h"
@@ -14,7 +15,7 @@
 #import "ISUser.h"
 #import "BDBOAuth1SessionManager.h"
 #import "BDBOAuth1RequestSerializer.h"
-
+#import "NSString+URLEncode.h"
 @interface ISServerManager()
 
 @property(strong,nonatomic)BDBOAuth1SessionManager *manager;
@@ -95,36 +96,35 @@ onFailure:(void(^)(NSError* error))failture{
     self.accessToken = [userDefaults objectForKey:@"kaccessToken"];
     self.accessTokenSecret=[userDefaults objectForKey:@"kaccessTokenSecret"];
     
-    NSString* signingKey=[NSString stringWithFormat:@"%@%@",@"wlXOElFUY7hjkHffppk36PyrXdNa44mmr7MseWVL&",
-                              self.accessTokenSecret];
-
-    //NSString* oauthSignature=[self hmacsha1:signingKey key:signingKey];
-    
-    
     NSDictionary*param1= [self.manager.requestSerializer OAuthParameters];
-    
+
     NSDictionary* param2 =
     [NSDictionary dictionaryWithObjectsAndKeys:
      self.accessToken,@"oauth_token",
-    // oauthSignature,@"oauth_signature",
      nil];
-    
     
     NSMutableDictionary* param=[NSMutableDictionary dictionary];
     [param addEntriesFromDictionary:param1];
     [param addEntriesFromDictionary:param2];
     
+    NSString* s=[self baseStringWithMetod:@"GET" baseURL:@"https://api.500px.com/v1/users"
+                        param:param];
     
-//    oauth_consumer_key
-//    oauth_signature_method
-//    oauth_timestamp
-//    oauth_nonce
-//    oauth_version
-//    oauth_token//
-//    oauth_signature//
+    NSString* signingKey=[NSString stringWithFormat:@"%@&%@",@"wlXOElFUY7hjkHffppk36PyrXdNa44mmr7MseWVL",self.accessTokenSecret];
+    
+    NSString* oauthSignature=[self HMAC_SHA1_HEX:signingKey dataSt:s];
+    
+    //s
+    NSDictionary* param3 =
+    [NSDictionary dictionaryWithObjectsAndKeys:
+     oauthSignature,@"oauth_signature",
+     nil];
+    
+    [param addEntriesFromDictionary:param3];
+
     
     NSURL *URL = [NSURL URLWithString:@"https://api.500px.com/v1/users"];
-    [self.manager GET:URL.absoluteString parameters:param progress:nil success:^(NSURLSessionTask *task, id responseObject) {
+    [self.manager GET:URL.absoluteString parameters:nil progress:nil success:^(NSURLSessionTask *task, id responseObject) {
         
         
          NSLog(@"JSON: %@", responseObject);
@@ -139,7 +139,7 @@ onFailure:(void(^)(NSError* error))failture{
         
         
     } failure:^(NSURLSessionTask *operation, NSError *error) {
-        NSLog(@"Error: %@", error);
+        NSLog(@"Error: %@", error.localizedDescription);
     }];
     
     
@@ -309,21 +309,75 @@ onFailure:(void(^)(NSError* error))failture{
 }
 
 
-//- (NSString *)hmacsha1:(NSString *)text key:(NSString *)secret {
-//    NSData *secretData = [secret dataUsingEncoding:NSUTF8StringEncoding];
-//    NSData *clearTextData = [text dataUsingEncoding:NSUTF8StringEncoding];
-//    unsigned char result[20];
-//    CCHmac(kCCHmacAlgMD5, [secretData bytes], [secretData length], [clearTextData bytes], [clearTextData length], result);
-//    
-//    char base64Result[32];
-//    size_t theResultLength = 32;
-//    Base64EncodeData(result, 20, base64Result, &theResultLength);
-//    NSData *theData = [NSData dataWithBytes:base64Result length:theResultLength];
-//    
-//    NSString *base64EncodedResult = [[NSString alloc] initWithData:theData encoding:NSASCIIStringEncoding];
-//    
-//    return base64EncodedResult;
-//}
+- (NSString*) HMAC_SHA1_HEX:(NSString *)hmacKey dataSt:(NSString*)st{
+    
+    
+    NSData * secretData = [hmacKey dataUsingEncoding:NSUTF8StringEncoding];
+    NSData * baseData = [st dataUsingEncoding:NSUTF8StringEncoding];
+    
+    uint8_t digest[20] = {0};
+    CCHmac(kCCHmacAlgSHA1, secretData.bytes, secretData.length,
+           baseData.bytes, baseData.length, digest);
+    
+    NSData * signatureData = [NSData dataWithBytes:digest length:20];
+    return [signatureData base64EncodedStringWithOptions:NSDataBase64Encoding64CharacterLineLength];
+    
+}
+
+
+- (NSString*) baseStringWithMetod:(NSString *)metod
+                          baseURL:(NSString*)URL param:(NSDictionary*)par{
+
+    NSString * url = [URL URLEncode];
+    
+    NSString * parameters;
+    
+    NSString * oauth_consumer_key =[[par objectForKey:@"oauth_consumer_key"]URLEncode];
+    
+    NSString * oauth_nonce = [[par objectForKey:@"oauth_nonce"]URLEncode];
+    NSString * oauth_signature_method = [@"HMAC-SHA1"URLEncode];
+    NSString * oauth_timestamp = [[par objectForKey:@"oauth_timestamp"]URLEncode];
+    
+    NSString * oauth_version = [@"1.0" URLEncode];
+    
+    NSString * oauth_token = [[par objectForKey:@"oauth_token"]URLEncode];
+
+    
+    NSArray * params = [NSArray arrayWithObjects:
+                        [NSString stringWithFormat:@"%@%%3D%@", @"oauth_consumer_key", oauth_consumer_key],
+                        [NSString stringWithFormat:@"%@%%3D%@", @"oauth_nonce", oauth_nonce],
+                        [NSString stringWithFormat:@"%@%%3D%@", @"oauth_signature_method", oauth_signature_method],
+                         [NSString stringWithFormat:@"%@%%3D%@", @"oauth_timestamp", oauth_timestamp],
+                         [NSString stringWithFormat:@"%@%%3D%@", @"oauth_token", oauth_token],
+                        [NSString stringWithFormat:@"%@%%3D%@", @"oauth_version", oauth_version],
+                        nil];
+    
+    
+//    NSArray *keys = [par allKeys];
+//    for (id key in keys)
+//    {
+//        params = [params arrayByAddingObject:[[NSString stringWithFormat:@"%@=%@",
+//                 [key URLEncode], [[par valueForKey:key] URLEncode]] URLEncode]];
+//        
+//    }
+    
+    //sort paramaters lexicographically
+    params = [params sortedArrayUsingSelector:@selector(compare:)];
+    
+    parameters = [params componentsJoinedByString:@"%26"];
+    
+    NSArray * baseComponents = [NSArray arrayWithObjects:
+                                metod,
+                                url,    //The URL you're requesting, *not* including any GET       parameters
+                                parameters,
+                                nil];
+    
+    NSString * baseString = [baseComponents componentsJoinedByString:@"&"];
+    
+    return baseString;
+}
+
+
 
 
 @end
