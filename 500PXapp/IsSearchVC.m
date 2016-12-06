@@ -11,6 +11,7 @@
 #import "SearchViewCellCollection.h"
 #import "IsSearchCollectionLayout.h"
 #import "ISServerManager.h"
+#import "MSPhotos.h"
 
 @interface IsSearchVC () <UICollectionViewDelegate ,UICollectionViewDataSource> {
     NSMutableArray *arrItems;
@@ -21,7 +22,11 @@
 @property (weak,nonatomic)IBOutlet UICollectionView *collection;
 @property (strong,nonatomic) NSMutableArray *photos;
 @property (strong,nonatomic) NSDictionary *dict;
-
+@property (strong,nonatomic) NSString *str;
+@property (strong , nonatomic) UIImage *img;
+@property (strong,nonatomic) NSMutableArray *imageArray;
+@property (strong,nonatomic) NSMutableArray *imageArray2;
+@property (strong,nonatomic) NSMutableArray *imageArray3;
 @end
 
 @implementation IsSearchVC
@@ -67,7 +72,12 @@
     self.photos = [NSMutableArray array];
     self.dict = [[NSDictionary alloc] init];
     
-    [self getPopularPhotoFromServer];
+    
+    dispatch_async(dispatch_get_main_queue(), ^{
+    
+        
+        [self getPopularPhotoFromServer];
+    });
     
     NSLog(@"ARRAY %@", self.photos);
     
@@ -78,17 +88,15 @@
     
     ISSearchModel *search = [[ISSearchModel alloc]init];
     search.nameProduct = @"Популярное";
-    search.imgProduct = [UIImage imageNamed:@"popular.jpg"];
     [arrItems addObject:search];
     
-    
-    
+
     search = [[ISSearchModel alloc]init];
     search.nameProduct = @"Выбор редакции";
     search.imgProduct = [UIImage imageNamed:@"choice.jpg"];
     [arrItems2 addObject:search];
     
-    
+    NSLog(@"33");
     search = [[ISSearchModel alloc]init];
     search.nameProduct = @"Интересное";
     search.imgProduct = [UIImage imageNamed:@"interesting.jpg"];
@@ -141,7 +149,7 @@
     IsSearchCollectionLayout *layout = [IsSearchCollectionLayout new];
     layout.cellSize = CGSizeMake(5, 5);
     self.collection.collectionViewLayout = layout;
-    
+   
     
 }
 
@@ -179,16 +187,50 @@
         
         [self.photos addObjectsFromArray:photos];
         
-         self.dict = [self.photos objectAtIndex:0];
-          NSLog(@"dict %@", self.dict);
+        NSLog(@"%@", self.photos);
+        self.imageArray = [NSMutableArray array];
+         self.imageArray2 = [NSMutableArray array];
+         self.imageArray3 = [NSMutableArray array];
+      // NSLog(@"MASSIV %@", self.photos);
+        
         /*
-         self.dict = [self.photos objectAtIndex:0];
-         NSString* str;
-         str = [self.dict valueForKey:@"image_url"];
-         self.string = str;
-         
-         NSLog(@"%@",self.string);
-         */
+        NSDictionary *dict = [self.photos objectAtIndex:0];
+        NSLog(@"111 %@",dict);
+        
+        NSString *strr = [NSString stringWithFormat:@"%@",[dict objectForKey:@"image_url"]];
+        
+        strr = @"https://pacdn.500px.org/6873582/427bd0676493ab5333c56acf32efc4c5a67b8f73/cover_2048.jpg?44";
+        NSURL *url = [NSURL URLWithString:strr];
+        NSData *dat = [[NSData alloc ] initWithContentsOfURL:url];
+        
+        self.img = [UIImage imageWithData:dat];
+        
+      
+        [self.collection reloadData];
+        */
+        
+        NSURL *url = [NSURL URLWithString:self.photos[0]];
+        NSData *dat = [[NSData alloc ] initWithContentsOfURL:url];
+        
+        self.imageArray[0] = [UIImage imageWithData:dat];
+        
+        
+        for (int i = 0 ;i<4;i++) {
+        NSURL *url = [NSURL URLWithString:self.photos[i+1]];
+        NSData *dat = [[NSData alloc ] initWithContentsOfURL:url];
+        
+        self.imageArray2[i] = [UIImage imageWithData:dat];
+        
+        }
+        for (int i = 0 ;i<7;i++) {
+            NSURL *url = [NSURL URLWithString:self.photos[i+5]];
+            NSData *dat = [[NSData alloc ] initWithContentsOfURL:url];
+            
+            self.imageArray3[i] = [UIImage imageWithData:dat];
+            
+        }
+        
+        [self.collection reloadData];
         
         
     }
@@ -258,13 +300,10 @@
     {
          ISSearchModel* item=[arrItems objectAtIndex:indexPath.row];
         SearchViewCellCollection* cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"cellItem" forIndexPath:indexPath];
-  
-      //  NSDictionary *dict1 = [self.photos objectAtIndex:0];
-       // NSString *str = [dict1 valueForKey:@"firstname"];
-       // NSLog(@"%@",[]);
-    //    NSLog(@"str%@", str);
+        
+ 
         cell.label.text = item.nameProduct;
-        cell.img.image = item.imgProduct;
+        cell.img.image = self.imageArray[indexPath.row];
        
         return cell;
     }
@@ -273,7 +312,8 @@
          ISSearchModel* item=[arrItems2 objectAtIndex:indexPath.row];
         SearchViewCellCollection* cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"cellItem" forIndexPath:indexPath];
         cell.label.text = item.nameProduct;
-        cell.img.image = item.imgProduct;
+        cell.img.image = self.imageArray2[indexPath.row];
+        
     
         return cell;
     }
@@ -281,7 +321,8 @@
     { ISSearchModel* item=[arrItems3 objectAtIndex:indexPath.row];
         SearchViewCellCollection* cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"cellItem" forIndexPath:indexPath];
         cell.label.text = item.nameProduct;
-        cell.img.image = item.imgProduct;
+        cell.img.image = self.imageArray3[indexPath.row];
+        
       
         return cell;
     }
@@ -289,7 +330,6 @@
     
     return nil;
 }
-
 
 
 @end

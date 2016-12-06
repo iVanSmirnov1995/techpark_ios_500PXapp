@@ -64,6 +64,7 @@
 		F5423C651DCB6B4F006FD69A /* 1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F5423C571DCB6B4F006FD69A /* 1.jpg */; };
 		F5423C6A1DCB6B5C006FD69A /* PhotoCollectionVC.m in Sources */ = {isa = PBXBuildFile; fileRef = F5423C671DCB6B5C006FD69A /* PhotoCollectionVC.m */; };
 		F5423C6B1DCB6B5C006FD69A /* CellPhotos.m in Sources */ = {isa = PBXBuildFile; fileRef = F5423C691DCB6B5C006FD69A /* CellPhotos.m */; };
+		F5D01EC31DF55A0800ABD067 /* MSPhotos.m in Sources */ = {isa = PBXBuildFile; fileRef = F5D01EC21DF55A0800ABD067 /* MSPhotos.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -180,6 +181,8 @@
 		F5423C671DCB6B5C006FD69A /* PhotoCollectionVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhotoCollectionVC.m; sourceTree = "<group>"; };
 		F5423C681DCB6B5C006FD69A /* CellPhotos.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CellPhotos.h; sourceTree = "<group>"; };
 		F5423C691DCB6B5C006FD69A /* CellPhotos.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CellPhotos.m; sourceTree = "<group>"; };
+		F5D01EC11DF55A0800ABD067 /* MSPhotos.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSPhotos.h; sourceTree = "<group>"; };
+		F5D01EC21DF55A0800ABD067 /* MSPhotos.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSPhotos.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -389,6 +392,8 @@
 				F5423C221DCB6982006FD69A /* PhotosCellModel.m */,
 				F5423C231DCB6982006FD69A /* ISSearchModel.h */,
 				F5423C241DCB6982006FD69A /* ISSearchModel.m */,
+				F5D01EC11DF55A0800ABD067 /* MSPhotos.h */,
+				F5D01EC21DF55A0800ABD067 /* MSPhotos.m */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -702,6 +707,7 @@
 				F5423C261DCB6982006FD69A /* PhotosCellModel.m in Sources */,
 				D3CB5C241DE4CCA900AFCE3A /* ISLoginVC.m in Sources */,
 				F5423C461DCB6B17006FD69A /* SignUpVC.m in Sources */,
+				F5D01EC31DF55A0800ABD067 /* MSPhotos.m in Sources */,
 				D349652E1DB4043E00813293 /* main.m in Sources */,
 				D3DB2D451DF404C100DABDFB /* ISTabBarVC.m in Sources */,
 				F5423C361DCB6A5B006FD69A /* ISTableViewImageCell.m in Sources */,

@@ -16,6 +16,8 @@
 #import "BDBOAuth1SessionManager.h"
 #import "BDBOAuth1RequestSerializer.h"
 #import "NSString+URLEncode.h"
+#import "MSPhotos.h"
+
 @interface ISServerManager()
 
 @property(strong,nonatomic)BDBOAuth1SessionManager *manager;
@@ -181,35 +183,61 @@ onFailure:(void(^)(NSError* error))failture{
 
 -(void)getPopularPhotosOnSuccess:(void(^)(NSArray* photos)) success
                        onFailure:(void(^)(NSError* error,NSInteger statusCode))failture {
-    
+    // NSLog(self.accessToken);
     
     NSDictionary* param =
     [NSDictionary dictionaryWithObjectsAndKeys:
      @"popular",@"feature",
-     @"1",@"rpp",
+     @"12",@"rpp",
      @"XyuX14AQBpiWjfUcRyXA2jyB5ensjjJD6gBFcGHI",@"consumer_key",
      nil];
     
+    /* NSDictionary* param1 =
+    [NSDictionary dictionaryWithObjectsAndKeys:
+     @"popular",@"feature",
+     @"10",@"rpp",
+     @"XyuX14AQBpiWjfUcRyXA2jyB5ensjjJD6gBFcGHI",@"oauth_token",
+     nil];
+    */
+
     NSURL *URL = [NSURL URLWithString:@"https://api.500px.com/v1/photos?feature=popular"];
-    [self.manager GET:URL.absoluteString parameters:param progress:nil success:^(NSURLSessionTask *task, id responseObject) {
+    AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
+     dispatch_async(dispatch_get_main_queue(), ^{
+    
+    [manager GET:URL.absoluteString parameters:param progress:nil success:^(NSURLSessionTask *task, id responseObject) {
+      
+       // NSLog(@"JSON: %@", responseObject);
+        
+        NSArray* photosArray = [responseObject objectForKey: @"photos"];
+        NSMutableArray *array = [NSMutableArray array];
+        // NSLog(@"photo : %@", photosArray);
         
         
-      //  NSLog(@"JSON: %@", responseObject);
         
-          NSArray* photosArray = [responseObject objectForKey: @"photos"];
-        
-        
-       // NSLog(@"photo : %@", photosArray);
-        if (success) {
-            success(photosArray);
+        for (int i = 0;i<photosArray.count;i++ )
+        {
+         
+            NSDictionary *dict = [[photosArray objectAtIndex:i] objectForKey:@"user"];
+            MSPhotos* msp = [[MSPhotos alloc] initWithServerResponse:dict];
+            [array addObject:msp.photoURL];
+            
         }
+        
+        if (success) {
+            success(array);
+        }
+       
+        
         
         
     } failure:^(NSURLSessionTask *operation, NSError *error) {
         NSLog(@"Error: %@", error);
     }];
+});
+    
     
 }
+
 
 
 
