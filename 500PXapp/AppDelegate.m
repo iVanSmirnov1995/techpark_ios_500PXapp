@@ -10,6 +10,7 @@
 #import "BDBOAuth1SessionManager.h"
 #import "ISServerManager.h"
 #import "ISUser.h"
+#import "ISLoginVC.h"
 
 
 @interface AppDelegate ()
@@ -29,13 +30,14 @@ static NSString* kaccessTokenSecret           = @"kaccessTokenSecret";
 
     
     self.manager=[[ISServerManager sharedManager]loginUserOnSuccess:^(BDBOAuth1Credential *requestToken) {
-             
+        
              NSString *authURLString = [@"https://api.500px.com/v1/oauth/authorize" stringByAppendingFormat:@"?oauth_token=%@", requestToken.token];
-             
-             
+        
+                  
+        
              
              [[UIApplication sharedApplication]openURL:[NSURL URLWithString:authURLString] options:nil completionHandler:nil];
-             
+        
              
          } onFailure:^(NSError *error) {
              
@@ -86,7 +88,7 @@ static NSString* kaccessTokenSecret           = @"kaccessTokenSecret";
                           NSLog(@"2 %@",error.localizedDescription);
                           
                       }];
-        
+    
     
     
     

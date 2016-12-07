@@ -8,14 +8,14 @@
 
 #import "ISLoginVC.h"
 
-#import "ISAccessToken.h"
+#import "BDBOAuth1SessionManager.h"
 #import "ISServerManager.h"
+#import "ISUser.h"
+#import "ISLoginVC.h"
 
 @interface ISLoginVC ()
 
-@property(strong,nonatomic)NSString* token;
-@property(strong,nonatomic)NSString* tokenSecret;
-
+@property(strong,nonatomic)BDBOAuth1SessionManager* manager;
 
 @end
 
@@ -35,6 +35,28 @@
     [super viewDidLoad];
     
     
+    self.manager=[[ISServerManager sharedManager]loginUserOnSuccess:^(BDBOAuth1Credential *requestToken) {
+        
+        NSString *authURLString = [@"https://api.500px.com/v1/oauth/authorize" stringByAppendingFormat:@"?oauth_token=%@", requestToken.token];
+        
+        
+        
+        [self.webView loadRequest:[NSURLRequest requestWithURL:
+                                   [NSURL URLWithString:authURLString]]];
+        
+        
+//        [[UIApplication sharedApplication]openURL:[NSURL URLWithString:authURLString] options:nil completionHandler:nil];
+        
+        
+    } onFailure:^(NSError *error) {
+        
+        NSLog(@"1 %@",error);
+        
+    }];
+
+    
+    
+    
     
 }
 
@@ -43,18 +65,54 @@
     // Dispose of any resources that can be recreated.
 }
 
-
 #pragma mark - UIWebViewDelegete
 
-
-#pragma mark-step3
-
-- (void)webViewDidFinishLoad:(UIWebView *)aWebView
-{
- }
+- (BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType{
 
     
- //   [self finishedAthourizationProcessWithUserId:userId AccessToken:params[@"oauth_token"] AccessTokenSecret:params[@"oauth_token_secret"]];
+    
+    
+    NSLog(@"%@",[[request URL] description]);
+    
+    
+    
+    
+    
+    BDBOAuth1Credential* requestToken=[BDBOAuth1Credential credentialWithQueryString:
+                                       request.URL.query];
+    
+    
+    
+    [self.manager fetchAccessTokenWithPath:@"oauth/access_token" method:@"POST"
+                              requestToken:requestToken success:^(BDBOAuth1Credential *accessToken) {
+                                  
+                                  
+                                  [[ISServerManager sharedManager]getUserOnSuccess:^(ISUser *user) {
+                                      
+
+                                      
+                                      
+                                  } onFailure:^(NSError *error, NSInteger statusCode) {
+                                      NSLog(@"user id error %@",error);
+                                  } ];
+                                  
+                                  
+                                  
+                              } failure:^(NSError *error) {
+                                  
+                                  NSLog(@"2 %@",error.localizedDescription);
+                                  
+                              }];
+     
+    
+    
+    return YES;
+}
+
+
+
+    
+
 
 
 

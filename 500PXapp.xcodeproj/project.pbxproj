@@ -540,11 +540,15 @@
 		D34965211DB4043E00813293 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				KnownAssetTags = (
+					main,
+				);
 				LastUpgradeCheck = 0810;
 				ORGANIZATIONNAME = techpark_ios;
 				TargetAttributes = {
 					D34965281DB4043E00813293 = {
 						CreatedOnToolsVersion = 8.0;
+						DevelopmentTeam = HVBFE6784D;
 						ProvisioningStyle = Automatic;
 					};
 					D34965441DB4043E00813293 = {
@@ -868,7 +872,9 @@
 			baseConfigurationReference = 15946F4F748628307FFFAF20 /* Pods-500PXapp.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = HVBFE6784D;
 				INFOPLIST_FILE = 500PXapp/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "TP.com.-00PXapp";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -880,7 +886,9 @@
 			baseConfigurationReference = 5FF7DDAF287543F8316D0669 /* Pods-500PXapp.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = HVBFE6784D;
 				INFOPLIST_FILE = 500PXapp/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "TP.com.-00PXapp";
 				PRODUCT_NAME = "$(TARGET_NAME)";

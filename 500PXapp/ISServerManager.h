@@ -8,7 +8,7 @@
 //#import <CommonCrypto/CommonHMAC.h>
 #import <Foundation/Foundation.h>
 
-@class ISUser,BDBOAuth1Credential,BDBOAuth1SessionManager;
+@class ISUser,BDBOAuth1Credential,BDBOAuth1SessionManager,ISNewsFeedModel;
 @interface ISServerManager : NSObject
 
 +(ISServerManager*) sharedManager;
@@ -29,7 +29,8 @@
 -(void)getPopularPhotosOnSuccess:(void(^)(NSArray* photos)) success
                        onFailure:(void(^)(NSError* error,NSInteger statusCode))failture;
 
-
+-(void)getUserFriendsPhotoNewsOnSuccess:(void(^)(NSMutableArray* newsAr)) success
+                              onFailure:(void(^)(NSError* error,NSInteger statusCode))failture;
 
 
 -(void)getPhotosWithTerm:(NSString*)term tag:(NSString*)tag

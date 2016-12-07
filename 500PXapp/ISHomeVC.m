@@ -20,6 +20,7 @@
 
 #import "ISServerManager.h"
 #import "ISUser.h"
+#import "UIImageView+AFNetworking.h"
 
 @interface ISHomeVC ()<UITableViewDataSource,UITableViewDelegate>
 
@@ -44,48 +45,47 @@ typedef enum {
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    [[ISServerManager sharedManager]getUserOnSuccess:^(ISUser *user) {
-        
-        self.user=user;
-        NSLog(@"%@",user.avatar);
-        
-    } onFailure:^(NSError *error, NSInteger statusCode) {
-        
-        NSLog(@"%@",error);
-        
-    }];
-    
 
-    [[ISServerManager sharedManager] getFolowerOnSuccess:^(NSArray *news) {
+    self.tableView.delegate=nil;
+    
+    [[ISServerManager sharedManager]getUserFriendsPhotoNewsOnSuccess:^(NSMutableArray *news) {
+        
+        
+            self.newsFeedArray=[NSMutableArray array];
+        self.newsFeedArray=news;
+            self.tableView.rowHeight = UITableViewAutomaticDimension;
+            self.tableView.estimatedRowHeight = 44.0;
+        
+        self.tableView.delegate=self;
+        self.tableView.rowHeight = UITableViewAutomaticDimension;
+        self.tableView.estimatedRowHeight = 44.0;
+        [self.tableView reloadData];
         
         
         
         
     } onFailure:^(NSError *error, NSInteger statusCode) {
         
-        
-        
     }];
-    
     
     
     // Do any additional setup after loading the view.
-    self.tableView.rowHeight = UITableViewAutomaticDimension;
-    self.tableView.estimatedRowHeight = 44.0;
-    
-    self.newsFeedArray=[NSMutableArray array];
-    for (int i=0; i<9; i++) {
-        
-        ISNewsFeedModel* model=[[ISNewsFeedModel alloc]init];
-        model.userName=@"Ivan Smirnov";
-        model.imageName=@"1.jpg";
-        model.userImageName=@"2.jpg";
-        model.data=@"18 октября";
-        model.countLike=@"5";
-        model.lastComent=@"Крутая фотка";
-        [self.newsFeedArray addObject:model];
-        
-    }
+//    self.tableView.rowHeight = UITableViewAutomaticDimension;
+//    self.tableView.estimatedRowHeight = 44.0;
+//    
+//    self.newsFeedArray=[NSMutableArray array];
+//    for (int i=0; i<9; i++) {
+//        
+//        ISNewsFeedModel* model=[[ISNewsFeedModel alloc]init];
+//        model.userName=@"Ivan Smirnov";
+//        model.imageName=@"1.jpg";
+//        model.userImageName=@"2.jpg";
+//        model.data=@"18 октября";
+//        model.countLike=@"5";
+//        model.lastComent=@"Крутая фотка";
+//        [self.newsFeedArray addObject:model];
+//        
+//    }
     
     
     
@@ -122,6 +122,9 @@ typedef enum {
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
     
+    
+    
+    
     return self.newsFeedArray.count;
 }
 
@@ -141,7 +144,31 @@ typedef enum {
     if (indexPath.row==ISImageTupe) {
         identifier=@"image";
        ISTableViewImageCell* cell=[tableView dequeueReusableCellWithIdentifier:identifier forIndexPath:indexPath];
-        cell.myImageView.image=[UIImage imageNamed:newsModel.imageName];
+        
+        
+        NSURLRequest* request = [NSURLRequest requestWithURL:[NSURL URLWithString:newsModel.imageName]];
+        
+        __weak ISTableViewImageCell* weakCell = cell;
+        
+        cell.imageView.image = nil;
+        
+        [cell.myImageView
+         setImageWithURLRequest:request
+         placeholderImage:nil
+         success:^(NSURLRequest *request, NSHTTPURLResponse *response, UIImage *image) {
+             weakCell.myImageView.image = image;
+             [weakCell layoutSubviews];
+         }
+         failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error) {
+             
+         }];
+        
+        
+        
+        
+        
+//
+        
         return cell;
     }
     
@@ -149,7 +176,8 @@ typedef enum {
         identifier=@"infoUser";
         ISTableViewUserInfoCell* cell=[tableView dequeueReusableCellWithIdentifier:identifier forIndexPath:indexPath];
         [cell layoutIfNeeded];
-        cell.userImage.image=[UIImage imageNamed:newsModel.userImageName];
+        
+        cell.userImage.image=[UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:newsModel.userImageName]]];//[UIImage imageNamed:newsModel.userImageName];
         cell.userImage.layer.cornerRadius=CGRectGetWidth(cell.userImage.frame)/2.f;
         cell.userImage.layer.masksToBounds=YES;
         cell.userName.text=newsModel.userName;
@@ -160,7 +188,7 @@ typedef enum {
     if (indexPath.row==ISLikeTupe) {
         identifier=@"like";
         ISTableViewLikeCell* cell=[tableView dequeueReusableCellWithIdentifier:identifier forIndexPath:indexPath];
-        cell.countLike.text=newsModel.countLike;
+        cell.countLike.text=@"0";//[NSString stringWithFormat:@"%d",newsModel.countLike];
         return cell;
 
     }

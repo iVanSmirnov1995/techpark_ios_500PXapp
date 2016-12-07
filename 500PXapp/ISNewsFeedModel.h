@@ -14,9 +14,11 @@
 
 @property(strong,nonatomic)NSString* imageName;
 @property(strong,nonatomic)NSString* userName;
+@property(assign,nonatomic)NSInteger userID;
+@property(assign,nonatomic)long photoID;
 @property(strong,nonatomic)NSString* userImageName;
 @property(strong,nonatomic)NSString* data;
-@property(strong,nonatomic)NSString* countLike;
+@property(assign,nonatomic)NSInteger countLike;
 @property(strong,nonatomic)NSString* lastComent;
 
 

@@ -17,6 +17,7 @@
 #import "BDBOAuth1RequestSerializer.h"
 #import "NSString+URLEncode.h"
 #import "MSPhotos.h"
+#import "ISNewsFeedModel.h"
 
 @interface ISServerManager()
 
@@ -102,6 +103,8 @@ onFailure:(void(^)(NSError* error))failture{
 
 
 
+
+
 -(void)getUserOnSuccess:(void(^)(ISUser* user)) success
                  onFailure:(void(^)(NSError* error,NSInteger statusCode))failture {
 
@@ -136,7 +139,64 @@ onFailure:(void(^)(NSError* error))failture{
 
 
 
+-(void)getUserFriendsPhotoNewsOnSuccess:(void(^)(NSMutableArray* newsAr)) success
+              onFailure:(void(^)(NSError* error,NSInteger statusCode))failture {
+    
+    
+    NSString* re=[NSString stringWithFormat:
+  @"https://api.500px.com/v1/photos?feature=fresh_today&user_id=%ld&sort=created_at&image_size=4&include_store=store_download&include_states=voted",self.user.userId];
+    
+    
+    
+    NSURL *URL = [NSURL URLWithString:re];
+    
+    
+    
+    
+    [self.manager GET:URL.absoluteString parameters:nil progress:nil success:^(NSURLSessionTask *task, id responseObject) {
+        
+      //  NSLog(@"%@",URL);
+          NSLog(@"JSON: %@", responseObject);
+        
+        NSArray* newsAr=[responseObject objectForKey: @"photos"];
+        NSMutableArray* modelNewsAr=[NSMutableArray array];
+        
+        for (NSDictionary* newsDic in newsAr) {
+            
+            ISNewsFeedModel* news=[[ISNewsFeedModel alloc]init];
+            NSDictionary* userDic = [newsDic objectForKey: @"user"];
+         //   NSLog(@"%@",userDic);
+            
+            news.userName=[userDic objectForKey:@"fullname"];
+            news.userID=[[userDic objectForKey:@"id"]integerValue];
+            news.userImageName=[[[userDic objectForKey:@"avatars"]objectForKey:@"small"] objectForKey:@"https"];
+            news.photoID=[[newsDic objectForKey:@"id"]longValue];
+            news.imageName=[newsDic objectForKey:@"image_url"];
+            
+        //    NSLog(@"%@",[newsDic objectForKey:@"cover_url"]);
+            
+            news.data=[newsDic objectForKey:@"created_at"];
+            news.countLike=[newsDic objectForKey:@"converted"];
+            
+            
+            
+            [modelNewsAr addObject:news];
+            
+        }
+        
+        
+        if (success) {
+            success(modelNewsAr);
+        }
+        
+        
+    } failure:^(NSURLSessionTask *operation, NSError *error) {
+        NSLog(@"Error: %@", error.localizedDescription);
+    }];
 
+    
+    
+}
 
 /*Consumer Key: XyuX14AQBpiWjfUcRyXA2jyB5ensjjJD6gBFcGHI
  Consumer Secret: wlXOElFUY7hjkHffppk36PyrXdNa44mmr7MseWVL
