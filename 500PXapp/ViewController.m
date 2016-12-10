@@ -8,8 +8,14 @@
 
 #import "ViewController.h"
 #import "ISServerManager.h"
+#import "OAuth1Controller.h"
+#import "LoginWebViewController.h"
+#import "ISTabBarVC.h"
 
 @interface ViewController ()
+@property (nonatomic, strong) OAuth1Controller *oauth1Controller;
+@property (nonatomic, strong) NSString *oauthToken;
+@property (nonatomic, strong) NSString *oauthTokenSecret;
 
 @end
 
@@ -76,9 +82,20 @@
     
     
     
+    
+    
 }
 
 - (IBAction)enterButton:(UIButton *)sender {
+}
+
+- (IBAction)oauthAction:(UIButton *)sender {
+    
+    
+    [self loginTapped];
+    
+    
+    
 }
 
 #pragma mark - UITextFieldDelegate
@@ -144,6 +161,65 @@
         f.origin.y = 0.0f;
         self.view.frame = f;
     }];
+}
+
+
+- (void)loginTapped
+{
+    LoginWebViewController *loginWebViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"loginWebViewController"];
+    
+    [self presentViewController:loginWebViewController
+                       animated:YES
+                     completion:^{
+                         
+                         [self.oauth1Controller loginWithWebView:loginWebViewController.webView completion:^(NSDictionary *oauthTokens, NSError *error) {
+                             if (!error) {
+                                 // Store your tokens for authenticating your later requests, consider storing the tokens in the Keychain
+                                 self.oauthToken = oauthTokens[@"oauth_token"];
+                                 self.oauthTokenSecret = oauthTokens[@"oauth_token_secret"];
+                                 NSLog(@"%@",self.oauthTokenSecret);
+                                 
+                                 [[ISServerManager sharedManager]setOauthTokenSecret:self.oauthTokenSecret];
+                                 [[ISServerManager sharedManager]setOauthToken:self.oauthToken];
+                                 
+                    [[ISServerManager sharedManager]getUserOnSuccess:^(ISUser *user) {
+                        
+                        NSLog(@"%@",user);
+                        
+                        [[ISServerManager sharedManager]setUser:user];
+                        
+                        [self dismissViewControllerAnimated:YES completion: ^{
+                            self.oauth1Controller = nil;
+                            
+                            ISTabBarVC* vc=[self.storyboard instantiateViewControllerWithIdentifier:@"ISTabBarVC"];
+                            [self presentViewController:vc animated:YES completion: nil];
+                            
+                            
+                            
+                        }];
+                        
+                        
+                    } onFailure:^(NSError *error, NSInteger statusCode) {
+                        
+                    }];
+                                 
+                             }
+                             else
+                             {
+                                 NSLog(@"Error authenticating: %@", error.localizedDescription);
+                             }
+
+                         }];
+                     }];
+}
+
+
+- (OAuth1Controller *)oauth1Controller
+{
+    if (_oauth1Controller == nil) {
+        _oauth1Controller = [[OAuth1Controller alloc] init];
+    }
+    return _oauth1Controller;
 }
 
 

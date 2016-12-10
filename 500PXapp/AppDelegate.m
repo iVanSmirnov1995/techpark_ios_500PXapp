@@ -15,84 +15,19 @@
 
 @interface AppDelegate ()
 
-@property(strong,nonatomic)BDBOAuth1SessionManager* manager;
 
 
 @end
 
-static NSString* userID           = @"userID";
-static NSString* kaccessTokenSecret           = @"kaccessTokenSecret";
 
 @implementation AppDelegate
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-
-    
-    self.manager=[[ISServerManager sharedManager]loginUserOnSuccess:^(BDBOAuth1Credential *requestToken) {
-        
-             NSString *authURLString = [@"https://api.500px.com/v1/oauth/authorize" stringByAppendingFormat:@"?oauth_token=%@", requestToken.token];
-        
-                  
-        
-             
-             [[UIApplication sharedApplication]openURL:[NSURL URLWithString:authURLString] options:nil completionHandler:nil];
-        
-             
-         } onFailure:^(NSError *error) {
-             
-              NSLog(@"1 %@",error);
-             
-         }];
-
     
 
     
     return YES;
-}
-
-
-
-
-
-
-
-- (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation {
-    
-    
-    
-    
-      BDBOAuth1Credential* requestToken=[BDBOAuth1Credential credentialWithQueryString:url.query];
-
-    [self.manager fetchAccessTokenWithPath:@"oauth/access_token" method:@"POST"
-                      requestToken:requestToken success:^(BDBOAuth1Credential *accessToken) {
-                          
-                          
-                        [[ISServerManager sharedManager]getUserOnSuccess:^(ISUser *user) {
-                            
-                            NSUserDefaults* userDefaults = [NSUserDefaults standardUserDefaults];
-                            
-                [userDefaults setInteger:user.userId forKey:userID];
-                            
-                [userDefaults synchronize];
-                            
-                            
-                        } onFailure:^(NSError *error, NSInteger statusCode) {
-                            NSLog(@"user id error %@",error);
-                        } ];
-                          
-
-                          
-                      } failure:^(NSError *error) {
-                        
-                          NSLog(@"2 %@",error.localizedDescription);
-                          
-                      }];
-    
-    
-    
-    
-    return NO;
 }
 
 

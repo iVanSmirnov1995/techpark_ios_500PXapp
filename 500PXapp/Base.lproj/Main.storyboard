@@ -298,7 +298,7 @@
         <!--Tab BarVC-->
         <scene sceneID="ihr-eD-uVR">
             <objects>
-                <tabBarController id="TyY-b3-HPw" customClass="ISTabBarVC" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="ISTabBarVC" id="TyY-b3-HPw" customClass="ISTabBarVC" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" id="WLE-Yh-Ywm"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" id="wud-jv-1L5">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
@@ -316,37 +316,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YKv-OR-95B" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="860" y="-269"/>
-        </scene>
-        <!--LoginVC-->
-        <scene sceneID="5za-qq-C1S">
-            <objects>
-                <viewController storyboardIdentifier="login" id="eh3-q1-Isj" customClass="ISLoginVC" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="cgU-Jt-xn1"/>
-                        <viewControllerLayoutGuide type="bottom" id="cQK-w2-Vyb"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="5bJ-1J-Ni4">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <webView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="YQ0-Si-Jg6">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <connections>
-                                    <outlet property="delegate" destination="eh3-q1-Isj" id="5H7-GJ-3gk"/>
-                                </connections>
-                            </webView>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                    <connections>
-                        <outlet property="webView" destination="YQ0-Si-Jg6" id="u4Y-h7-Mhy"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="6jO-L2-rRU" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="896.79999999999995" y="-1386.656671664168"/>
         </scene>
         <!--Page View Controller-->
         <scene sceneID="ZTc-pc-5pN">
@@ -490,7 +459,7 @@
                                 <state key="normal" backgroundImage="Button3"/>
                                 <connections>
                                     <action selector="enterButton:" destination="nmV-Vn-dJr" eventType="touchUpInside" id="ft5-kR-fgC"/>
-                                    <segue destination="TyY-b3-HPw" kind="show" id="mlw-43-stK"/>
+                                    <action selector="oauthAction:" destination="nmV-Vn-dJr" eventType="touchUpInside" id="mcE-yE-Jlh"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="I5i-kQ-mHa">
@@ -833,6 +802,54 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Lm1-fq-MF8" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-1439" y="-143"/>
+        </scene>
+        <!--Login Web View Controller-->
+        <scene sceneID="wso-Sl-sV7">
+            <objects>
+                <viewController storyboardIdentifier="loginWebViewController" id="c3a-Bt-Jpe" customClass="LoginWebViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="xMI-e9-Oom"/>
+                        <viewControllerLayoutGuide type="bottom" id="HLG-C8-QVE"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="XdO-k2-0sH">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <webView multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5tT-iY-4vf">
+                                <rect key="frame" x="0.0" y="44" width="375" height="623"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </webView>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8uj-6t-dWv">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                                <items>
+                                    <navigationItem title="Authorize" id="stm-1r-UQ1">
+                                        <barButtonItem key="rightBarButtonItem" systemItem="cancel" id="h3W-Qd-Dp0">
+                                            <connections>
+                                                <action selector="cancelTapped:" destination="c3a-Bt-Jpe" id="pUb-QD-6yJ"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="5tT-iY-4vf" firstAttribute="leading" secondItem="XdO-k2-0sH" secondAttribute="leading" id="1bk-uv-HPh"/>
+                            <constraint firstItem="5tT-iY-4vf" firstAttribute="top" secondItem="8uj-6t-dWv" secondAttribute="bottom" id="DRL-SV-pbl"/>
+                            <constraint firstItem="8uj-6t-dWv" firstAttribute="leading" secondItem="XdO-k2-0sH" secondAttribute="leading" id="LHE-zV-jQJ"/>
+                            <constraint firstItem="8uj-6t-dWv" firstAttribute="top" secondItem="XdO-k2-0sH" secondAttribute="top" id="SaA-R5-xSx"/>
+                            <constraint firstItem="8uj-6t-dWv" firstAttribute="trailing" secondItem="XdO-k2-0sH" secondAttribute="trailing" id="vHa-O5-Ahy"/>
+                            <constraint firstItem="5tT-iY-4vf" firstAttribute="bottom" secondItem="XdO-k2-0sH" secondAttribute="bottom" id="vV3-ID-kZ9"/>
+                            <constraint firstItem="5tT-iY-4vf" firstAttribute="trailing" secondItem="XdO-k2-0sH" secondAttribute="trailing" id="xjp-wN-i0U"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="webView" destination="5tT-iY-4vf" id="E8y-8n-gNG"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4Uc-a7-KLw" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="860" y="-1150"/>
         </scene>
     </scenes>
     <resources>

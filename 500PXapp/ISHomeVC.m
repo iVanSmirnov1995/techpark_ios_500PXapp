@@ -63,7 +63,6 @@ typedef enum {
         
         
         
-        
     } onFailure:^(NSError *error, NSInteger statusCode) {
         
     }];
@@ -147,24 +146,9 @@ typedef enum {
         
         
         NSURLRequest* request = [NSURLRequest requestWithURL:[NSURL URLWithString:newsModel.imageName]];
+    
         
-        __weak ISTableViewImageCell* weakCell = cell;
-        
-        cell.imageView.image = nil;
-        
-        [cell.myImageView
-         setImageWithURLRequest:request
-         placeholderImage:nil
-         success:^(NSURLRequest *request, NSHTTPURLResponse *response, UIImage *image) {
-             weakCell.myImageView.image = image;
-             [weakCell layoutSubviews];
-         }
-         failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error) {
-             
-         }];
-        
-        
-        
+       [cell.myImageView setImageWithURL:[NSURL URLWithString:newsModel.imageName] placeholderImage:[UIImage imageNamed:@"loading.png"]];
         
         
 //

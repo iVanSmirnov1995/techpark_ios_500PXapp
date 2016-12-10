@@ -7,23 +7,24 @@
 //
 //#import <CommonCrypto/CommonHMAC.h>
 #import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
 
 @class ISUser,BDBOAuth1Credential,BDBOAuth1SessionManager,ISNewsFeedModel;
-@interface ISServerManager : NSObject
+@interface ISServerManager : UIViewController
+
+
+@property(strong,nonatomic)NSString *oauthToken;
+@property(strong,nonatomic)NSString *oauthTokenSecret;
+@property(strong,nonatomic)ISUser* user;
+
 
 +(ISServerManager*) sharedManager;
 
 -(BDBOAuth1SessionManager*)loginUserOnSuccess:(void(^)(BDBOAuth1Credential *requestToken)) success
                                     onFailure:(void(^)(NSError* error))failture;
 
--(void)getBlog;
 
 
--(void)autorizeUser:(NSString*)term tag:(NSString*)tag
-                    page:(NSInteger)page rpp:(NSInteger)rpp
-                    tags:(NSArray*)tags
-               onSuccess:(void(^)(NSArray* photos)) success
-               onFailure:(void(^)(NSError* error,NSInteger statusCode))failure;
 
 
 -(void)getPopularPhotosOnSuccess:(void(^)(NSArray* photos)) success

@@ -15,6 +15,11 @@
     // Initialization code
 }
 
+-(void)prepareForReuse {
+    
+    self.myImageView.image = nil;
+}
+
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
     [super setSelected:selected animated:animated];
 

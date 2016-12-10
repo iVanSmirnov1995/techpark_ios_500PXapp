@@ -16,5 +16,6 @@
 
 - (IBAction)actionTextField:(UITextField *)sender;
 - (IBAction)enterButton:(UIButton *)sender;
+- (IBAction)oauthAction:(UIButton *)sender;
 
 @end

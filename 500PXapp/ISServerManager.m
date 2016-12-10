@@ -18,13 +18,12 @@
 #import "NSString+URLEncode.h"
 #import "MSPhotos.h"
 #import "ISNewsFeedModel.h"
+#import "OAuth1Controller.h"
+
 
 @interface ISServerManager()
 
-@property(strong,nonatomic)BDBOAuth1SessionManager *manager;
-@property(strong,nonatomic)NSString *accessToken;
-@property(strong,nonatomic)NSString *accessTokenSecret;
-@property(strong,nonatomic)ISUser* user;
+@property(strong,nonatomic)AFHTTPSessionManager *manager;
 
 @end
 
@@ -53,55 +52,12 @@
     if (self) {
         
         NSURL* url = [NSURL URLWithString:@"https://api.500px.com/v1/"];
-        self.manager = [[BDBOAuth1SessionManager alloc] initWithBaseURL:url
-            consumerKey:@"XyuX14AQBpiWjfUcRyXA2jyB5ensjjJD6gBFcGHI"
-            consumerSecret:@"wlXOElFUY7hjkHffppk36PyrXdNa44mmr7MseWVL"];
+        self.manager = [[AFHTTPSessionManager alloc] initWithBaseURL:url];
         
         
     }
     return self;
 }
-
-
--(BDBOAuth1SessionManager*)loginUserOnSuccess:(void(^)(BDBOAuth1Credential *requestToken)) success
-onFailure:(void(^)(NSError* error))failture{
-    
-    
-    NSURL *callbackURL=[NSURL URLWithString:@"pxapp://success"];//pxapp://success
-    
-    
-    [self.manager fetchRequestTokenWithPath:@"oauth/request_token"
-                             method:@"POST" callbackURL:callbackURL
-                              scope:nil
-                            success:^(BDBOAuth1Credential *requestToken) {
-                                
-                                [self getUserOnSuccess:^(ISUser *user) {
-                                    
-                                    
-                                    
-                                    
-                                } onFailure:^(NSError *error, NSInteger statusCode) {
-                                    NSLog(@"%@",error);
-                                }];
-                                
-                                
-                                
-                                if (success) {
-                                    success(requestToken);
-                                }
-                                
-                                
-                            } failure:^(NSError *error) {
-                                
-                                if (failture) {
-                                    failture(error);
-                                }
-                                
-                            }];
-    return self.manager;
-}
-
-
 
 
 
@@ -110,29 +66,52 @@ onFailure:(void(^)(NSError* error))failture{
 
 
     
-    NSURL *URL = [NSURL URLWithString:@"https://api.500px.com/v1/users"];
-    [self.manager GET:URL.absoluteString parameters:nil progress:nil success:^(NSURLSessionTask *task, id responseObject) {
+    
+    NSString *path = @"/users/";
+ NSDictionary *parameters = @{@"api_key" : @"XyuX14AQBpiWjfUcRyXA2jyB5ensjjJD6gBFcGHI"};
+    
+    
+    // Build authorized request based on path, parameters, tokens, timestamp etc.
+    NSURLRequest *preparedRequest = [OAuth1Controller preparedRequestForPath:path
+                                                                  parameters:parameters
+                                                                  HTTPmethod:@"GET"
+                                                                  oauthToken:self.oauthToken
+                                                                 oauthSecret:self.oauthTokenSecret];
+    
+    
+    
+    NSURLSession *session = [NSURLSession sharedSession];
+    NSURLSessionDataTask *task = [session dataTaskWithRequest:preparedRequest
+                                            completionHandler:
+                                  ^(NSData *data, NSURLResponse *response, NSError *error) {
+                                    
+                                      
+            id responseObject = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:nil];
         
-       //  NSLog(@"JSON: %@", responseObject);
-        ISUser* user=[[ISUser alloc]init];
-         NSDictionary* userDic = [responseObject objectForKey: @"user"];
-        user.firstName=[userDic objectForKey:@"firstname"];
-        user.lastName=[userDic objectForKey:@"lastname"];
-        user.sex=[[userDic objectForKey:@"sex"]floatValue];
-        user.city=[userDic objectForKey:@"city"];
-        user.avatar=[[[userDic objectForKey:@"avatars"]objectForKey:@"small"] objectForKey:@"https"];
-        user.userId=[[userDic objectForKey:@"id"]longValue];
-        user.username=[userDic objectForKey:@"username"];
-        self.user=user;
-        
-                if (success) {
-                    success(user);
-                }
-        
-        
-    } failure:^(NSURLSessionTask *operation, NSError *error) {
-        NSLog(@"Error: %@", error.localizedDescription);
-    }];
+
+                ISUser* user=[[ISUser alloc]init];
+                NSDictionary* userDic = [responseObject objectForKey: @"user"];
+                user.firstName=[userDic objectForKey:@"firstname"];
+                user.lastName=[userDic objectForKey:@"lastname"];
+                user.sex=[[userDic objectForKey:@"sex"]floatValue];
+                user.city=[userDic objectForKey:@"city"];
+                user.avatar=[[[userDic objectForKey:@"avatars"]objectForKey:@"small"] objectForKey:@"https"];
+                user.userId=[[userDic objectForKey:@"id"]longValue];
+                user.username=[userDic objectForKey:@"username"];
+                self.user=user;
+                
+                    if (success) {
+                      success(user);
+                        }
+                                      
+                                      
+                                  }];
+    
+    [task resume];
+    
+    
+    
+    
     
     
 }
@@ -143,57 +122,55 @@ onFailure:(void(^)(NSError* error))failture{
               onFailure:(void(^)(NSError* error,NSInteger statusCode))failture {
     
     
-    NSString* re=[NSString stringWithFormat:
-  @"https://api.500px.com/v1/photos?feature=fresh_today&user_id=%ld&sort=created_at&image_size=4&include_store=store_download&include_states=voted",self.user.userId];
+    NSString* path=[NSString stringWithFormat:
+  @"/photos?feature=fresh_today&user_id=%ld&sort=created_at&image_size=4&include_store=store_download&include_states=voted&consumer_key=XyuX14AQBpiWjfUcRyXA2jyB5ensjjJD6gBFcGHI",self.user.userId];
     
-    
-    
-    NSURL *URL = [NSURL URLWithString:re];
-    
-    
-    
-    
-    [self.manager GET:URL.absoluteString parameters:nil progress:nil success:^(NSURLSessionTask *task, id responseObject) {
-        
-      //  NSLog(@"%@",URL);
-          NSLog(@"JSON: %@", responseObject);
-        
-        NSArray* newsAr=[responseObject objectForKey: @"photos"];
-        NSMutableArray* modelNewsAr=[NSMutableArray array];
-        
-        for (NSDictionary* newsDic in newsAr) {
-            
-            ISNewsFeedModel* news=[[ISNewsFeedModel alloc]init];
-            NSDictionary* userDic = [newsDic objectForKey: @"user"];
-         //   NSLog(@"%@",userDic);
-            
-            news.userName=[userDic objectForKey:@"fullname"];
-            news.userID=[[userDic objectForKey:@"id"]integerValue];
-            news.userImageName=[[[userDic objectForKey:@"avatars"]objectForKey:@"small"] objectForKey:@"https"];
-            news.photoID=[[newsDic objectForKey:@"id"]longValue];
-            news.imageName=[newsDic objectForKey:@"image_url"];
-            
-        //    NSLog(@"%@",[newsDic objectForKey:@"cover_url"]);
-            
-            news.data=[newsDic objectForKey:@"created_at"];
-            news.countLike=[newsDic objectForKey:@"converted"];
-            
-            
-            
-            [modelNewsAr addObject:news];
-            
-        }
-        
-        
-        if (success) {
-            success(modelNewsAr);
-        }
-        
-        
-    } failure:^(NSURLSessionTask *operation, NSError *error) {
-        NSLog(@"Error: %@", error.localizedDescription);
-    }];
 
+    
+    
+    // Build authorized request based on path, parameters, tokens, timestamp etc.
+    NSURLRequest *preparedRequest = [OAuth1Controller preparedRequestForPath:path
+                                                                  parameters:nil
+                                                                  HTTPmethod:@"GET"
+                                                                  oauthToken:self.oauthToken
+                                                                 oauthSecret:self.oauthTokenSecret];
+    
+    
+    
+    NSURLSession *session = [NSURLSession sharedSession];
+    NSURLSessionDataTask *task = [session dataTaskWithRequest:preparedRequest
+                                            completionHandler:
+                                  ^(NSData *data, NSURLResponse *response, NSError *error) {
+                                      
+                                      
+                    id responseObject = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:nil];
+                                      
+                    NSArray* newsAr=[responseObject objectForKey: @"photos"];
+                    NSMutableArray* modelNewsAr=[NSMutableArray array];
+                                      
+                    for (NSDictionary* newsDic in newsAr) {
+                        
+                    ISNewsFeedModel* news=[[ISNewsFeedModel alloc]init];
+                    NSDictionary* userDic = [newsDic objectForKey: @"user"];
+                                          
+                    news.userName=[userDic objectForKey:@"fullname"];
+                    news.userID=[[userDic objectForKey:@"id"]integerValue];
+                    news.userImageName=[[[userDic objectForKey:@"avatars"]objectForKey:@"small"] objectForKey:@"https"];
+                    news.photoID=[[newsDic objectForKey:@"id"]longValue];
+                    news.imageName=[newsDic objectForKey:@"image_url"];
+                    news.data=[newsDic objectForKey:@"created_at"];
+                    news.countLike=[[newsDic objectForKey:@"converted"]integerValue];
+                                          [modelNewsAr addObject:news];
+                                      }
+                                      
+                                      if (success) {
+                                          success(modelNewsAr);
+                                      }
+                                      
+                                      
+                                  }];
+    
+    [task resume];
     
     
 }
@@ -243,8 +220,7 @@ onFailure:(void(^)(NSError* error))failture{
 
 -(void)getPopularPhotosOnSuccess:(void(^)(NSArray* photos)) success
                        onFailure:(void(^)(NSError* error,NSInteger statusCode))failture {
-    // NSLog(self.accessToken);
-    
+
     NSDictionary* param =
     [NSDictionary dictionaryWithObjectsAndKeys:
      @"popular",@"feature",
@@ -252,13 +228,6 @@ onFailure:(void(^)(NSError* error))failture{
      @"XyuX14AQBpiWjfUcRyXA2jyB5ensjjJD6gBFcGHI",@"consumer_key",
      nil];
     
-    /* NSDictionary* param1 =
-    [NSDictionary dictionaryWithObjectsAndKeys:
-     @"popular",@"feature",
-     @"10",@"rpp",
-     @"XyuX14AQBpiWjfUcRyXA2jyB5ensjjJD6gBFcGHI",@"oauth_token",
-     nil];
-    */
 
     NSURL *URL = [NSURL URLWithString:@"https://api.500px.com/v1/photos?feature=popular"];
     AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
@@ -301,99 +270,10 @@ onFailure:(void(^)(NSError* error))failture{
 
 
 
--(void)autorizeUser:(NSString*)term tag:(NSString*)tag
-               page:(NSInteger)page rpp:(NSInteger)rpp
-               tags:(NSArray*)tags
-          onSuccess:(void(^)(NSArray* photos)) success
-          onFailure:(void(^)(NSError* error,NSInteger statusCode))failure{
-
-    
-    
-}
 
 
--(void)GetUser:(NSString*)term tag:(NSString*)tag
-               page:(NSInteger)page rpp:(NSInteger)rpp
-               tags:(NSArray*)tags
-          onSuccess:(void(^)(NSArray* photos)) success
-          onFailure:(void(^)(NSError* error,NSInteger statusCode))failure{
-    
-    
-    
-  //  https://api.500px.com/v1/users
-    
-    
-    
-}
 
 
-- (NSString*) HMAC_SHA1_HEX:(NSString *)hmacKey dataSt:(NSString*)st{
-    
-    
-    NSData * secretData = [hmacKey dataUsingEncoding:NSUTF8StringEncoding];
-    NSData * baseData = [st dataUsingEncoding:NSUTF8StringEncoding];
-    
-    uint8_t digest[20] = {0};
-    CCHmac(kCCHmacAlgSHA1, secretData.bytes, secretData.length,
-           baseData.bytes, baseData.length, digest);
-    
-    NSData * signatureData = [NSData dataWithBytes:digest length:20];
-    return [signatureData base64EncodedStringWithOptions:NSDataBase64Encoding64CharacterLineLength];
-    
-}
-
-
-- (NSString*) baseStringWithMetod:(NSString *)metod
-                          baseURL:(NSString*)URL param:(NSDictionary*)par{
-
-    NSString * url = [URL URLEncode];
-    
-    NSString * parameters;
-    
-    NSString * oauth_consumer_key =[[par objectForKey:@"oauth_consumer_key"]URLEncode];
-    
-    NSString * oauth_nonce = [[par objectForKey:@"oauth_nonce"]URLEncode];
-    NSString * oauth_signature_method = [@"HMAC-SHA1"URLEncode];
-    NSString * oauth_timestamp = [[par objectForKey:@"oauth_timestamp"]URLEncode];
-    
-    NSString * oauth_version = [@"1.0" URLEncode];
-    
-    NSString * oauth_token = [[par objectForKey:@"oauth_token"]URLEncode];
-
-    
-    NSArray * params = [NSArray arrayWithObjects:
-                        [NSString stringWithFormat:@"%@%%3D%@", @"oauth_consumer_key", oauth_consumer_key],
-                        [NSString stringWithFormat:@"%@%%3D%@", @"oauth_nonce", oauth_nonce],
-                        [NSString stringWithFormat:@"%@%%3D%@", @"oauth_signature_method", oauth_signature_method],
-                         [NSString stringWithFormat:@"%@%%3D%@", @"oauth_timestamp", oauth_timestamp],
-                         [NSString stringWithFormat:@"%@%%3D%@", @"oauth_token", oauth_token],
-                        [NSString stringWithFormat:@"%@%%3D%@", @"oauth_version", oauth_version],
-                        nil];
-    
-    
-//    NSArray *keys = [par allKeys];
-//    for (id key in keys)
-//    {
-//        params = [params arrayByAddingObject:[[NSString stringWithFormat:@"%@=%@",
-//                 [key URLEncode], [[par valueForKey:key] URLEncode]] URLEncode]];
-//        
-//    }
-    
-    //sort paramaters lexicographically
-    params = [params sortedArrayUsingSelector:@selector(compare:)];
-    
-    parameters = [params componentsJoinedByString:@"%26"];
-    
-    NSArray * baseComponents = [NSArray arrayWithObjects:
-                                metod,
-                                url,    //The URL you're requesting, *not* including any GET       parameters
-                                parameters,
-                                nil];
-    
-    NSString * baseString = [baseComponents componentsJoinedByString:@"&"];
-    
-    return baseString;
-}
 
 
 
