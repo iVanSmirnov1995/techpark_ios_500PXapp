@@ -11,10 +11,9 @@
 @interface ViewController : UIViewController <UITextFieldDelegate>
 
 @property (weak, nonatomic) IBOutlet UIButton *enterButton;
-@property (weak ,nonatomic) IBOutlet UITextField* loginField;
-@property (weak ,nonatomic) IBOutlet UITextField* passwordField;
 
-- (IBAction)actionTextField:(UITextField *)sender;
+@property (weak, nonatomic) IBOutlet UIButton *oauthButton;
+
 - (IBAction)enterButton:(UIButton *)sender;
 - (IBAction)oauthAction:(UIButton *)sender;
 
