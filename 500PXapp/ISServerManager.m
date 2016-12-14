@@ -224,7 +224,7 @@
     NSDictionary* param =
     [NSDictionary dictionaryWithObjectsAndKeys:
      @"popular",@"feature",
-     @"12",@"rpp",
+     @"11",@"rpp",
      @"XyuX14AQBpiWjfUcRyXA2jyB5ensjjJD6gBFcGHI",@"consumer_key",
      nil];
     
@@ -246,10 +246,13 @@
         for (int i = 0;i<photosArray.count;i++ )
         {
          
-            NSDictionary *dict = [[photosArray objectAtIndex:i] objectForKey:@"user"];
+             NSDictionary *dict = [[photosArray objectAtIndex:i] objectForKey:@"user"];
+            NSLog(@"%@",dict);
             MSPhotos* msp = [[MSPhotos alloc] initWithServerResponse:dict];
-            [array addObject:msp.photoURL];
-            
+          
+            if (msp.imageURL) {
+            [array addObject:msp];
+            }
         }
         
         if (success) {

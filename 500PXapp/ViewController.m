@@ -43,8 +43,7 @@
 #pragma mark - Action
 
 
-- (IBAction)enterButton:(UIButton *)sender {
-}
+
 
 - (IBAction)oauthAction:(UIButton *)sender {
     

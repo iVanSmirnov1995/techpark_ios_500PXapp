@@ -14,7 +14,7 @@
 
 @property (weak, nonatomic) IBOutlet UIButton *oauthButton;
 
-- (IBAction)enterButton:(UIButton *)sender;
+
 - (IBAction)oauthAction:(UIButton *)sender;
 
 @end

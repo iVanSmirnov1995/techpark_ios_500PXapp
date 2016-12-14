@@ -434,7 +434,6 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="enterButton:" destination="nmV-Vn-dJr" eventType="touchUpInside" id="ft5-kR-fgC"/>
                                     <action selector="oauthAction:" destination="nmV-Vn-dJr" eventType="touchUpInside" id="mcE-yE-Jlh"/>
                                 </connections>
                             </button>

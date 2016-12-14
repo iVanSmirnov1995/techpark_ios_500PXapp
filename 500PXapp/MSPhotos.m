@@ -16,8 +16,15 @@
     if (self) {
         
         self.photoURL = [responseObject objectForKey:@"cover_url"];
-        //self.lastName = [responseObject objectForKey:@"lastname"];
-    
+        
+        NSString *str = self.photoURL;
+        
+        if (str)
+        {
+            self.imageURL = [NSURL URLWithString:self.photoURL];
+            
+        }
+       
     }
     return self;
 }
