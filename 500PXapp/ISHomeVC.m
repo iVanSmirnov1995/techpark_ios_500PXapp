@@ -46,20 +46,18 @@ typedef enum {
     [super viewDidLoad];
     
 
-    self.tableView.delegate=nil;
+    self.tableView.delegate=self;
+    self.tableView.rowHeight = UITableViewAutomaticDimension;
+    self.tableView.estimatedRowHeight = 44.0;
     
     [[ISServerManager sharedManager]getUserFriendsPhotoNewsOnSuccess:^(NSMutableArray *news) {
         
         
-            self.newsFeedArray=[NSMutableArray array];
         self.newsFeedArray=news;
-            self.tableView.rowHeight = UITableViewAutomaticDimension;
-            self.tableView.estimatedRowHeight = 44.0;
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [self.tableView reloadData];
+        });
         
-        self.tableView.delegate=self;
-        self.tableView.rowHeight = UITableViewAutomaticDimension;
-        self.tableView.estimatedRowHeight = 44.0;
-        [self.tableView reloadData];
         
         
         
@@ -138,17 +136,13 @@ typedef enum {
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
 
     NSString* identifier=@"";
-    ISNewsFeedModel* newsModel=[self.newsFeedArray objectAtIndex:indexPath.section];
+    ISNewsFeedModel* newsModel = self.newsFeedArray[indexPath.section];
     
     if (indexPath.row==ISImageTupe) {
         identifier=@"image";
        ISTableViewImageCell* cell=[tableView dequeueReusableCellWithIdentifier:identifier forIndexPath:indexPath];
-        
-        
-        NSURLRequest* request = [NSURLRequest requestWithURL:[NSURL URLWithString:newsModel.imageName]];
-    
-        
-       [cell.myImageView setImageWithURL:[NSURL URLWithString:newsModel.imageName] placeholderImage:[UIImage imageNamed:@"loading.png"]];
+        [cell.myImageView setImageWithURL:[NSURL URLWithString:newsModel.imageName]];
+//    [cell.myImageView setImageWithURL:[NSURL URLWithString:newsModel.imageName] placeholderImage:[UIImage imageNamed:@"loading.png"]];
         
         
 //
@@ -161,7 +155,7 @@ typedef enum {
         ISTableViewUserInfoCell* cell=[tableView dequeueReusableCellWithIdentifier:identifier forIndexPath:indexPath];
         [cell layoutIfNeeded];
         
-        cell.userImage.image=[UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:newsModel.userImageName]]];//[UIImage imageNamed:newsModel.userImageName];
+//        cell.userImage.image=[UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:newsModel.userImageName]]];//[UIImage imageNamed:newsModel.userImageName];
         cell.userImage.layer.cornerRadius=CGRectGetWidth(cell.userImage.frame)/2.f;
         cell.userImage.layer.masksToBounds=YES;
         cell.userName.text=newsModel.userName;
