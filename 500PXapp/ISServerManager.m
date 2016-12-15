@@ -96,11 +96,12 @@
                 user.sex=[[userDic objectForKey:@"sex"]floatValue];
                 user.city=[userDic objectForKey:@"city"];
                 user.avatar=[[[userDic objectForKey:@"avatars"]objectForKey:@"small"] objectForKey:@"https"];
-                user.userId=[[userDic objectForKey:@"id"]longValue];
-                user.username=[userDic objectForKey:@"username"];
+                                      user.userId=[[userDic objectForKey:@"id"]longValue];
+                                      user.username=[userDic objectForKey:@"username"];
                                       user.cover = [userDic objectForKey:@"cover_url"];
                                       user.friendsCount = [userDic objectForKey:@"friends_count"];
                                       user.followersCount = [userDic objectForKey:@"followers_count"];
+                                      user.fullName = [ userDic objectForKey:@"full_name"];
                 self.user=user;
                 
                     if (success) {

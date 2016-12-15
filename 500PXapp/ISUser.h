@@ -20,5 +20,6 @@
 @property(assign, nonatomic)NSString* cover;
 @property(assign, nonatomic)NSNumber* friendsCount;
 @property(assign, nonatomic)NSNumber* followersCount;
+@property(assign, nonatomic)NSString* fullName;
 
 @end
