@@ -12,6 +12,7 @@
 #import "IsSearchCollectionLayout.h"
 #import "ISServerManager.h"
 #import "MSPhotos.h"
+#import "UIImageView+AFNetworking.h"
 
 @interface IsSearchVC () <UICollectionViewDelegate ,UICollectionViewDataSource> {
     NSMutableArray *arrItems;
@@ -79,7 +80,6 @@
         [self getPopularPhotoFromServer];
     });
     
-    NSLog(@"ARRAY %@", self.photos);
     
     arrItems = [NSMutableArray new];
     arrItems2 = [NSMutableArray new];
@@ -95,8 +95,7 @@
     search.nameProduct = @"Выбор редакции";
     search.imgProduct = [UIImage imageNamed:@"choice.jpg"];
     [arrItems2 addObject:search];
-    
-    NSLog(@"33");
+   
     search = [[ISSearchModel alloc]init];
     search.nameProduct = @"Интересное";
     search.imgProduct = [UIImage imageNamed:@"interesting.jpg"];
@@ -139,9 +138,7 @@
     search.imgProduct = [UIImage imageNamed:@"sea.jpg"];
     [arrItems3 addObject:search];
     search = [[ISSearchModel alloc]init];
-    search.nameProduct = @"Путешествия";
-    search.imgProduct = [UIImage imageNamed:@"travel.jpg"];
-    [arrItems3 addObject:search];
+  
    
     
      
@@ -186,50 +183,53 @@
     [[ISServerManager alloc] getPopularPhotosOnSuccess:^ (NSArray* photos){
         
         [self.photos addObjectsFromArray:photos];
-        
-        NSLog(@"%@", self.photos);
+   
         self.imageArray = [NSMutableArray array];
          self.imageArray2 = [NSMutableArray array];
          self.imageArray3 = [NSMutableArray array];
-      // NSLog(@"MASSIV %@", self.photos);
+  
+        MSPhotos *ph = [self.photos objectAtIndex:0];
+ 
+        self.imageArray[0] = ph.imageURL;
         
-        /*
-        NSDictionary *dict = [self.photos objectAtIndex:0];
-        NSLog(@"111 %@",dict);
-        
-        NSString *strr = [NSString stringWithFormat:@"%@",[dict objectForKey:@"image_url"]];
-        
-        strr = @"https://pacdn.500px.org/6873582/427bd0676493ab5333c56acf32efc4c5a67b8f73/cover_2048.jpg?44";
-        NSURL *url = [NSURL URLWithString:strr];
-        NSData *dat = [[NSData alloc ] initWithContentsOfURL:url];
-        
-        self.img = [UIImage imageWithData:dat];
-        
-      
-        [self.collection reloadData];
+       
+        for (int i =1 ;i<5; i++) {
+        MSPhotos *ph = [self.photos objectAtIndex:i];
+           self.imageArray2[i-1] = ph.imageURL;
+        }
+       /*
+        for (int i =6 ;i<12; i++) {
+            MSPhotos *ph = [self.photos objectAtIndex:i];
+            self.imageArray3[i-6] = ph.imageURL;
+        }
         */
         
-        NSURL *url = [NSURL URLWithString:self.photos[0]];
-        NSData *dat = [[NSData alloc ] initWithContentsOfURL:url];
         
-        self.imageArray[0] = [UIImage imageWithData:dat];
-        
-        
-        for (int i = 0 ;i<4;i++) {
-        NSURL *url = [NSURL URLWithString:self.photos[i+1]];
-        NSData *dat = [[NSData alloc ] initWithContentsOfURL:url];
-        
-        self.imageArray2[i] = [UIImage imageWithData:dat];
-        
-        }
-        for (int i = 0 ;i<7;i++) {
-            NSURL *url = [NSURL URLWithString:self.photos[i+5]];
-            NSData *dat = [[NSData alloc ] initWithContentsOfURL:url];
-            
-            self.imageArray3[i] = [UIImage imageWithData:dat];
-            
-        }
-        
+        ph = [self.photos objectAtIndex:5];
+        self.imageArray3[0] = ph.imageURL;
+        ph = [self.photos objectAtIndex:6];
+        self.imageArray3[1] = ph.imageURL;
+        ph = [self.photos objectAtIndex:7];
+        self.imageArray3[2] = ph.imageURL;
+        ph = [self.photos objectAtIndex:8];
+        self.imageArray3[3] = ph.imageURL;
+        ph = [self.photos objectAtIndex:9];
+        self.imageArray3[4] = ph.imageURL;
+        ph = [self.photos objectAtIndex:10];
+        self.imageArray3[5] = ph.imageURL;
+        /*
+         ph = [self.photos objectAtIndex:1];
+        self.imageArray2[0] = ph.imageURL;
+        ph = [self.photos objectAtIndex:2];
+        self.imageArray2[1] = ph.imageURL;
+       ph = [self.photos objectAtIndex:3];
+        self.imageArray2[2] = ph.imageURL;
+        ph = [self.photos objectAtIndex:4];
+        self.imageArray2[3] = ph.imageURL;
+       ph = [self.photos objectAtIndex:5];
+        self.imageArray2[4] = ph.imageURL;
+
+        */
         [self.collection reloadData];
         
         
@@ -286,7 +286,7 @@
     }
     else {
        
-        return 7;
+        return 6;
     }
     
 }
@@ -301,10 +301,11 @@
          ISSearchModel* item=[arrItems objectAtIndex:indexPath.row];
         SearchViewCellCollection* cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"cellItem" forIndexPath:indexPath];
         
- 
         cell.label.text = item.nameProduct;
-        cell.img.image = self.imageArray[indexPath.row];
-       
+       // MSPhotos *ph = [self.photos objectAtIndex:0];
+        
+        [cell.img setImageWithURL:self.imageArray[indexPath.row] ];
+        
         return cell;
     }
     if (indexPath.section ==1)
@@ -312,7 +313,7 @@
          ISSearchModel* item=[arrItems2 objectAtIndex:indexPath.row];
         SearchViewCellCollection* cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"cellItem" forIndexPath:indexPath];
         cell.label.text = item.nameProduct;
-        cell.img.image = self.imageArray2[indexPath.row];
+        [cell.img setImageWithURL:self.imageArray2[indexPath.row] ];
         
     
         return cell;
@@ -321,7 +322,7 @@
     { ISSearchModel* item=[arrItems3 objectAtIndex:indexPath.row];
         SearchViewCellCollection* cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"cellItem" forIndexPath:indexPath];
         cell.label.text = item.nameProduct;
-        cell.img.image = self.imageArray3[indexPath.row];
+         [cell.img setImageWithURL:self.imageArray3[indexPath.row] ];
         
       
         return cell;
