@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		CDC863C9AE710BF1C7B060EA /* libPods-500PXapp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 41491F94D57B52837C2FFFDB /* libPods-500PXapp.a */; };
 		CEA656C51DE18BC6002CD2B3 /* MyPageVC.m in Sources */ = {isa = PBXBuildFile; fileRef = CEA656C41DE18BC6002CD2B3 /* MyPageVC.m */; };
+		CEBEB15B1E03379B00C0D737 /* OSCustomCellForSubsTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = CEBEB15A1E03379B00C0D737 /* OSCustomCellForSubsTVC.m */; };
+		CEBEB15E1E03387C00C0D737 /* OSSubscribersTableVC.m in Sources */ = {isa = PBXBuildFile; fileRef = CEBEB15D1E03387C00C0D737 /* OSSubscribersTableVC.m */; };
+		CEBEB1641E03396900C0D737 /* OSCustomCellForSubTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = CEBEB1631E03396900C0D737 /* OSCustomCellForSubTVC.m */; };
 		CEF7F4301DDF45D800447439 /* MyPageTab.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CEF7F42E1DDF45D800447439 /* MyPageTab.storyboard */; };
 		D33A78BA1DDDDFB600BC743A /* ISPageContentVC.m in Sources */ = {isa = PBXBuildFile; fileRef = D33A78B71DDDDFB600BC743A /* ISPageContentVC.m */; };
 		D33A78BB1DDDDFB600BC743A /* ISRootPegeVC.m in Sources */ = {isa = PBXBuildFile; fileRef = D33A78B91DDDDFB600BC743A /* ISRootPegeVC.m */; };
@@ -96,6 +99,12 @@
 		5FF7DDAF287543F8316D0669 /* Pods-500PXapp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-500PXapp.release.xcconfig"; path = "Pods/Target Support Files/Pods-500PXapp/Pods-500PXapp.release.xcconfig"; sourceTree = "<group>"; };
 		CEA656C31DE18BC6002CD2B3 /* MyPageVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyPageVC.h; sourceTree = "<group>"; };
 		CEA656C41DE18BC6002CD2B3 /* MyPageVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyPageVC.m; sourceTree = "<group>"; };
+		CEBEB1591E03379B00C0D737 /* OSCustomCellForSubsTVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OSCustomCellForSubsTVC.h; sourceTree = "<group>"; };
+		CEBEB15A1E03379B00C0D737 /* OSCustomCellForSubsTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OSCustomCellForSubsTVC.m; sourceTree = "<group>"; };
+		CEBEB15C1E03387C00C0D737 /* OSSubscribersTableVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OSSubscribersTableVC.h; sourceTree = "<group>"; };
+		CEBEB15D1E03387C00C0D737 /* OSSubscribersTableVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OSSubscribersTableVC.m; sourceTree = "<group>"; };
+		CEBEB1621E03396900C0D737 /* OSCustomCellForSubTVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OSCustomCellForSubTVC.h; sourceTree = "<group>"; };
+		CEBEB1631E03396900C0D737 /* OSCustomCellForSubTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OSCustomCellForSubTVC.m; sourceTree = "<group>"; };
 		CEF7F42F1DDF45D800447439 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MyPageTab.storyboard; sourceTree = "<group>"; };
 		D33A78B61DDDDFB600BC743A /* ISPageContentVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ISPageContentVC.h; sourceTree = "<group>"; };
 		D33A78B71DDDDFB600BC743A /* ISPageContentVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ISPageContentVC.m; sourceTree = "<group>"; };
@@ -236,9 +245,48 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		CEBEB1581E03371000C0D737 /* Users */ = {
+			isa = PBXGroup;
+			children = (
+				CEBEB15C1E03387C00C0D737 /* OSSubscribersTableVC.h */,
+				CEBEB15D1E03387C00C0D737 /* OSSubscribersTableVC.m */,
+				CEBEB1591E03379B00C0D737 /* OSCustomCellForSubsTVC.h */,
+				CEBEB15A1E03379B00C0D737 /* OSCustomCellForSubsTVC.m */,
+			);
+			name = Users;
+			sourceTree = "<group>";
+		};
+		CEBEB15F1E03391D00C0D737 /* MyPage */ = {
+			isa = PBXGroup;
+			children = (
+				CEBEB1611E03393600C0D737 /* Users */,
+				CEBEB1601E03392E00C0D737 /* Photos */,
+			);
+			name = MyPage;
+			sourceTree = "<group>";
+		};
+		CEBEB1601E03392E00C0D737 /* Photos */ = {
+			isa = PBXGroup;
+			children = (
+				F5423C211DCB6982006FD69A /* PhotosCellModel.h */,
+				F5423C221DCB6982006FD69A /* PhotosCellModel.m */,
+			);
+			name = Photos;
+			sourceTree = "<group>";
+		};
+		CEBEB1611E03393600C0D737 /* Users */ = {
+			isa = PBXGroup;
+			children = (
+				CEBEB1621E03396900C0D737 /* OSCustomCellForSubTVC.h */,
+				CEBEB1631E03396900C0D737 /* OSCustomCellForSubTVC.m */,
+			);
+			name = Users;
+			sourceTree = "<group>";
+		};
 		CEF7F42C1DDF457A00447439 /* MyPage */ = {
 			isa = PBXGroup;
 			children = (
+				CEBEB1581E03371000C0D737 /* Users */,
 				CEF7F42D1DDF459000447439 /* Photos */,
 				CEA656C31DE18BC6002CD2B3 /* MyPageVC.h */,
 				CEA656C41DE18BC6002CD2B3 /* MyPageVC.m */,
@@ -437,14 +485,13 @@
 		F5423C1E1DCB695A006FD69A /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				CEBEB15F1E03391D00C0D737 /* MyPage */,
 				D3E8FC871DFF344C00ED5E76 /* lib1 */,
 				D3A28B331DEF095000EA415B /* lib */,
 				D3E1DCD21DF195B100FE6B14 /* ISUser.h */,
 				D3E1DCD31DF195B100FE6B14 /* ISUser.m */,
 				F5423C1F1DCB6982006FD69A /* ISNewsFeedModel.h */,
 				F5423C201DCB6982006FD69A /* ISNewsFeedModel.m */,
-				F5423C211DCB6982006FD69A /* PhotosCellModel.h */,
-				F5423C221DCB6982006FD69A /* PhotosCellModel.m */,
 				F5423C231DCB6982006FD69A /* ISSearchModel.h */,
 				F5423C241DCB6982006FD69A /* ISSearchModel.m */,
 				F5D01EC11DF55A0800ABD067 /* MSPhotos.h */,
@@ -482,6 +529,7 @@
 		F5423C3F1DCB6AE3006FD69A /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				CEF7F42C1DDF457A00447439 /* MyPage */,
 				D3DB2D431DF404C100DABDFB /* ISTabBarVC.h */,
 				D3DB2D441DF404C100DABDFB /* ISTabBarVC.m */,
 				D3D245D21DE71DBB00F8F33A /* ISAccessToken.h */,
@@ -492,7 +540,6 @@
 				D33A78B91DDDDFB600BC743A /* ISRootPegeVC.m */,
 				D33A78BC1DDDE0B100BC743A /* ISShowFullPhotoVC.h */,
 				D33A78BD1DDDE0B100BC743A /* ISShowFullPhotoVC.m */,
-				CEF7F42C1DDF457A00447439 /* MyPage */,
 				F5423C491DCB6B39006FD69A /* test */,
 				F5423C401DCB6B17006FD69A /* SignUpVC.h */,
 				F5423C411DCB6B17006FD69A /* SignUpVC.m */,
@@ -602,7 +649,6 @@
 				TargetAttributes = {
 					D34965281DB4043E00813293 = {
 						CreatedOnToolsVersion = 8.0;
-						DevelopmentTeam = HVBFE6784D;
 						ProvisioningStyle = Automatic;
 					};
 					D34965441DB4043E00813293 = {
@@ -751,6 +797,7 @@
 				CEA656C51DE18BC6002CD2B3 /* MyPageVC.m in Sources */,
 				F5423C2B1DCB69F3006FD69A /* IsSearchCollectionLayout.m in Sources */,
 				D349653A1DB4043E00813293 /* _00PXapp.xcdatamodeld in Sources */,
+				CEBEB15E1E03387C00C0D737 /* OSSubscribersTableVC.m in Sources */,
 				F5423C271DCB6982006FD69A /* ISSearchModel.m in Sources */,
 				D3A28B4F1DEF3A3600EA415B /* NSDictionary+BDBOAuth1Manager.m in Sources */,
 				F5423C3A1DCB6A5B006FD69A /* ISTableViewInfoAndSareCell.m in Sources */,
@@ -760,6 +807,7 @@
 				D3E1DCFA1DF32ADA00FE6B14 /* NSString+URLEncode.m in Sources */,
 				D3E1DCD41DF195B100FE6B14 /* ISUser.m in Sources */,
 				D34965311DB4043E00813293 /* AppDelegate.m in Sources */,
+				CEBEB1641E03396900C0D737 /* OSCustomCellForSubTVC.m in Sources */,
 				D3CB5C5A1DE4DD5F00AFCE3A /* ISServerManager.m in Sources */,
 				F5423C3E1DCB6AD9006FD69A /* SearchViewCellCollection.m in Sources */,
 				D3E8FC941DFF344C00ED5E76 /* NSString+URLEncoding.m in Sources */,
@@ -769,6 +817,7 @@
 				D33A78BB1DDDDFB600BC743A /* ISRootPegeVC.m in Sources */,
 				F5423C261DCB6982006FD69A /* PhotosCellModel.m in Sources */,
 				D3E8FC921DFF344C00ED5E76 /* Base64Transcoder.c in Sources */,
+				CEBEB15B1E03379B00C0D737 /* OSCustomCellForSubsTVC.m in Sources */,
 				F5423C461DCB6B17006FD69A /* SignUpVC.m in Sources */,
 				D3F072821DFB2E7E00BD62B0 /* LoginWebViewController.m in Sources */,
 				F5D01EC31DF55A0800ABD067 /* MSPhotos.m in Sources */,
@@ -932,7 +981,7 @@
 			baseConfigurationReference = 15946F4F748628307FFFAF20 /* Pods-500PXapp.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = HVBFE6784D;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = 500PXapp/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -946,7 +995,7 @@
 			baseConfigurationReference = 5FF7DDAF287543F8316D0669 /* Pods-500PXapp.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = HVBFE6784D;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = 500PXapp/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

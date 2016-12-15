@@ -11,6 +11,8 @@
 #import "ISUser.h"
 #import "OSSubscribersTableVC.h"
 
+#import "UIImageView+AFNetworking.h"
+
 
 @interface MyPageVC ()
 
@@ -45,8 +47,13 @@
     [[ISServerManager sharedManager] getUserOnSuccess:^(ISUser *user) {
         
         dispatch_async(dispatch_get_main_queue(), ^{
-            if(![user.cover isEqual:[NSNull null]]) {self.miniature.image = [UIImage imageNamed:user.cover];}
-            if(![user.avatar isEqual:[NSNull null]]) {self.avatar.image = [UIImage imageNamed:user.avatar];}
+            if(![user.cover isEqual:[NSNull null]]) {
+                [self.miniature setImageWithURL:[NSURL URLWithString:user.cover]];
+            }
+            
+            if(![user.avatar isEqual:[NSNull null]]) {
+                [self.avatar setImageWithURL: [NSURL URLWithString:user.avatar]];
+            }
             
             if(![user.firstName isEqual:[NSNull null]]) {
                 self.fullName.text = [NSString stringWithFormat:@"%@", user.firstName];
@@ -58,9 +65,9 @@
                 self.fullName.text = [NSString stringWithFormat:@"%@", user.lastName];
             }
             self.userName.text = user.username;
-            [self.folowers setTitle:[NSString stringWithFormat:@"%@ \n подписчиков", user.followersCount]
+            [self.folowers setTitle:[NSString stringWithFormat:@"%@ подписчиков", user.followersCount]
                            forState:UIControlStateNormal];
-            [self.friends setTitle:[NSString stringWithFormat:@"%@ \n друзей", user.friendsCount]
+            [self.friends setTitle:[NSString stringWithFormat:@"%@ друзей", user.friendsCount]
                           forState:UIControlStateNormal];
             
             [self.avatarParentView layoutIfNeeded];
