@@ -98,6 +98,9 @@
                 user.avatar=[[[userDic objectForKey:@"avatars"]objectForKey:@"small"] objectForKey:@"https"];
                 user.userId=[[userDic objectForKey:@"id"]longValue];
                 user.username=[userDic objectForKey:@"username"];
+                                      user.cover = [userDic objectForKey:@"cover_url"];
+                                      user.friendsCount = [userDic objectForKey:@"friends_count"];
+                                      user.followersCount = [userDic objectForKey:@"followers_count"];
                 self.user=user;
                 
                     if (success) {
@@ -265,6 +268,18 @@
 });
     
     
+}
+
+-(void) getMyAccountOnSuccess:(void(^)(NSArray* friends)) success
+                    onFailure:(void(^)(NSError* error, NSInteger statusCode)) failure {
+    [self.manager GET:@"users"
+           parameters:nil progress:nil
+              success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        
+    }
+              failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        
+              }];
 }
 
 

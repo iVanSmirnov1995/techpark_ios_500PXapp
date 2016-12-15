@@ -193,12 +193,16 @@
                         <outlet property="avatar" destination="Zoi-hQ-vQd" id="9su-XX-1aF"/>
                         <outlet property="avatarParentView" destination="MgM-zk-ieN" id="3dM-xb-fq1"/>
                         <outlet property="editProfileView" destination="C8V-lm-AUu" id="b6u-Ia-gHf"/>
+                        <outlet property="folowers" destination="95N-r7-SFd" id="vaa-2N-1jA"/>
+                        <outlet property="friends" destination="J1V-Z9-WhX" id="ZlR-f1-Hh4"/>
+                        <outlet property="fullName" destination="Cjd-Du-vcS" id="vd5-H0-UaJ"/>
                         <outlet property="miniature" destination="17F-ui-lgi" id="DUN-dy-wmq"/>
+                        <outlet property="userName" destination="z09-tV-ZOj" id="z43-ug-Ze6"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="28c-F7-lq9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3136.8000000000002" y="612.14392803598207"/>
+            <point key="canvasLocation" x="807" y="-634"/>
         </scene>
         <!--Фотографии-->
         <scene sceneID="tFH-Lz-8sy">
@@ -245,7 +249,7 @@
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rtV-M8-AJu" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3136.8000000000002" y="1414.5427286356824"/>
+            <point key="canvasLocation" x="807" y="169"/>
         </scene>
     </scenes>
     <resources>

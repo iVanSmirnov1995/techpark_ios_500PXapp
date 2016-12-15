@@ -7,6 +7,8 @@
 //
 
 #import "MyPageVC.h"
+#import "ISServerManager.h"
+#import "ISUser.h"
 
 @interface MyPageVC ()
 
@@ -14,6 +16,10 @@
 @property (weak, nonatomic) IBOutlet UIImageView *miniature;
 @property (weak, nonatomic) IBOutlet UIView *avatarParentView;
 @property (weak, nonatomic) IBOutlet UIView *editProfileView;
+@property (weak, nonatomic) IBOutlet UILabel *fullName;
+@property (weak, nonatomic) IBOutlet UILabel *userName;
+@property (weak, nonatomic) IBOutlet UILabel *folowers;
+@property (weak, nonatomic) IBOutlet UILabel *friends;
 
 @end
 
@@ -22,28 +28,40 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-//    self.supportedInterfaceOrientations = UIInterfaceOrientationMaskPortrait;
-    
-    self.miniature.image = [UIImage imageNamed:@"3.jpg"];
-    self.avatar.image = [UIImage imageNamed:@"1.jpg"];
-    
-    [self.avatarParentView layoutIfNeeded];
-    self.avatarParentView.layer.masksToBounds = YES;
-    self.avatarParentView.layer.cornerRadius = self.avatarParentView.frame.size.width / 2;
-    
-    [self.avatar layoutIfNeeded];
-    self.avatar.layer.masksToBounds = YES;
-    self.avatar.layer.cornerRadius = self.avatar.frame.size.width / 2;
-    
-    [self.editProfileView layoutIfNeeded];
-    self.editProfileView.layer.masksToBounds = YES;
-    self.editProfileView.layer.cornerRadius = 15; //self.editProfileView.frame.size.height / 2;
-    // Do any additional setup after loading the view.
+    [self getUserFromServer];
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+#pragma mark - API
+-(void) getUserFromServer {
+    [[[ISServerManager alloc] init] getUserOnSuccess:^(ISUser *user) {
+        
+        self.miniature.image = [UIImage imageNamed:user.cover];
+        self.avatar.image = [UIImage imageNamed:user.avatar];
+        self.fullName.text = [NSString stringWithFormat:@"%@ %@", user.firstName, user.lastName];
+        self.userName.text = user.username;
+        self.folowers.text = [NSString stringWithFormat:@"%@ \n подписчик(ов)", user.followersCount];
+        self.friends.text = [NSString stringWithFormat:@"%@ \n друзей", user.friendsCount];
+        
+        [self.avatarParentView layoutIfNeeded];
+        self.avatarParentView.layer.masksToBounds = YES;
+        self.avatarParentView.layer.cornerRadius = self.avatarParentView.frame.size.width / 2;
+        
+        [self.avatar layoutIfNeeded];
+        self.avatar.layer.masksToBounds = YES;
+        self.avatar.layer.cornerRadius = self.avatar.frame.size.width / 2;
+        
+        [self.editProfileView layoutIfNeeded];
+        self.editProfileView.layer.masksToBounds = YES;
+        self.editProfileView.layer.cornerRadius = 15;
+        
+    } onFailure:^(NSError *error, NSInteger statusCode) {
+        
+    }];
 }
 
 /*

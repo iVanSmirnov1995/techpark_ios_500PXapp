@@ -17,5 +17,8 @@
 @property(strong,nonatomic)NSString* city;
 @property(assign,nonatomic)BOOL sex;
 @property(assign,nonatomic)NSString* avatar;
+@property(assign, nonatomic)NSString* cover;
+@property(assign, nonatomic)NSNumber* friendsCount;
+@property(assign, nonatomic)NSNumber* followersCount;
 
 @end
