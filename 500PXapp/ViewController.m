@@ -11,6 +11,8 @@
 #import "OAuth1Controller.h"
 #import "LoginWebViewController.h"
 #import "ISTabBarVC.h"
+#import "ISUserData+CoreDataProperties.h"
+#import "ISUser.h"
 
 @interface ViewController ()
 @property (nonatomic, strong) OAuth1Controller *oauth1Controller;
@@ -88,17 +90,26 @@
                         
                         NSLog(@"%@",user);
                         
+                        ISUserData* userData=[NSEntityDescription insertNewObjectForEntityForName:@"ISUserData"
+                            inManagedObjectContext:self.managedObjectContext];
+                        userData.name=user.fullName;
+                        userData.userID=user.userId;
+                        userData.oauthToken=self.oauthToken;
+                        userData.oauthTokenSecret=self.oauthTokenSecret;
+                        
+                        [self.managedObjectContext save:nil];
+                        
+                        
+                        
                         [[ISServerManager sharedManager]setUser:user];
                         
                         [self dismissViewControllerAnimated:YES completion: ^{
                             self.oauth1Controller = nil;
-                            
-                            ISTabBarVC* vc=[self.storyboard instantiateViewControllerWithIdentifier:@"ISTabBarVC"];
-                            [self presentViewController:vc animated:YES completion: nil];
-                            
+                            [self.delegate vcDidDismiss:self];
                             
                             
                         }];
+                        
                         
                         
                     } onFailure:^(NSError *error, NSInteger statusCode) {

@@ -7,14 +7,28 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "ISCoreDataViewController.h"
 
-@interface ViewController : UIViewController <UITextFieldDelegate>
+@protocol ISModalDelegate;
+
+@interface ViewController : ISCoreDataViewController <UITextFieldDelegate>
+
+@property (weak, nonatomic) id <ISModalDelegate> delegate;
 
 @property (weak, nonatomic) IBOutlet UIButton *enterButton;
 
 @property (weak, nonatomic) IBOutlet UIButton *oauthButton;
 
-
 - (IBAction)oauthAction:(UIButton *)sender;
+
+@end
+
+@protocol ISModalDelegate
+
+@required
+
+
+- (void) vcDidDismiss:(ViewController*) vc;
+
 
 @end

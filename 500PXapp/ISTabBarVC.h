@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "ISCoreDataTabBarVCViewController.h"
 
-@interface ISTabBarVC : UITabBarController
+@interface ISTabBarVC : ISCoreDataTabBarVCViewController
 
 @end

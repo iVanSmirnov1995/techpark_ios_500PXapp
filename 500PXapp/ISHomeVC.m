@@ -45,26 +45,6 @@ typedef enum {
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-
-    self.tableView.delegate=self;
-    self.tableView.rowHeight = UITableViewAutomaticDimension;
-    self.tableView.estimatedRowHeight = 44.0;
-    
-    [[ISServerManager sharedManager]getUserFriendsPhotoNewsOnSuccess:^(NSMutableArray *news) {
-        
-        
-        self.newsFeedArray=news;
-        dispatch_async(dispatch_get_main_queue(), ^{
-            [self.tableView reloadData];
-        });
-        
-        
-        
-        
-    } onFailure:^(NSError *error, NSInteger statusCode) {
-        
-    }];
-    
     
     // Do any additional setup after loading the view.
 //    self.tableView.rowHeight = UITableViewAutomaticDimension;
@@ -88,6 +68,32 @@ typedef enum {
     
 }
 
+-(void)startLoad{
+    
+    
+    self.tableView.delegate=self;
+    self.tableView.rowHeight = UITableViewAutomaticDimension;
+    self.tableView.estimatedRowHeight = 44.0;
+    
+    [[ISServerManager sharedManager]getUserFriendsPhotoNewsOnSuccess:^(NSMutableArray *news) {
+        
+        
+        self.newsFeedArray=news;
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [self.tableView reloadData];
+        });
+        
+        
+        
+        
+    } onFailure:^(NSError *error, NSInteger statusCode) {
+        
+    }];
+
+    
+    
+}
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
@@ -96,7 +102,7 @@ typedef enum {
 #pragma mark-UITableViewDelegate
 
 - (CGFloat)tableView:(UITableView*)tableView heightForFooterInSection:(NSInteger)section {
-    return 30.0;
+    return 0.0;
 }
 
 - (BOOL)tableView:(UITableView *)tableView shouldHighlightRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -141,8 +147,7 @@ typedef enum {
     if (indexPath.row==ISImageTupe) {
         identifier=@"image";
        ISTableViewImageCell* cell=[tableView dequeueReusableCellWithIdentifier:identifier forIndexPath:indexPath];
-        [cell.myImageView setImageWithURL:[NSURL URLWithString:newsModel.imageName]];
-//    [cell.myImageView setImageWithURL:[NSURL URLWithString:newsModel.imageName] placeholderImage:[UIImage imageNamed:@"loading.png"]];
+    [cell.myImageView setImageWithURL:[NSURL URLWithString:newsModel.imageName] placeholderImage:[UIImage imageNamed:@"loading.png"]];
         
         
 //
@@ -155,7 +160,7 @@ typedef enum {
         ISTableViewUserInfoCell* cell=[tableView dequeueReusableCellWithIdentifier:identifier forIndexPath:indexPath];
         [cell layoutIfNeeded];
         
-//        cell.userImage.image=[UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:newsModel.userImageName]]];//[UIImage imageNamed:newsModel.userImageName];
+        [cell.userImage setImageWithURL:[NSURL URLWithString:newsModel.userImageName] placeholderImage:[UIImage imageNamed:@"loading.png"]];
         cell.userImage.layer.cornerRadius=CGRectGetWidth(cell.userImage.frame)/2.f;
         cell.userImage.layer.masksToBounds=YES;
         cell.userName.text=newsModel.userName;

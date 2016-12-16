@@ -10,8 +10,10 @@
 #import "ISServerManager.h"
 #import "ISUser.h"
 #import "ISHomeVC.h"
+#import "ViewController.h"
+#import "ISUserData+CoreDataProperties.h"
 
-@interface ISTabBarVC ()
+@interface ISTabBarVC ()<ISModalDelegate>
 
 @property(strong,nonatomic)ISUser* user;
 
@@ -24,6 +26,7 @@
     // Do any additional setup after loading the view.
     
     
+    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -31,8 +34,77 @@
     // Dispose of any resources that can be recreated.
 }
 
+-(void)viewDidAppear:(BOOL)animated{
+    [super viewDidAppear:YES];
+    
+    
+    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
+    NSEntityDescription *entity = [NSEntityDescription entityForName:@"ISUserData"
+                                              inManagedObjectContext:self.managedObjectContext];
+    [fetchRequest setEntity:entity];
+    NSArray* resultArray = [self.managedObjectContext executeFetchRequest:fetchRequest error:nil];
+    
+    if (resultArray.count<=0) {
+        
+        ViewController* vc=[self.storyboard instantiateViewControllerWithIdentifier:@"log"];
+        vc.delegate=self;
+        [self presentViewController:vc animated:YES completion:nil];
+        
+    }else{
+        
+        
+        [self loadDataWithResultArray:resultArray];
+    
+    
+    }
+}
 
 
+-(void)loadDataWithResultArray:(NSArray*)resultArray{
+    
+    
+    ISUserData* userData=resultArray[0];
+    
+    [[ISServerManager sharedManager]setOauthTokenSecret:userData.oauthTokenSecret];
+    [[ISServerManager sharedManager]setOauthToken:userData.oauthToken];
+    [[ISServerManager sharedManager]getUserOnSuccess:^(ISUser *user) {
+        
+        [[ISServerManager sharedManager]setUser:user];
+        
+    } onFailure:^(NSError *error, NSInteger statusCode) {
+        NSLog(@"%@",error);
+    }];
+    
+    
+    [(ISHomeVC*)self.viewControllers[0] startLoad];
+    
+}
+
+
+
+#pragma mark-ISModalDelegate
+
+
+- (void) vcDidDismiss:(ViewController*) vc{
+    
+    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
+    NSEntityDescription *entity = [NSEntityDescription entityForName:@"ISUserData"
+                                              inManagedObjectContext:self.managedObjectContext];
+    [fetchRequest setEntity:entity];
+    NSArray* resultArray = [self.managedObjectContext executeFetchRequest:fetchRequest error:nil];
+    
+    if (resultArray.count==1) {
+        
+        [vc dismissViewControllerAnimated:YES completion:^{
+            
+            [self loadDataWithResultArray:resultArray];
+            
+        }];
+        
+    }
+    
+    
+}
 
 
 /*

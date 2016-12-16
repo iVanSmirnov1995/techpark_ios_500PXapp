@@ -13,6 +13,11 @@
 		CEBEB15E1E03387C00C0D737 /* OSSubscribersTableVC.m in Sources */ = {isa = PBXBuildFile; fileRef = CEBEB15D1E03387C00C0D737 /* OSSubscribersTableVC.m */; };
 		CEBEB1641E03396900C0D737 /* OSCustomCellForSubTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = CEBEB1631E03396900C0D737 /* OSCustomCellForSubTVC.m */; };
 		CEF7F4301DDF45D800447439 /* MyPageTab.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CEF7F42E1DDF45D800447439 /* MyPageTab.storyboard */; };
+		D31361461E0481680075BD5C /* ISCoreDataTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D31361411E0481680075BD5C /* ISCoreDataTableViewController.m */; };
+		D31361471E0481680075BD5C /* ISCoreDataViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D31361431E0481680075BD5C /* ISCoreDataViewController.m */; };
+		D31361481E0481680075BD5C /* ISDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D31361451E0481680075BD5C /* ISDataManager.m */; };
+		D313614E1E0481B00075BD5C /* ISUserData+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = D313614C1E0481B00075BD5C /* ISUserData+CoreDataProperties.m */; };
+		D31361521E0485660075BD5C /* ISCoreDataTabBarVCViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D31361511E0485660075BD5C /* ISCoreDataTabBarVCViewController.m */; };
 		D33A78BA1DDDDFB600BC743A /* ISPageContentVC.m in Sources */ = {isa = PBXBuildFile; fileRef = D33A78B71DDDDFB600BC743A /* ISPageContentVC.m */; };
 		D33A78BB1DDDDFB600BC743A /* ISRootPegeVC.m in Sources */ = {isa = PBXBuildFile; fileRef = D33A78B91DDDDFB600BC743A /* ISRootPegeVC.m */; };
 		D33A78BE1DDDE0B100BC743A /* ISShowFullPhotoVC.m in Sources */ = {isa = PBXBuildFile; fileRef = D33A78BD1DDDE0B100BC743A /* ISShowFullPhotoVC.m */; };
@@ -106,6 +111,16 @@
 		CEBEB1621E03396900C0D737 /* OSCustomCellForSubTVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OSCustomCellForSubTVC.h; sourceTree = "<group>"; };
 		CEBEB1631E03396900C0D737 /* OSCustomCellForSubTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OSCustomCellForSubTVC.m; sourceTree = "<group>"; };
 		CEF7F42F1DDF45D800447439 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MyPageTab.storyboard; sourceTree = "<group>"; };
+		D31361401E0481680075BD5C /* ISCoreDataTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ISCoreDataTableViewController.h; sourceTree = "<group>"; };
+		D31361411E0481680075BD5C /* ISCoreDataTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ISCoreDataTableViewController.m; sourceTree = "<group>"; };
+		D31361421E0481680075BD5C /* ISCoreDataViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ISCoreDataViewController.h; sourceTree = "<group>"; };
+		D31361431E0481680075BD5C /* ISCoreDataViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ISCoreDataViewController.m; sourceTree = "<group>"; };
+		D31361441E0481680075BD5C /* ISDataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ISDataManager.h; sourceTree = "<group>"; };
+		D31361451E0481680075BD5C /* ISDataManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ISDataManager.m; sourceTree = "<group>"; };
+		D313614B1E0481B00075BD5C /* ISUserData+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "ISUserData+CoreDataProperties.h"; sourceTree = "<group>"; };
+		D313614C1E0481B00075BD5C /* ISUserData+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "ISUserData+CoreDataProperties.m"; sourceTree = "<group>"; };
+		D31361501E0485660075BD5C /* ISCoreDataTabBarVCViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ISCoreDataTabBarVCViewController.h; sourceTree = "<group>"; };
+		D31361511E0485660075BD5C /* ISCoreDataTabBarVCViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ISCoreDataTabBarVCViewController.m; sourceTree = "<group>"; };
 		D33A78B61DDDDFB600BC743A /* ISPageContentVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ISPageContentVC.h; sourceTree = "<group>"; };
 		D33A78B71DDDDFB600BC743A /* ISPageContentVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ISPageContentVC.m; sourceTree = "<group>"; };
 		D33A78B81DDDDFB600BC743A /* ISRootPegeVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ISRootPegeVC.h; sourceTree = "<group>"; };
@@ -322,6 +337,32 @@
 			name = MyPage;
 			sourceTree = "<group>";
 		};
+		D313613F1E0481370075BD5C /* coreData */ = {
+			isa = PBXGroup;
+			children = (
+				D313614F1E0481C00075BD5C /* dataModel */,
+				D31361401E0481680075BD5C /* ISCoreDataTableViewController.h */,
+				D31361501E0485660075BD5C /* ISCoreDataTabBarVCViewController.h */,
+				D31361511E0485660075BD5C /* ISCoreDataTabBarVCViewController.m */,
+				D31361411E0481680075BD5C /* ISCoreDataTableViewController.m */,
+				D31361421E0481680075BD5C /* ISCoreDataViewController.h */,
+				D31361431E0481680075BD5C /* ISCoreDataViewController.m */,
+				D31361441E0481680075BD5C /* ISDataManager.h */,
+				D31361451E0481680075BD5C /* ISDataManager.m */,
+				D34965381DB4043E00813293 /* _00PXapp.xcdatamodeld */,
+			);
+			name = coreData;
+			sourceTree = "<group>";
+		};
+		D313614F1E0481C00075BD5C /* dataModel */ = {
+			isa = PBXGroup;
+			children = (
+				D313614B1E0481B00075BD5C /* ISUserData+CoreDataProperties.h */,
+				D313614C1E0481B00075BD5C /* ISUserData+CoreDataProperties.m */,
+			);
+			name = dataModel;
+			sourceTree = "<group>";
+		};
 		D31EDDD515558D98CC166D02 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -370,7 +411,7 @@
 				D349653B1DB4043E00813293 /* Assets.xcassets */,
 				D349653D1DB4043E00813293 /* LaunchScreen.storyboard */,
 				D34965401DB4043E00813293 /* Info.plist */,
-				D34965381DB4043E00813293 /* _00PXapp.xcdatamodeld */,
+				D313613F1E0481370075BD5C /* coreData */,
 				D349652C1DB4043E00813293 /* Supporting Files */,
 			);
 			path = 500PXapp;
@@ -782,6 +823,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D313614E1E0481B00075BD5C /* ISUserData+CoreDataProperties.m in Sources */,
 				D3E8FC961DFF344C00ED5E76 /* sha1.c in Sources */,
 				F5423C381DCB6A5B006FD69A /* ISTableViewLikeCell.m in Sources */,
 				D33A78BE1DDDE0B100BC743A /* ISShowFullPhotoVC.m in Sources */,
@@ -792,11 +834,13 @@
 				D3D245D41DE71DBB00F8F33A /* ISAccessToken.m in Sources */,
 				D3A28B501DEF3A3600EA415B /* NSString+BDBOAuth1Manager.m in Sources */,
 				D3A28B4D1DEF3A3600EA415B /* BDBOAuth1RequestSerializer.m in Sources */,
+				D31361521E0485660075BD5C /* ISCoreDataTabBarVCViewController.m in Sources */,
 				F5423C6A1DCB6B5C006FD69A /* PhotoCollectionVC.m in Sources */,
 				F5423C471DCB6B17006FD69A /* ISHomeVC.m in Sources */,
 				CEA656C51DE18BC6002CD2B3 /* MyPageVC.m in Sources */,
 				F5423C2B1DCB69F3006FD69A /* IsSearchCollectionLayout.m in Sources */,
 				D349653A1DB4043E00813293 /* _00PXapp.xcdatamodeld in Sources */,
+				D31361471E0481680075BD5C /* ISCoreDataViewController.m in Sources */,
 				CEBEB15E1E03387C00C0D737 /* OSSubscribersTableVC.m in Sources */,
 				F5423C271DCB6982006FD69A /* ISSearchModel.m in Sources */,
 				D3A28B4F1DEF3A3600EA415B /* NSDictionary+BDBOAuth1Manager.m in Sources */,
@@ -814,6 +858,7 @@
 				D3E8FC931DFF344C00ED5E76 /* hmac.c in Sources */,
 				F5423C481DCB6B17006FD69A /* IsSearchVC.m in Sources */,
 				D3A28B4E1DEF3A3600EA415B /* BDBOAuth1SessionManager.m in Sources */,
+				D31361461E0481680075BD5C /* ISCoreDataTableViewController.m in Sources */,
 				D33A78BB1DDDDFB600BC743A /* ISRootPegeVC.m in Sources */,
 				F5423C261DCB6982006FD69A /* PhotosCellModel.m in Sources */,
 				D3E8FC921DFF344C00ED5E76 /* Base64Transcoder.c in Sources */,
@@ -824,6 +869,7 @@
 				D349652E1DB4043E00813293 /* main.m in Sources */,
 				D3DB2D451DF404C100DABDFB /* ISTabBarVC.m in Sources */,
 				F5423C361DCB6A5B006FD69A /* ISTableViewImageCell.m in Sources */,
+				D31361481E0481680075BD5C /* ISDataManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

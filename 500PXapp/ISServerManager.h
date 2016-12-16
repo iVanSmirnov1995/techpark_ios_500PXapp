@@ -16,6 +16,7 @@
 @property(strong,nonatomic)NSString *oauthToken;
 @property(strong,nonatomic)NSString *oauthTokenSecret;
 @property(strong,nonatomic)ISUser* user;
+@property(assign,nonatomic)NSInteger userID;
 
 
 +(ISServerManager*) sharedManager;
