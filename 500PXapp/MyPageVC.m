@@ -92,17 +92,33 @@
     
 }
 
+-(NSArray*) getFolowersFromServer {
+    __block NSArray* users;
+    
+    [[ISServerManager sharedManager] getFolowerOnSuccess:^(NSArray *folowers) {
+        users = folowers;
+    } onFailure:^(NSError *error, NSInteger statusCode) {
+        
+    }];
+    
+    return users;
+}
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 - (IBAction)folowersButtonPressed:(id)sender {
+    
     OSSubscribersTableVC* vc = [self.storyboard instantiateViewControllerWithIdentifier:@"usersList"];
+    [vc.users addObjectsFromArray:[self getFolowersFromServer]];
     [self.navigationController pushViewController:vc animated:YES];
+    
 }
 - (IBAction)friendsButtonPressed:(id)sender {
+    
     OSSubscribersTableVC* vc = [self.storyboard instantiateViewControllerWithIdentifier:@"usersList"];
     [self.navigationController pushViewController:vc animated:YES];
+    
 }
 
 /*

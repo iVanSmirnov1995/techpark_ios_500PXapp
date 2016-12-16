@@ -40,7 +40,7 @@
                onSuccess:(void(^)(NSArray* photos)) success
                onFailure:(void(^)(NSError* error,NSInteger statusCode))failure;
 
--(void)getFolowerOnSuccess:(void(^)(NSArray* news)) success
+-(void)getFolowerOnSuccess:(void(^)(NSArray* folowers)) success
                  onFailure:(void(^)(NSError* error,NSInteger statusCode))failture;
 
 -(void)getUserOnSuccess:(void(^)(ISUser* user)) success

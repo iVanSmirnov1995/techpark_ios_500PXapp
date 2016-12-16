@@ -186,32 +186,35 @@
 // https://api.500px.com/v1/photos?feature=editors&page=2&consumer_key=YOUR_CONSUMER_KEY_HERE.
 //popular
 
--(void)getFolowerOnSuccess:(void(^)(NSArray* news)) success
+-(void)getFolowerOnSuccess:(void(^)(NSArray* folowers)) success
                        onFailure:(void(^)(NSError* error,NSInteger statusCode))failture {
-    NSDictionary* param =
-    [NSDictionary dictionaryWithObjectsAndKeys:
-    @(self.user.userId),@"id",
-     nil];
+    NSDictionary* param = [NSDictionary dictionaryWithObjectsAndKeys:
+                           @(self.user.userId),@"id",
+                           nil];
 
     NSURL *URL = [NSURL URLWithString:@"https://api.500px.com/v1/users/173/followers"];
+//    NSURL *URL = [NSURL URLWithString:[NSString
+//                                       stringWithFormat:
+//                                       @"https://api.500px.com/v1/users/%ld/followers",
+//                                       self.user.userId]];
     [self.manager GET:URL.absoluteString parameters:param progress:nil success:^(NSURLSessionTask *task, id responseObject) {
         
         
-         // NSLog(@"JSON: %@", responseObject);
-        for (int i=0; i<20; i++) {
-            
+          NSLog(@"JSON: %@", responseObject);
+//        for (int i=0; i<20; i++) {
+        
             
             NSArray* followers = [responseObject objectForKey: @"followers"];
           //  NSLog(@"%@",[followers objectAtIndex:i]);
-        }
+//        }
         
 
         
         
         // NSLog(@"photo : %@", photosArray);
-//        if (success) {
-//            success(followers);
-//        }
+        if (success) {
+            success(followers);
+        }
         
         
     } failure:^(NSURLSessionTask *operation, NSError *error) {

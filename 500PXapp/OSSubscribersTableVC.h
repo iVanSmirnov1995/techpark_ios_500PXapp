@@ -10,4 +10,6 @@
 
 @interface OSSubscribersTableVC : UITableViewController
 
+@property (strong, nonatomic) NSMutableArray *users;
+
 @end

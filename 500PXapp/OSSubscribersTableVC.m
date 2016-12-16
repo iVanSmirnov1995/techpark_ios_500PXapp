@@ -11,7 +11,7 @@
 
 @interface OSSubscribersTableVC () <UITableViewDataSource,UITableViewDelegate>
 
-@property (strong, nonatomic) NSMutableArray *users;
+
 
 @end
 
