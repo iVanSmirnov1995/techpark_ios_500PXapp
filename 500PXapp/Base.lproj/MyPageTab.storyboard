@@ -143,6 +143,18 @@
                                 <state key="normal" image="information-button"/>
                             </button>
                             <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="white" translatesAutoresizingMaskIntoConstraints="NO" id="6Oi-Xt-OwE"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hym-T1-Fj6">
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="20" id="9I6-cX-a1W"/>
+                                    <constraint firstAttribute="width" constant="46" id="g2v-uQ-HqY"/>
+                                </constraints>
+                                <state key="normal" title="Выйти">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="exitButtonPressed:" destination="SVg-q8-5hP" eventType="touchUpInside" id="p9b-yl-JyW"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -154,20 +166,22 @@
                             <constraint firstItem="TE5-7o-HUO" firstAttribute="leading" secondItem="TqP-KW-fau" secondAttribute="trailing" id="F4o-2O-CuC"/>
                             <constraint firstItem="Up2-SQ-ZDY" firstAttribute="top" secondItem="ZhC-so-FDw" secondAttribute="bottom" constant="163" id="FHx-Mc-mMF"/>
                             <constraint firstItem="sDU-Sy-6En" firstAttribute="top" secondItem="Up2-SQ-ZDY" secondAttribute="bottom" constant="20" id="FmO-Hb-Oua"/>
-                            <constraint firstItem="SXb-Kl-U9L" firstAttribute="leading" secondItem="oWX-hC-fF0" secondAttribute="leading" constant="8" id="KGQ-YE-AfC"/>
+                            <constraint firstItem="Hym-T1-Fj6" firstAttribute="top" secondItem="LSc-1L-JCS" secondAttribute="bottom" constant="8" id="HYZ-UK-4gv"/>
                             <constraint firstItem="gbb-4x-bc6" firstAttribute="top" secondItem="TE5-7o-HUO" secondAttribute="bottom" id="Mea-Xo-aD5"/>
                             <constraint firstItem="AiG-WB-JFH" firstAttribute="top" secondItem="ZhC-so-FDw" secondAttribute="bottom" id="MnK-YT-w0P"/>
                             <constraint firstAttribute="trailingMargin" secondItem="sDU-Sy-6En" secondAttribute="trailing" constant="8" id="NwI-RG-s5z"/>
                             <constraint firstItem="TE5-7o-HUO" firstAttribute="width" secondItem="TqP-KW-fau" secondAttribute="width" id="NzK-JR-epX"/>
+                            <constraint firstItem="SXb-Kl-U9L" firstAttribute="top" secondItem="LSc-1L-JCS" secondAttribute="bottom" constant="8" id="ONy-QW-QVn"/>
+                            <constraint firstItem="Hym-T1-Fj6" firstAttribute="leading" secondItem="oWX-hC-fF0" secondAttribute="leading" constant="8" id="Pfi-xx-plS"/>
                             <constraint firstItem="AiG-WB-JFH" firstAttribute="leading" secondItem="oWX-hC-fF0" secondAttribute="leading" id="QiY-kO-YGB"/>
                             <constraint firstAttribute="trailing" secondItem="XQg-3m-iWa" secondAttribute="trailing" constant="8" id="RIb-4h-RSC"/>
                             <constraint firstItem="Up2-SQ-ZDY" firstAttribute="centerX" secondItem="oWX-hC-fF0" secondAttribute="centerX" id="Ud7-hg-7rr"/>
                             <constraint firstItem="XQg-3m-iWa" firstAttribute="top" secondItem="LSc-1L-JCS" secondAttribute="bottom" constant="8" id="WSa-WK-lTb"/>
                             <constraint firstItem="LSc-1L-JCS" firstAttribute="leading" secondItem="oWX-hC-fF0" secondAttribute="leading" id="XkU-PZ-oSO"/>
-                            <constraint firstItem="SXb-Kl-U9L" firstAttribute="top" secondItem="LSc-1L-JCS" secondAttribute="bottom" constant="8" id="Zwc-Jd-KRW"/>
                             <constraint firstItem="KPp-6U-oTA" firstAttribute="top" secondItem="zpd-Rq-Kof" secondAttribute="bottom" constant="20" id="a60-vy-wlj"/>
                             <constraint firstItem="TqP-KW-fau" firstAttribute="leading" secondItem="oWX-hC-fF0" secondAttribute="leading" id="bM9-Tp-4AQ"/>
                             <constraint firstItem="zpd-Rq-Kof" firstAttribute="top" secondItem="sDU-Sy-6En" secondAttribute="bottom" constant="20" id="dvG-r5-f5D"/>
+                            <constraint firstItem="JRA-2V-EH3" firstAttribute="leading" secondItem="SXb-Kl-U9L" secondAttribute="trailing" constant="8" id="gT5-VE-zXR"/>
                             <constraint firstItem="gbb-4x-bc6" firstAttribute="top" secondItem="TqP-KW-fau" secondAttribute="bottom" id="iPz-5L-som"/>
                             <constraint firstItem="KPp-6U-oTA" firstAttribute="centerX" secondItem="oWX-hC-fF0" secondAttribute="centerX" id="kCJ-E2-Rqj"/>
                             <constraint firstItem="LSc-1L-JCS" firstAttribute="top" secondItem="ZhC-so-FDw" secondAttribute="bottom" id="mUF-fz-e9i"/>
@@ -258,7 +272,7 @@
                                 <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Lvb-EY-cgs" id="fwq-Ys-WEz">
-                                    <frame key="frameInset" width="375" height="43"/>
+                                    <frame key="frameInset" width="375" height="44"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                             </tableViewCell>
@@ -287,7 +301,7 @@
                                 <rect key="frame" x="0.0" y="28" width="375" height="87"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="G5Q-Fb-dbX" id="31O-CY-5Kf">
-                                    <frame key="frameInset" width="375" height="86"/>
+                                    <frame key="frameInset" width="375" height="87"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Имя Фамилия" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GpO-2I-xEE">
@@ -345,7 +359,7 @@
                                 <rect key="frame" x="0.0" y="28" width="375" height="87"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="7Oo-8W-TnA" id="iAV-ng-cwy">
-                                    <frame key="frameInset" width="375" height="86"/>
+                                    <frame key="frameInset" width="375" height="87"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Имя Фамилия" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dWC-EO-46J">

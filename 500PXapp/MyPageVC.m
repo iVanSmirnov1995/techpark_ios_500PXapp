@@ -11,6 +11,7 @@
 #import "ISUser.h"
 #import "OSSubscribersTableVC.h"
 #import "OSFriendsTVC.h"
+#import "ISTabBarVC.h"
 
 #import "UIImageView+AFNetworking.h"
 #import "ISUserData+CoreDataProperties.h"
@@ -43,9 +44,6 @@
     self.avatar.layer.masksToBounds = YES;
     self.avatar.layer.cornerRadius = self.avatar.frame.size.width / 2;
     
-//                [self.editProfileView layoutIfNeeded];
-//                self.editProfileView.layer.masksToBounds = YES;
-//                self.editProfileView.layer.cornerRadius = 15;
     
     NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
     NSEntityDescription *entity = [NSEntityDescription entityForName:@"ISUserData"
@@ -87,77 +85,10 @@
                   forState:UIControlStateNormal];
     
     [self.indicator stopAnimating];
-    
-//    [self.folowers setTitle:@"" forState:UIControlStateNormal];
-//    [self.friends setTitle:@"" forState:UIControlStateNormal];
-    
-//    [self getUserFromServer];
 }
 
 //#pragma mark - API
-//
-//-(void) getUserFromServer {
-//    [[ISServerManager sharedManager] getUserOnSuccess:^(ISUser *user) {
-//        
-//        self.userID = user.userId;
-//        
-////        dispatch_async(dispatch_get_main_queue(), ^{
-//            if(![user.cover isEqual:[NSNull null]]) {
-//                [self.miniature setImageWithURL:[NSURL URLWithString:user.cover]];
-//            }
-//            
-//            if(![user.avatar isEqual:[NSNull null]]) {
-//                [self.avatar setImageWithURL: [NSURL URLWithString:user.avatar]];
-//            }
-//            
-//            if(![user.firstName isEqual:[NSNull null]]) {
-//                self.fullName.text = [NSString stringWithFormat:@"%@", user.firstName];
-//                if(![user.lastName isEqual:[NSNull null]]) {
-//                    self.fullName.text = [NSString stringWithFormat:@"%@ %@",
-//                                          self.fullName.text, user.lastName];
-//                }
-//            } else if (![user.lastName isEqual:[NSNull null]]) {
-//                self.fullName.text = [NSString stringWithFormat:@"%@", user.lastName];
-//            }
-//            self.userName.text = user.username;
-//            [self.folowers setTitle:[NSString stringWithFormat:@"%ld подписчиков", (long)user.followersCount]
-//                           forState:UIControlStateNormal];
-//            [self.friends setTitle:[NSString stringWithFormat:@"%ld друзей", (long)user.friendsCount]
-//                          forState:UIControlStateNormal];
-//            
-//            [self.avatarParentView layoutIfNeeded];
-//            self.avatarParentView.layer.masksToBounds = YES;
-//            self.avatarParentView.layer.cornerRadius = self.avatarParentView.frame.size.width / 2;
-//            
-//            [self.avatar layoutIfNeeded];
-//            self.avatar.layer.masksToBounds = YES;
-//            self.avatar.layer.cornerRadius = self.avatar.frame.size.width / 2;
-//            
-//            [self.editProfileView layoutIfNeeded];
-//            self.editProfileView.layer.masksToBounds = YES;
-//            self.editProfileView.layer.cornerRadius = 15;
-//            [self.view reloadInputViews];
-//            [self.indicator stopAnimating];
-//
-////        });
-//        
-//    } onFailure:^(NSError *error, NSInteger statusCode) {
-//        
-//    }];
-//    
-//}
 
-//-(NSArray*) getFolowersFromServer {
-//    __block NSArray* users;
-//    
-//    [[ISServerManager sharedManager] getFolowerOnSuccess:^(NSArray *folowers) {
-//        users = folowers;
-//    } onFailure:^(NSError *error, NSInteger statusCode) {
-//        
-//    }];
-//    
-//    return users;
-//}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -174,6 +105,31 @@
     OSFriendsTVC* vc = [self.storyboard instantiateViewControllerWithIdentifier:@"friendsList"];
     vc.userID = self.userID;
     [self.navigationController pushViewController:vc animated:YES];
+    
+}
+- (IBAction)exitButtonPressed:(id)sender {
+    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
+    NSEntityDescription *entity = [NSEntityDescription entityForName:@"ISUserData"
+                                              inManagedObjectContext:self.managedObjectContext];
+    [fetchRequest setEntity:entity];
+    NSArray* resultArray = [self.managedObjectContext executeFetchRequest:fetchRequest error:nil];
+    
+    ISUserData * userData = resultArray[0];
+    userData.avatar = nil;
+    userData.cover = nil;
+    userData.firstName = nil;
+    userData.followersCount = 0;
+    userData.friendsCount = 0;
+    userData.lastName = nil;
+    userData.name = nil;
+    userData.oauthToken = nil;
+    userData.oauthTokenSecret = nil;
+    userData.userID = 0;
+    userData.userName = nil;
+    
+    ISTabBarVC* vc = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"ISTabBarVC"];
+    
+    [self presentViewController:vc animated:YES completion: nil];
     
 }
 
