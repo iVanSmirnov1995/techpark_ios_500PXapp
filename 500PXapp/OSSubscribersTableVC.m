@@ -41,11 +41,6 @@
      onSuccess: ^(NSArray *followers) {
 
          [self.followers addObjectsFromArray:followers];
-//         NSMutableArray* newPath = [[NSMutableArray alloc] init];
-//         
-//         for (NSInteger i = self.followers.count - followers.count; i < self.followers.count; i++) {
-//             [newPath addObject:[NSIndexPath indexPathForRow:i inSection:0]];
-//         }
          
          dispatch_async(dispatch_get_main_queue(), ^{
              [self.tableView reloadData];
