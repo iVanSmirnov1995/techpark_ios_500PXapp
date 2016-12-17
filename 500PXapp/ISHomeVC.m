@@ -144,18 +144,14 @@ typedef enum {
         cell.userImage.layer.cornerRadius=CGRectGetWidth(cell.userImage.frame)/2.f;
         cell.userImage.layer.masksToBounds=YES;
         cell.userName.text=newsModel.userName;
-        
-        NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-        [dateFormatter setDateFormat:@"MMM d, yyyy HH:mm"];
-        NSString *stringDate = [dateFormatter stringFromDate:newsModel.data];
-        cell.data.text=stringDate;
+        cell.data.text=newsModel.data;
         return cell;
     }
     
     if (indexPath.row==ISLikeTupe) {
         identifier=@"like";
         ISTableViewLikeCell* cell=[tableView dequeueReusableCellWithIdentifier:identifier forIndexPath:indexPath];
-        cell.countLike.text=[NSString stringWithFormat:@"%d",newsModel.countLike];
+       // cell.countLike.text=[NSString stringWithFormat:@"%d",newsModel.countLike];
         return cell;
 
     }

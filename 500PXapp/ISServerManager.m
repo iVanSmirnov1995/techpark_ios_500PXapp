@@ -165,10 +165,12 @@
                     news.imageName=[newsDic objectForKey:@"image_url"];
                     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
                     [dateFormatter setDateFormat:@"yyyy-MM-dd'T'HH:mm:ssZ"];
-                    news.data = [dateFormatter dateFromString:
+                    NSDate* date = [dateFormatter dateFromString:
                                  [newsDic objectForKey:@"created_at"]];
                         
-                        
+                    NSDateFormatter *dateFormatter1 = [[NSDateFormatter alloc] init];
+                    [dateFormatter1 setDateFormat:@"MMM d, yyyy HH:mm"];
+                    news.data = [dateFormatter1 stringFromDate:date];
                         
                     news.countLike=[[newsDic objectForKey:@"favorites_count"]integerValue];
                                           [modelNewsAr addObject:news];
