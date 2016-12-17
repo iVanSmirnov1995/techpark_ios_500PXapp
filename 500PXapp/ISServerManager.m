@@ -249,18 +249,19 @@
         // NSLog(@"photo : %@", photosArray);
         
         
-        
         for (int i = 0;i<photosArray.count;i++ )
         {
-         
-             NSDictionary *dict = [[photosArray objectAtIndex:i] objectForKey:@"user"];
+            
+            NSDictionary *dict = [[photosArray objectAtIndex:i] objectForKey:@"user"];
             NSLog(@"%@",dict);
             MSPhotos* msp = [[MSPhotos alloc] initWithServerResponse:dict];
-          
-            if (msp.imageURL) {
-            [array addObject:msp];
+            
+            if (msp.photoURL != (NSString*) [NSNull null]) {
+                
+                [array addObject:msp];
             }
         }
+
         
         if (success) {
             success(array);

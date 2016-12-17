@@ -19,12 +19,15 @@
         
         NSString *str = self.photoURL;
         
-        if (str)
+        
+        if (str != (NSString*) [NSNull null]  )
         {
-            self.imageURL = [NSURL URLWithString:self.photoURL];
+            NSLog(@"str !!   %@",str);
+            self.imageURL = [NSURL URLWithString:str];
             
         }
-       
+        
+        
     }
     return self;
 }
