@@ -90,6 +90,13 @@ typedef enum {
     if(indexPath.row==ISImageTupe){
         
         ISRootPegeVC* vc=[self.storyboard instantiateViewControllerWithIdentifier:@"rootPage"];
+        NSMutableArray* imArr=[NSMutableArray array];
+        for (ISNewsFeedModel* news in self.newsFeedArray) {
+            
+            [imArr addObject:news.imageName];
+        }
+        vc.imageURLArray=imArr;
+        
         [self presentViewController:vc animated:YES completion: nil];
         
         

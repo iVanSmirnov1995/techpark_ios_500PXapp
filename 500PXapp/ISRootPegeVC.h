@@ -13,6 +13,7 @@
 
 @property(strong,nonatomic)UIPageViewController* pageView;
 @property(strong,nonatomic)UIViewController* contentVC;
+@property(strong,nonatomic)NSArray* imageURLArray;
 
 - (IBAction)cleanVC:(UIButton *)sender;
 

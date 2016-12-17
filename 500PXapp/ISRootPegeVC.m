@@ -9,13 +9,14 @@
 #import "ISRootPegeVC.h"
 #import "ISPageContentVC.h"
 #import "ISShowFullPhotoVC.h"
+#import "UIImageView+AFNetworking.h"
 
 //#import "ISChooseResept.h"
 
 @interface ISRootPegeVC ()<UIPageViewControllerDataSource>
 
 @property(strong,nonatomic)NSArray* ar;
-@property(strong,nonatomic)NSArray* imageArray;
+@property(strong,nonatomic)NSMutableArray* imageViewArray;
 @property(assign,nonatomic)NSInteger i;
 @property(strong,nonatomic)UIPageControl* pageControl;
 
@@ -34,9 +35,21 @@
     [super viewDidLoad];
     self.i=0;
 
+    self.imageViewmArray=[NSMutableArray array];
     
-    self.imageArray=@[[UIImage imageNamed:@"1.jpg"],[UIImage imageNamed:@"5.jpg"],
-                      [UIImage imageNamed:@"3.jpg"],[UIImage imageNamed:@"4.jpg"]];
+    for (NSString* url in self.imageURLArray) {
+        
+        UIImageView* imV=[[UIImageView alloc]init];
+        [imV setImageWithURL:[NSURL URLWithString:url]];
+        [self.imageViewArray addObject:imV];
+        
+    }
+    NSLog(@"%lu",(unsigned long)self.imageURLArray.count);
+    
+   // self.imageArray=@[[UIImage imageNamed:@"1.jpg"],[UIImage imageNamed:@"5.jpg"],
+     //                 [UIImage imageNamed:@"3.jpg"],[UIImage imageNamed:@"4.jpg"]];
+    
+    
     
     
     // Do any additional setup after loading the view.
@@ -47,7 +60,7 @@
     vc.view.bounds=self.view.frame;
     
     vc.pageIndex=0;
-    vc.photo.image=[self.imageArray objectAtIndex:0];
+    vc.photo=[self.imageURLArray objectAtIndex:0];
     
     NSArray* ar=@[vc];
     [self.pageView setViewControllers:ar direction: UIPageViewControllerNavigationDirectionForward
@@ -91,7 +104,7 @@
     }
     self.pageControl.currentPage=index;
     index++;
-    if(index==[self.imageArray count]){
+    if(index==[self.imageViewArray count]){
         
         return nil;
     }
@@ -99,7 +112,7 @@
 }
 
 -(ISPageContentVC *)viewControllerAtIndex:(NSUInteger)index{
-    if (([self.imageArray count] == 0) || (index >=[self.imageArray count])) {
+    if (([self.imageViewArray count] == 0) || (index >=[self.imageViewArray count])) {
         return nil;
     }
     
@@ -109,7 +122,7 @@
     [pageContentViewController.view setNeedsLayout];
     
     pageContentViewController.pageIndex = index;
-    pageContentViewController.photo.image=[self.imageArray objectAtIndex:index];
+    pageContentViewController.photo=[[self.imageViewArray objectAtIndex:index] image];
     
     return pageContentViewController;
 }
@@ -120,7 +133,7 @@
     //  pageControl.center=self.view.center;
     pageControl.pageIndicatorTintColor=[UIColor redColor];
     pageControl.currentPageIndicatorTintColor=[UIColor greenColor];
-    pageControl.numberOfPages=self.imageArray.count;
+    pageControl.numberOfPages=self.imageViewArray.count;
     [self.view addSubview:pageControl];
     self.pageControl=pageControl;
 }
