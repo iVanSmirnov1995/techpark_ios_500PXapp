@@ -26,6 +26,9 @@
                                 <state key="normal" title="Галереи">
                                     <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <segue destination="q5w-Gd-Ady" kind="show" id="bpN-vC-hlQ"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TqP-KW-fau">
                                 <color key="backgroundColor" red="0.93725490570000003" green="0.93725490570000003" blue="0.95686274770000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -240,7 +243,36 @@
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iFP-1Q-JhD" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-3657" y="-1019"/>
+            <point key="canvasLocation" x="-4074" y="-731"/>
+        </scene>
+        <!--Table View Controller-->
+        <scene sceneID="LVj-J8-MGi">
+            <objects>
+                <tableViewController id="q5w-Gd-Ady" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="iaH-wH-Y6X">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="Lvb-EY-cgs">
+                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Lvb-EY-cgs" id="fwq-Ys-WEz">
+                                    <frame key="frameInset" width="375" height="43"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="q5w-Gd-Ady" id="cBc-lC-mni"/>
+                            <outlet property="delegate" destination="q5w-Gd-Ady" id="xul-A6-FSQ"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" id="Jxe-yd-tSa"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="2iA-gq-FDH" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-3244" y="-732"/>
         </scene>
         <!--Пользователи-->
         <scene sceneID="ak1-6d-K6n">
@@ -298,7 +330,65 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CL9-Wq-f62" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2825" y="-1816"/>
+            <point key="canvasLocation" x="-4634" y="-1441"/>
+        </scene>
+        <!--Пользователи-->
+        <scene sceneID="BEx-ci-qnQ">
+            <objects>
+                <tableViewController storyboardIdentifier="friendsList" id="pk8-fN-zL4" customClass="OSFriendsTVC" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="80" sectionHeaderHeight="28" sectionFooterHeight="28" id="ice-PR-ylv">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cellFriend" rowHeight="87" id="7Oo-8W-TnA" customClass="OSCustomCellForSubsTVC">
+                                <rect key="frame" x="0.0" y="28" width="375" height="87"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="7Oo-8W-TnA" id="iAV-ng-cwy">
+                                    <frame key="frameInset" width="375" height="86"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Имя Фамилия" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dWC-EO-46J">
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="25" id="4kl-Cy-0yc"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="1.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="07U-Gu-yqI">
+                                            <constraints>
+                                                <constraint firstAttribute="width" secondItem="07U-Gu-yqI" secondAttribute="height" multiplier="1:1" id="uJP-Qg-LRR"/>
+                                            </constraints>
+                                        </imageView>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="dWC-EO-46J" firstAttribute="centerY" secondItem="iAV-ng-cwy" secondAttribute="centerY" id="A75-Zs-R26"/>
+                                        <constraint firstItem="07U-Gu-yqI" firstAttribute="bottom" secondItem="iAV-ng-cwy" secondAttribute="bottomMargin" id="YS2-1g-c2j"/>
+                                        <constraint firstItem="07U-Gu-yqI" firstAttribute="top" secondItem="iAV-ng-cwy" secondAttribute="topMargin" id="abT-Sv-MDR"/>
+                                        <constraint firstItem="dWC-EO-46J" firstAttribute="leading" secondItem="07U-Gu-yqI" secondAttribute="trailing" constant="30" id="qzV-6C-37V"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="dWC-EO-46J" secondAttribute="trailing" constant="10" id="uIP-9h-wRk"/>
+                                        <constraint firstItem="07U-Gu-yqI" firstAttribute="leading" secondItem="iAV-ng-cwy" secondAttribute="leadingMargin" id="wBS-eG-jOg"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="avatar" destination="07U-Gu-yqI" id="j8R-CN-JAH"/>
+                                    <outlet property="userName" destination="dWC-EO-46J" id="bb1-AK-MpE"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="pk8-fN-zL4" id="dZe-SE-Jif"/>
+                            <outlet property="delegate" destination="pk8-fN-zL4" id="SKl-VG-7Go"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Пользователи" id="23B-5n-a2F">
+                        <barButtonItem key="backBarButtonItem" title="Назад" id="UWV-jK-Lma"/>
+                    </navigationItem>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="3kY-3h-t0r" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-2708" y="-1440"/>
         </scene>
     </scenes>
     <resources>

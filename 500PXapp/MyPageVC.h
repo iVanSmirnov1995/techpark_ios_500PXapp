@@ -7,7 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "ISCoreDataViewController.h"
 
-@interface MyPageVC : UIViewController
+@interface MyPageVC :  ISCoreDataViewController <UITextFieldDelegate>
+
+@property (assign, nonatomic) NSInteger userID;
 
 @end

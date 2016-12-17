@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "OSCustomCellForSubTVC.h"
+#import "UIImageView+AFNetworking.h"
 
 @interface OSCustomCellForSubsTVC : UITableViewCell
 

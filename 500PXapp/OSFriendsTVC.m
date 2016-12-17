@@ -1,30 +1,29 @@
 //
-//  OSSubscribersTableVC.m
+//  OSFriendsTVC.m
 //  500PXapp
 //
-//  Created by user on 21.11.16.
+//  Created by user on 17.12.16.
 //  Copyright © 2016 techpark_ios. All rights reserved.
 //
 
-#import "OSSubscribersTableVC.h"
+#import "OSFriendsTVC.h"
 #import "OSCustomCellForSubsTVC.h"
 #import "ISServerManager.h"
 
-@interface OSSubscribersTableVC () <UITableViewDataSource,UITableViewDelegate>
+@interface OSFriendsTVC ()
 
-@property (strong, nonatomic) NSMutableArray *followers;
+@property (strong, nonatomic) NSMutableArray *friends;
 
 @end
 
-@implementation OSSubscribersTableVC
+@implementation OSFriendsTVC
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.followers = [[NSMutableArray alloc] init];
+    self.friends = [[NSMutableArray alloc] init];
     
-    [self getFollowers];
-
+    [self getFriends];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -34,18 +33,13 @@
 
 #pragma mark - API
 
--(void) getFollowers {
+-(void) getFriends {
     [[ISServerManager sharedManager]
-     getFollowersOnUserID: self.userID
-     withPage: self.followers.count/20 + 1
-     onSuccess: ^(NSArray *followers) {
-
-         [self.followers addObjectsFromArray:followers];
-//         NSMutableArray* newPath = [[NSMutableArray alloc] init];
-//         
-//         for (NSInteger i = self.followers.count - followers.count; i < self.followers.count; i++) {
-//             [newPath addObject:[NSIndexPath indexPathForRow:i inSection:0]];
-//         }
+     getFriendsOnUserID: self.userID
+     withPage: self.friends.count/20 + 1
+     onSuccess: ^(NSArray *friends) {
+         
+         [self.friends addObjectsFromArray:friends];
          
          dispatch_async(dispatch_get_main_queue(), ^{
              [self.tableView reloadData];
@@ -56,6 +50,7 @@
      }];
 }
 
+
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
@@ -63,26 +58,25 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return self.followers.count;
+    return self.friends.count;
 }
 
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    
-    OSCustomCellForSubsTVC *cell = [tableView dequeueReusableCellWithIdentifier:@"cell" forIndexPath:indexPath];
+    OSCustomCellForSubsTVC *cell = [tableView dequeueReusableCellWithIdentifier:@"cellFriend" forIndexPath:indexPath];
     
     NSInteger row = indexPath.row;
-    OSCustomCellForSubTVC *follower = [[OSCustomCellForSubTVC alloc] init];
-    follower.avatarURL = [[[self.followers[row]
-                             objectForKey: @"avatars"]
-                            objectForKey:@"small"]
-                           objectForKey:@"https"];
-    follower.name = [self.followers[row] objectForKey:@"fullname"];
+    OSCustomCellForSubTVC *friend = [[OSCustomCellForSubTVC alloc] init];
+    friend.avatarURL = [[[self.friends[row]
+                            objectForKey: @"avatars"]
+                           objectForKey:@"small"]
+                          objectForKey:@"https"];
+    friend.name = [self.friends[row] objectForKey:@"fullname"];
     
-    [cell fillCellWithModel: follower];
+    [cell fillCellWithModel: friend];
     
-    if(indexPath.row == self.followers.count) {
-        [self getFollowers];
+    if(indexPath.row == self.friends.count) {
+        [self getFriends];
     }
     
     return cell;

@@ -19,5 +19,12 @@
 @dynamic oauthTokenSecret;
 @dynamic name;
 @dynamic oauthToken;
+@dynamic firstName;
+@dynamic lastName;
+@dynamic cover;
+@dynamic avatar;
+@dynamic followersCount;
+@dynamic friendsCount;
+@dynamic userName;
 
 @end

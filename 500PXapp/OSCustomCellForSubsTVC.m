@@ -11,7 +11,7 @@
 @implementation OSCustomCellForSubsTVC
 
 - (void)fillCellWithModel:(OSCustomCellForSubTVC *)model {
-    self.avatar.image = [UIImage imageNamed:model.avatarName];
+    [self.avatar setImageWithURL: [NSURL URLWithString:model.avatarURL]];
     [self.avatar layoutIfNeeded];
     self.avatar.layer.masksToBounds = YES;
     self.avatar.layer.cornerRadius = self.avatar.frame.size.width / 2;

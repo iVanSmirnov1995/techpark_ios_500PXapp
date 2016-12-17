@@ -18,8 +18,8 @@
 @property(assign,nonatomic)BOOL sex;
 @property(assign,nonatomic)NSString* avatar;
 @property(assign, nonatomic)NSString* cover;
-@property(assign, nonatomic)NSNumber* friendsCount;
-@property(assign, nonatomic)NSNumber* followersCount;
+@property(assign, nonatomic)NSInteger friendsCount;
+@property(assign, nonatomic)NSInteger followersCount;
 @property(assign, nonatomic)NSString* fullName;
 
 @end
