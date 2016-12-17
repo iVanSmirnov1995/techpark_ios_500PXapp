@@ -131,7 +131,9 @@
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="31L-5z-X0a">
                                                     <rect key="frame" x="0.0" y="0.0" width="374" height="200"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="height" constant="199.5" id="URe-Td-jbw"/>
+                                                        <constraint firstAttribute="height" constant="199.5" id="URe-Td-jbw">
+                                                            <variation key="heightClass=regular-widthClass=regular" constant="370"/>
+                                                        </constraint>
                                                     </constraints>
                                                 </imageView>
                                             </subviews>
