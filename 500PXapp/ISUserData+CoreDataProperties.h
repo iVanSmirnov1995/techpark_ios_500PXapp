@@ -20,6 +20,13 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nullable, nonatomic, copy) NSString *oauthTokenSecret;
 @property (nullable, nonatomic, copy) NSString *name;
 @property (nullable, nonatomic, copy) NSString *oauthToken;
+@property (nullable, nonatomic, copy) NSString* firstName;
+@property (nullable, nonatomic, copy) NSString* lastName;
+@property (nullable, nonatomic, copy) NSString* cover;
+@property (nullable, nonatomic, copy) NSString* avatar;
+@property (nullable, nonatomic, copy) NSString* userName;
+@property (nonatomic) int64_t followersCount;
+@property (nonatomic) int64_t friendsCount;
 
 @end
 

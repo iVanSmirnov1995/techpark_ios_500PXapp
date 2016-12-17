@@ -10,8 +10,10 @@
 #import "ISServerManager.h"
 #import "ISUser.h"
 #import "OSSubscribersTableVC.h"
+#import "OSFriendsTVC.h"
 
 #import "UIImageView+AFNetworking.h"
+#import "ISUserData+CoreDataProperties.h"
 
 
 @interface MyPageVC ()
@@ -33,76 +35,129 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.fullName.text = @"";
-    self.userName.text = @"";
-    [self.folowers setTitle:@"" forState:UIControlStateNormal];
-    [self.friends setTitle:@"" forState:UIControlStateNormal];
+    [self.avatarParentView layoutIfNeeded];
+    self.avatarParentView.layer.masksToBounds = YES;
+    self.avatarParentView.layer.cornerRadius = self.avatarParentView.frame.size.width / 2;
     
-    [self getUserFromServer];
+    [self.avatar layoutIfNeeded];
+    self.avatar.layer.masksToBounds = YES;
+    self.avatar.layer.cornerRadius = self.avatar.frame.size.width / 2;
+    
+//                [self.editProfileView layoutIfNeeded];
+//                self.editProfileView.layer.masksToBounds = YES;
+//                self.editProfileView.layer.cornerRadius = 15;
+    
+    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
+    NSEntityDescription *entity = [NSEntityDescription entityForName:@"ISUserData"
+                                              inManagedObjectContext:self.managedObjectContext];
+    [fetchRequest setEntity:entity];
+    NSArray* resultArray = [self.managedObjectContext executeFetchRequest:fetchRequest error:nil];
+    
+    ISUserData * userData = resultArray[0];
+    
+    self.userID = userData.userID;
+    
+    self.userName.text = userData.userName;
+    NSLog(@"%@", self.userName.text);
+    
+    if(![userData.firstName isEqual:[NSNull null]]) {
+        self.fullName.text = [NSString stringWithFormat:@"%@", userData.firstName];
+        if(![userData.lastName isEqual:[NSNull null]]) {
+            self.fullName.text = [NSString stringWithFormat:@"%@ %@",
+                                  self.fullName.text, userData.lastName];
+        }
+    } else if (![userData.lastName isEqual:[NSNull null]]) {
+        self.fullName.text = [NSString stringWithFormat:@"%@", userData.lastName];
+    }
+    NSLog(@"%@", self.fullName.text);
+    
+    
+    if(![userData.cover isEqual:[NSNull null]]) {
+        [self.miniature setImageWithURL:[NSURL URLWithString:userData.cover]];
+    }
+    
+    if(![userData.avatar isEqual:[NSNull null]]) {
+        [self.avatar setImageWithURL: [NSURL URLWithString:userData.avatar]];
+    }
+    [self.folowers setTitle:
+     [NSString stringWithFormat:@"%ld подписчиков", (long)userData.followersCount]
+                   forState:UIControlStateNormal];
+    NSLog(@"%@", self.folowers.currentTitle);
+    [self.friends setTitle:[NSString stringWithFormat:@"%ld друзей", (long)userData.friendsCount]
+                  forState:UIControlStateNormal];
+    
+    [self.indicator stopAnimating];
+    
+//    [self.folowers setTitle:@"" forState:UIControlStateNormal];
+//    [self.friends setTitle:@"" forState:UIControlStateNormal];
+    
+//    [self getUserFromServer];
 }
 
-#pragma mark - API
+//#pragma mark - API
+//
+//-(void) getUserFromServer {
+//    [[ISServerManager sharedManager] getUserOnSuccess:^(ISUser *user) {
+//        
+//        self.userID = user.userId;
+//        
+////        dispatch_async(dispatch_get_main_queue(), ^{
+//            if(![user.cover isEqual:[NSNull null]]) {
+//                [self.miniature setImageWithURL:[NSURL URLWithString:user.cover]];
+//            }
+//            
+//            if(![user.avatar isEqual:[NSNull null]]) {
+//                [self.avatar setImageWithURL: [NSURL URLWithString:user.avatar]];
+//            }
+//            
+//            if(![user.firstName isEqual:[NSNull null]]) {
+//                self.fullName.text = [NSString stringWithFormat:@"%@", user.firstName];
+//                if(![user.lastName isEqual:[NSNull null]]) {
+//                    self.fullName.text = [NSString stringWithFormat:@"%@ %@",
+//                                          self.fullName.text, user.lastName];
+//                }
+//            } else if (![user.lastName isEqual:[NSNull null]]) {
+//                self.fullName.text = [NSString stringWithFormat:@"%@", user.lastName];
+//            }
+//            self.userName.text = user.username;
+//            [self.folowers setTitle:[NSString stringWithFormat:@"%ld подписчиков", (long)user.followersCount]
+//                           forState:UIControlStateNormal];
+//            [self.friends setTitle:[NSString stringWithFormat:@"%ld друзей", (long)user.friendsCount]
+//                          forState:UIControlStateNormal];
+//            
+//            [self.avatarParentView layoutIfNeeded];
+//            self.avatarParentView.layer.masksToBounds = YES;
+//            self.avatarParentView.layer.cornerRadius = self.avatarParentView.frame.size.width / 2;
+//            
+//            [self.avatar layoutIfNeeded];
+//            self.avatar.layer.masksToBounds = YES;
+//            self.avatar.layer.cornerRadius = self.avatar.frame.size.width / 2;
+//            
+//            [self.editProfileView layoutIfNeeded];
+//            self.editProfileView.layer.masksToBounds = YES;
+//            self.editProfileView.layer.cornerRadius = 15;
+//            [self.view reloadInputViews];
+//            [self.indicator stopAnimating];
+//
+////        });
+//        
+//    } onFailure:^(NSError *error, NSInteger statusCode) {
+//        
+//    }];
+//    
+//}
 
--(void) getUserFromServer {
-    [[ISServerManager sharedManager] getUserOnSuccess:^(ISUser *user) {
-        
-        dispatch_async(dispatch_get_main_queue(), ^{
-            if(![user.cover isEqual:[NSNull null]]) {
-                [self.miniature setImageWithURL:[NSURL URLWithString:user.cover]];
-            }
-            
-            if(![user.avatar isEqual:[NSNull null]]) {
-                [self.avatar setImageWithURL: [NSURL URLWithString:user.avatar]];
-            }
-            
-            if(![user.firstName isEqual:[NSNull null]]) {
-                self.fullName.text = [NSString stringWithFormat:@"%@", user.firstName];
-                if(![user.lastName isEqual:[NSNull null]]) {
-                    self.fullName.text = [NSString stringWithFormat:@"%@ %@",
-                                          self.fullName.text, user.lastName];
-                }
-            } else if (![user.lastName isEqual:[NSNull null]]) {
-                self.fullName.text = [NSString stringWithFormat:@"%@", user.lastName];
-            }
-            self.userName.text = user.username;
-            [self.folowers setTitle:[NSString stringWithFormat:@"%@ подписчиков", user.followersCount]
-                           forState:UIControlStateNormal];
-            [self.friends setTitle:[NSString stringWithFormat:@"%@ друзей", user.friendsCount]
-                          forState:UIControlStateNormal];
-            
-            [self.avatarParentView layoutIfNeeded];
-            self.avatarParentView.layer.masksToBounds = YES;
-            self.avatarParentView.layer.cornerRadius = self.avatarParentView.frame.size.width / 2;
-            
-            [self.avatar layoutIfNeeded];
-            self.avatar.layer.masksToBounds = YES;
-            self.avatar.layer.cornerRadius = self.avatar.frame.size.width / 2;
-            
-            [self.editProfileView layoutIfNeeded];
-            self.editProfileView.layer.masksToBounds = YES;
-            self.editProfileView.layer.cornerRadius = 15;
-            [self.view reloadInputViews];
-            [self.indicator stopAnimating];
-
-        });
-        
-    } onFailure:^(NSError *error, NSInteger statusCode) {
-        
-    }];
-    
-}
-
--(NSArray*) getFolowersFromServer {
-    __block NSArray* users;
-    
-    [[ISServerManager sharedManager] getFolowerOnSuccess:^(NSArray *folowers) {
-        users = folowers;
-    } onFailure:^(NSError *error, NSInteger statusCode) {
-        
-    }];
-    
-    return users;
-}
+//-(NSArray*) getFolowersFromServer {
+//    __block NSArray* users;
+//    
+//    [[ISServerManager sharedManager] getFolowerOnSuccess:^(NSArray *folowers) {
+//        users = folowers;
+//    } onFailure:^(NSError *error, NSInteger statusCode) {
+//        
+//    }];
+//    
+//    return users;
+//}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -110,13 +165,14 @@
 - (IBAction)folowersButtonPressed:(id)sender {
     
     OSSubscribersTableVC* vc = [self.storyboard instantiateViewControllerWithIdentifier:@"usersList"];
-    [vc.users addObjectsFromArray:[self getFolowersFromServer]];
+    vc.userID = self.userID;
     [self.navigationController pushViewController:vc animated:YES];
     
 }
 - (IBAction)friendsButtonPressed:(id)sender {
     
-    OSSubscribersTableVC* vc = [self.storyboard instantiateViewControllerWithIdentifier:@"usersList"];
+    OSFriendsTVC* vc = [self.storyboard instantiateViewControllerWithIdentifier:@"friendsList"];
+    vc.userID = self.userID;
     [self.navigationController pushViewController:vc animated:YES];
     
 }

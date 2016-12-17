@@ -47,5 +47,15 @@
 -(void)getUserOnSuccess:(void(^)(ISUser* user)) success
               onFailure:(void(^)(NSError* error,NSInteger statusCode))failture;
 
+-(void) getFollowersOnUserID:(NSInteger) userID
+                    withPage:(NSInteger) page
+                   onSuccess:(void(^)(NSArray* followers)) success
+                   onFailure:(void(^)(NSError* error,NSInteger statusCode)) failture;
+
+-(void) getFriendsOnUserID:(NSInteger) userID
+                  withPage:(NSInteger) page
+                 onSuccess:(void(^)(NSArray* followers)) success
+                 onFailure:(void(^)(NSError* error,NSInteger statusCode)) failture;
+
 
 @end

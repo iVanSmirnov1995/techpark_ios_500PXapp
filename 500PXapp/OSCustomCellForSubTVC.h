@@ -11,7 +11,7 @@
 
 @interface OSCustomCellForSubTVC : NSObject
 
-@property (strong, nonatomic) NSString *avatarName;
+@property (strong, nonatomic) NSString *avatarURL;
 @property (strong, nonatomic) NSString *name;
 
 @end
