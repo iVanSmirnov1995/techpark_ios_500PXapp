@@ -96,6 +96,7 @@ typedef enum {
             [imArr addObject:news.imageName];
         }
         vc.imageURLArray=imArr;
+        vc.startPage=indexPath.section;
         
         [self presentViewController:vc animated:YES completion: nil];
         
