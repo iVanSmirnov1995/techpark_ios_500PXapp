@@ -100,7 +100,10 @@
                         userData.lastName = user.lastName;
                         userData.followersCount = user.followersCount;
                         userData.friendsCount = user.friendsCount;
-                        userData.cover = user.cover;
+                        if (!user.cover) {
+                            
+                            userData.cover = user.cover;
+                        }
                         userData.avatar = user.avatar;
                         userData.userName = user.username;
                         

@@ -90,6 +90,14 @@ typedef enum {
     if(indexPath.row==ISImageTupe){
         
         ISRootPegeVC* vc=[self.storyboard instantiateViewControllerWithIdentifier:@"rootPage"];
+        NSMutableArray* imArr=[NSMutableArray array];
+        for (ISNewsFeedModel* news in self.newsFeedArray) {
+            
+            [imArr addObject:news.imageName];
+        }
+        vc.imageURLArray=imArr;
+        vc.startPage=indexPath.section;
+        
         [self presentViewController:vc animated:YES completion: nil];
         
         
@@ -151,7 +159,7 @@ typedef enum {
     if (indexPath.row==ISLikeTupe) {
         identifier=@"like";
         ISTableViewLikeCell* cell=[tableView dequeueReusableCellWithIdentifier:identifier forIndexPath:indexPath];
-       // cell.countLike.text=[NSString stringWithFormat:@"%d",newsModel.countLike];
+        cell.countLike.text=[NSString stringWithFormat:@"%ld",(long)newsModel.countLike];
         return cell;
 
     }
@@ -159,7 +167,14 @@ typedef enum {
     if (indexPath.row==ISCommentsTupe) {
         identifier=@"comments";
         ISTableViewCommentsCell* cell=[tableView dequeueReusableCellWithIdentifier:identifier forIndexPath:indexPath];
-        cell.lastMessage.text=newsModel.lastComent;
+        if (newsModel.countComent==0) {
+            cell.countComments.text=
+            [NSString stringWithFormat:@"Коментариев пока нет"];
+        }else
+        
+        cell.countComments.text=
+        [NSString stringWithFormat:@"%ld коментарий(я)",(long)newsModel.countComent];
+        
         return cell;
     }
     

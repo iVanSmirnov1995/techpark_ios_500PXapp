@@ -127,7 +127,7 @@
     
     
     NSString* path=[NSString stringWithFormat:
-  @"/photos?feature=user_friends&user_id=%ld&sort=created_at&image_size=4&include_store=store_download&include_states=voted&consumer_key=XyuX14AQBpiWjfUcRyXA2jyB5ensjjJD6gBFcGHI",self.user.userId];
+  @"/photos?feature=user_friends&user_id=%ld&rpp=100&sort=created_at&image_size=4&include_store=store_download&include_states=voted&consumer_key=XyuX14AQBpiWjfUcRyXA2jyB5ensjjJD6gBFcGHI",self.user.userId];
     
     NSLog(@"%ld",self.user.userId);
 
@@ -172,7 +172,9 @@
                     [dateFormatter1 setDateFormat:@"MMM d, yyyy HH:mm"];
                     news.data = [dateFormatter1 stringFromDate:date];
                         
-                    news.countLike=[[newsDic objectForKey:@"favorites_count"]integerValue];
+                    news.countLike=[[newsDic objectForKey:@"votes_count"]integerValue];
+                    news.countComent=[[newsDic objectForKey:@"comments_count"]integerValue];
+                        
                                           [modelNewsAr addObject:news];
                                       }
                                       
@@ -331,26 +333,28 @@
                   onSuccess:(void(^)(NSArray* followers)) success
                   onFailure:(void(^)(NSError* error,NSInteger statusCode)) failture {
     
-    NSDictionary* param = @{@"page":@(page)};
+    NSDictionary* param = @{@"page":@(page),
+                            @"consumer_key":@"XyuX14AQBpiWjfUcRyXA2jyB5ensjjJD6gBFcGHI"};
     
     NSURL *URL = [NSURL URLWithString:[NSString
                                        stringWithFormat:
                                        @"https://api.500px.com/v1/users/%ld/friends",
                                        userID]];
     
+
+    
     [self.manager GET:URL.absoluteString
            parameters:param progress:nil
               success:^(NSURLSessionDataTask * _Nonnull task, NSDictionary* responseObject) {
                   NSLog(@"JSON: %@", responseObject);
-                  NSArray* friends = [responseObject objectForKey:@"followers"];
+                  NSArray* friends = [responseObject objectForKey:@"friends"];
                   if(success){
                       success(friends);
                   }
               }
               failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-                  
+                  NSLog(@"ERROR %@", error);
               }];
-    
 }
 
 
