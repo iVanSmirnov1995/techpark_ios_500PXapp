@@ -159,7 +159,14 @@ typedef enum {
     if (indexPath.row==ISCommentsTupe) {
         identifier=@"comments";
         ISTableViewCommentsCell* cell=[tableView dequeueReusableCellWithIdentifier:identifier forIndexPath:indexPath];
-        cell.lastMessage.text=@"dftygnyytvfgygu";//newsModel.lastComent;
+        if (newsModel.countComent==0) {
+            cell.countComments.text=
+            [NSString stringWithFormat:@"Коментариев пока нет"];
+        }else
+        
+        cell.countComments.text=
+        [NSString stringWithFormat:@"%ld коментарий(я)",(long)newsModel.countComent];
+        
         return cell;
     }
     

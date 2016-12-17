@@ -127,7 +127,7 @@
     
     
     NSString* path=[NSString stringWithFormat:
-  @"/photos?feature=user_friends&user_id=%ld&sort=created_at&image_size=4&include_store=store_download&include_states=voted&consumer_key=XyuX14AQBpiWjfUcRyXA2jyB5ensjjJD6gBFcGHI",self.user.userId];
+  @"/photos?feature=user_friends&user_id=%ld&rpp=100&sort=created_at&image_size=4&include_store=store_download&include_states=voted&consumer_key=XyuX14AQBpiWjfUcRyXA2jyB5ensjjJD6gBFcGHI",self.user.userId];
     
     NSLog(@"%ld",self.user.userId);
 
@@ -173,6 +173,8 @@
                     news.data = [dateFormatter1 stringFromDate:date];
                         
                     news.countLike=[[newsDic objectForKey:@"votes_count"]integerValue];
+                    news.countComent=[[newsDic objectForKey:@"comments_count"]integerValue];
+                        
                                           [modelNewsAr addObject:news];
                                       }
                                       
