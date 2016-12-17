@@ -70,13 +70,12 @@
     [[ISServerManager sharedManager]getUserOnSuccess:^(ISUser *user) {
         
         [[ISServerManager sharedManager]setUser:user];
+         [(ISHomeVC*)self.viewControllers[0] startLoad];
         
     } onFailure:^(NSError *error, NSInteger statusCode) {
         NSLog(@"%@",error);
     }];
     
-    
-    [(ISHomeVC*)self.viewControllers[0] startLoad];
     
 }
 

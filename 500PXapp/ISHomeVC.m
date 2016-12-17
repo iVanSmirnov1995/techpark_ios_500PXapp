@@ -46,26 +46,6 @@ typedef enum {
     [super viewDidLoad];
     
     
-    // Do any additional setup after loading the view.
-//    self.tableView.rowHeight = UITableViewAutomaticDimension;
-//    self.tableView.estimatedRowHeight = 44.0;
-//    
-//    self.newsFeedArray=[NSMutableArray array];
-//    for (int i=0; i<9; i++) {
-//        
-//        ISNewsFeedModel* model=[[ISNewsFeedModel alloc]init];
-//        model.userName=@"Ivan Smirnov";
-//        model.imageName=@"1.jpg";
-//        model.userImageName=@"2.jpg";
-//        model.data=@"18 октября";
-//        model.countLike=@"5";
-//        model.lastComent=@"Крутая фотка";
-//        [self.newsFeedArray addObject:model];
-//        
-//    }
-    
-    
-    
 }
 
 -(void)startLoad{
@@ -164,14 +144,18 @@ typedef enum {
         cell.userImage.layer.cornerRadius=CGRectGetWidth(cell.userImage.frame)/2.f;
         cell.userImage.layer.masksToBounds=YES;
         cell.userName.text=newsModel.userName;
-        cell.data.text=newsModel.data;
+        
+        NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+        [dateFormatter setDateFormat:@"MMM d, yyyy HH:mm"];
+        NSString *stringDate = [dateFormatter stringFromDate:newsModel.data];
+        cell.data.text=stringDate;
         return cell;
     }
     
     if (indexPath.row==ISLikeTupe) {
         identifier=@"like";
         ISTableViewLikeCell* cell=[tableView dequeueReusableCellWithIdentifier:identifier forIndexPath:indexPath];
-        cell.countLike.text=@"0";//[NSString stringWithFormat:@"%d",newsModel.countLike];
+        cell.countLike.text=[NSString stringWithFormat:@"%d",newsModel.countLike];
         return cell;
 
     }

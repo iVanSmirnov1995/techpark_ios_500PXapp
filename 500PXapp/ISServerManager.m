@@ -127,8 +127,9 @@
     
     
     NSString* path=[NSString stringWithFormat:
-  @"/photos?feature=fresh_today&user_id=%ld&sort=created_at&image_size=4&include_store=store_download&include_states=voted&consumer_key=XyuX14AQBpiWjfUcRyXA2jyB5ensjjJD6gBFcGHI",self.user.userId];
+  @"/photos?feature=user_friends&user_id=%ld&sort=created_at&image_size=4&include_store=store_download&include_states=voted&consumer_key=XyuX14AQBpiWjfUcRyXA2jyB5ensjjJD6gBFcGHI",self.user.userId];
     
+    NSLog(@"%ld",self.user.userId);
 
     
     
@@ -162,8 +163,14 @@
                     news.userImageName=[[[userDic objectForKey:@"avatars"]objectForKey:@"small"] objectForKey:@"https"];
                     news.photoID=[[newsDic objectForKey:@"id"]longValue];
                     news.imageName=[newsDic objectForKey:@"image_url"];
-                    news.data=[newsDic objectForKey:@"created_at"];
-                    news.countLike=[[newsDic objectForKey:@"converted"]integerValue];
+                    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+                    [dateFormatter setDateFormat:@"yyyy-MM-dd'T'HH:mm:ssZ"];
+                    news.data = [dateFormatter dateFromString:
+                                 [newsDic objectForKey:@"created_at"]];
+                        
+                        
+                        
+                    news.countLike=[[newsDic objectForKey:@"favorites_count"]integerValue];
                                           [modelNewsAr addObject:news];
                                       }
                                       
