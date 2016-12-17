@@ -12,6 +12,7 @@
 
 @property (strong, nonatomic) IBOutlet UIImageView *img;
 @property (strong, nonatomic) IBOutlet UILabel *label;
-
+@property (strong, nonatomic) IBOutlet UIImageView *labelSticker;
+@property (strong, nonatomic) IBOutlet UILabel *populatAtThisMoment;
 
 @end
