@@ -172,7 +172,7 @@
                     [dateFormatter1 setDateFormat:@"MMM d, yyyy HH:mm"];
                     news.data = [dateFormatter1 stringFromDate:date];
                         
-                    news.countLike=[[newsDic objectForKey:@"favorites_count"]integerValue];
+                    news.countLike=[[newsDic objectForKey:@"votes_count"]integerValue];
                                           [modelNewsAr addObject:news];
                                       }
                                       

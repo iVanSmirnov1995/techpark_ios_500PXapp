@@ -151,7 +151,7 @@ typedef enum {
     if (indexPath.row==ISLikeTupe) {
         identifier=@"like";
         ISTableViewLikeCell* cell=[tableView dequeueReusableCellWithIdentifier:identifier forIndexPath:indexPath];
-       // cell.countLike.text=[NSString stringWithFormat:@"%d",newsModel.countLike];
+        cell.countLike.text=[NSString stringWithFormat:@"%ld",(long)newsModel.countLike];
         return cell;
 
     }
@@ -159,7 +159,7 @@ typedef enum {
     if (indexPath.row==ISCommentsTupe) {
         identifier=@"comments";
         ISTableViewCommentsCell* cell=[tableView dequeueReusableCellWithIdentifier:identifier forIndexPath:indexPath];
-        cell.lastMessage.text=newsModel.lastComent;
+        cell.lastMessage.text=@"dftygnyytvfgygu";//newsModel.lastComent;
         return cell;
     }
     
