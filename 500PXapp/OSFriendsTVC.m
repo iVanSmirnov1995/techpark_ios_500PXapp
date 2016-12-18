@@ -9,6 +9,7 @@
 #import "OSFriendsTVC.h"
 #import "OSCustomCellForSubsTVC.h"
 #import "ISServerManager.h"
+#import "MyPageVC.h"
 
 @interface OSFriendsTVC ()
 
@@ -72,6 +73,7 @@
                            objectForKey:@"small"]
                           objectForKey:@"https"];
     friend.name = [self.friends[row] objectForKey:@"fullname"];
+    friend.userID = [[self.friends[row] objectForKey:@"id"] integerValue];
     
     [cell fillCellWithModel: friend];
     
@@ -80,6 +82,12 @@
     }
     
     return cell;
+}
+
+-(void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    MyPageVC* vc = [self.storyboard instantiateViewControllerWithIdentifier:@"myPage"];
+    vc.userID = [[self.friends[indexPath.row] objectForKey:@"id"] integerValue];
+    [self.navigationController pushViewController:vc animated:YES];
 }
 
 

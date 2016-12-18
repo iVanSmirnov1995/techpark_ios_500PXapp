@@ -34,7 +34,6 @@
 -(void)getUserFriendsPhotoNewsOnSuccess:(void(^)(NSMutableArray* newsAr)) success
                               onFailure:(void(^)(NSError* error,NSInteger statusCode))failture;
 
-
 -(void)getPhotosWithTerm:(NSString*)term tag:(NSString*)tag
                     page:(NSInteger)page rpp:(NSInteger)rpp
                     tags:(NSArray*)tags
@@ -47,15 +46,19 @@
 -(void)getUserOnSuccess:(void(^)(ISUser* user)) success
               onFailure:(void(^)(NSError* error,NSInteger statusCode))failture;
 
--(void) getFollowersOnUserID:(NSInteger) userID
-                    withPage:(NSInteger) page
-                   onSuccess:(void(^)(NSArray* followers)) success
-                   onFailure:(void(^)(NSError* error,NSInteger statusCode)) failture;
+-(void) getFollowersOnUserID:(NSInteger)userID
+                    withPage:(NSInteger)page
+                   onSuccess:(void(^)(NSArray* followers))success
+                   onFailure:(void(^)(NSError* error,NSInteger statusCode))failture;
 
--(void) getFriendsOnUserID:(NSInteger) userID
-                  withPage:(NSInteger) page
-                 onSuccess:(void(^)(NSArray* followers)) success
-                 onFailure:(void(^)(NSError* error,NSInteger statusCode)) failture;
+-(void) getFriendsOnUserID:(NSInteger)userID
+                  withPage:(NSInteger)page
+                 onSuccess:(void(^)(NSArray* followers))success
+                 onFailure:(void(^)(NSError* error,NSInteger statusCode))failture;
+
+-(void) getUserOnID:(NSInteger)userID
+          OnSuccess:(void (^)(ISUser *))success
+          onFailure:(void (^)(NSError *, NSInteger))failture;
 
 
 @end

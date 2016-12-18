@@ -13,5 +13,6 @@
 
 @property (strong, nonatomic) NSString *avatarURL;
 @property (strong, nonatomic) NSString *name;
+@property (assign, nonatomic) NSInteger userID;
 
 @end

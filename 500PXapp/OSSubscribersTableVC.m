@@ -9,6 +9,7 @@
 #import "OSSubscribersTableVC.h"
 #import "OSCustomCellForSubsTVC.h"
 #import "ISServerManager.h"
+#import "MyPageVC.h"
 
 @interface OSSubscribersTableVC () <UITableViewDataSource,UITableViewDelegate>
 
@@ -83,6 +84,11 @@
     return cell;
 }
 
+-(void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    MyPageVC* vc = [self.storyboard instantiateViewControllerWithIdentifier:@"myPage"];
+    vc.userID = [[self.followers[indexPath.row] objectForKey:@"id"] integerValue];
+    [self.navigationController pushViewController:vc animated:YES];
+}
 
 /*
 // Override to support conditional editing of the table view.

@@ -22,12 +22,13 @@
 @property (weak, nonatomic) IBOutlet UIImageView *avatar;
 @property (weak, nonatomic) IBOutlet UIImageView *miniature;
 @property (weak, nonatomic) IBOutlet UIView *avatarParentView;
-@property (weak, nonatomic) IBOutlet UIView *editProfileView;
 @property (weak, nonatomic) IBOutlet UILabel *fullName;
 @property (weak, nonatomic) IBOutlet UILabel *userName;
 @property (weak, nonatomic) IBOutlet UIButton *folowers;
 @property (weak, nonatomic) IBOutlet UIButton *friends;
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView *indicator;
+@property (weak, nonatomic) IBOutlet UIButton *exitButton;
+@property (weak, nonatomic) IBOutlet UIButton *setingButton;
 
 @end
 
@@ -44,6 +45,22 @@
     self.avatar.layer.masksToBounds = YES;
     self.avatar.layer.cornerRadius = self.avatar.frame.size.width / 2;
     
+    self.fullName.text = @"";
+    self.userName.text = @"";
+    [self.folowers setTitle:@"" forState:UIControlStateNormal];
+    [self.friends setTitle:@"" forState:UIControlStateNormal];
+    
+    [self setUser];
+    
+}
+
+- (void)didReceiveMemoryWarning {
+    [super didReceiveMemoryWarning];
+}
+
+#pragma mark - MyMethods
+
+-(void) setUser {
     
     NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
     NSEntityDescription *entity = [NSEntityDescription entityForName:@"ISUserData"
@@ -53,46 +70,139 @@
     
     ISUserData * userData = resultArray[0];
     
-    self.userID = userData.userID;
-    
-    self.userName.text = userData.userName;
-    NSLog(@"%@", self.userName.text);
-    
-    if(![userData.firstName isEqual:[NSNull null]]) {
-        self.fullName.text = [NSString stringWithFormat:@"%@", userData.firstName];
-        if(![userData.lastName isEqual:[NSNull null]]) {
-            self.fullName.text = [NSString stringWithFormat:@"%@ %@",
-                                  self.fullName.text, userData.lastName];
-        }
-    } else if (![userData.lastName isEqual:[NSNull null]]) {
-        self.fullName.text = [NSString stringWithFormat:@"%@", userData.lastName];
+    if(!self.userID || self.userID == userData.userID) {
+        self.userID = userData.userID;
+        [self getMyUserFromServer];
+    } else {
+        self.exitButton.hidden = YES;
+        self.setingButton.hidden = YES;
+        [self getSpecifiedUserFromServer];
     }
-    NSLog(@"%@", self.fullName.text);
-    
-    
-    if(![userData.cover isEqual:[NSNull null]]) {
-        [self.miniature setImageWithURL:[NSURL URLWithString:userData.cover]];
-    }
-    
-    if(![userData.avatar isEqual:[NSNull null]]) {
-        [self.avatar setImageWithURL: [NSURL URLWithString:userData.avatar]];
-    }
-    [self.folowers setTitle:
-     [NSString stringWithFormat:@"%ld подписчиков", (long)userData.followersCount]
-                   forState:UIControlStateNormal];
-    NSLog(@"%@", self.folowers.currentTitle);
-    [self.friends setTitle:[NSString stringWithFormat:@"%ld друзей", (long)userData.friendsCount]
-                  forState:UIControlStateNormal];
-    
-    [self.indicator stopAnimating];
 }
 
-//#pragma mark - API
+//-(void) setMyUser {
+//    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
+//    NSEntityDescription *entity = [NSEntityDescription entityForName:@"ISUserData"
+//                                              inManagedObjectContext:self.managedObjectContext];
+//    [fetchRequest setEntity:entity];
+//    NSArray* resultArray = [self.managedObjectContext executeFetchRequest:fetchRequest error:nil];
+//    
+//    ISUserData * userData = resultArray[0];
+//    
+//    self.userName.text = userData.userName;
+//    NSLog(@"%@", self.userName.text);
+//    
+//    if(![userData.firstName isEqual: [NSNull null]]) {
+//        self.fullName.text = [NSString stringWithFormat:@"%@", userData.firstName];
+//        if(![userData.lastName isEqual: [NSNull null]]) {
+//            self.fullName.text = [NSString stringWithFormat:@"%@ %@",
+//                                  self.fullName.text, userData.lastName];
+//        }
+//    } else if (![userData.lastName isEqual: [NSNull null]]) {
+//        self.fullName.text = [NSString stringWithFormat:@"%@", userData.lastName];
+//    }
+//    
+//    if(![userData.cover isEqual: [NSNull null]]) {
+//        [self.miniature setImageWithURL:[NSURL URLWithString:userData.cover]];
+//    }
+//    
+//    if(![userData.avatar isEqual: [NSNull null]]) {
+//        [self.avatar setImageWithURL: [NSURL URLWithString:userData.avatar]];
+//    }
+//    [self.folowers setTitle:
+//     [NSString stringWithFormat:@"%ld подписчиков", (long)userData.followersCount]
+//                   forState:UIControlStateNormal];
+//    NSLog(@"%@", self.folowers.currentTitle);
+//    [self.friends setTitle:[NSString stringWithFormat:@"%ld друзей", (long)userData.friendsCount]
+//                  forState:UIControlStateNormal];
+//    
+//    [self.indicator stopAnimating];
+//}
 
+#pragma mark - API
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
+-(void) getMyUserFromServer {
+    [[ISServerManager sharedManager] getUserOnSuccess:^(ISUser *user) {
+        
+        dispatch_async(dispatch_get_main_queue(), ^{
+            
+            self.userName.text = user.username;
+            
+            if(![user.firstName isEqual: [NSNull null]]) {
+                self.fullName.text = [NSString stringWithFormat:@"%@", user.firstName];
+                if(![user.lastName isEqual: [NSNull null]]) {
+                    self.fullName.text = [NSString stringWithFormat:@"%@ %@",
+                                          self.fullName.text, user.lastName];
+                }
+            } else if (![user.lastName isEqual: [NSNull null]]) {
+                self.fullName.text = [NSString stringWithFormat:@"%@", user.lastName];
+            }
+            
+            if(![user.cover isEqual: [NSNull null]]) {
+                [self.miniature setImageWithURL:[NSURL URLWithString:user.cover]];
+            }
+            
+            if(![user.avatar isEqual: [NSNull null]]) {
+                [self.avatar setImageWithURL: [NSURL URLWithString:user.avatar]];
+            }
+            [self.folowers setTitle:
+             [NSString stringWithFormat:@"%ld подписчиков", (long)user.followersCount]
+                           forState:UIControlStateNormal];
+            
+            [self.friends setTitle:[NSString stringWithFormat:@"%ld друзей", (long)user.friendsCount]
+                          forState:UIControlStateNormal];
+            
+            [self.indicator stopAnimating];
+        });
+        
+    } onFailure:^(NSError *erroor, NSInteger errorCode) {
+        NSLog(@"ERROR");
+    }];
 }
+
+-(void) getSpecifiedUserFromServer {
+    [[ISServerManager sharedManager] getUserOnID: self.userID OnSuccess:^(ISUser *user) {
+        
+        dispatch_async(dispatch_get_main_queue(), ^{
+            self.userName.text = user.username;
+            
+            if(![user.firstName isEqual: [NSNull null]]) {
+                self.fullName.text = [NSString stringWithFormat:@"%@", user.firstName];
+                if(![user.lastName isEqual: [NSNull null]]) {
+                    self.fullName.text = [NSString stringWithFormat:@"%@ %@",
+                                          self.fullName.text, user.lastName];
+                }
+            } else if (![user.lastName isEqual: [NSNull null]]) {
+                self.fullName.text = [NSString stringWithFormat:@"%@", user.lastName];
+            }
+            
+            if(![user.cover isEqual: [NSNull null]]) {
+                [self.miniature setImageWithURL:[NSURL URLWithString:user.cover]];
+            }
+            
+            if(![user.avatar isEqual: [NSNull null]]) {
+                [self.avatar setImageWithURL: [NSURL URLWithString:user.avatar]];
+            }
+            [self.folowers setTitle:
+             [NSString stringWithFormat:@"%ld подписчиков", (long)user.followersCount]
+                           forState:UIControlStateNormal];
+            
+            [self.friends setTitle:[NSString stringWithFormat:@"%ld друзей", (long)user.friendsCount]
+                          forState:UIControlStateNormal];
+            
+            [self.indicator stopAnimating];
+        });
+        
+    } onFailure:^(NSError *erroor, NSInteger errorCode) {
+        
+    }];
+}
+
+
+
+
+#pragma mark - Actions
+
 - (IBAction)folowersButtonPressed:(id)sender {
     
     OSSubscribersTableVC* vc = [self.storyboard instantiateViewControllerWithIdentifier:@"usersList"];
