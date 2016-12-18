@@ -12,6 +12,7 @@
 #import "ISComments.h"
 #import "ISUser.h"
 #import "UIImageView+AFNetworking.h"
+#import "UIViewController+Charleene.h"
 
 @interface ISCommentsVC ()<UITableViewDelegate>
 
@@ -31,15 +32,17 @@
     
     [[ISServerManager sharedManager]getPhotoComentsWithId:self.photoId OnSuccess:^(NSMutableArray *coments) {
         
-        self.commentsArray=coments;
-        self.userAr=[NSMutableArray array];
-        for (ISComments* c in coments) {
-            
-            [self.userAr addObject:c.user];
-        }
-        
         
         dispatch_async(dispatch_get_main_queue(), ^{
+            
+            self.commentsArray=coments;
+            self.userAr=[NSMutableArray array];
+            for (ISComments* c in coments) {
+                
+                [self.userAr addObject:c.user];
+            }
+            
+            
             [self.tableView reloadData];
         });
 
@@ -97,5 +100,9 @@
     
 }
 
+- (IBAction)close:(UIButton *)sender {
+    
+    [self dismissCharleeneAnimated:YES completion:nil];
+}
 
 @end

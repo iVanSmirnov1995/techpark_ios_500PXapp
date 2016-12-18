@@ -12,7 +12,7 @@
 @interface ISComments : NSObject
 
 @property(strong,nonatomic)NSString* body;
-@property(assign,nonatomic)NSString* date;
-@property(assign,nonatomic)ISUser* user;
+@property(strong,nonatomic)NSString* date;
+@property(strong,nonatomic)ISUser* user;
 
 @end

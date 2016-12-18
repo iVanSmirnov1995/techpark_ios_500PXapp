@@ -451,9 +451,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" restorationIdentifier="commecell" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="ng8-Kn-N7S">
-                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="commecell" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="ng8-Kn-N7S">
+                                <rect key="frame" x="0.0" y="40" width="375" height="627"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="commecell" rowHeight="60" id="yOV-4C-alB" customClass="ISCommentsCell">
@@ -507,8 +506,23 @@
                                     <outlet property="delegate" destination="5kO-xG-NOo" id="8dG-DJ-YEH"/>
                                 </connections>
                             </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cVv-bw-TSp">
+                                <rect key="frame" x="300" y="5" width="59" height="30"/>
+                                <state key="normal" title="закрыть"/>
+                                <connections>
+                                    <action selector="close:" destination="5kO-xG-NOo" eventType="touchUpInside" id="HPh-81-cYZ"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Tpu-Sl-LAe" firstAttribute="top" secondItem="ng8-Kn-N7S" secondAttribute="bottom" id="3c7-St-qcb"/>
+                            <constraint firstItem="ng8-Kn-N7S" firstAttribute="leading" secondItem="4lD-nJ-vqo" secondAttribute="leading" id="7cl-mt-UbZ"/>
+                            <constraint firstAttribute="trailing" secondItem="ng8-Kn-N7S" secondAttribute="trailing" id="LzN-MS-CDf"/>
+                            <constraint firstItem="ng8-Kn-N7S" firstAttribute="top" secondItem="cVv-bw-TSp" secondAttribute="bottom" constant="5" id="oEA-0a-JuV"/>
+                            <constraint firstItem="cVv-bw-TSp" firstAttribute="top" secondItem="4lD-nJ-vqo" secondAttribute="topMargin" constant="5" id="qRy-AY-PXF"/>
+                            <constraint firstItem="cVv-bw-TSp" firstAttribute="trailing" secondItem="4lD-nJ-vqo" secondAttribute="trailingMargin" id="vPe-cH-jwj"/>
+                        </constraints>
                     </view>
                     <connections>
                         <outlet property="tableView" destination="ng8-Kn-N7S" id="SPF-AC-SJf"/>

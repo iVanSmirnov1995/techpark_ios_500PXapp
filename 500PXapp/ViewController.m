@@ -99,7 +99,7 @@
                         userData.firstName = user.firstName;
                         userData.lastName = user.lastName;
                         userData.followersCount = user.followersCount;
-                        userData.friendsCount = user.friendsCount;
+                      //  userData.friendsCount = user.friendsCount;
                         if (!user.cover) {
                             
                             userData.cover = user.cover;
