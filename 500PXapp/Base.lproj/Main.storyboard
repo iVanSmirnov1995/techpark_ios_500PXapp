@@ -442,7 +442,7 @@
         <!--View Controller-->
         <scene sceneID="FeZ-0f-rCa">
             <objects>
-                <viewController id="5kO-xG-NOo" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="comments" id="5kO-xG-NOo" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="bpJ-YU-5iH"/>
                         <viewControllerLayoutGuide type="bottom" id="Tpu-Sl-LAe"/>
@@ -456,19 +456,50 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="70" id="yOV-4C-alB">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="70" id="yOV-4C-alB" customClass="ISCommentsCell">
                                         <rect key="frame" x="0.0" y="28" width="375" height="70"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="yOV-4C-alB" id="g4o-yo-5LD">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="69"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="q56-Mb-XKX">
-                                                    <rect key="frame" x="17" y="11" width="50" height="44"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="q56-Mb-XKX">
+                                                    <rect key="frame" x="13" y="5" width="60" height="60"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="60" id="kvK-6j-c7b"/>
+                                                        <constraint firstAttribute="width" constant="60" id="n79-lR-rWW"/>
+                                                    </constraints>
                                                 </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Vasia Pupkin" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SHV-Ey-IVu">
+                                                    <rect key="frame" x="78" y="5" width="292" height="18"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="justified" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9e5-CE-RLv">
+                                                    <rect key="frame" x="78" y="28" width="284" height="18"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                             </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="trailingMargin" secondItem="9e5-CE-RLv" secondAttribute="trailing" constant="5" id="9ni-sx-hbx"/>
+                                                <constraint firstItem="9e5-CE-RLv" firstAttribute="leading" secondItem="q56-Mb-XKX" secondAttribute="trailing" constant="5" id="Ccp-hx-SuM"/>
+                                                <constraint firstItem="q56-Mb-XKX" firstAttribute="centerY" secondItem="g4o-yo-5LD" secondAttribute="centerY" id="MnB-lc-u7U"/>
+                                                <constraint firstAttribute="bottomMargin" relation="greaterThanOrEqual" secondItem="9e5-CE-RLv" secondAttribute="bottom" constant="5" id="UKG-fr-L7W"/>
+                                                <constraint firstItem="SHV-Ey-IVu" firstAttribute="leading" secondItem="q56-Mb-XKX" secondAttribute="trailing" constant="5" id="eh6-vI-oyT"/>
+                                                <constraint firstItem="SHV-Ey-IVu" firstAttribute="top" secondItem="g4o-yo-5LD" secondAttribute="top" constant="5" id="g5z-a2-ql9"/>
+                                                <constraint firstItem="q56-Mb-XKX" firstAttribute="leading" secondItem="g4o-yo-5LD" secondAttribute="leadingMargin" constant="5" id="l2k-iX-bQo"/>
+                                                <constraint firstItem="9e5-CE-RLv" firstAttribute="top" secondItem="SHV-Ey-IVu" secondAttribute="bottom" constant="5" id="oEz-Ul-gVt"/>
+                                                <constraint firstAttribute="trailing" secondItem="SHV-Ey-IVu" secondAttribute="trailing" constant="5" id="tFI-NZ-AbG"/>
+                                            </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="comment" destination="9e5-CE-RLv" id="Tzc-uQ-1me"/>
+                                            <outlet property="name" destination="SHV-Ey-IVu" id="DJD-ux-Kod"/>
+                                            <outlet property="userAvatar" destination="q56-Mb-XKX" id="rfC-nx-QQK"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                                 <connections>

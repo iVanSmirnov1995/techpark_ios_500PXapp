@@ -106,6 +106,9 @@ typedef enum {
         
         [[ISServerManager sharedManager]getPhotoComentsWithId:1 OnSuccess:^(NSMutableArray *comments) {
             
+        
+            
+            
             
             
             

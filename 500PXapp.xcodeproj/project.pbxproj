@@ -45,6 +45,8 @@
 		D3E1DCD41DF195B100FE6B14 /* ISUser.m in Sources */ = {isa = PBXBuildFile; fileRef = D3E1DCD31DF195B100FE6B14 /* ISUser.m */; };
 		D3E1DCFA1DF32ADA00FE6B14 /* NSString+URLEncode.m in Sources */ = {isa = PBXBuildFile; fileRef = D3E1DCF91DF32ADA00FE6B14 /* NSString+URLEncode.m */; };
 		D3E2FBAA1E06944800B34B50 /* ISComments.m in Sources */ = {isa = PBXBuildFile; fileRef = D3E2FBA91E06944800B34B50 /* ISComments.m */; };
+		D3E2FBAD1E06A17100B34B50 /* ISCommentsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D3E2FBAC1E06A17100B34B50 /* ISCommentsCell.m */; };
+		D3E2FBB01E06A22100B34B50 /* ISCommentsVC.m in Sources */ = {isa = PBXBuildFile; fileRef = D3E2FBAF1E06A22100B34B50 /* ISCommentsVC.m */; };
 		D3E8FC921DFF344C00ED5E76 /* Base64Transcoder.c in Sources */ = {isa = PBXBuildFile; fileRef = D3E8FC881DFF344C00ED5E76 /* Base64Transcoder.c */; };
 		D3E8FC931DFF344C00ED5E76 /* hmac.c in Sources */ = {isa = PBXBuildFile; fileRef = D3E8FC8A1DFF344C00ED5E76 /* hmac.c */; };
 		D3E8FC941DFF344C00ED5E76 /* NSString+URLEncoding.m in Sources */ = {isa = PBXBuildFile; fileRef = D3E8FC8D1DFF344C00ED5E76 /* NSString+URLEncoding.m */; };
@@ -175,6 +177,10 @@
 		D3E1DCF91DF32ADA00FE6B14 /* NSString+URLEncode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+URLEncode.m"; sourceTree = "<group>"; };
 		D3E2FBA81E06944800B34B50 /* ISComments.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ISComments.h; sourceTree = "<group>"; };
 		D3E2FBA91E06944800B34B50 /* ISComments.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ISComments.m; sourceTree = "<group>"; };
+		D3E2FBAB1E06A17100B34B50 /* ISCommentsCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ISCommentsCell.h; sourceTree = "<group>"; };
+		D3E2FBAC1E06A17100B34B50 /* ISCommentsCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ISCommentsCell.m; sourceTree = "<group>"; };
+		D3E2FBAE1E06A22100B34B50 /* ISCommentsVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ISCommentsVC.h; sourceTree = "<group>"; };
+		D3E2FBAF1E06A22100B34B50 /* ISCommentsVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ISCommentsVC.m; sourceTree = "<group>"; };
 		D3E8FC881DFF344C00ED5E76 /* Base64Transcoder.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = Base64Transcoder.c; sourceTree = "<group>"; };
 		D3E8FC891DFF344C00ED5E76 /* Base64Transcoder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Base64Transcoder.h; sourceTree = "<group>"; };
 		D3E8FC8A1DFF344C00ED5E76 /* hmac.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = hmac.c; sourceTree = "<group>"; };
@@ -560,6 +566,8 @@
 		F5423C281DCB6994006FD69A /* CustomCellHomeVC */ = {
 			isa = PBXGroup;
 			children = (
+				D3E2FBAB1E06A17100B34B50 /* ISCommentsCell.h */,
+				D3E2FBAC1E06A17100B34B50 /* ISCommentsCell.m */,
 				F5423C2C1DCB6A5B006FD69A /* ISTableViewImageCell.h */,
 				F5423C2D1DCB6A5B006FD69A /* ISTableViewImageCell.m */,
 				F5423C2E1DCB6A5B006FD69A /* ISTableViewUserInfoCell.h */,
@@ -587,6 +595,8 @@
 			isa = PBXGroup;
 			children = (
 				CEF7F42C1DDF457A00447439 /* MyPage */,
+				D3E2FBAE1E06A22100B34B50 /* ISCommentsVC.h */,
+				D3E2FBAF1E06A22100B34B50 /* ISCommentsVC.m */,
 				D3DB2D431DF404C100DABDFB /* ISTabBarVC.h */,
 				D3DB2D441DF404C100DABDFB /* ISTabBarVC.m */,
 				D3D245D21DE71DBB00F8F33A /* ISAccessToken.h */,
@@ -878,6 +888,7 @@
 				D3CB5C5A1DE4DD5F00AFCE3A /* ISServerManager.m in Sources */,
 				F5423C3E1DCB6AD9006FD69A /* SearchViewCellCollection.m in Sources */,
 				D3E8FC941DFF344C00ED5E76 /* NSString+URLEncoding.m in Sources */,
+				D3E2FBB01E06A22100B34B50 /* ISCommentsVC.m in Sources */,
 				D3E8FC931DFF344C00ED5E76 /* hmac.c in Sources */,
 				F5423C481DCB6B17006FD69A /* IsSearchVC.m in Sources */,
 				D3A28B4E1DEF3A3600EA415B /* BDBOAuth1SessionManager.m in Sources */,
@@ -887,6 +898,7 @@
 				F5423C261DCB6982006FD69A /* PhotosCellModel.m in Sources */,
 				D3E8FC921DFF344C00ED5E76 /* Base64Transcoder.c in Sources */,
 				CEBEB15B1E03379B00C0D737 /* OSCustomCellForSubsTVC.m in Sources */,
+				D3E2FBAD1E06A17100B34B50 /* ISCommentsCell.m in Sources */,
 				F5423C461DCB6B17006FD69A /* SignUpVC.m in Sources */,
 				D3F072821DFB2E7E00BD62B0 /* LoginWebViewController.m in Sources */,
 				F5D01EC31DF55A0800ABD067 /* MSPhotos.m in Sources */,
