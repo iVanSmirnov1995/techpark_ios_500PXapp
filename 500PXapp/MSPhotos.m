@@ -22,7 +22,7 @@
         
         if (str != (NSString*) [NSNull null]  )
         {
-            NSLog(@"str !!   %@",str);
+         //   NSLog(@"str !!   %@",str);
             self.imageURL = [NSURL URLWithString:str];
             
         }

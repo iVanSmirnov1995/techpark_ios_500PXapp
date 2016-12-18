@@ -268,6 +268,7 @@
         cell.populatAtThisMoment.font = [UIFont fontWithName:@"PingFang-TC-Light" size:15];
         cell.populatAtThisMoment.text = @"Популярные на данный момент";
         cell.labelSticker.image = item.imgProduct;
+        cell.label2.text=@"";
         
         cell.populatAtThisMoment.translatesAutoresizingMaskIntoConstraints = NO;
         cell.label.translatesAutoresizingMaskIntoConstraints = NO;
@@ -326,6 +327,10 @@
                                                                       constant: -61.0f
                                          ];
         
+   
+        
+        
+       
         
         [cell.contentView addConstraints:@[vertical1,vertical2,center1,center2,center3,vertical3]];
         
@@ -336,26 +341,28 @@
         
         
         [cell.img setImageWithURL:self.imageArray[indexPath.row] ];
-        
+       
         return cell;
     }
     if (indexPath.section ==1)
     {
         ISSearchModel* item=[arrItems2 objectAtIndex:indexPath.row];
         SearchViewCellCollection* cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"cellItem" forIndexPath:indexPath];
+     
+       
+
         
-        
-        cell.label.font = [UIFont fontWithName:@"PingFang-TC-Light" size:14];
+        cell.label2.font = [UIFont fontWithName:@"PingFang-TC-Light" size:14];
         cell.populatAtThisMoment.text = @"";
         cell.labelSticker.image = nil;
-        
-        cell.label.translatesAutoresizingMaskIntoConstraints = NO;
+        cell.label.text=@"";
+        cell.label2.translatesAutoresizingMaskIntoConstraints = NO;
         cell.labelSticker.translatesAutoresizingMaskIntoConstraints = NO;
         
         
         
         
-        NSLayoutConstraint *vertical2 = [NSLayoutConstraint constraintWithItem: cell.label
+        NSLayoutConstraint *vertical2 = [NSLayoutConstraint constraintWithItem: cell.label2
                                                                      attribute: NSLayoutAttributeBottom
                                                                      relatedBy: NSLayoutRelationEqual
                                                                         toItem: cell.contentView
@@ -364,7 +371,7 @@
                                                                       constant: -15.0f
                                          ];
         
-        NSLayoutConstraint *center2 = [NSLayoutConstraint constraintWithItem: cell.label
+        NSLayoutConstraint *center2 = [NSLayoutConstraint constraintWithItem: cell.label2
                                                                    attribute: NSLayoutAttributeCenterX
                                                                    relatedBy: NSLayoutRelationEqual
                                                                       toItem: cell.contentView
@@ -374,15 +381,14 @@
                                        ];
         
         
-        
+       
         
         [cell.contentView addConstraints:@[vertical2,center2]];
         
         
-        cell.label.text = item.nameProduct;
+        cell.label2.text = item.nameProduct;
         [cell.img setImageWithURL:self.imageArray2[indexPath.row] ];
-        
-        
+    
         return cell;
     }
     if (indexPath.section ==2)
@@ -390,16 +396,18 @@
         ISSearchModel* item=[arrItems3 objectAtIndex:indexPath.row];
         SearchViewCellCollection* cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"cellItem" forIndexPath:indexPath];
         
+        //[cell.contentView removeConstraints:cell.];
+
         
-        cell.label.font = [UIFont fontWithName:@"PingFang-TC-Light" size:14];
+        cell.label2.font = [UIFont fontWithName:@"PingFang-TC-Light" size:14];
         cell.populatAtThisMoment.text = @"";
         cell.labelSticker.image = nil;
-        
-        cell.label.translatesAutoresizingMaskIntoConstraints = NO;
+        cell.label.text = @"";
+        cell.label2.translatesAutoresizingMaskIntoConstraints = NO;
         cell.labelSticker.translatesAutoresizingMaskIntoConstraints = NO;
         
         
-        NSLayoutConstraint *vertical2 = [NSLayoutConstraint constraintWithItem: cell.label
+        NSLayoutConstraint *vertical2 = [NSLayoutConstraint constraintWithItem: cell.label2
                                                                      attribute: NSLayoutAttributeBottom
                                                                      relatedBy: NSLayoutRelationEqual
                                                                         toItem: cell.contentView
@@ -408,7 +416,8 @@
                                                                       constant: -15.0f
                                          ];
         
-        NSLayoutConstraint *center2 = [NSLayoutConstraint constraintWithItem: cell.label
+        
+        NSLayoutConstraint *center2 = [NSLayoutConstraint constraintWithItem: cell.label2
                                                                    attribute: NSLayoutAttributeCenterX
                                                                    relatedBy: NSLayoutRelationEqual
                                                                       toItem: cell.contentView
@@ -419,14 +428,15 @@
         
         
         
+       
+
+       [cell.contentView addConstraints:@[vertical2,center2]];
         
-        [cell.contentView addConstraints:@[vertical2,center2]];
         
-        
-        cell.label.text = item.nameProduct;
+        cell.label2.text = item.nameProduct;
         
         [cell.img setImageWithURL:self.imageArray3[indexPath.row] ];
-        
+      
         
         return cell;
         

@@ -14,5 +14,6 @@
 @property (strong, nonatomic) IBOutlet UILabel *label;
 @property (strong, nonatomic) IBOutlet UIImageView *labelSticker;
 @property (strong, nonatomic) IBOutlet UILabel *populatAtThisMoment;
+@property (weak, nonatomic) IBOutlet UILabel *label2;
 
 @end
