@@ -22,6 +22,8 @@
 #import "ISComments.h"
 #import "ISCommentsVC.h"
 #import "ISCommentsCell.h"
+#import "MyPageVC.h"
+#import "ISTabBarVC.h"
 
 @interface ISHomeVC ()<UITableViewDataSource,UITableViewDelegate>
 
@@ -113,6 +115,19 @@ typedef enum {
         [self presentCharleeneModally:vc transitionMode:KSModalTransitionModeFromBottom];
         
     }
+    
+    if(indexPath.row==ISInfoUserTupe){
+        
+        UIStoryboard* st=[UIStoryboard storyboardWithName:@"MyPageTab"
+                                                   bundle:[NSBundle mainBundle]];
+        MyPageVC* vc = [st instantiateViewControllerWithIdentifier:@"myPage"];
+        ISNewsFeedModel* news=_newsFeedArray[indexPath.section];
+        vc.userID = news.userID;
+
+        [self.navigationController pushViewController:vc animated:YES];
+        
+    }
+    
     
     
     

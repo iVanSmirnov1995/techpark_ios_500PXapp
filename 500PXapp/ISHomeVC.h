@@ -8,10 +8,11 @@
 
 #import <UIKit/UIKit.h>
 
-@class ISUser;
+@class ISUser,ISCoreDataTabBarVCViewController;
 @interface ISHomeVC : UIViewController
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property(strong,nonatomic)ISUser* user;
+@property(strong,nonatomic)ISCoreDataTabBarVCViewController* tapVC;
 
 -(void)startLoad;
 

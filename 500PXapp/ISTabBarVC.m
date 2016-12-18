@@ -37,6 +37,9 @@
 -(void)viewDidAppear:(BOOL)animated{
     [super viewDidAppear:YES];
     
+    //UINavigationController* nc=[[UINavigationController alloc]init];
+    ISHomeVC* hom=[self.viewControllers[0] topViewController];
+    hom.tapVC=self;
     
     NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
     NSEntityDescription *entity = [NSEntityDescription entityForName:@"ISUserData"
@@ -70,7 +73,9 @@
     [[ISServerManager sharedManager]getUserOnSuccess:^(ISUser *user) {
         
         [[ISServerManager sharedManager]setUser:user];
-         [(ISHomeVC*)self.viewControllers[0] startLoad];
+        ISHomeVC* vc=[self.viewControllers[0] topViewController];
+        [vc startLoad];
+       //  [(ISHomeVC*)self.viewControllers[0] startLoad];
         
     } onFailure:^(NSError *error, NSInteger statusCode) {
         NSLog(@"%@",error);

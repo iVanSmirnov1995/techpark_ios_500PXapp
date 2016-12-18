@@ -13,6 +13,7 @@
 #import "ISUser.h"
 #import "UIImageView+AFNetworking.h"
 #import "UIViewController+Charleene.h"
+#import "MyPageVC.h"
 
 @interface ISCommentsVC ()<UITableViewDelegate>
 
@@ -60,6 +61,29 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
+#pragma mark-UITableViewDelegate
+
+- (BOOL)tableView:(UITableView *)tableView shouldHighlightRowAtIndexPath:(NSIndexPath *)indexPat{
+   /*
+    [self dismissCharleeneAnimated:YES completion:^{
+        
+        UIStoryboard* st=[UIStoryboard storyboardWithName:@"MyPageTab"
+                                                   bundle:[NSBundle mainBundle]];
+        MyPageVC* vc = [st instantiateViewControllerWithIdentifier:@"myPage"];
+        ISUser* user=self.userAr[indexPat.row];
+        vc.userID = user.userId;
+        vc.modalPresentationStyle=UIModalPresentationPageSheet;
+        [self.navigationController pushViewController:vc animated:YES];
+        
+    }];*/
+    
+    
+    return YES;
+}
+
+
+
 
 #pragma mark - Table view data source
 
