@@ -48,13 +48,13 @@ typedef enum {
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.refreshControl = [[UIRefreshControl alloc] init];
-    [self.refreshControl addTarget:self action:@selector(refreshData) forControlEvents:UIControlEventValueChanged];
-    self.tableView.refreshControl=self.refreshControl;
     
 }
 
 -(void)startLoad{
+//    self.refreshControl = [[UIRefreshControl alloc] init];
+//    [self.refreshControl addTarget:self action:@selector(refreshData) forControlEvents:UIControlEventValueChanged];
+//    self.tableView.refreshControl=self.refreshControl;
     
     self.tableView.delegate=self;
     self.tableView.rowHeight = UITableViewAutomaticDimension;
