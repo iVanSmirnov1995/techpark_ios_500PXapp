@@ -100,13 +100,59 @@
                 }];
     
     [task resume];
+}
+
+-(void)POSTLike:(BOOL)like PhotoWithId:(NSInteger)photoId OnSuccess:(void(^)(NSMutableArray* coments)) success onFailure:(void(^)(NSError* error,NSInteger statusCode))failture{
+    
+    NSString* val=[NSString stringWithFormat:@"%d",like];
+    NSString* path=[NSString stringWithFormat:@"/photos/%ld/vote",(long)photoId];
+    NSDictionary *parameters = @{@"vote":val,@"api_key" : @"XyuX14AQBpiWjfUcRyXA2jyB5ensjjJD6gBFcGHI"};
     
     
+    // Build authorized request based on path, parameters, tokens, timestamp etc.
+    NSURLRequest *preparedRequest = [OAuth1Controller preparedRequestForPath:path
+                                                                  parameters:parameters
+                                                                  HTTPmethod:@"POST"
+                                                                  oauthToken:self.oauthToken
+                                                                 oauthSecret:self.oauthTokenSecret];
     
+    NSURLSession *session = [NSURLSession sharedSession];
+    NSURLSessionDataTask *task = [session dataTaskWithRequest:preparedRequest
+                                            completionHandler:
+                                ^(NSData *data, NSURLResponse *response, NSError *error) {
+                                      
+                                      
+                                      id responseObject = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:nil];
+                                      
+                                      NSArray* comAr=[responseObject objectForKey: @"comments"];
+                                      
+                                      NSMutableArray* inArray=[NSMutableArray array];
+                                      
+                                      for (NSDictionary* d in comAr) {
+                                          
+                                          ISComments* comment=[[ISComments alloc]init];
+                                          comment.body=[d objectForKey:@"body"];
+                                          comment.date=[d objectForKey:@"created_at"];
+                                          
+                                          ISUser* user=[[ISUser alloc]createUserWithResponseObject:d];
+                                          comment.user=user;
+                                          
+                                          [inArray addObject:comment];
+                                      }
+                                      
+                                      if (success) {
+                                          
+                                          success(inArray);
+                                      }
+                                  }];
     
-    
+    [task resume];
+ 
     
 }
+
+
+
 
 -(void)getPhotoComentsWithId:(NSInteger)photoId OnSuccess:(void(^)(NSMutableArray* coments)) success onFailure:(void(^)(NSError* error,NSInteger statusCode))failture{
     
@@ -163,7 +209,7 @@
     
     
     NSString* path=[NSString stringWithFormat:
-  @"/photos?feature=user_friends&user_id=%ld&rpp=100&sort=created_at&image_size=4&include_store=store_download&include_states=voted&consumer_key=XyuX14AQBpiWjfUcRyXA2jyB5ensjjJD6gBFcGHI",self.user.userId];
+  @"/photos?feature=user_friends&user_id=%ld&rpp=50&sort=created_at&image_size=4&include_store=store_download&include_states=voted&consumer_key=XyuX14AQBpiWjfUcRyXA2jyB5ensjjJD6gBFcGHI",self.user.userId];
     
   //  NSLog(@"%ld",self.user.userId);
 
@@ -199,6 +245,7 @@
                     news.userImageName=[[[userDic objectForKey:@"avatars"]objectForKey:@"small"] objectForKey:@"https"];
                     news.photoID=[[newsDic objectForKey:@"id"]longValue];
                     news.imageName=[newsDic objectForKey:@"image_url"];
+                    news.liked=[[newsDic objectForKey:@"voted"]boolValue];
                     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
                     [dateFormatter setDateFormat:@"yyyy-MM-dd'T'HH:mm:ssZ"];
                     NSDate* date = [dateFormatter dateFromString:

@@ -20,6 +20,6 @@
 @property(strong,nonatomic)NSString* data;
 @property(assign,nonatomic)NSInteger countLike;
 @property(assign,nonatomic)NSInteger countComent;
-
+@property(assign,nonatomic)BOOL liked;
 
 @end

@@ -7,6 +7,7 @@
 //
 
 #import "ISTableViewUserInfoCell.h"
+#import "ISServerManager.h"
 
 @implementation ISTableViewUserInfoCell
 
@@ -21,4 +22,16 @@
     // Configure the view for the selected state
 }
 
+- (IBAction)addLike:(UIButton *)sender {
+    
+    [[ISServerManager sharedManager]POSTLike:YES PhotoWithId:sender.tag OnSuccess:^(NSMutableArray *coments) {
+        
+        [self.delegate likeDidSet:self];
+        
+    } onFailure:^(NSError *error, NSInteger statusCode) {
+        
+    }];
+    
+    
+}
 @end

@@ -25,9 +25,10 @@
 #import "MyPageVC.h"
 #import "ISTabBarVC.h"
 
-@interface ISHomeVC ()<UITableViewDataSource,UITableViewDelegate>
+@interface ISHomeVC ()<UITableViewDataSource,UITableViewDelegate,ISTableViewUserInfoCellDelegate>
 
 @property(strong,nonatomic)NSMutableArray* newsFeedArray;
+@property(strong,nonatomic)UIRefreshControl* refreshControl;
 
 @end
 
@@ -47,12 +48,13 @@ typedef enum {
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+    self.refreshControl = [[UIRefreshControl alloc] init];
+    [self.refreshControl addTarget:self action:@selector(refreshData) forControlEvents:UIControlEventValueChanged];
+    self.tableView.refreshControl=self.refreshControl;
     
 }
 
 -(void)startLoad{
-    
     
     self.tableView.delegate=self;
     self.tableView.rowHeight = UITableViewAutomaticDimension;
@@ -179,6 +181,14 @@ typedef enum {
         cell.userImage.layer.masksToBounds=YES;
         cell.userName.text=newsModel.userName;
         cell.data.text=newsModel.data;
+        cell.likeButton.tag=newsModel.photoID;
+        
+        
+        if (newsModel.liked) {
+        [cell.likeButton setImage:[UIImage imageNamed:@"like3"] forState:UIControlStateNormal];
+        }else  [cell.likeButton setImage:[UIImage imageNamed:@"like"] forState:UIControlStateNormal];
+        cell.delegate=self;
+        
         return cell;
     }
     
@@ -213,6 +223,26 @@ typedef enum {
     
     
     return nil;
+}
+
+#pragma mark-ISTableViewUserInfoCellDelegate
+
+- (void) likeDidSet:(ISTableViewUserInfoCell*) cell{
+  
+    [self startLoad];
+    
+}
+
+
+-(void)refreshData
+{
+    //Put your logic here
+    
+    
+    //reload table & remove refreshing image
+
+    [self startLoad];
+    [self.refreshControl endRefreshing];
 }
 
 
