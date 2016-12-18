@@ -439,10 +439,10 @@
             </objects>
             <point key="canvasLocation" x="2198" y="648"/>
         </scene>
-        <!--View Controller-->
+        <!--CommentsVC-->
         <scene sceneID="FeZ-0f-rCa">
             <objects>
-                <viewController storyboardIdentifier="comments" id="5kO-xG-NOo" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="comments" id="5kO-xG-NOo" customClass="ISCommentsVC" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="bpJ-YU-5iH"/>
                         <viewControllerLayoutGuide type="bottom" id="Tpu-Sl-LAe"/>
@@ -453,7 +453,7 @@
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="ng8-Kn-N7S">
                                 <rect key="frame" x="0.0" y="20" width="375" height="647"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="70" id="yOV-4C-alB" customClass="ISCommentsCell">
@@ -510,6 +510,9 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <connections>
+                        <outlet property="tableView" destination="ng8-Kn-N7S" id="SPF-AC-SJf"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HcX-eJ-pKB" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

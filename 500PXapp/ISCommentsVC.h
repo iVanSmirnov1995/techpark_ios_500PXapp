@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ISCommentsVC : UITableViewController
+@interface ISCommentsVC : UIViewController
+@property (weak, nonatomic) IBOutlet UITableView *tableView;
 
 @end

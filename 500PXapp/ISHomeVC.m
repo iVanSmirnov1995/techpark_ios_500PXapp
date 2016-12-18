@@ -20,6 +20,8 @@
 #import "ISUser.h"
 #import "UIImageView+AFNetworking.h"
 #import "ISComments.h"
+#import "ISCommentsVC.h"
+#import "ISCommentsCell.h"
 
 @interface ISHomeVC ()<UITableViewDataSource,UITableViewDelegate>
 
@@ -106,7 +108,19 @@ typedef enum {
         
         [[ISServerManager sharedManager]getPhotoComentsWithId:1 OnSuccess:^(NSMutableArray *comments) {
             
-        
+        ISCommentsVC* vc=[self.storyboard instantiateViewControllerWithIdentifier:@"comments"];
+            
+            
+            vc.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
+            vc.modalPresentationStyle =  UIModalPresentationFormSheet;
+            
+            
+            
+            CGPoint frameSize = CGPointMake([[UIScreen mainScreen] bounds].size.width*0.85f, [[UIScreen mainScreen] bounds].size.height*0.85f);
+            
+            vc.preferredContentSize = CGSizeMake(frameSize.x, frameSize.y);
+            
+            [self presentViewController:vc animated:YES completion:nil];
             
             
             
@@ -204,14 +218,5 @@ typedef enum {
     return nil;
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

@@ -14,13 +14,16 @@ PODS:
   - AFNetworking/Serialization (3.1.0)
   - AFNetworking/UIKit (3.1.0):
     - AFNetworking/NSURLSession
+  - Charleene (1.0)
 
 DEPENDENCIES:
   - AFNetworking (~> 3.0)
+  - Charleene
 
 SPEC CHECKSUMS:
   AFNetworking: 5e0e199f73d8626b11e79750991f5d173d1f8b67
+  Charleene: 19ef52354dc2a5eac785ec9bf7854c232a4eaa7c
 
-PODFILE CHECKSUM: a8ed116665336d6b2322177fe92b650602145e99
+PODFILE CHECKSUM: bddc9e560432f4dca8262762ed78a2b67b309b68
 
 COCOAPODS: 1.1.1
