@@ -15,12 +15,11 @@
 #import "ISTableViewLikeCell.h"
 #import "ISTableViewCommentsCell.h"
 #import "ISTableViewInfoAndSareCell.h"
-
 #import "ISRootPegeVC.h"
-
 #import "ISServerManager.h"
 #import "ISUser.h"
 #import "UIImageView+AFNetworking.h"
+#import "ISComments.h"
 
 @interface ISHomeVC ()<UITableViewDataSource,UITableViewDelegate>
 
@@ -100,10 +99,23 @@ typedef enum {
         
         [self presentViewController:vc animated:YES completion: nil];
         
+    }
+    
+    if(indexPath.row==ISCommentsTupe){
         
         
+        [[ISServerManager sharedManager]getPhotoComentsWithId:1 OnSuccess:^(NSMutableArray *comments) {
+            
+            
+            
+            
+        } onFailure:^(NSError *error, NSInteger statusCode) {
+            
+        }];
         
     }
+    
+    
     
     return YES;
 }

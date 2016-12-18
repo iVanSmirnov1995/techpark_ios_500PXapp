@@ -26,7 +26,7 @@
 
 
 
-
+-(void)getPhotoComentsWithId:(NSInteger)photoId OnSuccess:(void(^)(NSMutableArray* coments)) success onFailure:(void(^)(NSError* error,NSInteger statusCode))failture;
 
 -(void)getPopularPhotosOnSuccess:(void(^)(NSArray* photos)) success
                        onFailure:(void(^)(NSError* error,NSInteger statusCode))failture;

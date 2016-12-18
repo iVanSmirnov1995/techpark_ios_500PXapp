@@ -22,4 +22,6 @@
 @property(assign, nonatomic)NSInteger followersCount;
 @property(strong, nonatomic)NSString* fullName;
 
+-(ISUser*)createUserWithResponseObject:(id)responseObject;
+
 @end

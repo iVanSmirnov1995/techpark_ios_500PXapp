@@ -19,6 +19,7 @@
 #import "MSPhotos.h"
 #import "ISNewsFeedModel.h"
 #import "OAuth1Controller.h"
+#import "ISComments.h"
 
 
 @interface ISServerManager()
@@ -87,29 +88,16 @@
                                     
                                       
             id responseObject = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:nil];
-        
-
-                ISUser* user=[[ISUser alloc]init];
-                NSDictionary* userDic = [responseObject objectForKey: @"user"];
-                user.firstName=[userDic objectForKey:@"firstname"];
-                user.lastName=[userDic objectForKey:@"lastname"];
-                user.sex=[[userDic objectForKey:@"sex"]floatValue];
-                user.city=[userDic objectForKey:@"city"];
-                user.avatar=[[[userDic objectForKey:@"avatars"]objectForKey:@"small"] objectForKey:@"https"];
-                                      user.userId=[[userDic objectForKey:@"id"]longValue];
-                                      user.username=[userDic objectForKey:@"username"];
-                                      user.cover = [userDic objectForKey:@"cover_url"];
-                                      user.friendsCount = [[userDic objectForKey:@"friends_count"] integerValue];
-                                      user.followersCount = [[userDic objectForKey:@"followers_count"] integerValue];
-                                      user.fullName = [ userDic objectForKey:@"full_name"];
+                 
+            ISUser* user=[[ISUser alloc]createUserWithResponseObject:responseObject];
+                                      
+                                      
                 self.user=user;
                 
                     if (success) {
                       success(user);
                         }
-                                      
-                                      
-                                  }];
+                }];
     
     [task resume];
     
@@ -120,6 +108,53 @@
     
 }
 
+-(void)getPhotoComentsWithId:(NSInteger)photoId OnSuccess:(void(^)(NSMutableArray* coments)) success onFailure:(void(^)(NSError* error,NSInteger statusCode))failture{
+    
+    NSString* path=[NSString stringWithFormat:@"/photos/123/comments"];
+    NSDictionary *parameters = @{@"api_key" : @"XyuX14AQBpiWjfUcRyXA2jyB5ensjjJD6gBFcGHI"};
+    
+    
+    // Build authorized request based on path, parameters, tokens, timestamp etc.
+    NSURLRequest *preparedRequest = [OAuth1Controller preparedRequestForPath:path
+                                                                  parameters:parameters
+                                                                  HTTPmethod:@"GET"
+                                                                  oauthToken:self.oauthToken
+                                                                 oauthSecret:self.oauthTokenSecret];
+  
+        NSURLSession *session = [NSURLSession sharedSession];
+        NSURLSessionDataTask *task = [session dataTaskWithRequest:preparedRequest
+                                            completionHandler:
+                                  ^(NSData *data, NSURLResponse *response, NSError *error) {
+                                      
+                                      
+            id responseObject = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:nil];
+            
+            NSArray* comAr=[responseObject objectForKey: @"comments"];
+                                      
+            NSMutableArray* inArray=[NSMutableArray array];
+                                      
+            for (NSDictionary* d in comAr) {
+                                      
+            ISComments* comment=[[ISComments alloc]init];
+            comment.body=[d objectForKey:@"body"];
+            comment.date=[d objectForKey:@"created_at"];
+                
+           ISUser* user=[[ISUser alloc]createUserWithResponseObject:d];
+                comment.user=user;
+             
+                [inArray addObject:comment];
+            }
+                                      
+                if (success) {
+                    success(inArray);
+                    }
+                }];
+    
+         [task resume];
+    
+}
+
+
 
 
 -(void)getUserFriendsPhotoNewsOnSuccess:(void(^)(NSMutableArray* newsAr)) success
@@ -129,7 +164,7 @@
     NSString* path=[NSString stringWithFormat:
   @"/photos?feature=user_friends&user_id=%ld&rpp=100&sort=created_at&image_size=4&include_store=store_download&include_states=voted&consumer_key=XyuX14AQBpiWjfUcRyXA2jyB5ensjjJD6gBFcGHI",self.user.userId];
     
-    NSLog(@"%ld",self.user.userId);
+  //  NSLog(@"%ld",self.user.userId);
 
     
     

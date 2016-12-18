@@ -44,6 +44,7 @@
 		D3DB2D451DF404C100DABDFB /* ISTabBarVC.m in Sources */ = {isa = PBXBuildFile; fileRef = D3DB2D441DF404C100DABDFB /* ISTabBarVC.m */; };
 		D3E1DCD41DF195B100FE6B14 /* ISUser.m in Sources */ = {isa = PBXBuildFile; fileRef = D3E1DCD31DF195B100FE6B14 /* ISUser.m */; };
 		D3E1DCFA1DF32ADA00FE6B14 /* NSString+URLEncode.m in Sources */ = {isa = PBXBuildFile; fileRef = D3E1DCF91DF32ADA00FE6B14 /* NSString+URLEncode.m */; };
+		D3E2FBAA1E06944800B34B50 /* ISComments.m in Sources */ = {isa = PBXBuildFile; fileRef = D3E2FBA91E06944800B34B50 /* ISComments.m */; };
 		D3E8FC921DFF344C00ED5E76 /* Base64Transcoder.c in Sources */ = {isa = PBXBuildFile; fileRef = D3E8FC881DFF344C00ED5E76 /* Base64Transcoder.c */; };
 		D3E8FC931DFF344C00ED5E76 /* hmac.c in Sources */ = {isa = PBXBuildFile; fileRef = D3E8FC8A1DFF344C00ED5E76 /* hmac.c */; };
 		D3E8FC941DFF344C00ED5E76 /* NSString+URLEncoding.m in Sources */ = {isa = PBXBuildFile; fileRef = D3E8FC8D1DFF344C00ED5E76 /* NSString+URLEncoding.m */; };
@@ -172,6 +173,8 @@
 		D3E1DCD31DF195B100FE6B14 /* ISUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ISUser.m; sourceTree = "<group>"; };
 		D3E1DCF81DF32ADA00FE6B14 /* NSString+URLEncode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+URLEncode.h"; sourceTree = "<group>"; };
 		D3E1DCF91DF32ADA00FE6B14 /* NSString+URLEncode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+URLEncode.m"; sourceTree = "<group>"; };
+		D3E2FBA81E06944800B34B50 /* ISComments.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ISComments.h; sourceTree = "<group>"; };
+		D3E2FBA91E06944800B34B50 /* ISComments.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ISComments.m; sourceTree = "<group>"; };
 		D3E8FC881DFF344C00ED5E76 /* Base64Transcoder.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = Base64Transcoder.c; sourceTree = "<group>"; };
 		D3E8FC891DFF344C00ED5E76 /* Base64Transcoder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Base64Transcoder.h; sourceTree = "<group>"; };
 		D3E8FC8A1DFF344C00ED5E76 /* hmac.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = hmac.c; sourceTree = "<group>"; };
@@ -540,6 +543,8 @@
 				CEBEB15F1E03391D00C0D737 /* MyPage */,
 				D3E8FC871DFF344C00ED5E76 /* lib1 */,
 				D3A28B331DEF095000EA415B /* lib */,
+				D3E2FBA81E06944800B34B50 /* ISComments.h */,
+				D3E2FBA91E06944800B34B50 /* ISComments.m */,
 				D3E1DCD21DF195B100FE6B14 /* ISUser.h */,
 				D3E1DCD31DF195B100FE6B14 /* ISUser.m */,
 				F5423C1F1DCB6982006FD69A /* ISNewsFeedModel.h */,
@@ -885,6 +890,7 @@
 				F5423C461DCB6B17006FD69A /* SignUpVC.m in Sources */,
 				D3F072821DFB2E7E00BD62B0 /* LoginWebViewController.m in Sources */,
 				F5D01EC31DF55A0800ABD067 /* MSPhotos.m in Sources */,
+				D3E2FBAA1E06944800B34B50 /* ISComments.m in Sources */,
 				D349652E1DB4043E00813293 /* main.m in Sources */,
 				D3DB2D451DF404C100DABDFB /* ISTabBarVC.m in Sources */,
 				F5423C361DCB6A5B006FD69A /* ISTableViewImageCell.m in Sources */,
