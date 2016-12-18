@@ -11,6 +11,8 @@
 @interface MSPhotoSearchVC : UIViewController
 - (IBAction)backbutton:(id)sender;
 
+@property (weak, nonatomic) IBOutlet UINavigationBar *navigationBar;
 
+@property (weak, nonatomic) IBOutlet UINavigationItem *navigationItem;
 
 @end

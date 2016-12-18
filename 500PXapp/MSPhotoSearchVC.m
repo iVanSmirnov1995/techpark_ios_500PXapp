@@ -24,7 +24,14 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+   
+  //  [self.navigationBar setTintColor:[UIColor redColor]];
+    //self.navigationItem.titleView = nil ;
+    
+    
+    [ self.navigationBar setBackgroundImage:[UIImage imageNamed:@"Rectangle48@2x.png"] forBarMetrics:UIBarMetricsDefault];
+    
+    
 }
 
 

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="sBA-yU-4bi">
-    <device id="retina4_7" orientation="portrait">
+    <device id="retina4_0" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
@@ -21,14 +21,14 @@
                         <viewControllerLayoutGuide type="bottom" id="lpd-G3-QHh"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="oAK-Ky-aIE">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="final-image-bg" translatesAutoresizingMaskIntoConstraints="NO" id="r5Q-fO-oIJ">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="570"/>
                             </imageView>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Search 500px" textAlignment="center" minimumFontSize="17" background="Rectangle 36" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="5lw-js-Mj8">
-                                <rect key="frame" x="0.0" y="20" width="375" height="42"/>
+                                <rect key="frame" x="0.0" y="20" width="320" height="42"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" name="PingFangTC-Light" family="PingFang TC" pointSize="18"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="words" keyboardType="alphabet" keyboardAppearance="alert" returnKeyType="done"/>
@@ -46,7 +46,7 @@
                                 </state>
                             </button>
                             <button opaque="NO" alpha="0.64999997615814209" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nYa-WC-zCK">
-                                <rect key="frame" x="125" y="62" width="125" height="44"/>
+                                <rect key="frame" x="125" y="62" width="70" height="44"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" name="PingFangTC-Light" family="PingFang TC" pointSize="18"/>
                                 <state key="normal" title="галереи">
@@ -54,7 +54,7 @@
                                 </state>
                             </button>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="XvE-or-web">
-                                <rect key="frame" x="0.0" y="106" width="375" height="561"/>
+                                <rect key="frame" x="0.0" y="106" width="320" height="462"/>
                                 <color key="backgroundColor" red="0.96865085660000005" green="0.96865085660000005" blue="0.96865085660000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="NHL-1E-bnn">
                                     <size key="itemSize" width="286" height="250"/>
@@ -64,7 +64,7 @@
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" reuseIdentifier="cellItem" id="qae-Ri-SL2" customClass="SearchViewCellCollection">
-                                        <rect key="frame" x="45" y="0.0" width="286" height="250"/>
+                                        <rect key="frame" x="17" y="0.0" width="286" height="250"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                             <rect key="frame" x="0.0" y="0.0" width="286" height="250"/>
@@ -134,7 +134,7 @@
                                 </connections>
                             </collectionView>
                             <button opaque="NO" alpha="0.64999997615814209" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hUT-4B-VBq">
-                                <rect key="frame" x="250" y="62" width="125" height="44"/>
+                                <rect key="frame" x="195" y="62" width="125" height="44"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="125" id="Vx7-sd-EwK"/>
@@ -146,7 +146,7 @@
                                 </state>
                             </button>
                             <button opaque="NO" alpha="0.64999997615814209" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1H4-A5-bzV">
-                                <rect key="frame" x="375" y="20" width="111" height="42"/>
+                                <rect key="frame" x="320" y="20" width="111" height="42"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="111" id="KY9-uY-5MN"/>
@@ -219,19 +219,25 @@
                         <viewControllerLayoutGuide type="bottom" id="yg6-nU-x3z"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="0ct-Ir-5BT">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="final-image-bg" translatesAutoresizingMaskIntoConstraints="NO" id="z40-g8-hck">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="final-image-bg" translatesAutoresizingMaskIntoConstraints="NO" id="z40-g8-hck">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <color key="tintColor" cocoaTouchSystemColor="tableCellGroupedBackgroundColor"/>
                             </imageView>
-                            <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ShI-St-29f">
-                                <rect key="frame" x="0.0" y="20" width="375" height="44"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="1.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="ryu-RW-tjF">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="220"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="ryu-RW-tjF" secondAttribute="height" multiplier="1.5:1" constant="-10" id="N0M-sb-7Pa"/>
+                                </constraints>
+                            </imageView>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ShI-St-29f">
+                                <rect key="frame" x="0.0" y="28" width="320" height="44"/>
+                                <color key="tintColor" white="0.96999999999999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <items>
                                     <navigationItem id="Xos-9v-EAG">
-                                        <barButtonItem key="leftBarButtonItem" title="back" id="ZCL-id-n4F">
+                                        <barButtonItem key="leftBarButtonItem" image="backButton" style="plain" id="ZCL-id-n4F">
                                             <connections>
                                                 <action selector="backbutton:" destination="kph-Xq-XmG" id="9iI-9H-x3G"/>
                                             </connections>
@@ -239,17 +245,45 @@
                                     </navigationItem>
                                 </items>
                             </navigationBar>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" image="whiteRectangle" translatesAutoresizingMaskIntoConstraints="NO" id="VGT-dw-gki">
+                                <rect key="frame" x="0.0" y="220" width="320" height="70"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="VGT-dw-gki" secondAttribute="height" multiplier="4:1" constant="40" id="xFt-EQ-xTb"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="z40-g8-hck" firstAttribute="leading" secondItem="0ct-Ir-5BT" secondAttribute="leading" id="4L0-Fq-ffq"/>
+                            <constraint firstAttribute="trailing" secondItem="ShI-St-29f" secondAttribute="trailing" id="753-5k-F2F"/>
+                            <constraint firstItem="VGT-dw-gki" firstAttribute="top" secondItem="ryu-RW-tjF" secondAttribute="bottom" id="XY7-uS-0W8"/>
+                            <constraint firstItem="z40-g8-hck" firstAttribute="centerX" secondItem="0ct-Ir-5BT" secondAttribute="centerX" id="Yc9-NP-g40"/>
+                            <constraint firstItem="ryu-RW-tjF" firstAttribute="leading" secondItem="0ct-Ir-5BT" secondAttribute="leading" id="Z4G-KP-CY0"/>
+                            <constraint firstItem="z40-g8-hck" firstAttribute="top" secondItem="0ct-Ir-5BT" secondAttribute="top" id="Zsm-qe-6IR"/>
+                            <constraint firstItem="yg6-nU-x3z" firstAttribute="top" secondItem="z40-g8-hck" secondAttribute="bottom" id="aLn-lz-dJ4"/>
+                            <constraint firstItem="ryu-RW-tjF" firstAttribute="top" secondItem="0ct-Ir-5BT" secondAttribute="top" id="b68-61-VSa"/>
+                            <constraint firstAttribute="trailing" secondItem="VGT-dw-gki" secondAttribute="trailing" id="dMu-eq-FM1"/>
+                            <constraint firstItem="VGT-dw-gki" firstAttribute="leading" secondItem="0ct-Ir-5BT" secondAttribute="leading" id="in4-mJ-Jw2"/>
+                            <constraint firstItem="ShI-St-29f" firstAttribute="top" secondItem="7WR-dp-6MN" secondAttribute="bottom" constant="8" id="jGx-wa-QYS"/>
+                            <constraint firstItem="ShI-St-29f" firstAttribute="leading" secondItem="0ct-Ir-5BT" secondAttribute="leading" id="mWt-4C-iFA"/>
+                            <constraint firstAttribute="trailing" secondItem="z40-g8-hck" secondAttribute="trailing" id="ywu-pd-YJa"/>
+                            <constraint firstAttribute="trailing" secondItem="ryu-RW-tjF" secondAttribute="trailing" id="zyl-b3-AVf"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="navigationBar" destination="ShI-St-29f" id="SJ6-JP-4TZ"/>
+                        <outlet property="navigationItem" destination="Xos-9v-EAG" id="fTo-dz-x9T"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Cg4-fa-Rer" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-87.200000000000003" y="1440.6296851574214"/>
+            <point key="canvasLocation" x="-88.125" y="1439.7887323943662"/>
         </scene>
     </scenes>
     <resources>
+        <image name="1.jpg" width="500" height="270"/>
         <image name="Rectangle 36" width="375" height="42"/>
+        <image name="backButton" width="18" height="32"/>
         <image name="final-image-bg" width="375" height="667"/>
         <image name="whiteRectangle" width="252" height="90"/>
     </resources>

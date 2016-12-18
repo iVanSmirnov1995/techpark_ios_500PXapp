@@ -88,6 +88,7 @@
 		F57A00771E0703F7005F3443 /* MSSearchTab.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F57A00761E0703F7005F3443 /* MSSearchTab.storyboard */; };
 		F57A007B1E0704C2005F3443 /* MSPhotoSearchVC.m in Sources */ = {isa = PBXBuildFile; fileRef = F57A007A1E0704C2005F3443 /* MSPhotoSearchVC.m */; };
 		F5D01EC31DF55A0800ABD067 /* MSPhotos.m in Sources */ = {isa = PBXBuildFile; fileRef = F5D01EC21DF55A0800ABD067 /* MSPhotos.m */; };
+		F5FB75791E0711D600431E44 /* Rectangle48@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F5FB75781E0711D600431E44 /* Rectangle48@2x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -247,6 +248,7 @@
 		F57A007A1E0704C2005F3443 /* MSPhotoSearchVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSPhotoSearchVC.m; sourceTree = "<group>"; };
 		F5D01EC11DF55A0800ABD067 /* MSPhotos.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSPhotos.h; sourceTree = "<group>"; };
 		F5D01EC21DF55A0800ABD067 /* MSPhotos.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSPhotos.m; sourceTree = "<group>"; };
+		F5FB75781E0711D600431E44 /* Rectangle48@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Rectangle48@2x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -634,6 +636,7 @@
 				F5423C4D1DCB6B4F006FD69A /* food.jpg */,
 				F5423C4E1DCB6B4F006FD69A /* present.jpg */,
 				F5423C4F1DCB6B4F006FD69A /* sea.jpg */,
+				F5FB75781E0711D600431E44 /* Rectangle48@2x.png */,
 				F5423C501DCB6B4F006FD69A /* travel.jpg */,
 				F5423C511DCB6B4F006FD69A /* choice.jpg */,
 				F5423C521DCB6B4F006FD69A /* interesting.jpg */,
@@ -782,6 +785,7 @@
 				D349653C1DB4043E00813293 /* Assets.xcassets in Resources */,
 				F5423C651DCB6B4F006FD69A /* 1.jpg in Resources */,
 				D34965371DB4043E00813293 /* Main.storyboard in Resources */,
+				F5FB75791E0711D600431E44 /* Rectangle48@2x.png in Resources */,
 				F5423C5C1DCB6B4F006FD69A /* present.jpg in Resources */,
 				D33A78C41DDDEAC600BC743A /* 5.jpg in Resources */,
 				F57A00771E0703F7005F3443 /* MSSearchTab.storyboard in Resources */,
