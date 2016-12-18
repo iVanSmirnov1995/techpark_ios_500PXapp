@@ -85,6 +85,8 @@
 		F56BB3FF1E049562008C9ED1 /* popularSticker2@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F56BB3FC1E049562008C9ED1 /* popularSticker2@2x.png */; };
 		F56BB4001E049562008C9ED1 /* popularSticker@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F56BB3FD1E049562008C9ED1 /* popularSticker@2x.png */; };
 		F56BB4011E049562008C9ED1 /* choiceSticker2@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F56BB3FE1E049562008C9ED1 /* choiceSticker2@2x.png */; };
+		F57A00771E0703F7005F3443 /* MSSearchTab.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F57A00761E0703F7005F3443 /* MSSearchTab.storyboard */; };
+		F57A007B1E0704C2005F3443 /* MSPhotoSearchVC.m in Sources */ = {isa = PBXBuildFile; fileRef = F57A007A1E0704C2005F3443 /* MSPhotoSearchVC.m */; };
 		F5D01EC31DF55A0800ABD067 /* MSPhotos.m in Sources */ = {isa = PBXBuildFile; fileRef = F5D01EC21DF55A0800ABD067 /* MSPhotos.m */; };
 /* End PBXBuildFile section */
 
@@ -240,6 +242,9 @@
 		F56BB3FC1E049562008C9ED1 /* popularSticker2@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "popularSticker2@2x.png"; sourceTree = "<group>"; };
 		F56BB3FD1E049562008C9ED1 /* popularSticker@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "popularSticker@2x.png"; sourceTree = "<group>"; };
 		F56BB3FE1E049562008C9ED1 /* choiceSticker2@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "choiceSticker2@2x.png"; sourceTree = "<group>"; };
+		F57A00761E0703F7005F3443 /* MSSearchTab.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MSSearchTab.storyboard; sourceTree = "<group>"; };
+		F57A00791E0704C2005F3443 /* MSPhotoSearchVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSPhotoSearchVC.h; sourceTree = "<group>"; };
+		F57A007A1E0704C2005F3443 /* MSPhotoSearchVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSPhotoSearchVC.m; sourceTree = "<group>"; };
 		F5D01EC11DF55A0800ABD067 /* MSPhotos.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSPhotos.h; sourceTree = "<group>"; };
 		F5D01EC21DF55A0800ABD067 /* MSPhotos.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSPhotos.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -353,6 +358,7 @@
 			isa = PBXGroup;
 			children = (
 				CEF7F42E1DDF45D800447439 /* MyPageTab.storyboard */,
+				F57A00761E0703F7005F3443 /* MSSearchTab.storyboard */,
 			);
 			name = MyPage;
 			sourceTree = "<group>";
@@ -612,6 +618,7 @@
 				F5423C411DCB6B17006FD69A /* SignUpVC.m */,
 				F5423C421DCB6B17006FD69A /* ISHomeVC.h */,
 				F5423C431DCB6B17006FD69A /* ISHomeVC.m */,
+				F57A00781E070484005F3443 /* MSPhotoVC */,
 				F5423C441DCB6B17006FD69A /* IsSearchVC.h */,
 				F5423C451DCB6B17006FD69A /* IsSearchVC.m */,
 			);
@@ -644,6 +651,15 @@
 				D395D6E61DFC4F3B00CCE729 /* loading.png */,
 			);
 			name = test;
+			sourceTree = "<group>";
+		};
+		F57A00781E070484005F3443 /* MSPhotoVC */ = {
+			isa = PBXGroup;
+			children = (
+				F57A00791E0704C2005F3443 /* MSPhotoSearchVC.h */,
+				F57A007A1E0704C2005F3443 /* MSPhotoSearchVC.m */,
+			);
+			name = MSPhotoVC;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -768,6 +784,7 @@
 				D34965371DB4043E00813293 /* Main.storyboard in Resources */,
 				F5423C5C1DCB6B4F006FD69A /* present.jpg in Resources */,
 				D33A78C41DDDEAC600BC743A /* 5.jpg in Resources */,
+				F57A00771E0703F7005F3443 /* MSSearchTab.storyboard in Resources */,
 				F5423C641DCB6B4F006FD69A /* 2.jpg in Resources */,
 				F56BB4001E049562008C9ED1 /* popularSticker@2x.png in Resources */,
 				F5423C5F1DCB6B4F006FD69A /* choice.jpg in Resources */,
@@ -901,6 +918,7 @@
 				D3E2FBAD1E06A17100B34B50 /* ISCommentsCell.m in Sources */,
 				F5423C461DCB6B17006FD69A /* SignUpVC.m in Sources */,
 				D3F072821DFB2E7E00BD62B0 /* LoginWebViewController.m in Sources */,
+				F57A007B1E0704C2005F3443 /* MSPhotoSearchVC.m in Sources */,
 				F5D01EC31DF55A0800ABD067 /* MSPhotos.m in Sources */,
 				D3E2FBAA1E06944800B34B50 /* ISComments.m in Sources */,
 				D349652E1DB4043E00813293 /* main.m in Sources */,

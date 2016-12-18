@@ -13,6 +13,7 @@
 #import "ISServerManager.h"
 #import "MSPhotos.h"
 #import "UIImageView+AFNetworking.h"
+#import "MSPhotoSearchVC.h"
 
 @interface IsSearchVC () <UICollectionViewDelegate ,UICollectionViewDataSource> {
     NSMutableArray *arrItems;
@@ -59,7 +60,7 @@
     
     UITapGestureRecognizer* pan=[[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(tabBegin:)];
     [self.collection addGestureRecognizer:pan];
-    
+    pan.cancelsTouchesInView = NO;
     
     self.searchField.textAlignment = NSTextAlignmentCenter;
     UIColor *searchColour = [UIColor whiteColor];
@@ -192,9 +193,9 @@
             self.imageArray3[i-5] = ph.imageURL;
         }
         
-        // dispatch_async(dispatch_get_main_queue(), ^{
-        [self.collection reloadData];
-        // });
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [self.collection reloadData];
+        });
         
     }
                                              onFailure:^(NSError *error, NSInteger statusCode) {
@@ -327,10 +328,10 @@
                                                                       constant: -61.0f
                                          ];
         
-   
         
         
-       
+        
+        
         
         [cell.contentView addConstraints:@[vertical1,vertical2,center1,center2,center3,vertical3]];
         
@@ -341,16 +342,16 @@
         
         
         [cell.img setImageWithURL:self.imageArray[indexPath.row] ];
-       
+        
         return cell;
     }
     if (indexPath.section ==1)
     {
         ISSearchModel* item=[arrItems2 objectAtIndex:indexPath.row];
         SearchViewCellCollection* cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"cellItem" forIndexPath:indexPath];
-     
-       
-
+        
+        
+        
         
         cell.label2.font = [UIFont fontWithName:@"PingFang-TC-Light" size:14];
         cell.populatAtThisMoment.text = @"";
@@ -381,14 +382,14 @@
                                        ];
         
         
-       
+        
         
         [cell.contentView addConstraints:@[vertical2,center2]];
         
         
         cell.label2.text = item.nameProduct;
         [cell.img setImageWithURL:self.imageArray2[indexPath.row] ];
-    
+        
         return cell;
     }
     if (indexPath.section ==2)
@@ -397,7 +398,7 @@
         SearchViewCellCollection* cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"cellItem" forIndexPath:indexPath];
         
         //[cell.contentView removeConstraints:cell.];
-
+        
         
         cell.label2.font = [UIFont fontWithName:@"PingFang-TC-Light" size:14];
         cell.populatAtThisMoment.text = @"";
@@ -428,15 +429,15 @@
         
         
         
-       
-
-       [cell.contentView addConstraints:@[vertical2,center2]];
+        
+        
+        [cell.contentView addConstraints:@[vertical2,center2]];
         
         
         cell.label2.text = item.nameProduct;
         
         [cell.img setImageWithURL:self.imageArray3[indexPath.row] ];
-      
+        
         
         return cell;
         
@@ -444,6 +445,14 @@
     
     
     return nil;
+}
+
+
+-(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    MSPhotoSearchVC* vc = [self.storyboard instantiateViewControllerWithIdentifier:@"photoSearch"];
+    
+    [self.navigationController pushViewController:vc animated:YES];
 }
 
 
