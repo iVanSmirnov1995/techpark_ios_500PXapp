@@ -7,8 +7,16 @@
 //
 
 #import "ISCommentsVC.h"
+#import "ISServerManager.h"
+#import "ISCommentsCell.h"
+#import "ISComments.h"
+#import "ISUser.h"
+#import "UIImageView+AFNetworking.h"
 
 @interface ISCommentsVC ()<UITableViewDelegate>
+
+@property(strong,nonatomic)NSMutableArray* commentsArray;
+@property(strong,nonatomic)NSMutableArray* userAr;
 
 @end
 
@@ -17,11 +25,32 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
+    self.tableView.delegate=self;
+    self.tableView.rowHeight = UITableViewAutomaticDimension;
+    self.tableView.estimatedRowHeight = 100.0;
     
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    [[ISServerManager sharedManager]getPhotoComentsWithId:self.photoId OnSuccess:^(NSMutableArray *coments) {
+        
+        self.commentsArray=coments;
+        self.userAr=[NSMutableArray array];
+        for (ISComments* c in coments) {
+            
+            [self.userAr addObject:c.user];
+        }
+        
+        
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [self.tableView reloadData];
+        });
+
+    } onFailure:^(NSError *error, NSInteger statusCode) {
+        
+        
+    }];
+    
+
+    
+    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -34,66 +63,39 @@
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     
     
-    return 0;
+    return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
 
-    return 0;
+    return self.commentsArray.count;
 }
 
-/*
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:<#@"reuseIdentifier"#> forIndexPath:indexPath];
+
+- (ISCommentsCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    ISCommentsCell *cell = [tableView dequeueReusableCellWithIdentifier:@"commecell" forIndexPath:indexPath];
     
-    // Configure the cell...
+
+
+    
+
+    
     
     return cell;
 }
-*/
 
-/*
-// Override to support conditional editing of the table view.
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the specified item to be editable.
-    return YES;
+- (void)tableView:(UITableView *)tableView willDisplayCell:(ISCommentsCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath{
+
+    ISComments* com=self.commentsArray[indexPath.row];
+    ISUser* user=self.userAr[indexPath.row];
+    [cell layoutIfNeeded];
+    [cell.userAvatar setImageWithURL:[NSURL URLWithString:user.avatar]];
+    cell.userAvatar.layer.cornerRadius=CGRectGetWidth(cell.userAvatar.frame)/2.f;
+    cell.userAvatar.layer.masksToBounds=YES;
+    cell.name.text=[NSString stringWithFormat:@"%@ %@",user.firstName,user.lastName];
+    cell.comment.text=com.body;
+    
 }
-*/
 
-/*
-// Override to support editing the table view.
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    } else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
-}
-*/
-
-/*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath {
-}
-*/
-
-/*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
-}
-*/
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

@@ -11,4 +11,6 @@
 @interface ISCommentsVC : UIViewController
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 
+@property(assign,nonatomic)NSInteger photoId;
+
 @end

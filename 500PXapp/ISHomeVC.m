@@ -9,7 +9,7 @@
 
 #import "ISHomeVC.h"
 #import "ISNewsFeedModel.h"
-
+#import "UIViewController+Charleene.h"
 #import "ISTableViewImageCell.h"
 #import "ISTableViewUserInfoCell.h"
 #import "ISTableViewLikeCell.h"
@@ -106,29 +106,11 @@ typedef enum {
     if(indexPath.row==ISCommentsTupe){
         
         
-        [[ISServerManager sharedManager]getPhotoComentsWithId:1 OnSuccess:^(NSMutableArray *comments) {
             
         ISCommentsVC* vc=[self.storyboard instantiateViewControllerWithIdentifier:@"comments"];
-            
-            
-            vc.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
-            vc.modalPresentationStyle =  UIModalPresentationFormSheet;
-            
-            
-            
-            CGPoint frameSize = CGPointMake([[UIScreen mainScreen] bounds].size.width*0.85f, [[UIScreen mainScreen] bounds].size.height*0.85f);
-            
-            vc.preferredContentSize = CGSizeMake(frameSize.x, frameSize.y);
-            
-            [self presentViewController:vc animated:YES completion:nil];
-            
-            
-            
-            
-            
-        } onFailure:^(NSError *error, NSInteger statusCode) {
-            
-        }];
+        ISNewsFeedModel* news=_newsFeedArray[indexPath.section];
+        vc.photoId=news.photoID;
+        [self presentCharleeneModally:vc transitionMode:KSModalTransitionModeFromBottom];
         
     }
     

@@ -7,18 +7,20 @@
 //
 
 #import "ISCommentsCell.h"
+#import "ISComments.h"
+#import "ISUser.h"
+#import "UIImageView+AFNetworking.h"
 
 @implementation ISCommentsCell
 
-- (void)awakeFromNib {
-    [super awakeFromNib];
-    // Initialization code
+
+
+- (void)prepareForReuse {
+    self.userAvatar = nil;
+    self.name=nil;
+    self.comment=nil;
 }
 
-- (void)setSelected:(BOOL)selected animated:(BOOL)animated {
-    [super setSelected:selected animated:animated];
 
-    // Configure the view for the selected state
-}
 
 @end

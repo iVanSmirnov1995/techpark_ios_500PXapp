@@ -110,7 +110,7 @@
 
 -(void)getPhotoComentsWithId:(NSInteger)photoId OnSuccess:(void(^)(NSMutableArray* coments)) success onFailure:(void(^)(NSError* error,NSInteger statusCode))failture{
     
-    NSString* path=[NSString stringWithFormat:@"/photos/123/comments"];
+    NSString* path=[NSString stringWithFormat:@"/photos/%d/comments",photoId];
     NSDictionary *parameters = @{@"api_key" : @"XyuX14AQBpiWjfUcRyXA2jyB5ensjjJD6gBFcGHI"};
     
     

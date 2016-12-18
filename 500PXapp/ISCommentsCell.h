@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+@class ISComments;
 
 @interface ISCommentsCell : UITableViewCell
 @property (weak, nonatomic) IBOutlet UIImageView *userAvatar;
