@@ -39,6 +39,8 @@
     
     MFMailComposeViewController *emailDialog = [[MFMailComposeViewController alloc] init];
     
+    emailDialog.mailComposeDelegate=self;
+    
     NSString *htmlMsg = @"<html><body><p>Крутое фото</p></body></html>";
     
     UIImageView* imV=[[UIImageView alloc]init];
