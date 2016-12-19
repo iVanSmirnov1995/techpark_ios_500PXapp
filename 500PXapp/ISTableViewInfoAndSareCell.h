@@ -7,9 +7,15 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "ISHomeVC.h"
+#import "ISNewsFeedModel.h"
 
 @interface ISTableViewInfoAndSareCell : UITableViewCell
 - (IBAction)infoAction:(UIButton *)sender;
 - (IBAction)sareAction:(UIButton *)sender;
+@property (weak, nonatomic) IBOutlet UIButton *infoButton;
+@property (weak, nonatomic) IBOutlet UIButton *sareButton;
+@property(weak,nonatomic)ISHomeVC* homeVC;
+@property(strong,nonatomic)ISNewsFeedModel* model;
 
 @end

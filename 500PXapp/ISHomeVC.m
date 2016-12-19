@@ -183,7 +183,6 @@ typedef enum {
         cell.data.text=newsModel.data;
         cell.likeButton.tag=newsModel.photoID;
         
-        
         if (newsModel.liked) {
         [cell.likeButton setImage:[UIImage imageNamed:@"like3"] forState:UIControlStateNormal];
         }else  [cell.likeButton setImage:[UIImage imageNamed:@"like"] forState:UIControlStateNormal];
@@ -217,6 +216,11 @@ typedef enum {
     if (indexPath.row==ISInfoAndSareTupe) {
         identifier=@"infoAndSare";
         ISTableViewInfoAndSareCell* cell=[tableView dequeueReusableCellWithIdentifier:identifier forIndexPath:indexPath];
+        cell.sareButton.tag=newsModel.photoID;
+        cell.infoButton.tag=newsModel.photoID;
+        cell.homeVC=self;
+        cell.model=newsModel;
+        
         return cell;
     }
     
