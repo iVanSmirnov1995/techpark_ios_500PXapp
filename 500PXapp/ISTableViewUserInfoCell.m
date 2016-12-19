@@ -24,6 +24,7 @@
 
 - (IBAction)addLike:(UIButton *)sender {
     
+    [sender setImage:[UIImage imageNamed:@"like3"] forState:UIControlStateNormal];
     [[ISServerManager sharedManager]POSTLike:YES PhotoWithId:sender.tag OnSuccess:^(NSMutableArray *coments) {
         
         [self.delegate likeDidSet:self];
