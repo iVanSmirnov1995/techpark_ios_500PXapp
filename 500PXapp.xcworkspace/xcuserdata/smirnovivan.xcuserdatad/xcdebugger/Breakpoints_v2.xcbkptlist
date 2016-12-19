@@ -1044,11 +1044,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "500PXapp/ISCommentsVC.m"
-            timestampString = "503768549.169354"
+            timestampString = "503883057.559577"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "34"
-            endingLineNumber = "34"
+            startingLineNumber = "35"
+            endingLineNumber = "35"
             landmarkName = "-viewDidLoad"
             landmarkType = "7">
          </BreakpointContent>
@@ -1060,23 +1060,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "500PXapp/ISCommentsVC.m"
-            timestampString = "503769487.290666"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "103"
-            endingLineNumber = "103"
-            landmarkName = "-tableView:cellForRowAtIndexPath:"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "500PXapp/ISCommentsVC.m"
-            timestampString = "503769487.290666"
+            timestampString = "503883057.559577"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "104"
@@ -1092,11 +1076,27 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "500PXapp/ISCommentsVC.m"
-            timestampString = "503769487.290666"
+            timestampString = "503883057.559577"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "104"
-            endingLineNumber = "104"
+            startingLineNumber = "105"
+            endingLineNumber = "105"
+            landmarkName = "-tableView:cellForRowAtIndexPath:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "500PXapp/ISCommentsVC.m"
+            timestampString = "503883057.559577"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "105"
+            endingLineNumber = "105"
             landmarkName = "-tableView:cellForRowAtIndexPath:"
             landmarkType = "7">
          </BreakpointContent>
@@ -1124,11 +1124,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "500PXapp/ISCommentsVC.m"
-            timestampString = "503768549.169354"
+            timestampString = "503883057.559577"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "36"
-            endingLineNumber = "36"
+            startingLineNumber = "37"
+            endingLineNumber = "37"
             landmarkName = "-viewDidLoad"
             landmarkType = "7">
          </BreakpointContent>
@@ -1156,13 +1156,13 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "500PXapp/ISCommentsVC.m"
-            timestampString = "503769487.290666"
+            timestampString = "503883057.559577"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "79"
-            endingLineNumber = "79"
-            landmarkName = "@implementation ISCommentsVC"
-            landmarkType = "3">
+            startingLineNumber = "80"
+            endingLineNumber = "80"
+            landmarkName = "-tableView:shouldHighlightRowAtIndexPath:"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -1172,13 +1172,13 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "500PXapp/ISCommentsVC.m"
-            timestampString = "503769141.057849"
+            timestampString = "503883057.559577"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "71"
-            endingLineNumber = "71"
-            landmarkName = "@implementation ISCommentsVC"
-            landmarkType = "3">
+            startingLineNumber = "72"
+            endingLineNumber = "72"
+            landmarkName = "-tableView:shouldHighlightRowAtIndexPath:"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy

@@ -48,17 +48,17 @@ typedef enum {
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+    self.tableView.separatorColor=[UIColor whiteColor];
 }
 
 -(void)startLoad{
 //    self.refreshControl = [[UIRefreshControl alloc] init];
 //    [self.refreshControl addTarget:self action:@selector(refreshData) forControlEvents:UIControlEventValueChanged];
 //    self.tableView.refreshControl=self.refreshControl;
-    
     self.tableView.delegate=self;
     self.tableView.rowHeight = UITableViewAutomaticDimension;
     self.tableView.estimatedRowHeight = 44.0;
+    self.tableView.separatorColor=[UIColor grayColor];
     
     [[ISServerManager sharedManager]getUserFriendsPhotoNewsOnSuccess:^(NSMutableArray *news) {
         
