@@ -161,7 +161,7 @@
 }
 
 -(void) getSpecifiedUserFromServer {
-    [[ISServerManager sharedManager] getUserOnID: self.userID OnSuccess:^(ISUser *user) {
+    [[ISServerManager sharedManager] getUserOnID: self.userID onSuccess:^(ISUser *user) {
         
         dispatch_async(dispatch_get_main_queue(), ^{
             self.userName.text = user.username;

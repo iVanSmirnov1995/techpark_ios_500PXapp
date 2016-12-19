@@ -54,9 +54,8 @@
          
          dispatch_async(dispatch_get_main_queue(), ^{
              [self.tableView beginUpdates];
-             [self.tableView insertRowsAtIndexPaths:newPath withRowAnimation:UITableViewRowAnimationTop]; //вставляем новые строки с анимацией
+             [self.tableView insertRowsAtIndexPaths:newPath withRowAnimation:UITableViewRowAnimationTop];
              [self.tableView endUpdates];
-//             [self.tableView reloadData];
          });
      }
      onFailure: ^(NSError *error, NSInteger statusCode) {

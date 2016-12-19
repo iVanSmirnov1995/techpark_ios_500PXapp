@@ -41,28 +41,33 @@
                onFailure:(void(^)(NSError* error,NSInteger statusCode))failure;
 
 -(void)getFolowerOnSuccess:(void(^)(NSArray* folowers)) success
-                 onFailure:(void(^)(NSError* error,NSInteger statusCode))failture;
+                 onFailure:(void(^)(NSError* error,NSInteger statusCode))failure;
 
 -(void)getUserOnSuccess:(void(^)(ISUser* user)) success
-              onFailure:(void(^)(NSError* error,NSInteger statusCode))failture;
+              onFailure:(void(^)(NSError* error,NSInteger statusCode))failure;
 
 -(void) getFollowersOnUserID:(NSInteger)userID
                     withPage:(NSInteger)page
                    onSuccess:(void(^)(NSArray* followers, NSInteger followersCount))success
-                   onFailure:(void(^)(NSError* error,NSInteger statusCode))failture;
+                   onFailure:(void(^)(NSError* error,NSInteger statusCode))failure;
 
 -(void) getFriendsOnUserID:(NSInteger)userID
                   withPage:(NSInteger)page
                  onSuccess:(void(^)(NSArray*, NSInteger))success
-                 onFailure:(void(^)(NSError* error,NSInteger statusCode))failture;
+                 onFailure:(void(^)(NSError* error,NSInteger statusCode))failure;
 
 -(void) getUserOnID:(NSInteger)userID
-          OnSuccess:(void (^)(ISUser *))success
-          onFailure:(void (^)(NSError *, NSInteger))failture;
+          onSuccess:(void (^)(ISUser *))success
+          onFailure:(void (^)(NSError *, NSInteger))failure;
 
 -(void) getPhotosOnUserID: (NSInteger) userID
                  withPage: (NSInteger) page
-                OnSuccess: (void (^)(NSArray *, NSInteger))success
-                onFailure: (void (^)(NSError *, NSInteger))failture;
+                onSuccess: (void (^)(NSArray *, NSInteger))success
+                onFailure: (void (^)(NSError *, NSInteger))failure;
+
+-(void) getGalleriesOnUserID: (NSInteger) userID
+                      onPage: (NSInteger) page
+                   onSuccess: (void(^)(NSArray*, NSInteger)) success
+                     onError: (void(^)(NSError*, NSInteger)) failure;
 
 @end

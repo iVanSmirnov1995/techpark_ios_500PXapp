@@ -29,12 +29,10 @@
     self.photos = [[NSMutableArray alloc] init];
 
     [self getPhotosFromServer];
-    
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 #pragma mark - API
@@ -43,7 +41,7 @@
     [[ISServerManager sharedManager]
      getPhotosOnUserID:self.userID
      withPage:self.photos.count/20 + 1
-     OnSuccess:^(NSArray *photos, NSInteger photosCount) {
+     onSuccess:^(NSArray *photos, NSInteger photosCount) {
          [self.photos addObjectsFromArray: photos];
          
          if(!self.photosCount){
@@ -126,8 +124,19 @@
 #pragma mark <UICollectionViewDelegate>
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
+//    ISRootPegeVC* vc=[[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"rootPage"];
+//    [self presentViewController:vc animated:YES completion: nil];
+    
     ISRootPegeVC* vc=[[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"rootPage"];
-    [self presentViewController:vc animated:YES completion: nil];
+    NSMutableArray* imagesURLs=[NSMutableArray array];
+    for (NSDictionary* photo in self.photos) {
+        NSArray* imageSize = [photo objectForKey:@"images"];
+        [imagesURLs addObject:[imageSize[1] objectForKey:@"url"]];
+    }
+    vc.imageURLArray = imagesURLs;
+    vc.startPage = indexPath.row;
+    
+    [self.navigationController pushViewController:vc animated:YES];
 }
 
 // Uncomment this method to specify if the specified item should be highlighted during tracking

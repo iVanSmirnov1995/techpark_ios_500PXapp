@@ -374,22 +374,10 @@
 
 #pragma mark - my requests
 
--(void) getMyAccountOnSuccess:(void(^)(NSArray* friends)) success
-                    onFailure:(void(^)(NSError* error, NSInteger statusCode)) failure {
-    [self.manager GET:@"users"
-           parameters:nil progress:nil
-              success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-        
-    }
-              failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-        
-              }];
-}
-
 -(void) getFollowersOnUserID:(NSInteger) userID
                     withPage:(NSInteger) page
                    onSuccess:(void(^)(NSArray* followers, NSInteger followersCount)) success
-                   onFailure:(void(^)(NSError* error,NSInteger statusCode)) failture {
+                   onFailure:(void(^)(NSError* error, NSInteger statusCode)) failure {
     
     NSDictionary* param = @{@"page":@(page)};
     
@@ -417,7 +405,7 @@
 -(void) getFriendsOnUserID:(NSInteger) userID
                    withPage:(NSInteger) page
                   onSuccess:(void(^)(NSArray*, NSInteger)) success
-                  onFailure:(void(^)(NSError* error,NSInteger statusCode)) failture {
+                  onFailure:(void(^)(NSError* error, NSInteger statusCode)) failure {
     
     NSDictionary* param = @{@"page":@(page),
                             @"consumer_key":@"XyuX14AQBpiWjfUcRyXA2jyB5ensjjJD6gBFcGHI"};
@@ -443,8 +431,8 @@
 }
 
 -(void) getUserOnID:(NSInteger)userID
-          OnSuccess:(void (^)(ISUser *))success
-          onFailure:(void (^)(NSError *, NSInteger))failture {
+          onSuccess:(void (^)(ISUser *))success
+          onFailure:(void (^)(NSError *, NSInteger))failure {
     
     NSDictionary* param = @{@"id":@(userID),
                             @"consumer_key":@"XyuX14AQBpiWjfUcRyXA2jyB5ensjjJD6gBFcGHI"};
@@ -483,12 +471,13 @@
 
 -(void) getPhotosOnUserID: (NSInteger) userID
                  withPage: (NSInteger) page
-                OnSuccess: (void (^)(NSArray *, NSInteger))success
-                onFailure: (void (^)(NSError *, NSInteger))failture {
+                onSuccess: (void (^)(NSArray *, NSInteger))success
+                onFailure: (void (^)(NSError *, NSInteger))failure {
     
     NSDictionary* param = @{@"feature": @"user",
                             @"user_id": @(userID),
                             @"page": @(page),
+                            @"image_size": @"3,600",
                             @"consumer_key": @"XyuX14AQBpiWjfUcRyXA2jyB5ensjjJD6gBFcGHI"};
     
     NSURL *URL = [NSURL URLWithString: @"https://api.500px.com/v1/photos"];
@@ -508,6 +497,30 @@
         
     }];
 
+}
+
+-(void) getGalleriesOnUserID: (NSInteger) userID
+                      onPage: (NSInteger) page
+                   onSuccess: (void(^)(NSArray*, NSInteger)) success
+                     onError: (void(^)(NSError*, NSInteger)) failure {
+    
+    NSURL* URL = [NSURL URLWithString:
+                  [NSString stringWithFormat:
+                   @"https://api.500px.com/v1/users/%@/galleries", @(userID)]];
+    
+    NSDictionary* param = @{@"privace": @"public",
+                            @"page": @(page),
+                            @"consumer_key": @"XyuX14AQBpiWjfUcRyXA2jyB5ensjjJD6gBFcGHI"};
+    [self.manager GET:URL.absoluteString
+           parameters:param progress:nil
+              success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+              
+                  NSLog(@"%@", responseObject);
+                  
+              } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+              
+              }];
+                            
 }
 
 
