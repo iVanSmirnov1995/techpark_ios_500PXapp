@@ -48,17 +48,21 @@
 
 -(void) getFollowersOnUserID:(NSInteger)userID
                     withPage:(NSInteger)page
-                   onSuccess:(void(^)(NSArray* followers))success
+                   onSuccess:(void(^)(NSArray* followers, NSInteger followersCount))success
                    onFailure:(void(^)(NSError* error,NSInteger statusCode))failture;
 
 -(void) getFriendsOnUserID:(NSInteger)userID
                   withPage:(NSInteger)page
-                 onSuccess:(void(^)(NSArray* followers))success
+                 onSuccess:(void(^)(NSArray*, NSInteger))success
                  onFailure:(void(^)(NSError* error,NSInteger statusCode))failture;
 
 -(void) getUserOnID:(NSInteger)userID
           OnSuccess:(void (^)(ISUser *))success
           onFailure:(void (^)(NSError *, NSInteger))failture;
 
+-(void) getPhotosOnUserID: (NSInteger) userID
+                 withPage: (NSInteger) page
+                OnSuccess: (void (^)(NSArray *, NSInteger))success
+                onFailure: (void (^)(NSError *, NSInteger))failture;
 
 @end

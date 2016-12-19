@@ -9,25 +9,26 @@
 #import "PhotoCollectionVC.h"
 #import "CellPhotos.h"
 #import "ISRootPegeVC.h"
+#import "ISServerManager.h"
+
+#import "UIImageView+AFNetworking.h"
 
 @interface PhotoCollectionVC () <UICollectionViewDelegate, UICollectionViewDataSource>
+
+@property (strong, nonatomic) NSMutableArray* photos;
+@property (assign, nonatomic) NSInteger photosCount;
 
 @end
 
 @implementation PhotoCollectionVC
 
-static NSString * const reuseIdentifier = @"Cell";
-
 - (void)viewDidLoad {
     
     [super viewDidLoad];
     
-    self.photos = [NSMutableArray new];
+    self.photos = [[NSMutableArray alloc] init];
 
-    for (int i = 0; i<100; i++) {
-        [self.photos addObject:[UIImage imageNamed: [NSString stringWithFormat:@"%d.jpg",
-                                                arc4random() % 5 + 1]]];
-    }
+    [self getPhotosFromServer];
     
 }
 
@@ -36,6 +37,32 @@ static NSString * const reuseIdentifier = @"Cell";
     // Dispose of any resources that can be recreated.
 }
 
+#pragma mark - API
+
+-(void) getPhotosFromServer {
+    [[ISServerManager sharedManager]
+     getPhotosOnUserID:self.userID
+     withPage:self.photos.count/20 + 1
+     OnSuccess:^(NSArray *photos, NSInteger photosCount) {
+         [self.photos addObjectsFromArray: photos];
+         
+         if(!self.photosCount){
+             self.photosCount = photosCount;
+         }
+         
+         NSMutableArray* newPath = [NSMutableArray array];
+         for (int i = ((int)self.photos.count - (int)photos.count); i < self.photos.count; i++) {
+             [newPath addObject:[NSIndexPath indexPathForRow:i inSection:0]];
+         }
+         
+         dispatch_async(dispatch_get_main_queue(), ^{
+             [self.collectionView insertItemsAtIndexPaths:newPath];
+             [self.collectionView reloadData];
+         });
+     } onFailure:^(NSError *error, NSInteger statusCode) {
+     
+     }];
+}
 /*
 #pragma mark - Navigation
 
@@ -60,20 +87,44 @@ static NSString * const reuseIdentifier = @"Cell";
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
-    CellPhotos *cell = [collectionView dequeueReusableCellWithReuseIdentifier:reuseIdentifier forIndexPath:indexPath];
+    
+    CellPhotos *cell = [collectionView dequeueReusableCellWithReuseIdentifier: @"cell" forIndexPath:indexPath];
     
     NSInteger row = indexPath.row;
-    PhotosCellModel *item = [[PhotosCellModel alloc] init];
-    item.imgPhoto = self.photos[row];
-    NSLog(@"----------------------------------%li", (long)row);
-    [cell fillCellWithModel: item];
+    PhotosCellModel *photo = [[PhotosCellModel alloc] init];
+    
+    photo.photoURL = [self.photos[row] objectForKey:@"image_url"];
+    NSLog(@"%ld", (long)row);
+    [cell fillCellWithModel: photo];
+    
+    if(row + 1 == self.photos.count && row + 1 < self.photosCount) {
+        
+        [self getPhotosFromServer];
+    }
     
     return cell;
+    
+//    OSCustomCellForSubsTVC *cell = [tableView dequeueReusableCellWithIdentifier:@"cell" forIndexPath:indexPath];
+//    
+//    NSInteger row = indexPath.row;
+//    OSCustomCellForSubTVC *follower = [[OSCustomCellForSubTVC alloc] init];
+//    follower.avatarURL = [[[self.followers[row]
+//                            objectForKey: @"avatars"]
+//                           objectForKey:@"small"]
+//                          objectForKey:@"https"];
+//    follower.name = [self.followers[row] objectForKey:@"fullname"];
+//    
+//    [cell fillCellWithModel: follower];
+//    
+//    if(indexPath.row == self.followers.count) {
+//        [self getFollowersFromServer];
+//    }
+//    
+//    return cell;
 }
 
 #pragma mark <UICollectionViewDelegate>
 
-// ----//----
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
     ISRootPegeVC* vc=[[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"rootPage"];
     [self presentViewController:vc animated:YES completion: nil];

@@ -12,7 +12,7 @@
 #import "OSSubscribersTableVC.h"
 #import "OSFriendsTVC.h"
 #import "ISTabBarVC.h"
-
+#import "PhotoCollectionVC.h"
 #import "UIImageView+AFNetworking.h"
 #import "ISUserData+CoreDataProperties.h"
 
@@ -217,6 +217,18 @@
     [self.navigationController pushViewController:vc animated:YES];
     
 }
+
+- (IBAction)galleriesButtonPressed:(id)sender {
+}
+
+- (IBAction)photosButtonPressed:(id)sender {
+    
+    PhotoCollectionVC* vc = [self.storyboard instantiateViewControllerWithIdentifier:@"photos"];
+    vc.userID = self.userID;
+    [self.navigationController pushViewController:vc animated:YES];
+    
+}
+
 - (IBAction)exitButtonPressed:(id)sender {
     NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
     NSEntityDescription *entity = [NSEntityDescription entityForName:@"ISUserData"

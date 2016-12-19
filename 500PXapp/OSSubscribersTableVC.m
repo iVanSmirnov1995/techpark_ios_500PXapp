@@ -14,6 +14,7 @@
 @interface OSSubscribersTableVC () <UITableViewDataSource,UITableViewDelegate>
 
 @property (strong, nonatomic) NSMutableArray *followers;
+@property (assign, nonatomic) NSInteger followersCount;
 
 @end
 
@@ -24,7 +25,7 @@
     
     self.followers = [[NSMutableArray alloc] init];
     
-    [self getFollowers];
+    [self getFollowersFromServer];
 
 }
 
@@ -35,16 +36,27 @@
 
 #pragma mark - API
 
--(void) getFollowers {
+-(void) getFollowersFromServer {
     [[ISServerManager sharedManager]
      getFollowersOnUserID: self.userID
      withPage: self.followers.count/20 + 1
-     onSuccess: ^(NSArray *followers) {
+     onSuccess: ^(NSArray *followers, NSInteger followersCount) {
 
+         if(!self.followersCount) {
+             self.followersCount = followersCount;
+         }
          [self.followers addObjectsFromArray:followers];
          
+         NSMutableArray* newPath = [NSMutableArray array];
+         for (int i = ((int)self.followers.count - (int)followers.count); i < self.followers.count; i++) {
+             [newPath addObject:[NSIndexPath indexPathForRow:i inSection:0]];
+         }
+         
          dispatch_async(dispatch_get_main_queue(), ^{
-             [self.tableView reloadData];
+             [self.tableView beginUpdates];
+             [self.tableView insertRowsAtIndexPaths:newPath withRowAnimation:UITableViewRowAnimationTop]; //вставляем новые строки с анимацией
+             [self.tableView endUpdates];
+//             [self.tableView reloadData];
          });
      }
      onFailure: ^(NSError *error, NSInteger statusCode) {
@@ -77,8 +89,8 @@
     
     [cell fillCellWithModel: follower];
     
-    if(indexPath.row == self.followers.count) {
-        [self getFollowers];
+    if(indexPath.row + 1 == self.followers.count && indexPath.row + 1 < self.followersCount) {
+        [self getFollowersFromServer];
     }
     
     return cell;

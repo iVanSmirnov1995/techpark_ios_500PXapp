@@ -351,6 +351,7 @@
 			isa = PBXGroup;
 			children = (
 				D34965351DB4043E00813293 /* Main.storyboard */,
+				F57A00761E0703F7005F3443 /* MSSearchTab.storyboard */,
 				CEF7F4321DDF45FC00447439 /* MyPage */,
 			);
 			name = Storyboards;
@@ -360,7 +361,6 @@
 			isa = PBXGroup;
 			children = (
 				CEF7F42E1DDF45D800447439 /* MyPageTab.storyboard */,
-				F57A00761E0703F7005F3443 /* MSSearchTab.storyboard */,
 			);
 			name = MyPage;
 			sourceTree = "<group>";

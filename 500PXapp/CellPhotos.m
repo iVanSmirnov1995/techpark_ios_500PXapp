@@ -11,7 +11,7 @@
 @implementation CellPhotos
 
 - (void)fillCellWithModel:(PhotosCellModel *)model {
-    self.img.image = model.imgPhoto;
+    [self.img setImageWithURL:[NSURL URLWithString: model.photoURL]];
 }
 
 - (void)prepareForReuse {

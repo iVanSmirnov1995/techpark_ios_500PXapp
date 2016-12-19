@@ -14,6 +14,7 @@
 @interface OSFriendsTVC ()
 
 @property (strong, nonatomic) NSMutableArray *friends;
+@property (assign, nonatomic) NSInteger friendsCount;
 
 @end
 
@@ -24,7 +25,7 @@
     
     self.friends = [[NSMutableArray alloc] init];
     
-    [self getFriends];
+    [self getFriendsFromServer];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -34,16 +35,29 @@
 
 #pragma mark - API
 
--(void) getFriends {
+-(void) getFriendsFromServer {
     [[ISServerManager sharedManager]
      getFriendsOnUserID: self.userID
      withPage: self.friends.count/20 + 1
-     onSuccess: ^(NSArray *friends) {
+     onSuccess: ^(NSArray *friends, NSInteger friendsCount) {
          
          [self.friends addObjectsFromArray:friends];
          
+         if(!self.friendsCount) {
+             self.friendsCount = friendsCount;
+         }
+         
+         NSMutableArray* newPath = [NSMutableArray array];
+         for (int i = ((int)self.friends.count - (int)friends.count); i < self.friends.count; i++) {
+             [newPath addObject:[NSIndexPath indexPathForRow:i inSection:0]];
+         }
+         
+         
+         
          dispatch_async(dispatch_get_main_queue(), ^{
-             [self.tableView reloadData];
+             [self.tableView beginUpdates];
+             [self.tableView insertRowsAtIndexPaths:newPath withRowAnimation:UITableViewRowAnimationTop];
+             [self.tableView endUpdates];
          });
      }
      onFailure: ^(NSError *error, NSInteger statusCode) {
@@ -77,8 +91,8 @@
     
     [cell fillCellWithModel: friend];
     
-    if(indexPath.row == self.friends.count) {
-        [self getFriends];
+    if(indexPath.row + 1 == self.friends.count && indexPath.row + 1 < self.friendsCount) {
+        [self getFriendsFromServer];
     }
     
     return cell;

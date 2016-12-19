@@ -388,7 +388,7 @@
 
 -(void) getFollowersOnUserID:(NSInteger) userID
                     withPage:(NSInteger) page
-                   onSuccess:(void(^)(NSArray* followers)) success
+                   onSuccess:(void(^)(NSArray* followers, NSInteger followersCount)) success
                    onFailure:(void(^)(NSError* error,NSInteger statusCode)) failture {
     
     NSDictionary* param = @{@"page":@(page)};
@@ -403,8 +403,9 @@
               success:^(NSURLSessionDataTask * _Nonnull task, NSDictionary* responseObject) {
                   NSLog(@"JSON: %@", responseObject);
                   NSArray* followers = [responseObject objectForKey:@"followers"];
+                  NSInteger followersCount = [[responseObject objectForKey:@"followers_count"] integerValue];
                   if(success){
-                      success(followers);
+                      success(followers, followersCount);
                   }
               }
               failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
@@ -415,7 +416,7 @@
 
 -(void) getFriendsOnUserID:(NSInteger) userID
                    withPage:(NSInteger) page
-                  onSuccess:(void(^)(NSArray* followers)) success
+                  onSuccess:(void(^)(NSArray*, NSInteger)) success
                   onFailure:(void(^)(NSError* error,NSInteger statusCode)) failture {
     
     NSDictionary* param = @{@"page":@(page),
@@ -431,8 +432,9 @@
               success:^(NSURLSessionDataTask * _Nonnull task, NSDictionary* responseObject) {
                   NSLog(@"JSON: %@", responseObject);
                   NSArray* friends = [responseObject objectForKey:@"friends"];
+                  NSInteger friendsCount = [[responseObject objectForKey:@"friends_count"] integerValue];
                   if(success){
-                      success(friends);
+                      success(friends, friendsCount);
                   }
               }
               failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
@@ -476,6 +478,35 @@
               failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         
               }];
+
+}
+
+-(void) getPhotosOnUserID: (NSInteger) userID
+                 withPage: (NSInteger) page
+                OnSuccess: (void (^)(NSArray *, NSInteger))success
+                onFailure: (void (^)(NSError *, NSInteger))failture {
+    
+    NSDictionary* param = @{@"feature": @"user",
+                            @"user_id": @(userID),
+                            @"page": @(page),
+                            @"consumer_key": @"XyuX14AQBpiWjfUcRyXA2jyB5ensjjJD6gBFcGHI"};
+    
+    NSURL *URL = [NSURL URLWithString: @"https://api.500px.com/v1/photos"];
+    
+    [self.manager GET:URL.absoluteString parameters:param progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        
+        NSLog(@"%@", responseObject);
+        
+        NSArray* photos = [responseObject objectForKey:@"photos"];
+        NSInteger photosCount = [[responseObject objectForKey:@"total_items"] integerValue];
+        
+        if(success) {
+            success(photos, photosCount);
+        }
+        
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        
+    }];
 
 }
 

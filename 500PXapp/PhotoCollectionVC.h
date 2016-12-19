@@ -10,6 +10,6 @@
 
 @interface PhotoCollectionVC : UICollectionViewController
 
-@property (strong, nonatomic) NSMutableArray *photos;
+@property (assign, nonatomic) NSInteger userID;
 
 @end
