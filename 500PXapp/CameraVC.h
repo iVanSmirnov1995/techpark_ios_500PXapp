@@ -9,9 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @interface CameraVC : UIViewController
-@property (weak, nonatomic) IBOutlet UIButton *enterButton;
-
-@property (weak, nonatomic) IBOutlet UIButton *oauthButton;
 
 
 @end

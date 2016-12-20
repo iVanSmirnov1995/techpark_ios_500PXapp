@@ -32,7 +32,7 @@
         <!--Camera-->
         <scene sceneID="McR-wc-cFP">
             <objects>
-                <viewController id="oiJ-hC-D15" sceneMemberID="viewController">
+                <viewController id="oiJ-hC-D15" customClass="CameraVC" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Pde-Yh-rIK"/>
                         <viewControllerLayoutGuide type="bottom" id="y1N-RH-i8O"/>
@@ -50,11 +50,9 @@
                                     <color key="titleColor" red="0.43529411759999997" green="0.4431372549" blue="0.47450980390000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <color key="titleShadowColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                 </state>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OUz-pZ-fb3">
-                                <rect key="frame" x="171" y="284" width="46" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
+                                <connections>
+                                    <action selector="showPhotos:" destination="oiJ-hC-D15" eventType="touchUpInside" id="9zX-PY-d8G"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jQf-V2-4Op">
                                 <rect key="frame" x="118" y="122" width="128" height="101"/>
@@ -65,6 +63,9 @@
                                     <color key="titleColor" red="0.43529411759999997" green="0.4431372549" blue="0.47450980390000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <color key="titleShadowColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                 </state>
+                                <connections>
+                                    <action selector="showCamera:" destination="oiJ-hC-D15" eventType="touchUpInside" id="LHY-Ah-8OI"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
