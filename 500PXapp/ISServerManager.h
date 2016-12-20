@@ -57,7 +57,7 @@
                  onFailure:(void(^)(NSError* error,NSInteger statusCode))failure;
 
 -(void) getUserOnID:(NSInteger)userID
-          onSuccess:(void (^)(ISUser *))success
+          onSuccess:(void (^)(NSDictionary *))success
           onFailure:(void (^)(NSError *, NSInteger))failure;
 
 -(void) getPhotosOnUserID: (NSInteger) userID
