@@ -38,7 +38,7 @@
     imagePicker.allowsEditing = YES;
     imagePicker.delegate = self;
     
-    [self presentViewController:imagePicker animated:YES completion:NULL];
+    [self presentViewController:imagePicker animated:YES completion:nil];
 }
 
 /*
@@ -50,5 +50,10 @@
     // Pass the selected object to the new view controller.
 }
 */
+- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary<NSString *,id> *)info {
+    
+    NSLog(@"info: %@", info);
+    [picker dismissViewControllerAnimated:YES completion:nil];
+}
 
 @end
