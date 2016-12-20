@@ -21,4 +21,7 @@
 @property (weak,nonatomic)  NSString *str;
 @property (weak,nonatomic) NSURL *url;
 
+@property (assign, nonatomic) BOOL hasFixedHeight;
+
+
 @end

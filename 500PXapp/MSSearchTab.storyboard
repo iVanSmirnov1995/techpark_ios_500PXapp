@@ -75,7 +75,7 @@
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="ImageCollectionViewCell" id="HVG-ku-FBY" customClass="ImageCollectionViewCell">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="MSPhotoCellCollection" id="HVG-ku-FBY" customClass="MSPhotoCellCollection">
                                         <rect key="frame" x="0.0" y="0.0" width="122" height="117"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
@@ -94,17 +94,21 @@
                                             <constraint firstItem="yYX-Ns-vpg" firstAttribute="leading" secondItem="HVG-ku-FBY" secondAttribute="leading" id="xnv-eD-ahe"/>
                                         </constraints>
                                         <connections>
-                                            <outlet property="imageView" destination="yYX-Ns-vpg" id="1ax-qk-dCe"/>
+                                            <outlet property="imageView" destination="yYX-Ns-vpg" id="pRC-76-ERs"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
+                                <connections>
+                                    <outlet property="dataSource" destination="kph-Xq-XmG" id="Lud-kl-X1Z"/>
+                                    <outlet property="delegate" destination="kph-Xq-XmG" id="lLd-GF-TK8"/>
+                                </connections>
                             </collectionView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstAttribute="bottom" secondItem="wWa-P5-WrK" secondAttribute="bottom" id="0P5-Ca-bWO"/>
                             <constraint firstItem="z40-g8-hck" firstAttribute="leading" secondItem="0ct-Ir-5BT" secondAttribute="leading" id="4L0-Fq-ffq"/>
                             <constraint firstAttribute="trailing" secondItem="ShI-St-29f" secondAttribute="trailing" id="753-5k-F2F"/>
-                            <constraint firstAttribute="bottom" secondItem="wWa-P5-WrK" secondAttribute="bottom" constant="-253" id="GW3-TH-00T"/>
                             <constraint firstItem="4Y4-2E-0N1" firstAttribute="centerY" secondItem="VGT-dw-gki" secondAttribute="centerY" id="PAq-Bp-8yM"/>
                             <constraint firstItem="VGT-dw-gki" firstAttribute="top" secondItem="ryu-RW-tjF" secondAttribute="bottom" id="XY7-uS-0W8"/>
                             <constraint firstItem="wWa-P5-WrK" firstAttribute="leading" secondItem="0ct-Ir-5BT" secondAttribute="leading" id="Xw7-86-MvL"/>
@@ -118,7 +122,7 @@
                             <constraint firstItem="VGT-dw-gki" firstAttribute="leading" secondItem="0ct-Ir-5BT" secondAttribute="leading" id="in4-mJ-Jw2"/>
                             <constraint firstItem="ShI-St-29f" firstAttribute="top" secondItem="7WR-dp-6MN" secondAttribute="bottom" constant="8" id="jGx-wa-QYS"/>
                             <constraint firstItem="ShI-St-29f" firstAttribute="leading" secondItem="0ct-Ir-5BT" secondAttribute="leading" id="mWt-4C-iFA"/>
-                            <constraint firstAttribute="trailing" secondItem="wWa-P5-WrK" secondAttribute="trailing" constant="-280" id="uEc-CS-UK1"/>
+                            <constraint firstAttribute="trailing" secondItem="wWa-P5-WrK" secondAttribute="trailing" id="n3V-8n-nMe"/>
                             <constraint firstItem="ryu-RW-tjF" firstAttribute="centerX" secondItem="0ct-Ir-5BT" secondAttribute="centerX" id="xeU-1W-H1X"/>
                             <constraint firstAttribute="trailing" secondItem="z40-g8-hck" secondAttribute="trailing" id="ywu-pd-YJa"/>
                             <constraint firstItem="4Y4-2E-0N1" firstAttribute="centerX" secondItem="0ct-Ir-5BT" secondAttribute="centerX" id="zeI-hp-PZ4"/>
@@ -126,6 +130,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="collectionView" destination="wWa-P5-WrK" id="gFx-dn-Pdo"/>
                         <outlet property="imagePhoto" destination="ryu-RW-tjF" id="RDs-8D-cSg"/>
                         <outlet property="label" destination="4Y4-2E-0N1" id="18Y-AO-KgA"/>
                         <outlet property="navigationBar" destination="ShI-St-29f" id="SJ6-JP-4TZ"/>
