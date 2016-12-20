@@ -227,14 +227,18 @@
                                 <color key="tintColor" cocoaTouchSystemColor="tableCellGroupedBackgroundColor"/>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="1.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="ryu-RW-tjF">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="220"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="213.5"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" secondItem="ryu-RW-tjF" secondAttribute="height" multiplier="1.5:1" constant="-10" id="N0M-sb-7Pa"/>
+                                    <constraint firstAttribute="width" secondItem="ryu-RW-tjF" secondAttribute="height" multiplier="1.5:1" id="N0M-sb-7Pa"/>
                                 </constraints>
                             </imageView>
-                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ShI-St-29f">
+                            <navigationBar clearsContextBeforeDrawing="NO" contentMode="scaleToFill" shadowImage="Rectangle 48" translatesAutoresizingMaskIntoConstraints="NO" id="ShI-St-29f">
                                 <rect key="frame" x="0.0" y="28" width="320" height="44"/>
-                                <color key="tintColor" white="0.96999999999999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <rect key="contentStretch" x="0.0" y="0.0" width="0.0" height="0.0"/>
+                                <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <textAttributes key="titleTextAttributes">
+                                    <offsetWrapper key="textShadowOffset" horizontal="0.0" vertical="0.0"/>
+                                </textAttributes>
                                 <items>
                                     <navigationItem id="Xos-9v-EAG">
                                         <barButtonItem key="leftBarButtonItem" image="backButton" style="plain" id="ZCL-id-n4F">
@@ -246,9 +250,9 @@
                                 </items>
                             </navigationBar>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" image="whiteRectangle" translatesAutoresizingMaskIntoConstraints="NO" id="VGT-dw-gki">
-                                <rect key="frame" x="0.0" y="220" width="320" height="70"/>
+                                <rect key="frame" x="0.0" y="213.5" width="320" height="64"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" secondItem="VGT-dw-gki" secondAttribute="height" multiplier="4:1" constant="40" id="xFt-EQ-xTb"/>
+                                    <constraint firstAttribute="width" secondItem="VGT-dw-gki" secondAttribute="height" multiplier="5:1" id="xFt-EQ-xTb"/>
                                 </constraints>
                             </imageView>
                         </subviews>
@@ -266,6 +270,7 @@
                             <constraint firstItem="VGT-dw-gki" firstAttribute="leading" secondItem="0ct-Ir-5BT" secondAttribute="leading" id="in4-mJ-Jw2"/>
                             <constraint firstItem="ShI-St-29f" firstAttribute="top" secondItem="7WR-dp-6MN" secondAttribute="bottom" constant="8" id="jGx-wa-QYS"/>
                             <constraint firstItem="ShI-St-29f" firstAttribute="leading" secondItem="0ct-Ir-5BT" secondAttribute="leading" id="mWt-4C-iFA"/>
+                            <constraint firstItem="ryu-RW-tjF" firstAttribute="centerX" secondItem="0ct-Ir-5BT" secondAttribute="centerX" id="xeU-1W-H1X"/>
                             <constraint firstAttribute="trailing" secondItem="z40-g8-hck" secondAttribute="trailing" id="ywu-pd-YJa"/>
                             <constraint firstAttribute="trailing" secondItem="ryu-RW-tjF" secondAttribute="trailing" id="zyl-b3-AVf"/>
                         </constraints>
@@ -283,6 +288,7 @@
     <resources>
         <image name="1.jpg" width="500" height="270"/>
         <image name="Rectangle 36" width="375" height="42"/>
+        <image name="Rectangle 48" width="320" height="48"/>
         <image name="backButton" width="18" height="32"/>
         <image name="final-image-bg" width="375" height="667"/>
         <image name="whiteRectangle" width="252" height="90"/>
