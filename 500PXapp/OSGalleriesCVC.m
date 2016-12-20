@@ -9,6 +9,9 @@
 #import "OSGalleriesCVC.h"
 #import "ISRootPegeVC.h"
 #import "ISServerManager.h"
+#import "OSGalleriesCellModel.h"
+#import "OSGalleriesCellCVC.h"
+#import "OSPhtotosCVCForGalleries.h"
 
 #import "UIImageView+AFNetworking.h"
 
@@ -85,42 +88,39 @@ static NSString * const reuseIdentifier = @"Cell";
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
-    UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:reuseIdentifier forIndexPath:indexPath];
     
-    // Configure the cell
+    OSGalleriesCellCVC *cell = [collectionView dequeueReusableCellWithReuseIdentifier:reuseIdentifier forIndexPath:indexPath];
+    
+    NSInteger row = indexPath.row;
+    
+    OSGalleriesCellModel* gallerie = [[OSGalleriesCellModel alloc] init];
+    
+    NSArray* arr = [self.galleries[row] objectForKey:@"thumbnail_photos"];
+    
+    gallerie.imageURL = [arr[0] objectForKey:@"image_url"];
+    gallerie.name = [self.galleries[row] objectForKey:@"name"];
+    
+    [cell fillCellWithModel: gallerie];
+    
+    if(indexPath.row + 1 == self.galleries.count && indexPath.row + 1 < self.galleriesCount) {
+        [self getGalleriesFromServer];
+    }
     
     return cell;
 }
 
 #pragma mark <UICollectionViewDelegate>
 
-/*
-// Uncomment this method to specify if the specified item should be highlighted during tracking
-- (BOOL)collectionView:(UICollectionView *)collectionView shouldHighlightItemAtIndexPath:(NSIndexPath *)indexPath {
-	return YES;
-}
-*/
 
-/*
-// Uncomment this method to specify if the specified item should be selected
-- (BOOL)collectionView:(UICollectionView *)collectionView shouldSelectItemAtIndexPath:(NSIndexPath *)indexPath {
-    return YES;
-}
-*/
+- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
+    
+    OSPhtotosCVCForGalleries* vc=[[UIStoryboard storyboardWithName:@"MyPageTab" bundle:nil] instantiateViewControllerWithIdentifier:@"photosFromGalleries"];
 
-/*
-// Uncomment these methods to specify if an action menu should be displayed for the specified item, and react to actions performed on the item
-- (BOOL)collectionView:(UICollectionView *)collectionView shouldShowMenuForItemAtIndexPath:(NSIndexPath *)indexPath {
-	return NO;
+    vc.userID = self.userID;
+    vc.gallerieID = [[self.galleries[indexPath.row] objectForKey:@"id"] integerValue];
+    
+    [self.navigationController pushViewController:vc animated:YES];
 }
 
-- (BOOL)collectionView:(UICollectionView *)collectionView canPerformAction:(SEL)action forItemAtIndexPath:(NSIndexPath *)indexPath withSender:(id)sender {
-	return NO;
-}
-
-- (void)collectionView:(UICollectionView *)collectionView performAction:(SEL)action forItemAtIndexPath:(NSIndexPath *)indexPath withSender:(id)sender {
-	
-}
-*/
 
 @end
