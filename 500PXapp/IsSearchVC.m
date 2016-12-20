@@ -452,6 +452,40 @@
 {
     MSPhotoSearchVC* vc = [self.storyboard instantiateViewControllerWithIdentifier:@"photoSearch"];
     
+    
+    if (indexPath.section == 0 )
+    {
+         ISSearchModel* item=[arrItems objectAtIndex:indexPath.row];
+         vc.label.font = [UIFont fontWithName:@"PingFang-TC-Light" size:20];
+        vc.str = item.nameProduct;
+        vc.url = self.imageArray[indexPath.row];
+       // vc.label.text = @"fdfdf";
+      //  NSLog(@"111 %d",indexPath.section);
+    }
+    if (indexPath.section == 1 )
+    {
+        ISSearchModel* item=[arrItems2 objectAtIndex:indexPath.row];
+        vc.label.font = [UIFont fontWithName:@"PingFang-TC-Light" size:20];
+        vc.str = item.nameProduct;
+          vc.url = self.imageArray2[indexPath.row];
+        // vc.label.text = @"fdfdf";
+       // NSLog(@"111 %d",indexPath.section);
+    }
+   
+    if (indexPath.section == 2 )
+    {
+        ISSearchModel* item=[arrItems3 objectAtIndex:indexPath.row];
+        vc.label.font = [UIFont fontWithName:@"PingFang-TC-Light" size:20];
+        vc.str = item.nameProduct;
+          vc.url = self.imageArray3[indexPath.row];
+        // vc.label.text = @"fdfdf";
+       // NSLog(@"111 %d",indexPath.section);
+    }
+    
+    
+    
+    
+    
     [self.navigationController pushViewController:vc animated:YES];
 }
 

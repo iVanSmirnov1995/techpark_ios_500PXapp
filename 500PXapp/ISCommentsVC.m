@@ -30,6 +30,7 @@
     self.tableView.delegate=self;
     self.tableView.rowHeight = UITableViewAutomaticDimension;
     self.tableView.estimatedRowHeight = 100.0;
+    self.tableView.separatorColor=[UIColor whiteColor];
     
     [[ISServerManager sharedManager]getPhotoComentsWithId:self.photoId OnSuccess:^(NSMutableArray *coments) {
         

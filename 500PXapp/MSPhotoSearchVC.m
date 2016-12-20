@@ -8,7 +8,7 @@
 
 #import "MSPhotoSearchVC.h"
 #import "IsSearchVC.h"
-
+#import "UIImageView+AFNetworking.h"
 @interface MSPhotoSearchVC ()
 
 @end
@@ -28,7 +28,11 @@
   //  [self.navigationBar setTintColor:[UIColor redColor]];
     //self.navigationItem.titleView = nil ;
     
+  //  MSPhotoSearchVC *vc = [[MSPhotoSearchVC alloc] init];
     
+    self.label.text = self.str;
+    [self.imagePhoto setImageWithURL:self.url];
+ //   NSLog(@"%@",self.str);
     [ self.navigationBar setBackgroundImage:[UIImage imageNamed:@"Rectangle48@2x.png"] forBarMetrics:UIBarMetricsDefault];
     
     
@@ -54,6 +58,8 @@
  */
 
 - (IBAction)backbutton:(id)sender {
+    
+    
     [self.navigationController popToRootViewControllerAnimated:YES];
     
 }
