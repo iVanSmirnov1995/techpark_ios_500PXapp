@@ -9,6 +9,8 @@
 #import "OSGalleriesCVC.h"
 #import "ISRootPegeVC.h"
 #import "ISServerManager.h"
+#import "OSGalleriesCellModel.h"
+#import "OSGalleriesCellCVC.h"
 
 #import "UIImageView+AFNetworking.h"
 
@@ -85,9 +87,23 @@ static NSString * const reuseIdentifier = @"Cell";
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
-    UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:reuseIdentifier forIndexPath:indexPath];
     
-    // Configure the cell
+    OSGalleriesCellCVC *cell = [collectionView dequeueReusableCellWithReuseIdentifier:reuseIdentifier forIndexPath:indexPath];
+    
+    NSInteger row = indexPath.row;
+    
+    OSGalleriesCellModel* gallerie = [[OSGalleriesCellModel alloc] init];
+    
+    NSArray* arr = [self.galleries[row] objectForKey:@"thumbnail_photos"];
+    
+    gallerie.imageURL = [arr[0] objectForKey:@"image_url"];
+    gallerie.name = [self.galleries[row] objectForKey:@"name"];
+    
+    [cell fillCellWithModel: gallerie];
+    
+    if(indexPath.row + 1 == self.galleries.count && indexPath.row + 1 < self.galleriesCount) {
+        [self getGalleriesFromServer];
+    }
     
     return cell;
 }

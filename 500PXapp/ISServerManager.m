@@ -508,19 +508,29 @@
                   [NSString stringWithFormat:
                    @"https://api.500px.com/v1/users/%@/galleries", @(userID)]];
     
-    NSDictionary* param = @{@"privace": @"public",
-                            @"page": @(page),
+//    NSDictionary* param = @{@"privace": @"public",
+//                            @"page": @(page),
+//                            @"consumer_key": @"XyuX14AQBpiWjfUcRyXA2jyB5ensjjJD6gBFcGHI"};
+    
+    NSDictionary* param = @{@"page": @(page),
                             @"consumer_key": @"XyuX14AQBpiWjfUcRyXA2jyB5ensjjJD6gBFcGHI"};
+    
     [self.manager GET:URL.absoluteString
            parameters:param progress:nil
               success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
               
                   NSLog(@"%@", responseObject);
                   
+                  NSArray* galleries = [responseObject objectForKey:@"galleries"];
+                  NSInteger galleriesCount = [[responseObject objectForKey:@"total_items"] integerValue];
+                  
+                  if(success) {
+                      success(galleries, galleriesCount);
+                  }
+                  
               } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
               
               }];
-                            
 }
 
 

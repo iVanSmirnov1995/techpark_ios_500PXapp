@@ -15,6 +15,7 @@
 #import "PhotoCollectionVC.h"
 #import "UIImageView+AFNetworking.h"
 #import "ISUserData+CoreDataProperties.h"
+#import "OSGalleriesCVC.h"
 
 
 @interface MyPageVC ()
@@ -219,6 +220,9 @@
 }
 
 - (IBAction)galleriesButtonPressed:(id)sender {
+    OSGalleriesCVC* vc = [self.storyboard instantiateViewControllerWithIdentifier:@"galleries"];
+    vc.userID = self.userID;
+    [self.navigationController pushViewController:vc animated:YES];
 }
 
 - (IBAction)photosButtonPressed:(id)sender {

@@ -8,6 +8,17 @@
 
 #import "OSGalleriesCellCVC.h"
 
+
 @implementation OSGalleriesCellCVC
+
+- (void)fillCellWithModel:(OSGalleriesCellModel *)model {
+    self.name.text = model.name;
+    [self.image setImageWithURL:[NSURL URLWithString:model.imageURL]];
+}
+
+-(void) prepareForReuse {
+    self.name.text = nil;
+    self.image.image = nil;
+}
 
 @end

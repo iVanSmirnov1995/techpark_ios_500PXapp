@@ -264,34 +264,34 @@
             </objects>
             <point key="canvasLocation" x="-4074" y="-731"/>
         </scene>
-        <!--Collection View Controller-->
+        <!--GalleriesCVC-->
         <scene sceneID="GSQ-AV-90c">
             <objects>
-                <collectionViewController id="ze9-Im-4og" sceneMemberID="viewController">
-                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="znb-BT-i0o">
+                <collectionViewController storyboardIdentifier="galleries" id="ze9-Im-4og" customClass="OSGalleriesCVC" sceneMemberID="viewController">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsVerticalScrollIndicator="NO" indicatorStyle="black" dataMode="prototypes" id="znb-BT-i0o">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="ejI-Vz-sYk">
-                            <size key="itemSize" width="360" height="450"/>
+                            <size key="itemSize" width="315" height="450"/>
                             <size key="headerReferenceSize" width="0.0" height="0.0"/>
                             <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                            <inset key="sectionInset" minX="8" minY="0.0" maxX="0.0" maxY="0.0"/>
+                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                         </collectionViewFlowLayout>
                         <cells>
-                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="VHI-VR-Xz1">
-                                <rect key="frame" x="8" y="109" width="360" height="450"/>
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="Cell" id="VHI-VR-Xz1" customClass="OSGalleriesCellCVC">
+                                <rect key="frame" x="0.0" y="109" width="315" height="450"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                    <rect key="frame" x="0.0" y="0.0" width="360" height="450"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="315" height="450"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="iLO-Ur-jsJ">
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="iLO-Ur-jsJ">
                                             <constraints>
                                                 <constraint firstAttribute="width" secondItem="iLO-Ur-jsJ" secondAttribute="height" multiplier="1:1" id="eOb-yl-R3y"/>
                                             </constraints>
                                         </imageView>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Edn-s5-1d1">
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Edn-s5-1d1">
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
@@ -306,6 +306,10 @@
                                     <constraint firstItem="iLO-Ur-jsJ" firstAttribute="trailing" secondItem="VHI-VR-Xz1" secondAttribute="trailingMargin" id="RxZ-JE-KfG"/>
                                     <constraint firstItem="Edn-s5-1d1" firstAttribute="top" secondItem="iLO-Ur-jsJ" secondAttribute="bottom" constant="20" id="zfr-TW-fXF"/>
                                 </constraints>
+                                <connections>
+                                    <outlet property="image" destination="iLO-Ur-jsJ" id="0Dh-lR-lwa"/>
+                                    <outlet property="name" destination="Edn-s5-1d1" id="A5S-Qb-Ft6"/>
+                                </connections>
                             </collectionViewCell>
                         </cells>
                         <connections>
