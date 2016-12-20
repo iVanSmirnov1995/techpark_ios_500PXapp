@@ -15,4 +15,10 @@
 
 @property (weak, nonatomic) IBOutlet UINavigationItem *navigationItem;
 
+
+@property (weak, nonatomic) IBOutlet UIImageView *imagePhoto;
+@property (weak, nonatomic) IBOutlet UILabel *label;
+@property (weak,nonatomic)  NSString *str;
+@property (weak,nonatomic) NSURL *url;
+
 @end

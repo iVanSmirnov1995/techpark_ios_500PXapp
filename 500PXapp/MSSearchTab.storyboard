@@ -226,8 +226,8 @@
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <color key="tintColor" cocoaTouchSystemColor="tableCellGroupedBackgroundColor"/>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="1.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="ryu-RW-tjF">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="213.5"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ryu-RW-tjF">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="214"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="ryu-RW-tjF" secondAttribute="height" multiplier="1.5:1" id="N0M-sb-7Pa"/>
                                 </constraints>
@@ -250,16 +250,27 @@
                                 </items>
                             </navigationBar>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" image="whiteRectangle" translatesAutoresizingMaskIntoConstraints="NO" id="VGT-dw-gki">
-                                <rect key="frame" x="0.0" y="213.5" width="320" height="64"/>
+                                <rect key="frame" x="0.0" y="214" width="320" height="64"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="VGT-dw-gki" secondAttribute="height" multiplier="5:1" id="xFt-EQ-xTb"/>
                                 </constraints>
                             </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4Y4-2E-0N1">
+                                <rect key="frame" x="45" y="221" width="230" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="230" id="miG-FT-2rb"/>
+                                    <constraint firstAttribute="height" constant="50" id="qI2-gj-ZHE"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="PingFangTC-Light" family="PingFang TC" pointSize="20"/>
+                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="z40-g8-hck" firstAttribute="leading" secondItem="0ct-Ir-5BT" secondAttribute="leading" id="4L0-Fq-ffq"/>
                             <constraint firstAttribute="trailing" secondItem="ShI-St-29f" secondAttribute="trailing" id="753-5k-F2F"/>
+                            <constraint firstItem="4Y4-2E-0N1" firstAttribute="centerY" secondItem="VGT-dw-gki" secondAttribute="centerY" id="PAq-Bp-8yM"/>
                             <constraint firstItem="VGT-dw-gki" firstAttribute="top" secondItem="ryu-RW-tjF" secondAttribute="bottom" id="XY7-uS-0W8"/>
                             <constraint firstItem="z40-g8-hck" firstAttribute="centerX" secondItem="0ct-Ir-5BT" secondAttribute="centerX" id="Yc9-NP-g40"/>
                             <constraint firstItem="ryu-RW-tjF" firstAttribute="leading" secondItem="0ct-Ir-5BT" secondAttribute="leading" id="Z4G-KP-CY0"/>
@@ -272,10 +283,13 @@
                             <constraint firstItem="ShI-St-29f" firstAttribute="leading" secondItem="0ct-Ir-5BT" secondAttribute="leading" id="mWt-4C-iFA"/>
                             <constraint firstItem="ryu-RW-tjF" firstAttribute="centerX" secondItem="0ct-Ir-5BT" secondAttribute="centerX" id="xeU-1W-H1X"/>
                             <constraint firstAttribute="trailing" secondItem="z40-g8-hck" secondAttribute="trailing" id="ywu-pd-YJa"/>
+                            <constraint firstItem="4Y4-2E-0N1" firstAttribute="centerX" secondItem="0ct-Ir-5BT" secondAttribute="centerX" id="zeI-hp-PZ4"/>
                             <constraint firstAttribute="trailing" secondItem="ryu-RW-tjF" secondAttribute="trailing" id="zyl-b3-AVf"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="imagePhoto" destination="ryu-RW-tjF" id="RDs-8D-cSg"/>
+                        <outlet property="label" destination="4Y4-2E-0N1" id="18Y-AO-KgA"/>
                         <outlet property="navigationBar" destination="ShI-St-29f" id="SJ6-JP-4TZ"/>
                         <outlet property="navigationItem" destination="Xos-9v-EAG" id="fTo-dz-x9T"/>
                     </connections>
@@ -286,7 +300,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="1.jpg" width="500" height="270"/>
         <image name="Rectangle 36" width="375" height="42"/>
         <image name="Rectangle 48" width="320" height="48"/>
         <image name="backButton" width="18" height="32"/>
