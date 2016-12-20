@@ -182,11 +182,18 @@ typedef enum {
         cell.userName.text=newsModel.userName;
         cell.data.text=newsModel.data;
         cell.likeButton.tag=newsModel.photoID;
+        cell.like=newsModel.liked;
+        cell.likeButton.enabled=YES;
         
         if (newsModel.liked) {
         [cell.likeButton setImage:[UIImage imageNamed:@"like3"] forState:UIControlStateNormal];
-        }else  [cell.likeButton setImage:[UIImage imageNamed:@"like"] forState:UIControlStateNormal];
+        }else {
+            
+        [cell.likeButton setImage:[UIImage imageNamed:@"like"] forState:UIControlStateNormal];
+            
+        }
         cell.delegate=self;
+        
         
         return cell;
     }

@@ -24,6 +24,9 @@
 
 - (IBAction)addLike:(UIButton *)sender {
     
+    sender.enabled=NO;
+    if (!self.like) {
+        
     [sender setImage:[UIImage imageNamed:@"like3"] forState:UIControlStateNormal];
     [[ISServerManager sharedManager]POSTLike:YES PhotoWithId:sender.tag OnSuccess:^(NSMutableArray *coments) {
         
@@ -31,8 +34,20 @@
         
     } onFailure:^(NSError *error, NSInteger statusCode) {
         
+    }];}
+          else
+    {
+    [sender setImage:[UIImage imageNamed:@"like"] forState:UIControlStateNormal];
+    [[ISServerManager sharedManager]DELETELike:YES PhotoWithId:sender.tag OnSuccess:^(NSMutableArray *coments) {
+        
+         [self.delegate likeDidSet:self];
+        
+    } onFailure:^(NSError *error, NSInteger statusCode) {
+        
+        
     }];
     
+    }
     
 }
 @end

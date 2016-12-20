@@ -70,6 +70,7 @@
     
     [[ISServerManager sharedManager]setOauthTokenSecret:userData.oauthTokenSecret];
     [[ISServerManager sharedManager]setOauthToken:userData.oauthToken];
+    [[ISServerManager sharedManager]setUserID:userData.userID];
     [[ISServerManager sharedManager]getUserOnSuccess:^(ISUser *user) {
         
         [[ISServerManager sharedManager]setUser:user];

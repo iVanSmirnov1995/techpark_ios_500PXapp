@@ -10,7 +10,7 @@
 
 @interface ISUser : NSObject
 
-@property(assign,nonatomic)long userId;
+@property(assign)NSInteger userId;
 @property(strong,nonatomic)NSString* firstName;
 @property(strong,nonatomic)NSString* lastName;
 @property(strong,nonatomic)NSString* username;

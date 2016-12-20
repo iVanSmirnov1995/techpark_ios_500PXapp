@@ -20,6 +20,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *data;
 - (IBAction)addLike:(UIButton *)sender;
 @property (weak, nonatomic) IBOutlet UIButton *likeButton;
+@property (assign, nonatomic) BOOL like;
 
 @end
 
