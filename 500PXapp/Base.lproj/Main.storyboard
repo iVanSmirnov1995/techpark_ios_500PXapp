@@ -10,26 +10,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
-        <scene sceneID="6ut-1o-nSD">
-            <objects>
-                <viewController id="fOy-Pm-uiB" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="DK4-A0-FQE"/>
-                        <viewControllerLayoutGuide type="bottom" id="QGs-hj-FcQ"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="Rfc-6z-rEx">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                    <tabBarItem key="tabBarItem" systemItem="favorites" id="GsT-FD-ErH"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="QWI-44-pey" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1462" y="718"/>
-        </scene>
-        <!--Camera-->
+        <!--CameraVC-->
         <scene sceneID="McR-wc-cFP">
             <objects>
                 <viewController id="oiJ-hC-D15" customClass="CameraVC" sceneMemberID="viewController">
@@ -41,10 +22,13 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jQf-V2-4Op">
-                                <rect key="frame" x="118" y="122" width="128" height="101"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jQf-V2-4Op">
+                                <rect key="frame" x="123" y="115" width="128" height="101"/>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="128" id="WIm-vK-wdx"/>
+                                    <constraint firstAttribute="height" constant="101" id="sQj-nL-Qyv"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" name="PingFangTC-Light" family="PingFang TC" pointSize="17"/>
                                 <state key="normal" title="Камера ">
                                     <color key="titleColor" red="0.43529411759999997" green="0.4431372549" blue="0.47450980390000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -54,10 +38,13 @@
                                     <action selector="showCamera:" destination="oiJ-hC-D15" eventType="touchUpInside" id="LHY-Ah-8OI"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1Ji-Zz-OIj">
-                                <rect key="frame" x="118" y="337" width="128" height="101"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1Ji-Zz-OIj">
+                                <rect key="frame" x="123" y="349" width="128" height="101"/>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="101" id="9FY-H9-CJj"/>
+                                    <constraint firstAttribute="width" constant="128" id="rOP-bK-paQ"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" name="PingFangTC-Light" family="PingFang TC" pointSize="17"/>
                                 <state key="normal" title="Фотопленка">
                                     <color key="titleColor" red="0.43529411759999997" green="0.4431372549" blue="0.47450980390000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -69,8 +56,16 @@
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="jQf-V2-4Op" firstAttribute="centerX" secondItem="cj1-Tx-rBQ" secondAttribute="centerX" id="Aaa-cA-MWu"/>
+                            <constraint firstItem="y1N-RH-i8O" firstAttribute="top" secondItem="1Ji-Zz-OIj" secondAttribute="bottom" constant="168" id="Biv-94-v4v"/>
+                            <constraint firstItem="1Ji-Zz-OIj" firstAttribute="centerX" secondItem="cj1-Tx-rBQ" secondAttribute="centerX" id="dlY-g4-RTR"/>
+                            <constraint firstItem="jQf-V2-4Op" firstAttribute="top" secondItem="Pde-Yh-rIK" secondAttribute="bottom" constant="100" id="yAQ-AX-EHw"/>
+                        </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Camera" id="cMi-Uh-46l"/>
+                    <tabBarItem key="tabBarItem" title="" image="camera" id="cMi-Uh-46l">
+                        <inset key="imageInsets" minX="0.0" minY="5" maxX="0.0" maxY="-5"/>
+                    </tabBarItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Fva-P9-jav" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -309,7 +304,10 @@
                             <constraint firstItem="Tp6-nK-lA2" firstAttribute="leading" secondItem="DRJ-vF-dwf" secondAttribute="leadingMargin" id="s9O-7b-4tT"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="домой" image="home" id="Ocf-IV-bU4"/>
+                    <tabBarItem key="tabBarItem" title="" image="house2" id="Ocf-IV-bU4">
+                        <inset key="imageInsets" minX="0.0" minY="5" maxX="0.0" maxY="-5"/>
+                        <offsetWrapper key="titlePositionAdjustment" horizontal="0.0" vertical="0.0"/>
+                    </tabBarItem>
                     <navigationItem key="navigationItem" title="Новости Друзей" id="iuS-lO-VQT"/>
                     <connections>
                         <outlet property="tableView" destination="Tp6-nK-lA2" id="lLo-O6-FL1"/>
@@ -355,7 +353,6 @@
                         <segue destination="3JN-hH-ZcB" kind="relationship" relationship="viewControllers" id="Nt8-2c-gRu"/>
                         <segue destination="UBh-AH-dRj" kind="relationship" relationship="viewControllers" id="af5-6B-QdX"/>
                         <segue destination="oiJ-hC-D15" kind="relationship" relationship="viewControllers" id="Ovp-lU-STO"/>
-                        <segue destination="fOy-Pm-uiB" kind="relationship" relationship="viewControllers" id="oz6-WR-Ao4"/>
                         <segue destination="PXl-B5-Uts" kind="relationship" relationship="viewControllers" id="d1g-zT-9G9"/>
                     </connections>
                 </tabBarController>
@@ -443,6 +440,7 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="PXl-B5-Uts" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="" image="user" id="29U-Fl-H50">
+                        <inset key="imageInsets" minX="0.0" minY="5" maxX="0.0" maxY="-5"/>
                         <offsetWrapper key="titlePositionAdjustment" horizontal="0.0" vertical="0.0"/>
                     </tabBarItem>
                     <toolbarItems/>
@@ -681,7 +679,9 @@
         <scene sceneID="hQC-XV-NKY">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" id="UBh-AH-dRj" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" systemItem="search" id="cCy-kT-Vmc"/>
+                    <tabBarItem key="tabBarItem" image="search" id="cCy-kT-Vmc">
+                        <inset key="imageInsets" minX="0.0" minY="5" maxX="0.0" maxY="-5"/>
+                    </tabBarItem>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="kHm-Q8-UgE">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -698,13 +698,15 @@
     <resources>
         <image name="500px-logo" width="317" height="79"/>
         <image name="Button3-1" width="330" height="60"/>
+        <image name="camera" width="48" height="40"/>
         <image name="dialog" width="32" height="32"/>
         <image name="final-image-bg" width="375" height="667"/>
-        <image name="home" width="30" height="30"/>
+        <image name="house2" width="40" height="40"/>
         <image name="inf" width="20" height="20"/>
         <image name="like" width="44" height="41"/>
         <image name="like2" width="20" height="19"/>
         <image name="sare" width="14" height="20"/>
+        <image name="search" width="36" height="36"/>
         <image name="user" width="30" height="30"/>
     </resources>
 </document>
