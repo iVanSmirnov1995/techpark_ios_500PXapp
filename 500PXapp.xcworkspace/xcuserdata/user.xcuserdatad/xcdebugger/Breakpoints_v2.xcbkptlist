@@ -74,11 +74,19 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "500PXapp/MyPageVC.m"
+<<<<<<< 1a8be93b83826a35e3c8c819e8202df5d54469ad
             timestampString = "504019273.49083"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "220"
             endingLineNumber = "220"
+=======
+            timestampString = "503956927.581155"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "242"
+            endingLineNumber = "242"
+>>>>>>> add followButton (without functional)
             landmarkName = "-folowersButtonPressed:"
             landmarkType = "7">
          </BreakpointContent>
@@ -170,11 +178,19 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "500PXapp/MyPageVC.m"
+<<<<<<< 1a8be93b83826a35e3c8c819e8202df5d54469ad
             timestampString = "504016152.763909"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "137"
             endingLineNumber = "137"
+=======
+            timestampString = "503955806.417077"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "149"
+            endingLineNumber = "149"
+>>>>>>> add followButton (without functional)
             landmarkName = "-getSpecifiedUserFromServer"
             landmarkType = "7">
          </BreakpointContent>
@@ -186,11 +202,19 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "500PXapp/MyPageVC.m"
+<<<<<<< 1a8be93b83826a35e3c8c819e8202df5d54469ad
             timestampString = "504016152.763909"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "86"
             endingLineNumber = "86"
+=======
+            timestampString = "503955806.417077"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "84"
+            endingLineNumber = "84"
+>>>>>>> add followButton (without functional)
             landmarkName = "-setUser"
             landmarkType = "7">
          </BreakpointContent>
@@ -202,11 +226,19 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "500PXapp/MyPageVC.m"
+<<<<<<< 1a8be93b83826a35e3c8c819e8202df5d54469ad
             timestampString = "504016152.763909"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "85"
             endingLineNumber = "85"
+=======
+            timestampString = "503955806.417077"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "83"
+            endingLineNumber = "83"
+>>>>>>> add followButton (without functional)
             landmarkName = "-setUser"
             landmarkType = "7">
          </BreakpointContent>
@@ -218,11 +250,19 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "500PXapp/MyPageVC.m"
+<<<<<<< 1a8be93b83826a35e3c8c819e8202df5d54469ad
             timestampString = "504016152.763909"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "97"
             endingLineNumber = "97"
+=======
+            timestampString = "503955806.417077"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "95"
+            endingLineNumber = "95"
+>>>>>>> add followButton (without functional)
             landmarkName = "-getMyUserFromServer"
             landmarkType = "7">
          </BreakpointContent>
@@ -234,11 +274,19 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "500PXapp/MyPageVC.m"
+<<<<<<< 1a8be93b83826a35e3c8c819e8202df5d54469ad
             timestampString = "504016152.763909"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "128"
             endingLineNumber = "128"
+=======
+            timestampString = "503955806.417077"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "126"
+            endingLineNumber = "126"
+>>>>>>> add followButton (without functional)
             landmarkName = "-getMyUserFromServer"
             landmarkType = "7">
          </BreakpointContent>
@@ -249,6 +297,25 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
+<<<<<<< 1a8be93b83826a35e3c8c819e8202df5d54469ad
+=======
+            filePath = "500PXapp/MyPageVC.m"
+            timestampString = "503955806.417077"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "146"
+            endingLineNumber = "146"
+            landmarkName = "-getSpecifiedUserFromServer"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+>>>>>>> add followButton (without functional)
             filePath = "500PXapp/ISServerManager.m"
             timestampString = "503748940.588674"
             startingColumnNumber = "9223372036854775807"
@@ -266,11 +333,19 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "500PXapp/ISServerManager.m"
+<<<<<<< 1a8be93b83826a35e3c8c819e8202df5d54469ad
             timestampString = "504016760.498947"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "472"
             endingLineNumber = "472"
+=======
+            timestampString = "503955806.417077"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "513"
+            endingLineNumber = "513"
+>>>>>>> add followButton (without functional)
             landmarkName = "-getPhotosOnUserID:withPage:onSuccess:onFailure:"
             landmarkType = "7">
          </BreakpointContent>
@@ -377,6 +452,25 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
+<<<<<<< 1a8be93b83826a35e3c8c819e8202df5d54469ad
+=======
+            filePath = "500PXapp/ISServerManager.m"
+            timestampString = "503955806.417077"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "503"
+            endingLineNumber = "503"
+            landmarkName = "-getPhotosOnUserID:withPage:onSuccess:onFailure:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+>>>>>>> add followButton (without functional)
             filePath = "500PXapp/PhotoCollectionVC.m"
             timestampString = "503947567.387993"
             startingColumnNumber = "9223372036854775807"
@@ -394,12 +488,21 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "500PXapp/ISServerManager.m"
+<<<<<<< 1a8be93b83826a35e3c8c819e8202df5d54469ad
             timestampString = "504016760.498947"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "495"
             endingLineNumber = "495"
             landmarkName = "-getPhotosOnUserID:withPage:onSuccess:onFailure:"
+=======
+            timestampString = "503955806.417077"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "536"
+            endingLineNumber = "536"
+            landmarkName = "-getGalleriesOnUserID:onPage:onSuccess:onError:"
+>>>>>>> add followButton (without functional)
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -410,11 +513,19 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "500PXapp/ISServerManager.m"
+<<<<<<< 1a8be93b83826a35e3c8c819e8202df5d54469ad
             timestampString = "504016760.498947"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "507"
             endingLineNumber = "507"
+=======
+            timestampString = "503955806.417077"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "548"
+            endingLineNumber = "548"
+>>>>>>> add followButton (without functional)
             landmarkName = "-getGalleriesOnUserID:onPage:onSuccess:onError:"
             landmarkType = "7">
          </BreakpointContent>
@@ -474,15 +585,24 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "500PXapp/MyPageVC.m"
+<<<<<<< 1a8be93b83826a35e3c8c819e8202df5d54469ad
             timestampString = "504016152.763909"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "81"
             endingLineNumber = "81"
+=======
+            timestampString = "503955806.417077"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "79"
+            endingLineNumber = "79"
+>>>>>>> add followButton (without functional)
             landmarkName = "-setUser"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
+<<<<<<< 1a8be93b83826a35e3c8c819e8202df5d54469ad
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
@@ -643,5 +763,7 @@
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
+=======
+>>>>>>> add followButton (without functional)
    </Breakpoints>
 </Bucket>

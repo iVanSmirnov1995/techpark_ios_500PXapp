@@ -444,6 +444,9 @@
               }];
 }
 
+
+// переделать, чтобы передавался словарь, а не сам юзер
+
 -(void) getUserOnID:(NSInteger)userID
           onSuccess:(void (^)(NSDictionary *))success
           onFailure:(void (^)(NSError *, NSInteger))failure {
@@ -468,6 +471,44 @@
               }];
     
 }
+//-(void) getUserOnID:(NSInteger)userID
+//          onSuccess:(void (^)(ISUser *))success
+//          onFailure:(void (^)(NSError *, NSInteger))failure {
+//    
+//    NSDictionary* param = @{@"id":@(userID),
+//                            @"consumer_key":@"XyuX14AQBpiWjfUcRyXA2jyB5ensjjJD6gBFcGHI"};
+//    
+//    NSURL *URL = [NSURL URLWithString: @"https://api.500px.com/v1/users/show"];
+//    
+//    [self.manager GET:URL.absoluteString
+//           parameters:param progress:nil
+//              success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+//                  
+//                  ISUser* user = [[ISUser alloc] init];
+//                  NSDictionary* userDic = [responseObject objectForKey:@"user"];
+//                  
+//                  user.firstName=[userDic objectForKey:@"firstname"];
+//                  user.lastName=[userDic objectForKey:@"lastname"];
+////                  user.sex=[[userDic objectForKey:@"sex"]floatValue];
+//                  user.city=[userDic objectForKey:@"city"];
+//                  user.avatar=[[[userDic objectForKey:@"avatars"]objectForKey:@"small"] objectForKey:@"https"];
+//                  user.userId=[[userDic objectForKey:@"id"]longValue];
+//                  user.username=[userDic objectForKey:@"username"];
+//                  user.cover = [userDic objectForKey:@"cover_url"];
+//                  user.friendsCount = [[userDic objectForKey:@"friends_count"] integerValue];
+//                  user.followersCount = [[userDic objectForKey:@"followers_count"] integerValue];
+//                  user.fullName = [ userDic objectForKey:@"full_name"];
+////                  self.user=user;
+//                  
+//                  if (success) {
+//                      success(user);
+//                  }
+//              }
+//              failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+//        
+//              }];
+//
+//}
 
 -(void) getPhotosOnUserID: (NSInteger) userID
                  withPage: (NSInteger) page

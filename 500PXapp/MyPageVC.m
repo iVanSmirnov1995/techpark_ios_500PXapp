@@ -131,6 +131,23 @@
 
 -(void) getSpecifiedUserFromServer {
     [[ISServerManager sharedManager] getUserOnID: self.userID onSuccess:^(NSDictionary *user) {
+<<<<<<< 1a8be93b83826a35e3c8c819e8202df5d54469ad
+=======
+        
+//        user.firstName=[userDic objectForKey:@"firstname"];
+//        user.lastName=[userDic objectForKey:@"lastname"];
+//        //                  user.sex=[[userDic objectForKey:@"sex"]floatValue];
+//        user.city=[userDic objectForKey:@"city"];
+//        user.avatar=[[[userDic objectForKey:@"avatars"]objectForKey:@"small"] objectForKey:@"https"];
+//        user.userId=[[userDic objectForKey:@"id"]longValue];
+//        user.username=[userDic objectForKey:@"username"];
+//        user.cover = [userDic objectForKey:@"cover_url"];
+//        user.friendsCount = [[userDic objectForKey:@"friends_count"] integerValue];
+//        user.followersCount = [[userDic objectForKey:@"followers_count"] integerValue];
+//        user.fullName = [ userDic objectForKey:@"full_name"];
+//        //                  self.user=user;
+
+>>>>>>> add followButton (without functional)
         
         dispatch_async(dispatch_get_main_queue(), ^{
             
@@ -180,6 +197,36 @@
             self.followButton.hidden = NO;
 
             [self.indicator stopAnimating];
+            
+//            self.userName.text = user.username;
+//            
+//            if(![user.firstName isEqual: [NSNull null]]) {
+//                self.fullName.text = [NSString stringWithFormat:@"%@", user.firstName];
+//                if(![user.lastName isEqual: [NSNull null]]) {
+//                    self.fullName.text = [NSString stringWithFormat:@"%@ %@",
+//                                          self.fullName.text, user.lastName];
+//                }
+//            } else if (![user.lastName isEqual: [NSNull null]]) {
+//                self.fullName.text = [NSString stringWithFormat:@"%@", user.lastName];
+//            }
+//            
+//            if(![user.cover isEqual: [NSNull null]]) {
+//                [self.miniature setImageWithURL:[NSURL URLWithString:user.cover]];
+//            }
+//            
+//            if(![user.avatar isEqual: [NSNull null]]) {
+//                [self.avatar setImageWithURL: [NSURL URLWithString:user.avatar]];
+//            }
+//            [self.folowers setTitle:
+//             [NSString stringWithFormat:@"%ld подписчиков", (long)user.followersCount]
+//                           forState:UIControlStateNormal];
+//            
+//            [self.friends setTitle:[NSString stringWithFormat:@"%ld друзей", (long)user.friendsCount]
+//                          forState:UIControlStateNormal];
+//            
+//            //            self.isFollow = [user ]
+//            
+//            [self.indicator stopAnimating];
         });
         
     } onFailure:^(NSError *erroor, NSInteger errorCode) {
@@ -189,6 +236,7 @@
 
 #pragma mark - Actions
 - (IBAction)followButtonPressed:(id)sender {
+<<<<<<< 1a8be93b83826a35e3c8c819e8202df5d54469ad
     if(self.isFollow) {
         [[ISServerManager sharedManager] deleteFollowOnUser:self.userID onSuccess:^{
             dispatch_async(dispatch_get_main_queue(), ^{
@@ -213,6 +261,8 @@
             
         }];
     }
+=======
+>>>>>>> add followButton (without functional)
 }
 
 - (IBAction)folowersButtonPressed:(id)sender {
