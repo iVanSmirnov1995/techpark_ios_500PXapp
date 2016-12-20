@@ -56,6 +56,7 @@
 		D3E8FC951DFF344C00ED5E76 /* OAuth1Controller.m in Sources */ = {isa = PBXBuildFile; fileRef = D3E8FC8F1DFF344C00ED5E76 /* OAuth1Controller.m */; };
 		D3E8FC961DFF344C00ED5E76 /* sha1.c in Sources */ = {isa = PBXBuildFile; fileRef = D3E8FC901DFF344C00ED5E76 /* sha1.c */; };
 		D3F072821DFB2E7E00BD62B0 /* LoginWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D3F072811DFB2E7E00BD62B0 /* LoginWebViewController.m */; };
+		F51326C91E094FAA00A74554 /* CameraVC.m in Sources */ = {isa = PBXBuildFile; fileRef = F51326C81E094FAA00A74554 /* CameraVC.m */; };
 		F5423C251DCB6982006FD69A /* ISNewsFeedModel.m in Sources */ = {isa = PBXBuildFile; fileRef = F5423C201DCB6982006FD69A /* ISNewsFeedModel.m */; };
 		F5423C261DCB6982006FD69A /* PhotosCellModel.m in Sources */ = {isa = PBXBuildFile; fileRef = F5423C221DCB6982006FD69A /* PhotosCellModel.m */; };
 		F5423C271DCB6982006FD69A /* ISSearchModel.m in Sources */ = {isa = PBXBuildFile; fileRef = F5423C241DCB6982006FD69A /* ISSearchModel.m */; };
@@ -205,6 +206,8 @@
 		D3E8FC911DFF344C00ED5E76 /* sha1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = sha1.h; sourceTree = "<group>"; };
 		D3F072801DFB2E7E00BD62B0 /* LoginWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginWebViewController.h; sourceTree = "<group>"; };
 		D3F072811DFB2E7E00BD62B0 /* LoginWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginWebViewController.m; sourceTree = "<group>"; };
+		F51326C71E094FAA00A74554 /* CameraVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CameraVC.h; sourceTree = "<group>"; };
+		F51326C81E094FAA00A74554 /* CameraVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CameraVC.m; sourceTree = "<group>"; };
 		F5423C1F1DCB6982006FD69A /* ISNewsFeedModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ISNewsFeedModel.h; sourceTree = "<group>"; };
 		F5423C201DCB6982006FD69A /* ISNewsFeedModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ISNewsFeedModel.m; sourceTree = "<group>"; };
 		F5423C211DCB6982006FD69A /* PhotosCellModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhotosCellModel.h; sourceTree = "<group>"; };
@@ -654,6 +657,8 @@
 				F57A00781E070484005F3443 /* MSPhotoVC */,
 				F5423C441DCB6B17006FD69A /* IsSearchVC.h */,
 				F5423C451DCB6B17006FD69A /* IsSearchVC.m */,
+				F51326C71E094FAA00A74554 /* CameraVC.h */,
+				F51326C81E094FAA00A74554 /* CameraVC.m */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -947,6 +952,7 @@
 				D3E8FC931DFF344C00ED5E76 /* hmac.c in Sources */,
 				F5423C481DCB6B17006FD69A /* IsSearchVC.m in Sources */,
 				D3A28B4E1DEF3A3600EA415B /* BDBOAuth1SessionManager.m in Sources */,
+				F51326C91E094FAA00A74554 /* CameraVC.m in Sources */,
 				CE9F72CB1E05A341001261BB /* OSFriendsTVC.m in Sources */,
 				D31361461E0481680075BD5C /* ISCoreDataTableViewController.m in Sources */,
 				D33A78BB1DDDDFB600BC743A /* ISRootPegeVC.m in Sources */,

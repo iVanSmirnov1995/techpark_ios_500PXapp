@@ -32,7 +32,7 @@
     
     self.label.text = self.str;
     [self.imagePhoto setImageWithURL:self.url];
-    NSLog(@"%@",self.str);
+ //   NSLog(@"%@",self.str);
     [ self.navigationBar setBackgroundImage:[UIImage imageNamed:@"Rectangle48@2x.png"] forBarMetrics:UIBarMetricsDefault];
     
     
