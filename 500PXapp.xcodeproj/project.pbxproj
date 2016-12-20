@@ -13,6 +13,9 @@
 		CEBEB15B1E03379B00C0D737 /* OSCustomCellForSubsTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = CEBEB15A1E03379B00C0D737 /* OSCustomCellForSubsTVC.m */; };
 		CEBEB15E1E03387C00C0D737 /* OSSubscribersTableVC.m in Sources */ = {isa = PBXBuildFile; fileRef = CEBEB15D1E03387C00C0D737 /* OSSubscribersTableVC.m */; };
 		CEBEB1641E03396900C0D737 /* OSCustomCellForSubTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = CEBEB1631E03396900C0D737 /* OSCustomCellForSubTVC.m */; };
+		CEC7E7551E08592A00FDC80A /* OSGalleriesCVC.m in Sources */ = {isa = PBXBuildFile; fileRef = CEC7E7541E08592A00FDC80A /* OSGalleriesCVC.m */; };
+		CEC7E7581E0863AC00FDC80A /* OSGalleriesCellCVC.m in Sources */ = {isa = PBXBuildFile; fileRef = CEC7E7571E0863AC00FDC80A /* OSGalleriesCellCVC.m */; };
+		CEC7E75C1E0863F400FDC80A /* OSGalleriesCellModel.m in Sources */ = {isa = PBXBuildFile; fileRef = CEC7E75B1E0863F400FDC80A /* OSGalleriesCellModel.m */; };
 		CEF7F4301DDF45D800447439 /* MyPageTab.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CEF7F42E1DDF45D800447439 /* MyPageTab.storyboard */; };
 		D31361461E0481680075BD5C /* ISCoreDataTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D31361411E0481680075BD5C /* ISCoreDataTableViewController.m */; };
 		D31361471E0481680075BD5C /* ISCoreDataViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D31361431E0481680075BD5C /* ISCoreDataViewController.m */; };
@@ -122,6 +125,12 @@
 		CEBEB15D1E03387C00C0D737 /* OSSubscribersTableVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OSSubscribersTableVC.m; sourceTree = "<group>"; };
 		CEBEB1621E03396900C0D737 /* OSCustomCellForSubTVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OSCustomCellForSubTVC.h; sourceTree = "<group>"; };
 		CEBEB1631E03396900C0D737 /* OSCustomCellForSubTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OSCustomCellForSubTVC.m; sourceTree = "<group>"; };
+		CEC7E7531E08592A00FDC80A /* OSGalleriesCVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OSGalleriesCVC.h; sourceTree = "<group>"; };
+		CEC7E7541E08592A00FDC80A /* OSGalleriesCVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OSGalleriesCVC.m; sourceTree = "<group>"; };
+		CEC7E7561E0863AC00FDC80A /* OSGalleriesCellCVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OSGalleriesCellCVC.h; sourceTree = "<group>"; };
+		CEC7E7571E0863AC00FDC80A /* OSGalleriesCellCVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OSGalleriesCellCVC.m; sourceTree = "<group>"; };
+		CEC7E75A1E0863F400FDC80A /* OSGalleriesCellModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OSGalleriesCellModel.h; sourceTree = "<group>"; };
+		CEC7E75B1E0863F400FDC80A /* OSGalleriesCellModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OSGalleriesCellModel.m; sourceTree = "<group>"; };
 		CEF7F42F1DDF45D800447439 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MyPageTab.storyboard; sourceTree = "<group>"; };
 		D31361401E0481680075BD5C /* ISCoreDataTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ISCoreDataTableViewController.h; sourceTree = "<group>"; };
 		D31361411E0481680075BD5C /* ISCoreDataTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ISCoreDataTableViewController.m; sourceTree = "<group>"; };
@@ -301,6 +310,7 @@
 		CEBEB15F1E03391D00C0D737 /* MyPage */ = {
 			isa = PBXGroup;
 			children = (
+				CEC7E7591E0863CB00FDC80A /* Galleries */,
 				CEBEB1611E03393600C0D737 /* Users */,
 				CEBEB1601E03392E00C0D737 /* Photos */,
 			);
@@ -325,9 +335,30 @@
 			name = Users;
 			sourceTree = "<group>";
 		};
+		CEC7E7521E0858B800FDC80A /* Galleries */ = {
+			isa = PBXGroup;
+			children = (
+				CEC7E7531E08592A00FDC80A /* OSGalleriesCVC.h */,
+				CEC7E7541E08592A00FDC80A /* OSGalleriesCVC.m */,
+				CEC7E7561E0863AC00FDC80A /* OSGalleriesCellCVC.h */,
+				CEC7E7571E0863AC00FDC80A /* OSGalleriesCellCVC.m */,
+			);
+			name = Galleries;
+			sourceTree = "<group>";
+		};
+		CEC7E7591E0863CB00FDC80A /* Galleries */ = {
+			isa = PBXGroup;
+			children = (
+				CEC7E75A1E0863F400FDC80A /* OSGalleriesCellModel.h */,
+				CEC7E75B1E0863F400FDC80A /* OSGalleriesCellModel.m */,
+			);
+			name = Galleries;
+			sourceTree = "<group>";
+		};
 		CEF7F42C1DDF457A00447439 /* MyPage */ = {
 			isa = PBXGroup;
 			children = (
+				CEC7E7521E0858B800FDC80A /* Galleries */,
 				CEBEB1581E03371000C0D737 /* Users */,
 				CEF7F42D1DDF459000447439 /* Photos */,
 				CEA656C31DE18BC6002CD2B3 /* MyPageVC.h */,
@@ -351,6 +382,7 @@
 			isa = PBXGroup;
 			children = (
 				D34965351DB4043E00813293 /* Main.storyboard */,
+				F57A00761E0703F7005F3443 /* MSSearchTab.storyboard */,
 				CEF7F4321DDF45FC00447439 /* MyPage */,
 			);
 			name = Storyboards;
@@ -360,7 +392,6 @@
 			isa = PBXGroup;
 			children = (
 				CEF7F42E1DDF45D800447439 /* MyPageTab.storyboard */,
-				F57A00761E0703F7005F3443 /* MSSearchTab.storyboard */,
 			);
 			name = MyPage;
 			sourceTree = "<group>";
@@ -886,14 +917,17 @@
 				D34965341DB4043E00813293 /* ViewController.m in Sources */,
 				D3E8FC951DFF344C00ED5E76 /* OAuth1Controller.m in Sources */,
 				D3D245D41DE71DBB00F8F33A /* ISAccessToken.m in Sources */,
+				CEC7E7551E08592A00FDC80A /* OSGalleriesCVC.m in Sources */,
 				D3A28B501DEF3A3600EA415B /* NSString+BDBOAuth1Manager.m in Sources */,
 				D3A28B4D1DEF3A3600EA415B /* BDBOAuth1RequestSerializer.m in Sources */,
 				D31361521E0485660075BD5C /* ISCoreDataTabBarVCViewController.m in Sources */,
 				F5423C6A1DCB6B5C006FD69A /* PhotoCollectionVC.m in Sources */,
 				F5423C471DCB6B17006FD69A /* ISHomeVC.m in Sources */,
+				CEC7E7581E0863AC00FDC80A /* OSGalleriesCellCVC.m in Sources */,
 				CEA656C51DE18BC6002CD2B3 /* MyPageVC.m in Sources */,
 				F5423C2B1DCB69F3006FD69A /* IsSearchCollectionLayout.m in Sources */,
 				D349653A1DB4043E00813293 /* _00PXapp.xcdatamodeld in Sources */,
+				CEC7E75C1E0863F400FDC80A /* OSGalleriesCellModel.m in Sources */,
 				D31361471E0481680075BD5C /* ISCoreDataViewController.m in Sources */,
 				CEBEB15E1E03387C00C0D737 /* OSSubscribersTableVC.m in Sources */,
 				F5423C271DCB6982006FD69A /* ISSearchModel.m in Sources */,

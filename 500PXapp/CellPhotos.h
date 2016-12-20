@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "PhotosCellModel.h"
+#import "UIImageView+AFNetworking.h"
 
 @interface CellPhotos : UICollectionViewCell {
     

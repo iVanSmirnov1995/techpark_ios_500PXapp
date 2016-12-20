@@ -11,6 +11,6 @@
 
 @interface PhotosCellModel : NSObject
 
-@property (nonatomic, weak) UIImage *imgPhoto;
+@property (nonatomic, strong) NSString *photoURL;
 
 @end

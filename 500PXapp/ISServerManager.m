@@ -100,13 +100,59 @@
                 }];
     
     [task resume];
+}
+
+-(void)POSTLike:(BOOL)like PhotoWithId:(NSInteger)photoId OnSuccess:(void(^)(NSMutableArray* coments)) success onFailure:(void(^)(NSError* error,NSInteger statusCode))failture{
+    
+    NSString* val=[NSString stringWithFormat:@"%d",like];
+    NSString* path=[NSString stringWithFormat:@"/photos/%ld/vote",(long)photoId];
+    NSDictionary *parameters = @{@"vote":val,@"api_key" : @"XyuX14AQBpiWjfUcRyXA2jyB5ensjjJD6gBFcGHI"};
     
     
+    // Build authorized request based on path, parameters, tokens, timestamp etc.
+    NSURLRequest *preparedRequest = [OAuth1Controller preparedRequestForPath:path
+                                                                  parameters:parameters
+                                                                  HTTPmethod:@"POST"
+                                                                  oauthToken:self.oauthToken
+                                                                 oauthSecret:self.oauthTokenSecret];
     
+    NSURLSession *session = [NSURLSession sharedSession];
+    NSURLSessionDataTask *task = [session dataTaskWithRequest:preparedRequest
+                                            completionHandler:
+                                ^(NSData *data, NSURLResponse *response, NSError *error) {
+                                      
+                                      
+                                      id responseObject = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:nil];
+                                      
+                                      NSArray* comAr=[responseObject objectForKey: @"comments"];
+                                      
+                                      NSMutableArray* inArray=[NSMutableArray array];
+                                      
+                                      for (NSDictionary* d in comAr) {
+                                          
+                                          ISComments* comment=[[ISComments alloc]init];
+                                          comment.body=[d objectForKey:@"body"];
+                                          comment.date=[d objectForKey:@"created_at"];
+                                          
+                                          ISUser* user=[[ISUser alloc]createUserWithResponseObject:d];
+                                          comment.user=user;
+                                          
+                                          [inArray addObject:comment];
+                                      }
+                                      
+                                      if (success) {
+                                          
+                                          success(inArray);
+                                      }
+                                  }];
     
-    
+    [task resume];
+ 
     
 }
+
+
+
 
 -(void)getPhotoComentsWithId:(NSInteger)photoId OnSuccess:(void(^)(NSMutableArray* coments)) success onFailure:(void(^)(NSError* error,NSInteger statusCode))failture{
     
@@ -163,7 +209,7 @@
     
     
     NSString* path=[NSString stringWithFormat:
-  @"/photos?feature=user_friends&user_id=%ld&rpp=100&sort=created_at&image_size=4&include_store=store_download&include_states=voted&consumer_key=XyuX14AQBpiWjfUcRyXA2jyB5ensjjJD6gBFcGHI",self.user.userId];
+  @"/photos?feature=user_friends&user_id=%ld&rpp=50&sort=created_at&image_size=4&include_store=store_download&include_states=voted&consumer_key=XyuX14AQBpiWjfUcRyXA2jyB5ensjjJD6gBFcGHI",self.user.userId];
     
   //  NSLog(@"%ld",self.user.userId);
 
@@ -199,6 +245,7 @@
                     news.userImageName=[[[userDic objectForKey:@"avatars"]objectForKey:@"small"] objectForKey:@"https"];
                     news.photoID=[[newsDic objectForKey:@"id"]longValue];
                     news.imageName=[newsDic objectForKey:@"image_url"];
+                    news.liked=[[newsDic objectForKey:@"voted"]boolValue];
                     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
                     [dateFormatter setDateFormat:@"yyyy-MM-dd'T'HH:mm:ssZ"];
                     NSDate* date = [dateFormatter dateFromString:
@@ -327,22 +374,10 @@
 
 #pragma mark - my requests
 
--(void) getMyAccountOnSuccess:(void(^)(NSArray* friends)) success
-                    onFailure:(void(^)(NSError* error, NSInteger statusCode)) failure {
-    [self.manager GET:@"users"
-           parameters:nil progress:nil
-              success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-        
-    }
-              failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-        
-              }];
-}
-
 -(void) getFollowersOnUserID:(NSInteger) userID
                     withPage:(NSInteger) page
-                   onSuccess:(void(^)(NSArray* followers)) success
-                   onFailure:(void(^)(NSError* error,NSInteger statusCode)) failture {
+                   onSuccess:(void(^)(NSArray* followers, NSInteger followersCount)) success
+                   onFailure:(void(^)(NSError* error, NSInteger statusCode)) failure {
     
     NSDictionary* param = @{@"page":@(page)};
     
@@ -356,8 +391,9 @@
               success:^(NSURLSessionDataTask * _Nonnull task, NSDictionary* responseObject) {
                   NSLog(@"JSON: %@", responseObject);
                   NSArray* followers = [responseObject objectForKey:@"followers"];
+                  NSInteger followersCount = [[responseObject objectForKey:@"followers_count"] integerValue];
                   if(success){
-                      success(followers);
+                      success(followers, followersCount);
                   }
               }
               failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
@@ -368,8 +404,8 @@
 
 -(void) getFriendsOnUserID:(NSInteger) userID
                    withPage:(NSInteger) page
-                  onSuccess:(void(^)(NSArray* followers)) success
-                  onFailure:(void(^)(NSError* error,NSInteger statusCode)) failture {
+                  onSuccess:(void(^)(NSArray*, NSInteger)) success
+                  onFailure:(void(^)(NSError* error, NSInteger statusCode)) failure {
     
     NSDictionary* param = @{@"page":@(page),
                             @"consumer_key":@"XyuX14AQBpiWjfUcRyXA2jyB5ensjjJD6gBFcGHI"};
@@ -384,8 +420,9 @@
               success:^(NSURLSessionDataTask * _Nonnull task, NSDictionary* responseObject) {
                   NSLog(@"JSON: %@", responseObject);
                   NSArray* friends = [responseObject objectForKey:@"friends"];
+                  NSInteger friendsCount = [[responseObject objectForKey:@"friends_count"] integerValue];
                   if(success){
-                      success(friends);
+                      success(friends, friendsCount);
                   }
               }
               failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
@@ -394,8 +431,8 @@
 }
 
 -(void) getUserOnID:(NSInteger)userID
-          OnSuccess:(void (^)(ISUser *))success
-          onFailure:(void (^)(NSError *, NSInteger))failture {
+          onSuccess:(void (^)(ISUser *))success
+          onFailure:(void (^)(NSError *, NSInteger))failure {
     
     NSDictionary* param = @{@"id":@(userID),
                             @"consumer_key":@"XyuX14AQBpiWjfUcRyXA2jyB5ensjjJD6gBFcGHI"};
@@ -430,6 +467,60 @@
         
               }];
 
+}
+
+-(void) getPhotosOnUserID: (NSInteger) userID
+                 withPage: (NSInteger) page
+                onSuccess: (void (^)(NSArray *, NSInteger))success
+                onFailure: (void (^)(NSError *, NSInteger))failure {
+    
+    NSDictionary* param = @{@"feature": @"user",
+                            @"user_id": @(userID),
+                            @"page": @(page),
+                            @"image_size": @"3,600",
+                            @"consumer_key": @"XyuX14AQBpiWjfUcRyXA2jyB5ensjjJD6gBFcGHI"};
+    
+    NSURL *URL = [NSURL URLWithString: @"https://api.500px.com/v1/photos"];
+    
+    [self.manager GET:URL.absoluteString parameters:param progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        
+        NSLog(@"%@", responseObject);
+        
+        NSArray* photos = [responseObject objectForKey:@"photos"];
+        NSInteger photosCount = [[responseObject objectForKey:@"total_items"] integerValue];
+        
+        if(success) {
+            success(photos, photosCount);
+        }
+        
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        
+    }];
+
+}
+
+-(void) getGalleriesOnUserID: (NSInteger) userID
+                      onPage: (NSInteger) page
+                   onSuccess: (void(^)(NSArray*, NSInteger)) success
+                     onError: (void(^)(NSError*, NSInteger)) failure {
+    
+    NSURL* URL = [NSURL URLWithString:
+                  [NSString stringWithFormat:
+                   @"https://api.500px.com/v1/users/%@/galleries", @(userID)]];
+    
+    NSDictionary* param = @{@"privace": @"public",
+                            @"page": @(page),
+                            @"consumer_key": @"XyuX14AQBpiWjfUcRyXA2jyB5ensjjJD6gBFcGHI"};
+    [self.manager GET:URL.absoluteString
+           parameters:param progress:nil
+              success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+              
+                  NSLog(@"%@", responseObject);
+                  
+              } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+              
+              }];
+                            
 }
 
 

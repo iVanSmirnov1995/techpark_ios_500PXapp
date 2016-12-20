@@ -186,6 +186,9 @@
                                                         <constraint firstAttribute="height" constant="29" id="ZBj-o9-SYS"/>
                                                     </constraints>
                                                     <state key="normal" image="like"/>
+                                                    <connections>
+                                                        <action selector="addLike:" destination="49c-xY-iQX" eventType="touchUpInside" id="5ED-Tc-eXn"/>
+                                                    </connections>
                                                 </button>
                                             </subviews>
                                             <constraints>
@@ -201,6 +204,7 @@
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="data" destination="kmq-3A-fM4" id="hQ4-GB-yDS"/>
+                                            <outlet property="likeButton" destination="IqJ-cr-EXN" id="hlj-ak-4kH"/>
                                             <outlet property="userImage" destination="ZqW-nm-L8X" id="z2j-3Q-qfk"/>
                                             <outlet property="userName" destination="lHr-i4-2tZ" id="LbN-CG-RQU"/>
                                         </connections>
@@ -280,10 +284,10 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3qU-Qa-afY">
-                                                    <rect key="frame" x="8" y="7" width="167.5" height="30"/>
-                                                    <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="18"/>
+                                                    <rect key="frame" x="8" y="12" width="167.5" height="20"/>
+                                                    <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="14"/>
                                                     <inset key="titleEdgeInsets" minX="20" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                                    <state key="normal" title=" Детали" image="info">
+                                                    <state key="normal" title=" Детали" image="inf">
                                                         <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="0.51000000000000001" colorSpace="calibratedRGB"/>
                                                     </state>
                                                     <connections>
@@ -291,9 +295,10 @@
                                                     </connections>
                                                 </button>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xyn-jR-SJj">
-                                                    <rect key="frame" x="175.5" y="5" width="167.5" height="35"/>
+                                                    <rect key="frame" x="175.5" y="12.5" width="167.5" height="20"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <inset key="titleEdgeInsets" minX="20" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                                    <state key="normal" title="Поделится" image="share">
+                                                    <state key="normal" title="Поделится" image="sare">
                                                         <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="0.51000000000000001" colorSpace="calibratedRGB"/>
                                                     </state>
                                                     <connections>
@@ -310,6 +315,10 @@
                                                 <constraint firstAttribute="trailing" secondItem="Xyn-jR-SJj" secondAttribute="trailing" id="gxR-yx-AIW"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="infoButton" destination="3qU-Qa-afY" id="fa3-D7-mO0"/>
+                                            <outlet property="sareButton" destination="Xyn-jR-SJj" id="1FD-WW-7LB"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                                 <connections>
@@ -489,7 +498,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="commecell" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="ng8-Kn-N7S">
-                                <rect key="frame" x="0.0" y="40" width="375" height="627"/>
+                                <rect key="frame" x="0.0" y="37" width="375" height="630"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="commecell" rowHeight="60" id="yOV-4C-alB" customClass="ISCommentsCell">
@@ -544,7 +553,8 @@
                                 </connections>
                             </tableView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cVv-bw-TSp">
-                                <rect key="frame" x="300" y="5" width="59" height="30"/>
+                                <rect key="frame" x="317" y="5" width="48" height="27"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                 <state key="normal" title="закрыть"/>
                                 <connections>
                                     <action selector="close:" destination="5kO-xG-NOo" eventType="touchUpInside" id="HPh-81-cYZ"/>
@@ -556,9 +566,9 @@
                             <constraint firstItem="Tpu-Sl-LAe" firstAttribute="top" secondItem="ng8-Kn-N7S" secondAttribute="bottom" id="3c7-St-qcb"/>
                             <constraint firstItem="ng8-Kn-N7S" firstAttribute="leading" secondItem="4lD-nJ-vqo" secondAttribute="leading" id="7cl-mt-UbZ"/>
                             <constraint firstAttribute="trailing" secondItem="ng8-Kn-N7S" secondAttribute="trailing" id="LzN-MS-CDf"/>
+                            <constraint firstAttribute="trailing" secondItem="cVv-bw-TSp" secondAttribute="trailing" constant="10" id="fV3-QQ-kLF"/>
                             <constraint firstItem="ng8-Kn-N7S" firstAttribute="top" secondItem="cVv-bw-TSp" secondAttribute="bottom" constant="5" id="oEA-0a-JuV"/>
                             <constraint firstItem="cVv-bw-TSp" firstAttribute="top" secondItem="4lD-nJ-vqo" secondAttribute="topMargin" constant="5" id="qRy-AY-PXF"/>
-                            <constraint firstItem="cVv-bw-TSp" firstAttribute="trailing" secondItem="4lD-nJ-vqo" secondAttribute="trailingMargin" id="vPe-cH-jwj"/>
                         </constraints>
                     </view>
                     <connections>
@@ -717,10 +727,10 @@
         <image name="dialog" width="32" height="32"/>
         <image name="final-image-bg" width="375" height="667"/>
         <image name="home" width="30" height="30"/>
-        <image name="info" width="30" height="30"/>
+        <image name="inf" width="20" height="20"/>
         <image name="like" width="44" height="41"/>
         <image name="like2" width="20" height="19"/>
-        <image name="share" width="23" height="35"/>
+        <image name="sare" width="14" height="20"/>
         <image name="user" width="30" height="30"/>
     </resources>
 </document>

@@ -7,6 +7,14 @@
 //
 
 #import "ISTableViewInfoAndSareCell.h"
+#import <MessageUI/MessageUI.h>
+#import "UIImageView+AFNetworking.h"
+
+@interface ISTableViewInfoAndSareCell ()<MFMailComposeViewControllerDelegate>
+
+
+@end
+
 
 @implementation ISTableViewInfoAndSareCell
 
@@ -22,8 +30,43 @@
 }
 
 - (IBAction)infoAction:(UIButton *)sender {
+    
+    
+    
 }
 
 - (IBAction)sareAction:(UIButton *)sender {
+    
+    MFMailComposeViewController *emailDialog = [[MFMailComposeViewController alloc] init];
+    
+    emailDialog.mailComposeDelegate=self;
+    
+    NSString *htmlMsg = @"<html><body><p>Крутое фото</p></body></html>";
+    
+    UIImageView* imV=[[UIImageView alloc]init];
+    [imV setImageWithURL:[NSURL URLWithString:self.model.imageName]];
+    
+    NSData *jpegData = UIImageJPEGRepresentation(imV.image, 1.0);
+    
+    NSString *fileName = @"test";
+    fileName = [fileName stringByAppendingPathExtension:@"jpeg"];
+    [emailDialog addAttachmentData:jpegData mimeType:@"image/jpeg" fileName:fileName];
+    
+    [emailDialog setSubject:@"500 px"];
+    [emailDialog setMessageBody:htmlMsg isHTML:YES];
+    
+    [self.homeVC presentViewController:emailDialog animated:YES completion:nil];
 }
+
+
+#pragma mark - MFMailComposeViewControllerDelegate
+
+- (void)mailComposeController:(MFMailComposeViewController *)controller didFinishWithResult:(MFMailComposeResult)result error:(NSError *)error {
+    
+    // Check the result or perform other tasks.
+    
+    // Dismiss the mail compose view controller.
+    [self.homeVC dismissViewControllerAnimated:YES completion:nil];
+}
+
 @end
