@@ -70,4 +70,10 @@
                    onSuccess: (void(^)(NSArray*, NSInteger)) success
                      onError: (void(^)(NSError*, NSInteger)) failure;
 
+-(void) getPhotosFromGallerie: (NSInteger) gallerieID
+                     onUserID: (NSInteger) userID
+                       onPage: (NSInteger) page
+                    onSuccess: (void(^)(NSArray*, NSInteger)) success
+                      onError: (void(^)(NSError*, NSInteger)) failure;
+
 @end

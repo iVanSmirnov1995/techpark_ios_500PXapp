@@ -508,10 +508,6 @@
                   [NSString stringWithFormat:
                    @"https://api.500px.com/v1/users/%@/galleries", @(userID)]];
     
-//    NSDictionary* param = @{@"privace": @"public",
-//                            @"page": @(page),
-//                            @"consumer_key": @"XyuX14AQBpiWjfUcRyXA2jyB5ensjjJD6gBFcGHI"};
-    
     NSDictionary* param = @{@"page": @(page),
                             @"consumer_key": @"XyuX14AQBpiWjfUcRyXA2jyB5ensjjJD6gBFcGHI"};
     
@@ -533,7 +529,36 @@
               }];
 }
 
-
+-(void) getPhotosFromGallerie: (NSInteger) gallerieID
+                     onUserID: (NSInteger) userID
+                       onPage: (NSInteger) page
+                    onSuccess: (void(^)(NSArray*, NSInteger)) success
+                      onError: (void(^)(NSError*, NSInteger)) failure {
+    
+    NSURL* URL = [NSURL URLWithString: [NSString stringWithFormat:
+                                        @"https://api.500px.com/v1/users/%@/galleries/%@/items", @(userID), @(gallerieID)]];
+    NSDictionary* param = @{@"page": @(page),
+                            @"image_size": @"3,600",
+                            @"consumer_key": @"XyuX14AQBpiWjfUcRyXA2jyB5ensjjJD6gBFcGHI"};
+    
+    [self.manager GET:URL.absoluteString
+           parameters:param progress:nil
+              success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+                  
+                  NSLog(@"%@", responseObject);
+                  
+                  NSArray* photos = [responseObject objectForKey:@"photos"];
+                  NSInteger photosCount = [[responseObject objectForKey:@"total_items"] integerValue];
+                  
+                  if(success) {
+                      success(photos, photosCount);
+                  }
+                  
+              } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+                  
+              }];
+    
+}
 
 
 
