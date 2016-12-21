@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		CDC863C9AE710BF1C7B060EA /* libPods-500PXapp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 41491F94D57B52837C2FFFDB /* libPods-500PXapp.a */; };
+		CE1283D51E0AA30C005763B1 /* OSInformationCellModel.m in Sources */ = {isa = PBXBuildFile; fileRef = CE1283D41E0AA30C005763B1 /* OSInformationCellModel.m */; };
+		CE1283D91E0AA3E8005763B1 /* OSInformationTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = CE1283D81E0AA3E8005763B1 /* OSInformationTVC.m */; };
+		CE1283DC1E0AA52E005763B1 /* OSInformationCellTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = CE1283DB1E0AA52E005763B1 /* OSInformationCellTVC.m */; };
 		CE9F72CB1E05A341001261BB /* OSFriendsTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = CE9F72CA1E05A341001261BB /* OSFriendsTVC.m */; };
 		CEA656C51DE18BC6002CD2B3 /* MyPageVC.m in Sources */ = {isa = PBXBuildFile; fileRef = CEA656C41DE18BC6002CD2B3 /* MyPageVC.m */; };
 		CEBEB15B1E03379B00C0D737 /* OSCustomCellForSubsTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = CEBEB15A1E03379B00C0D737 /* OSCustomCellForSubsTVC.m */; };
@@ -120,6 +123,12 @@
 		15946F4F748628307FFFAF20 /* Pods-500PXapp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-500PXapp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-500PXapp/Pods-500PXapp.debug.xcconfig"; sourceTree = "<group>"; };
 		41491F94D57B52837C2FFFDB /* libPods-500PXapp.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-500PXapp.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5FF7DDAF287543F8316D0669 /* Pods-500PXapp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-500PXapp.release.xcconfig"; path = "Pods/Target Support Files/Pods-500PXapp/Pods-500PXapp.release.xcconfig"; sourceTree = "<group>"; };
+		CE1283D31E0AA30C005763B1 /* OSInformationCellModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OSInformationCellModel.h; sourceTree = "<group>"; };
+		CE1283D41E0AA30C005763B1 /* OSInformationCellModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OSInformationCellModel.m; sourceTree = "<group>"; };
+		CE1283D71E0AA3E8005763B1 /* OSInformationTVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OSInformationTVC.h; sourceTree = "<group>"; };
+		CE1283D81E0AA3E8005763B1 /* OSInformationTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OSInformationTVC.m; sourceTree = "<group>"; };
+		CE1283DA1E0AA52E005763B1 /* OSInformationCellTVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OSInformationCellTVC.h; sourceTree = "<group>"; };
+		CE1283DB1E0AA52E005763B1 /* OSInformationCellTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OSInformationCellTVC.m; sourceTree = "<group>"; };
 		CE9F72C91E05A341001261BB /* OSFriendsTVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OSFriendsTVC.h; sourceTree = "<group>"; };
 		CE9F72CA1E05A341001261BB /* OSFriendsTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OSFriendsTVC.m; sourceTree = "<group>"; };
 		CEA656C31DE18BC6002CD2B3 /* MyPageVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyPageVC.h; sourceTree = "<group>"; };
@@ -309,6 +318,26 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		CE1283D21E0AA2DE005763B1 /* Information */ = {
+			isa = PBXGroup;
+			children = (
+				CE1283D31E0AA30C005763B1 /* OSInformationCellModel.h */,
+				CE1283D41E0AA30C005763B1 /* OSInformationCellModel.m */,
+			);
+			name = Information;
+			sourceTree = "<group>";
+		};
+		CE1283D61E0AA3AD005763B1 /* InformAboutUser */ = {
+			isa = PBXGroup;
+			children = (
+				CE1283D71E0AA3E8005763B1 /* OSInformationTVC.h */,
+				CE1283D81E0AA3E8005763B1 /* OSInformationTVC.m */,
+				CE1283DA1E0AA52E005763B1 /* OSInformationCellTVC.h */,
+				CE1283DB1E0AA52E005763B1 /* OSInformationCellTVC.m */,
+			);
+			name = InformAboutUser;
+			sourceTree = "<group>";
+		};
 		CEBEB1581E03371000C0D737 /* Users */ = {
 			isa = PBXGroup;
 			children = (
@@ -325,6 +354,7 @@
 		CEBEB15F1E03391D00C0D737 /* MyPage */ = {
 			isa = PBXGroup;
 			children = (
+				CE1283D21E0AA2DE005763B1 /* Information */,
 				CEC7E7591E0863CB00FDC80A /* Galleries */,
 				CEBEB1611E03393600C0D737 /* Users */,
 				CEBEB1601E03392E00C0D737 /* Photos */,
@@ -373,6 +403,7 @@
 		CEF7F42C1DDF457A00447439 /* MyPage */ = {
 			isa = PBXGroup;
 			children = (
+				CE1283D61E0AA3AD005763B1 /* InformAboutUser */,
 				CEC7E7521E0858B800FDC80A /* Galleries */,
 				CEBEB1581E03371000C0D737 /* Users */,
 				CEF7F42D1DDF459000447439 /* Photos */,
@@ -610,12 +641,12 @@
 		F5423C1E1DCB695A006FD69A /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				CEBEB15F1E03391D00C0D737 /* MyPage */,
 				D3428D941E0A56B90056FC6B /* GreedoCollectionViewLayout.h */,
 				D3428D951E0A56C10056FC6B /* GreedoCollectionViewLayout.m */,
 				D3428D971E0A56C70056FC6B /* GreedoSizeCalculator.h */,
 				D3428D981E0A56CD0056FC6B /* GreedoSizeCalculator.m */,
 				F51326F61E09D57900A74554 /* GreedoLayout */,
-				CEBEB15F1E03391D00C0D737 /* MyPage */,
 				D3E8FC871DFF344C00ED5E76 /* lib1 */,
 				D3A28B331DEF095000EA415B /* lib */,
 				D3E2FBA81E06944800B34B50 /* ISComments.h */,
@@ -955,11 +986,13 @@
 				D33A78BA1DDDDFB600BC743A /* ISPageContentVC.m in Sources */,
 				F5423C391DCB6A5B006FD69A /* ISTableViewCommentsCell.m in Sources */,
 				D34965341DB4043E00813293 /* ViewController.m in Sources */,
+				CE1283D51E0AA30C005763B1 /* OSInformationCellModel.m in Sources */,
 				D3E8FC951DFF344C00ED5E76 /* OAuth1Controller.m in Sources */,
 				D3D245D41DE71DBB00F8F33A /* ISAccessToken.m in Sources */,
 				CEC7E7551E08592A00FDC80A /* OSGalleriesCVC.m in Sources */,
 				D3A28B501DEF3A3600EA415B /* NSString+BDBOAuth1Manager.m in Sources */,
 				D3A28B4D1DEF3A3600EA415B /* BDBOAuth1RequestSerializer.m in Sources */,
+				CE1283D91E0AA3E8005763B1 /* OSInformationTVC.m in Sources */,
 				D31361521E0485660075BD5C /* ISCoreDataTabBarVCViewController.m in Sources */,
 				F5423C6A1DCB6B5C006FD69A /* PhotoCollectionVC.m in Sources */,
 				F5423C471DCB6B17006FD69A /* ISHomeVC.m in Sources */,
@@ -983,6 +1016,7 @@
 				D34965311DB4043E00813293 /* AppDelegate.m in Sources */,
 				CEBEB1641E03396900C0D737 /* OSCustomCellForSubTVC.m in Sources */,
 				D3CB5C5A1DE4DD5F00AFCE3A /* ISServerManager.m in Sources */,
+				CE1283DC1E0AA52E005763B1 /* OSInformationCellTVC.m in Sources */,
 				F5423C3E1DCB6AD9006FD69A /* SearchViewCellCollection.m in Sources */,
 				D3E8FC941DFF344C00ED5E76 /* NSString+URLEncoding.m in Sources */,
 				D3E2FBB01E06A22100B34B50 /* ISCommentsVC.m in Sources */,

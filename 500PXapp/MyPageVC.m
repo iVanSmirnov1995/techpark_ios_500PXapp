@@ -16,6 +16,8 @@
 #import "UIImageView+AFNetworking.h"
 #import "ISUserData+CoreDataProperties.h"
 #import "OSGalleriesCVC.h"
+#import "OSInformationTVC.h"
+#import "UIViewController+Charleene.h"
 
 
 @interface MyPageVC ()
@@ -130,20 +132,6 @@
 -(void) getSpecifiedUserFromServer {
     [[ISServerManager sharedManager] getUserOnID: self.userID onSuccess:^(NSDictionary *user) {
         
-//        user.firstName=[userDic objectForKey:@"firstname"];
-//        user.lastName=[userDic objectForKey:@"lastname"];
-//        //                  user.sex=[[userDic objectForKey:@"sex"]floatValue];
-//        user.city=[userDic objectForKey:@"city"];
-//        user.avatar=[[[userDic objectForKey:@"avatars"]objectForKey:@"small"] objectForKey:@"https"];
-//        user.userId=[[userDic objectForKey:@"id"]longValue];
-//        user.username=[userDic objectForKey:@"username"];
-//        user.cover = [userDic objectForKey:@"cover_url"];
-//        user.friendsCount = [[userDic objectForKey:@"friends_count"] integerValue];
-//        user.followersCount = [[userDic objectForKey:@"followers_count"] integerValue];
-//        user.fullName = [ userDic objectForKey:@"full_name"];
-//        //                  self.user=user;
-
-        
         dispatch_async(dispatch_get_main_queue(), ^{
             
             self.userName.text = [user objectForKey:@"username"];
@@ -192,45 +180,12 @@
             self.followButton.hidden = NO;
 
             [self.indicator stopAnimating];
-            
-//            self.userName.text = user.username;
-//            
-//            if(![user.firstName isEqual: [NSNull null]]) {
-//                self.fullName.text = [NSString stringWithFormat:@"%@", user.firstName];
-//                if(![user.lastName isEqual: [NSNull null]]) {
-//                    self.fullName.text = [NSString stringWithFormat:@"%@ %@",
-//                                          self.fullName.text, user.lastName];
-//                }
-//            } else if (![user.lastName isEqual: [NSNull null]]) {
-//                self.fullName.text = [NSString stringWithFormat:@"%@", user.lastName];
-//            }
-//            
-//            if(![user.cover isEqual: [NSNull null]]) {
-//                [self.miniature setImageWithURL:[NSURL URLWithString:user.cover]];
-//            }
-//            
-//            if(![user.avatar isEqual: [NSNull null]]) {
-//                [self.avatar setImageWithURL: [NSURL URLWithString:user.avatar]];
-//            }
-//            [self.folowers setTitle:
-//             [NSString stringWithFormat:@"%ld подписчиков", (long)user.followersCount]
-//                           forState:UIControlStateNormal];
-//            
-//            [self.friends setTitle:[NSString stringWithFormat:@"%ld друзей", (long)user.friendsCount]
-//                          forState:UIControlStateNormal];
-//            
-//            //            self.isFollow = [user ]
-//            
-//            [self.indicator stopAnimating];
         });
         
     } onFailure:^(NSError *erroor, NSInteger errorCode) {
         
     }];
 }
-
-
-
 
 #pragma mark - Actions
 - (IBAction)followButtonPressed:(id)sender {
@@ -251,28 +206,24 @@
             dispatch_async(dispatch_get_main_queue(), ^{
                 [self.followButton setTitle:@"Отписаться" forState:UIControlStateNormal];
                 self.followButton.backgroundColor = [UIColor clearColor];
+                [self.followButton setTitleColor:[UIColor whiteColor] forState:0];
                 self.isFollow = YES;
             });
         } onFailure:^{
             
         }];
-        
     }
 }
 
 - (IBAction)folowersButtonPressed:(id)sender {
-    
     OSSubscribersTableVC* vc = [self.storyboard instantiateViewControllerWithIdentifier:@"usersList"];
     vc.userID = self.userID;
     [self.navigationController pushViewController:vc animated:YES];
-    
 }
 - (IBAction)friendsButtonPressed:(id)sender {
-    
     OSFriendsTVC* vc = [self.storyboard instantiateViewControllerWithIdentifier:@"friendsList"];
     vc.userID = self.userID;
     [self.navigationController pushViewController:vc animated:YES];
-    
 }
 
 - (IBAction)galleriesButtonPressed:(id)sender {
@@ -282,11 +233,15 @@
 }
 
 - (IBAction)photosButtonPressed:(id)sender {
-    
     PhotoCollectionVC* vc = [self.storyboard instantiateViewControllerWithIdentifier:@"photos"];
     vc.userID = self.userID;
     [self.navigationController pushViewController:vc animated:YES];
-    
+}
+
+- (IBAction)informationButtonPressed:(id)sender {
+    OSInformationTVC* vc = [self.storyboard instantiateViewControllerWithIdentifier:@"info"];
+    vc.userID = self.userID;
+    [self presentCharleeneModally:vc transitionMode:KSModalTransitionModeFromBottom];
 }
 
 - (IBAction)exitButtonPressed:(id)sender {
