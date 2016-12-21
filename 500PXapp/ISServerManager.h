@@ -78,4 +78,12 @@
                     onSuccess: (void(^)(NSArray*, NSInteger)) success
                       onError: (void(^)(NSError*, NSInteger)) failure;
 
+-(void) postFollowOnUser: (NSInteger) userID
+               onSuccess: (void(^)(void)) success
+               onFailure: (void(^)(void)) failure;
+
+-(void) deleteFollowOnUser: (NSInteger) userID
+                 onSuccess: (void(^)(void)) success
+                 onFailure: (void(^)(void)) failure;
+
 @end

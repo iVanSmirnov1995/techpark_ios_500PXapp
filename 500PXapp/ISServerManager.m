@@ -601,7 +601,57 @@
     
 }
 
+-(void) postFollowOnUser: (NSInteger) userID
+               onSuccess: (void(^)(void)) success
+               onFailure: (void(^)(void)) failure {
+    
+    NSString* path=[NSString stringWithFormat:@"/users/%@/friends", @(userID)];
+    NSDictionary *parameters = @{@"api_key" : @"XyuX14AQBpiWjfUcRyXA2jyB5ensjjJD6gBFcGHI"};
+    
+    NSURLRequest *preparedRequest = [OAuth1Controller preparedRequestForPath:path
+                                                                  parameters:parameters
+                                                                  HTTPmethod:@"POST"
+                                                                  oauthToken:self.oauthToken
+                                                                 oauthSecret:self.oauthTokenSecret];
+    
+    NSURLSession *session = [NSURLSession sharedSession];
+    NSURLSessionDataTask *task = [session
+                                  dataTaskWithRequest:preparedRequest
+                                  completionHandler:
+                                  ^(NSData *data, NSURLResponse *response, NSError *error) {
+                                      
+                                      if (success) {
+                                          success();
+                                      }
+                                  }];
+    [task resume];
+}
 
+-(void) deleteFollowOnUser: (NSInteger) userID
+               onSuccess: (void(^)(void)) success
+               onFailure: (void(^)(void)) failure {
+    
+    NSString* path=[NSString stringWithFormat:@"/users/%@/friends", @(userID)];
+    NSDictionary *parameters = @{@"api_key":@"XyuX14AQBpiWjfUcRyXA2jyB5ensjjJD6gBFcGHI"};
+    
+    NSURLRequest *preparedRequest = [OAuth1Controller preparedRequestForPath:path
+                                                                  parameters:parameters
+                                                                  HTTPmethod:@"DELETE"
+                                                                  oauthToken:self.oauthToken
+                                                                 oauthSecret:self.oauthTokenSecret];
+    NSURLSession *session = [NSURLSession sharedSession];
+    NSURLSessionDataTask *task = [session
+                                  dataTaskWithRequest:preparedRequest
+                                  completionHandler:
+                                  ^(NSData *data, NSURLResponse *response, NSError *error) {
+                                      
+                                      NSLog(@"%@", response);
+                                      if (success) {
+                                          success();
+                                      }
+                                  }];
+    [task resume];
+}
 
 
 

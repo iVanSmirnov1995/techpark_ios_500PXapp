@@ -234,6 +234,30 @@
 
 #pragma mark - Actions
 - (IBAction)followButtonPressed:(id)sender {
+    if(self.isFollow) {
+        [[ISServerManager sharedManager] deleteFollowOnUser:self.userID onSuccess:^{
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [self.followButton setTitle:@"Подписаться" forState:UIControlStateNormal];
+                self.followButton.backgroundColor = [UIColor colorWithRed:0.7 green:1 blue:0.7 alpha:1];
+                [self.followButton setTitleColor:[UIColor darkGrayColor] forState:0];
+                self.isFollow = NO;
+            });
+        } onFailure:^{
+            
+        }];
+        
+    } else if(!self.isFollow) {
+        [[ISServerManager sharedManager] postFollowOnUser:self.userID onSuccess:^{
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [self.followButton setTitle:@"Отписаться" forState:UIControlStateNormal];
+                self.followButton.backgroundColor = [UIColor clearColor];
+                self.isFollow = YES;
+            });
+        } onFailure:^{
+            
+        }];
+        
+    }
 }
 
 - (IBAction)folowersButtonPressed:(id)sender {
