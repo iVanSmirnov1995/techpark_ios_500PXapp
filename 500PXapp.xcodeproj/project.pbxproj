@@ -29,6 +29,8 @@
 		D33A78C01DDDE69D00BC743A /* 4.jpg in Resources */ = {isa = PBXBuildFile; fileRef = D33A78BF1DDDE69D00BC743A /* 4.jpg */; };
 		D33A78C21DDDE6A800BC743A /* 3.jpg in Resources */ = {isa = PBXBuildFile; fileRef = D33A78C11DDDE6A800BC743A /* 3.jpg */; };
 		D33A78C41DDDEAC600BC743A /* 5.jpg in Resources */ = {isa = PBXBuildFile; fileRef = D33A78C31DDDEAC600BC743A /* 5.jpg */; };
+		D3428D961E0A56C10056FC6B /* GreedoCollectionViewLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = D3428D951E0A56C10056FC6B /* GreedoCollectionViewLayout.m */; };
+		D3428D991E0A56CD0056FC6B /* GreedoSizeCalculator.m in Sources */ = {isa = PBXBuildFile; fileRef = D3428D981E0A56CD0056FC6B /* GreedoSizeCalculator.m */; };
 		D349652E1DB4043E00813293 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D349652D1DB4043E00813293 /* main.m */; };
 		D34965311DB4043E00813293 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D34965301DB4043E00813293 /* AppDelegate.m */; };
 		D34965341DB4043E00813293 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D34965331DB4043E00813293 /* ViewController.m */; };
@@ -58,8 +60,6 @@
 		D3E8FC961DFF344C00ED5E76 /* sha1.c in Sources */ = {isa = PBXBuildFile; fileRef = D3E8FC901DFF344C00ED5E76 /* sha1.c */; };
 		D3F072821DFB2E7E00BD62B0 /* LoginWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D3F072811DFB2E7E00BD62B0 /* LoginWebViewController.m */; };
 		F51326C91E094FAA00A74554 /* CameraVC.m in Sources */ = {isa = PBXBuildFile; fileRef = F51326C81E094FAA00A74554 /* CameraVC.m */; };
-		F51326F71E09D57900A74554 /* GreedoCollectionViewLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = F51326F31E09D57900A74554 /* GreedoCollectionViewLayout.m */; };
-		F51326F81E09D57900A74554 /* GreedoSizeCalculator.m in Sources */ = {isa = PBXBuildFile; fileRef = F51326F51E09D57900A74554 /* GreedoSizeCalculator.m */; };
 		F51326FB1E09D6E200A74554 /* MSPhotoCellCollection.m in Sources */ = {isa = PBXBuildFile; fileRef = F51326FA1E09D6E200A74554 /* MSPhotoCellCollection.m */; };
 		F5423C251DCB6982006FD69A /* ISNewsFeedModel.m in Sources */ = {isa = PBXBuildFile; fileRef = F5423C201DCB6982006FD69A /* ISNewsFeedModel.m */; };
 		F5423C261DCB6982006FD69A /* PhotosCellModel.m in Sources */ = {isa = PBXBuildFile; fileRef = F5423C221DCB6982006FD69A /* PhotosCellModel.m */; };
@@ -158,6 +158,10 @@
 		D33A78BF1DDDE69D00BC743A /* 4.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 4.jpg; sourceTree = "<group>"; };
 		D33A78C11DDDE6A800BC743A /* 3.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 3.jpg; sourceTree = "<group>"; };
 		D33A78C31DDDEAC600BC743A /* 5.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 5.jpg; sourceTree = "<group>"; };
+		D3428D941E0A56B90056FC6B /* GreedoCollectionViewLayout.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GreedoCollectionViewLayout.h; sourceTree = "<group>"; };
+		D3428D951E0A56C10056FC6B /* GreedoCollectionViewLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GreedoCollectionViewLayout.m; sourceTree = "<group>"; };
+		D3428D971E0A56C70056FC6B /* GreedoSizeCalculator.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GreedoSizeCalculator.h; sourceTree = "<group>"; };
+		D3428D981E0A56CD0056FC6B /* GreedoSizeCalculator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GreedoSizeCalculator.m; sourceTree = "<group>"; };
 		D34965291DB4043E00813293 /* 500PXapp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = 500PXapp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D349652D1DB4043E00813293 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		D349652F1DB4043E00813293 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -214,10 +218,6 @@
 		D3F072811DFB2E7E00BD62B0 /* LoginWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginWebViewController.m; sourceTree = "<group>"; };
 		F51326C71E094FAA00A74554 /* CameraVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CameraVC.h; sourceTree = "<group>"; };
 		F51326C81E094FAA00A74554 /* CameraVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CameraVC.m; sourceTree = "<group>"; };
-		F51326F21E09D57900A74554 /* GreedoCollectionViewLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GreedoCollectionViewLayout.h; sourceTree = "<group>"; };
-		F51326F31E09D57900A74554 /* GreedoCollectionViewLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GreedoCollectionViewLayout.m; sourceTree = "<group>"; };
-		F51326F41E09D57900A74554 /* GreedoSizeCalculator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GreedoSizeCalculator.h; sourceTree = "<group>"; };
-		F51326F51E09D57900A74554 /* GreedoSizeCalculator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GreedoSizeCalculator.m; sourceTree = "<group>"; };
 		F51326F91E09D6E200A74554 /* MSPhotoCellCollection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSPhotoCellCollection.h; sourceTree = "<group>"; };
 		F51326FA1E09D6E200A74554 /* MSPhotoCellCollection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSPhotoCellCollection.m; sourceTree = "<group>"; };
 		F5423C1F1DCB6982006FD69A /* ISNewsFeedModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ISNewsFeedModel.h; sourceTree = "<group>"; };
@@ -592,10 +592,6 @@
 		F51326F61E09D57900A74554 /* GreedoLayout */ = {
 			isa = PBXGroup;
 			children = (
-				F51326F21E09D57900A74554 /* GreedoCollectionViewLayout.h */,
-				F51326F31E09D57900A74554 /* GreedoCollectionViewLayout.m */,
-				F51326F41E09D57900A74554 /* GreedoSizeCalculator.h */,
-				F51326F51E09D57900A74554 /* GreedoSizeCalculator.m */,
 			);
 			name = GreedoLayout;
 			path = "../../../Downloads/greedo-layout-for-ios-master/GreedoLayout";
@@ -614,6 +610,10 @@
 		F5423C1E1DCB695A006FD69A /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				D3428D941E0A56B90056FC6B /* GreedoCollectionViewLayout.h */,
+				D3428D951E0A56C10056FC6B /* GreedoCollectionViewLayout.m */,
+				D3428D971E0A56C70056FC6B /* GreedoSizeCalculator.h */,
+				D3428D981E0A56CD0056FC6B /* GreedoSizeCalculator.m */,
 				F51326F61E09D57900A74554 /* GreedoLayout */,
 				CEBEB15F1E03391D00C0D737 /* MyPage */,
 				D3E8FC871DFF344C00ED5E76 /* lib1 */,
@@ -963,7 +963,9 @@
 				D31361521E0485660075BD5C /* ISCoreDataTabBarVCViewController.m in Sources */,
 				F5423C6A1DCB6B5C006FD69A /* PhotoCollectionVC.m in Sources */,
 				F5423C471DCB6B17006FD69A /* ISHomeVC.m in Sources */,
+				D3428D961E0A56C10056FC6B /* GreedoCollectionViewLayout.m in Sources */,
 				CEC7E7581E0863AC00FDC80A /* OSGalleriesCellCVC.m in Sources */,
+				D3428D991E0A56CD0056FC6B /* GreedoSizeCalculator.m in Sources */,
 				CEA656C51DE18BC6002CD2B3 /* MyPageVC.m in Sources */,
 				F5423C2B1DCB69F3006FD69A /* IsSearchCollectionLayout.m in Sources */,
 				D349653A1DB4043E00813293 /* _00PXapp.xcdatamodeld in Sources */,
@@ -980,13 +982,11 @@
 				D3E1DCD41DF195B100FE6B14 /* ISUser.m in Sources */,
 				D34965311DB4043E00813293 /* AppDelegate.m in Sources */,
 				CEBEB1641E03396900C0D737 /* OSCustomCellForSubTVC.m in Sources */,
-				F51326F81E09D57900A74554 /* GreedoSizeCalculator.m in Sources */,
 				D3CB5C5A1DE4DD5F00AFCE3A /* ISServerManager.m in Sources */,
 				F5423C3E1DCB6AD9006FD69A /* SearchViewCellCollection.m in Sources */,
 				D3E8FC941DFF344C00ED5E76 /* NSString+URLEncoding.m in Sources */,
 				D3E2FBB01E06A22100B34B50 /* ISCommentsVC.m in Sources */,
 				D3E8FC931DFF344C00ED5E76 /* hmac.c in Sources */,
-				F51326F71E09D57900A74554 /* GreedoCollectionViewLayout.m in Sources */,
 				F5423C481DCB6B17006FD69A /* IsSearchVC.m in Sources */,
 				D3A28B4E1DEF3A3600EA415B /* BDBOAuth1SessionManager.m in Sources */,
 				F51326C91E094FAA00A74554 /* CameraVC.m in Sources */,
