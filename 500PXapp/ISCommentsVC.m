@@ -103,7 +103,7 @@
 - (ISCommentsCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     ISCommentsCell *cell = [tableView dequeueReusableCellWithIdentifier:@"commecell" forIndexPath:indexPath];
     
-
+cell.selectionStyle = UITableViewCellSelectionStyleNone;
 
     
 

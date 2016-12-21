@@ -165,7 +165,7 @@ typedef enum {
        ISTableViewImageCell* cell=[tableView dequeueReusableCellWithIdentifier:identifier forIndexPath:indexPath];
     [cell.myImageView setImageWithURL:[NSURL URLWithString:newsModel.imageName] placeholderImage:[UIImage imageNamed:@"loading.png"]];
         
-        
+     cell.selectionStyle = UITableViewCellSelectionStyleNone;
 //
         
         return cell;
@@ -174,6 +174,7 @@ typedef enum {
     if (indexPath.row==ISInfoUserTupe) {
         identifier=@"infoUser";
         ISTableViewUserInfoCell* cell=[tableView dequeueReusableCellWithIdentifier:identifier forIndexPath:indexPath];
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;
         [cell layoutIfNeeded];
         
         [cell.userImage setImageWithURL:[NSURL URLWithString:newsModel.userImageName] placeholderImage:[UIImage imageNamed:@"loading.png"]];
@@ -201,6 +202,7 @@ typedef enum {
     if (indexPath.row==ISLikeTupe) {
         identifier=@"like";
         ISTableViewLikeCell* cell=[tableView dequeueReusableCellWithIdentifier:identifier forIndexPath:indexPath];
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;
         cell.countLike.text=[NSString stringWithFormat:@"%ld",(long)newsModel.countLike];
         return cell;
 
@@ -209,6 +211,7 @@ typedef enum {
     if (indexPath.row==ISCommentsTupe) {
         identifier=@"comments";
         ISTableViewCommentsCell* cell=[tableView dequeueReusableCellWithIdentifier:identifier forIndexPath:indexPath];
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;
         if (newsModel.countComent==0) {
             cell.countComments.text=
             [NSString stringWithFormat:@"Коментариев пока нет"];
@@ -223,6 +226,7 @@ typedef enum {
     if (indexPath.row==ISInfoAndSareTupe) {
         identifier=@"infoAndSare";
         ISTableViewInfoAndSareCell* cell=[tableView dequeueReusableCellWithIdentifier:identifier forIndexPath:indexPath];
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;
         cell.sareButton.tag=newsModel.photoID;
         cell.infoButton.tag=newsModel.photoID;
         cell.homeVC=self;
