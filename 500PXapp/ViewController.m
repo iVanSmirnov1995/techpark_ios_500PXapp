@@ -92,18 +92,36 @@
                         
                         ISUserData* userData=[NSEntityDescription insertNewObjectForEntityForName:@"ISUserData"
                             inManagedObjectContext:self.managedObjectContext];
-                        userData.name=user.fullName;
-                        userData.userID=user.userId;
-                        userData.oauthToken=self.oauthToken;
-                        userData.oauthTokenSecret=self.oauthTokenSecret;
-                        userData.firstName = user.firstName;
-                        userData.lastName = user.lastName;
-                        userData.followersCount = user.followersCount;
+                        
+                        
+                        if (![user.fullName isKindOfClass:[NSNull class]]) {
+                            userData.name=user.fullName;
+                        }
+                        if (user.userId) {
+                            userData.userID=user.userId;
+                        }
+                        if (![self.oauthToken isKindOfClass:[NSNull class]]) {
+                            userData.oauthToken=self.oauthToken;
+                        }
+                        if (![self.oauthTokenSecret isKindOfClass:[NSNull class]]) {
+                            
+                            userData.oauthTokenSecret=self.oauthTokenSecret;
+                        }
+                        if (![user.firstName isKindOfClass:[NSNull class]]) {
+                            userData.firstName = user.firstName;
+                        }
+                        if (![user.lastName isKindOfClass:[NSNull class]]) {
+                            userData.lastName = user.lastName;
+                        }
+                        if (user.followersCount) {
+                            userData.followersCount = user.followersCount;
+                        }
                       //  userData.friendsCount = user.friendsCount;
-                        if (!user.cover) {
+                        if (![user.cover isKindOfClass:[NSNull class]]) {
                             
                             userData.cover = user.cover;
                         }
+                        
                         userData.avatar = user.avatar;
                         userData.userName = user.username;
                         

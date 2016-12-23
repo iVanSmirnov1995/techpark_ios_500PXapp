@@ -14,6 +14,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface ISUserData : NSManagedObject
 
+
 @end
 
 NS_ASSUME_NONNULL_END
